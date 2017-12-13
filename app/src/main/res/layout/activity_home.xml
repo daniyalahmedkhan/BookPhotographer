@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.kashif.bookphotographer.Activities.HomeActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="30dp"
+        android:background="@color/colorBlue">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:layout_marginTop="15dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:padding="5dp"
+            android:src="@mipmap/sidemenu_icon"
+            />
+
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:layout_alignParentRight="true"
+            android:text="Filter"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:fontFamily="serif"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:layout_marginRight="10dp"
+            />
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:maxLines="1"
+        android:id="@+id/EditTxt"
+        android:layout_centerHorizontal="true"
+        android:background="@mipmap/search_bar"
+        android:drawablePadding="10dp"
+        android:hint="Search a Photographer"
+        android:drawableRight="@mipmap/recentlysearch_searchbar_cross"
+        android:drawableLeft="@mipmap/recentlysearch_searchbar_search_icon"
+        android:layout_marginTop="55dp"
+        />
+
+
+</RelativeLayout>

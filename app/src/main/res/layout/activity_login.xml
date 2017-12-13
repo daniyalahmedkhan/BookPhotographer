@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bck"
+    android:background="@mipmap/bck5"
     tools:context="com.example.kashif.bookphotographer.Activities.LoginActivity">
 
 
@@ -16,11 +16,27 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:text="Skip"
+            android:id="@+id/skip"
+            android:drawablePadding="10dp"
+            android:drawableRight="@mipmap/next_arrow_white"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+
+            />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/Relative1"
             android:paddingTop="50dp" >
+
+
 
 
 
@@ -207,6 +223,7 @@
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:paddingLeft="40dp"
                 android:paddingRight="40dp"
+                android:fontFamily="serif"
                 android:textColor="@color/colorWhite"
                 />
 
@@ -224,9 +241,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sign Up"
-                android:textSize="15dp"
+                android:textSize="17dp"
                 android:padding="10dp"
-                android:layout_marginLeft="10dp"
+                android:id="@+id/Signup"
+                android:layout_marginLeft="5dp"
                 android:layout_alignParentLeft="true"
                 android:textColor="@color/colorWhite"
                 />
@@ -236,9 +254,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Forgot Password?"
-                android:textSize="15dp"
+                android:textSize="17dp"
                 android:padding="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="5dp"
                 android:layout_alignParentRight="true"
                 android:textColor="@color/colorWhite"
                 />

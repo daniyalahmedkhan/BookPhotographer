@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bck5"
+    tools:context="com.example.kashif.bookphotographer.Activities.LoginActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Relative1"
+                android:paddingTop="50dp" >
+
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/IMG1"
+                    android:layout_centerHorizontal="true"
+                    android:src="@mipmap/logo_passwordreset"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorWhite"
+                    android:text="Register Form"
+                    android:textStyle="bold"
+                    android:layout_below="@id/IMG1"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="serif"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                    android:textSize="40dp"
+
+                    />
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Relative2"
+                android:layout_below="@id/Relative1"
+                android:paddingTop="20dp"
+                android:layout_marginTop="10dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="vertical">
+
+
+
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:background="@drawable/edittext_round"
+                        android:layout_marginRight="50dp"
+                        android:layout_marginLeft="50dp"
+                        android:textCursorDrawable="@color/colorBlack"
+                        android:paddingTop="7dp"
+                        android:drawableLeft="@drawable/user"
+                        android:inputType="textEmailAddress"
+                        android:drawablePadding="20dp"
+                        android:paddingBottom="7dp"
+                        android:textColor="@color/colorBlack"
+                        android:hint="Enter Email"
+                        />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="50dp"
+                        android:layout_marginLeft="50dp"
+                        android:paddingTop="7dp"
+                        android:textCursorDrawable="@color/colorBlack"
+                        android:drawableLeft="@drawable/pass"
+                        android:paddingLeft="10dp"
+                        android:inputType="textPassword"
+                        android:drawablePadding="20dp"
+                        android:paddingBottom="7dp"
+                        android:background="@drawable/edittext_round"
+                        android:textColor="@color/colorBlack"
+                        android:hint="Enter Password"
+                        />
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Relative"
+                android:layout_below="@id/Relative2"
+                android:layout_marginTop="5dp">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sign Up"
+                    android:layout_centerHorizontal="true"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/buttnround"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="40dp"
+                    android:fontFamily="serif"
+                    android:textColor="@color/colorWhite"
+                    />
+
+
+            </RelativeLayout>
+
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>
