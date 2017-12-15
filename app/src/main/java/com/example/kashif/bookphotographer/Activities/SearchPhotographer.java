@@ -1,11 +1,16 @@
 package com.example.kashif.bookphotographer.Activities;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.kashif.bookphotographer.Activities.Adapter.Custom_SearchPhotographer;
 import com.example.kashif.bookphotographer.R;
@@ -46,11 +51,26 @@ public class SearchPhotographer extends AppCompatActivity {
         setContentView(R.layout.activity_search_photographer);
 
 
-        Custom_SearchPhotographer adapterViewAndroid = new Custom_SearchPhotographer(SearchPhotographer.this, gridViewString, gridViewString2, gridViewImageId);
+        final Custom_SearchPhotographer adapterViewAndroid = new Custom_SearchPhotographer(SearchPhotographer.this, gridViewString, gridViewString2, gridViewImageId);
         androidGridView=(GridView)findViewById(R.id.grid_view_image_text);
         androidGridView.setAdapter(adapterViewAndroid);
 
 
+       androidGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+           @Override
+           public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+
+                 TextView name =  view.findViewById(R.id.Txt1);
+                String name2 = name.getText().toString();
+
+
+                Intent intent = new Intent(SearchPhotographer.this , Photographer_Profile.class);
+                startActivity(intent);
+
+               Toast.makeText(SearchPhotographer.this, "" + name2, Toast.LENGTH_SHORT).show();
+           }
+       });
 
     }
 }
