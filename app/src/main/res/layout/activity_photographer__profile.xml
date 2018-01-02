@@ -8,7 +8,11 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp">
+
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -78,6 +82,8 @@
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:orientation="vertical"
+           android:layout_marginBottom="40dp"
+           android:paddingBottom="40dp"
            android:layout_marginTop="5dp"
            android:layout_below="@id/Top">
 
@@ -105,7 +111,7 @@
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                       android:text="Experience"
+                       android:text="About"
                        android:textStyle="bold"
                        android:padding="5dp"
                        android:fontFamily="serif"
@@ -138,7 +144,7 @@
                android:layout_height="wrap_content"
                android:paddingLeft="10dp"
                android:id="@+id/Relative1"
-               android:visibility="gone"
+               android:visibility="visible"
 
                android:layout_marginTop="-10dp"
                android:paddingRight="10dp">
@@ -168,9 +174,9 @@
                         android:layout_marginTop="5dp"
                         >
                       <TextView
-                          android:layout_width="130dp"
+                          android:layout_width="150dp"
                           android:layout_height="wrap_content"
-                          android:text="Wedding : "
+                          android:text="First Name : "
                           android:textStyle="bold"
                           android:drawablePadding="5dp"
                           android:drawableLeft="@mipmap/tab"
@@ -183,7 +189,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5 Year"
+                            android:text="Sadat"
                             android:layout_marginLeft="10dp"
                             android:drawablePadding="5dp"
                             android:textColor="@color/colorBlue"
@@ -202,9 +208,9 @@
                           android:orientation="horizontal"
                           >
                           <TextView
-                              android:layout_width="130dp"
+                              android:layout_width="150dp"
                               android:layout_height="wrap_content"
-                              android:text="Studio : "
+                              android:text="Last Name : "
                               android:textStyle="bold"
                               android:drawablePadding="5dp"
                               android:drawableLeft="@mipmap/tab"
@@ -217,7 +223,7 @@
                           <TextView
                               android:layout_width="wrap_content"
                               android:layout_height="wrap_content"
-                              android:text="2 Year"
+                              android:text="Ali"
                               android:layout_marginLeft="10dp"
                               android:drawablePadding="5dp"
                               android:textColor="@color/colorBlue"
@@ -236,9 +242,9 @@
                           android:orientation="horizontal"
                           >
                           <TextView
-                              android:layout_width="130dp"
+                              android:layout_width="150dp"
                               android:layout_height="wrap_content"
-                              android:text="Tour : "
+                              android:text="Gender : "
                               android:textStyle="bold"
                               android:drawablePadding="5dp"
                               android:drawableLeft="@mipmap/tab"
@@ -251,7 +257,75 @@
                           <TextView
                               android:layout_width="wrap_content"
                               android:layout_height="wrap_content"
-                              android:text="1 Year"
+                              android:text="Male"
+                              android:layout_marginLeft="10dp"
+                              android:drawablePadding="5dp"
+                              android:textColor="@color/colorBlue"
+                              android:fontFamily="serif"
+                              android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                              />
+
+
+
+                      </LinearLayout>
+
+                      <LinearLayout
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_marginTop="15dp"
+                          android:orientation="horizontal"
+                          >
+                          <TextView
+                              android:layout_width="150dp"
+                              android:layout_height="wrap_content"
+                              android:text="Location : "
+                              android:textStyle="bold"
+                              android:drawablePadding="5dp"
+                              android:drawableLeft="@mipmap/tab"
+                              android:textColor="@color/colorBlue"
+                              android:fontFamily="serif"
+                              android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                              />
+
+
+                          <TextView
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:text="Karachi"
+                              android:layout_marginLeft="10dp"
+                              android:drawablePadding="5dp"
+                              android:textColor="@color/colorBlue"
+                              android:fontFamily="serif"
+                              android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                              />
+
+
+
+                      </LinearLayout>
+
+                      <LinearLayout
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_marginTop="15dp"
+                          android:orientation="horizontal"
+                          >
+                          <TextView
+                              android:layout_width="150dp"
+                              android:layout_height="wrap_content"
+                              android:text="Contact : "
+                              android:textStyle="bold"
+                              android:drawablePadding="5dp"
+                              android:drawableLeft="@mipmap/tab"
+                              android:textColor="@color/colorBlue"
+                              android:fontFamily="serif"
+                              android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                              />
+
+
+                          <TextView
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:text="+92-343-2929045"
                               android:layout_marginLeft="10dp"
                               android:drawablePadding="5dp"
                               android:textColor="@color/colorBlue"
@@ -277,14 +351,869 @@
 
 
 
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:paddingLeft="10dp"
+               android:id="@+id/RelativeSer"
+               android:paddingRight="10dp"
+               >
+
+               <android.support.v7.widget.CardView
+                   xmlns:android="http://schemas.android.com/apk/res/android"
+                   xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_margin="6dp"
+                   card_view:cardUseCompatPadding="true"
+                   card_view:cardElevation="4dp"
+                   card_view:cardCornerRadius="3dp">
+
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                       android:text="Services"
+                       android:textStyle="bold"
+                       android:padding="5dp"
+                       android:fontFamily="serif"
+                       android:textColor="@color/colorBlue"
+
+                       />
+
+                   <ImageView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:src="@mipmap/arrow"
+                       android:layout_marginTop="15dp"
+                       android:layout_marginRight="15dp"
+                       android:layout_gravity="right"
+                       />
+
+
+               </android.support.v7.widget.CardView>
 
 
 
+
+           </RelativeLayout>
+
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:paddingLeft="10dp"
+               android:id="@+id/RelativeSilver"
+               android:paddingRight="10dp"
+               >
+
+               <android.support.v7.widget.CardView
+                   xmlns:android="http://schemas.android.com/apk/res/android"
+                   xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_margin="6dp"
+                   card_view:cardUseCompatPadding="true"
+                   card_view:cardElevation="4dp"
+                   card_view:cardCornerRadius="3dp">
+
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                       android:text="Silver Package"
+                       android:textStyle="bold"
+                       android:padding="5dp"
+                       android:fontFamily="serif"
+                       android:textColor="@color/colorBlue"
+
+                       />
+
+                   <ImageView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:src="@mipmap/arrow"
+                       android:layout_marginTop="15dp"
+                       android:layout_marginRight="15dp"
+                       android:layout_gravity="right"
+                       />
+
+
+               </android.support.v7.widget.CardView>
+
+
+
+
+           </RelativeLayout>
+
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:paddingLeft="10dp"
+               android:id="@+id/RelativeSilverDetail"
+               android:visibility="visible"
+
+               android:layout_marginTop="-10dp"
+               android:paddingRight="10dp">
+
+
+               <android.support.v7.widget.CardView
+                   xmlns:android="http://schemas.android.com/apk/res/android"
+                   xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_margin="6dp"
+                   card_view:cardUseCompatPadding="true"
+                   card_view:cardElevation="3dp"
+                   card_view:cardCornerRadius="3dp">
+
+
+                   <LinearLayout
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:padding="5dp"
+                       android:orientation="vertical">
+
+                       <LinearLayout
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:orientation="horizontal"
+                           android:layout_marginTop="5dp"
+                           >
+                           <TextView
+                               android:layout_width="150dp"
+                               android:layout_height="wrap_content"
+                               android:text="Price in $ : "
+                               android:textStyle="bold"
+                               android:drawablePadding="5dp"
+                               android:drawableLeft="@mipmap/tab"
+                               android:textColor="@color/colorBlue"
+                               android:fontFamily="serif"
+                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                               />
+
+
+                           <TextView
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:text="200$"
+                               android:layout_marginLeft="10dp"
+                               android:drawablePadding="5dp"
+                               android:textColor="@color/colorBlue"
+                               android:fontFamily="serif"
+                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                               />
+
+
+
+                       </LinearLayout>
+
+                       <LinearLayout
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_marginTop="15dp"
+                           android:orientation="horizontal"
+                           >
+                           <TextView
+                               android:layout_width="150dp"
+                               android:layout_height="wrap_content"
+                               android:text="Last Name : "
+                               android:textStyle="bold"
+                               android:drawablePadding="5dp"
+                               android:drawableLeft="@mipmap/tab"
+                               android:textColor="@color/colorBlue"
+                               android:fontFamily="serif"
+                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                               />
+
+
+                           <TextView
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:text="Ali"
+                               android:layout_marginLeft="10dp"
+                               android:drawablePadding="5dp"
+                               android:textColor="@color/colorBlue"
+                               android:fontFamily="serif"
+                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                               />
+
+
+
+                       </LinearLayout>
+
+                       <LinearLayout
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_marginTop="15dp"
+                           android:orientation="horizontal"
+                           >
+                           <TextView
+                               android:layout_width="150dp"
+                               android:layout_height="wrap_content"
+                               android:text="Gender : "
+                               android:textStyle="bold"
+                               android:drawablePadding="5dp"
+                               android:drawableLeft="@mipmap/tab"
+                               android:textColor="@color/colorBlue"
+                               android:fontFamily="serif"
+                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                               />
+
+
+                           <TextView
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:text="Male"
+                               android:layout_marginLeft="10dp"
+                               android:drawablePadding="5dp"
+                               android:textColor="@color/colorBlue"
+                               android:fontFamily="serif"
+                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                               />
+
+
+
+                       </LinearLayout>
+
+                       <LinearLayout
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_marginTop="15dp"
+                           android:orientation="horizontal"
+                           >
+                           <TextView
+                               android:layout_width="150dp"
+                               android:layout_height="wrap_content"
+                               android:text="Location : "
+                               android:textStyle="bold"
+                               android:drawablePadding="5dp"
+                               android:drawableLeft="@mipmap/tab"
+                               android:textColor="@color/colorBlue"
+                               android:fontFamily="serif"
+                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                               />
+
+
+                           <TextView
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:text="Karachi"
+                               android:layout_marginLeft="10dp"
+                               android:drawablePadding="5dp"
+                               android:textColor="@color/colorBlue"
+                               android:fontFamily="serif"
+                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                               />
+
+
+
+                       </LinearLayout>
+
+                       <LinearLayout
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_marginTop="15dp"
+                           android:orientation="horizontal"
+                           >
+                           <TextView
+                               android:layout_width="150dp"
+                               android:layout_height="wrap_content"
+                               android:text="Contact : "
+                               android:textStyle="bold"
+                               android:drawablePadding="5dp"
+                               android:drawableLeft="@mipmap/tab"
+                               android:textColor="@color/colorBlue"
+                               android:fontFamily="serif"
+                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                               />
+
+
+                           <TextView
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:text="+92-343-2929045"
+                               android:layout_marginLeft="10dp"
+                               android:drawablePadding="5dp"
+                               android:textColor="@color/colorBlue"
+                               android:fontFamily="serif"
+                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                               />
+
+
+
+                       </LinearLayout>
+
+
+
+                   </LinearLayout>
+
+
+
+               </android.support.v7.widget.CardView>
+
+
+
+           </RelativeLayout>
+
+
+
+
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:paddingLeft="10dp"
+               android:id="@+id/RelativeGolden"
+               android:paddingRight="10dp"
+               >
+
+               <android.support.v7.widget.CardView
+                   xmlns:android="http://schemas.android.com/apk/res/android"
+                   xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_margin="6dp"
+                   card_view:cardUseCompatPadding="true"
+                   card_view:cardElevation="4dp"
+                   card_view:cardCornerRadius="3dp">
+
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                       android:text="Golden Package"
+                       android:textStyle="bold"
+                       android:padding="5dp"
+                       android:fontFamily="serif"
+                       android:textColor="@color/colorBlue"
+
+                       />
+
+                   <ImageView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:src="@mipmap/arrow"
+                       android:layout_marginTop="15dp"
+                       android:layout_marginRight="15dp"
+                       android:layout_gravity="right"
+                       />
+
+
+               </android.support.v7.widget.CardView>
+
+
+
+
+           </RelativeLayout>
+
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:paddingLeft="10dp"
+               android:id="@+id/RelativeGoldenDetail"
+               android:visibility="visible"
+
+               android:layout_marginTop="-10dp"
+               android:paddingRight="10dp">
+
+
+               <android.support.v7.widget.CardView
+                   xmlns:android="http://schemas.android.com/apk/res/android"
+                   xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_margin="6dp"
+                   card_view:cardUseCompatPadding="true"
+                   card_view:cardElevation="3dp"
+                   card_view:cardCornerRadius="3dp">
+
+
+                   <LinearLayout
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:padding="5dp"
+                       android:orientation="vertical">
+
+                       <LinearLayout
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:orientation="horizontal"
+                           android:layout_marginTop="5dp"
+                           >
+                           <TextView
+                               android:layout_width="150dp"
+                               android:layout_height="wrap_content"
+                               android:text="Price in $ : "
+                               android:textStyle="bold"
+                               android:drawablePadding="5dp"
+                               android:drawableLeft="@mipmap/tab"
+                               android:textColor="@color/colorBlue"
+                               android:fontFamily="serif"
+                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                               />
+
+
+                           <TextView
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:text="200$"
+                               android:layout_marginLeft="10dp"
+                               android:drawablePadding="5dp"
+                               android:textColor="@color/colorBlue"
+                               android:fontFamily="serif"
+                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                               />
+
+
+
+                       </LinearLayout>
+
+                       <LinearLayout
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_marginTop="15dp"
+                           android:orientation="horizontal"
+                           >
+                           <TextView
+                               android:layout_width="150dp"
+                               android:layout_height="wrap_content"
+                               android:text="Last Name : "
+                               android:textStyle="bold"
+                               android:drawablePadding="5dp"
+                               android:drawableLeft="@mipmap/tab"
+                               android:textColor="@color/colorBlue"
+                               android:fontFamily="serif"
+                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                               />
+
+
+                           <TextView
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:text="Ali"
+                               android:layout_marginLeft="10dp"
+                               android:drawablePadding="5dp"
+                               android:textColor="@color/colorBlue"
+                               android:fontFamily="serif"
+                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                               />
+
+
+
+                       </LinearLayout>
+
+                       <LinearLayout
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_marginTop="15dp"
+                           android:orientation="horizontal"
+                           >
+                           <TextView
+                               android:layout_width="150dp"
+                               android:layout_height="wrap_content"
+                               android:text="Gender : "
+                               android:textStyle="bold"
+                               android:drawablePadding="5dp"
+                               android:drawableLeft="@mipmap/tab"
+                               android:textColor="@color/colorBlue"
+                               android:fontFamily="serif"
+                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                               />
+
+
+                           <TextView
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:text="Male"
+                               android:layout_marginLeft="10dp"
+                               android:drawablePadding="5dp"
+                               android:textColor="@color/colorBlue"
+                               android:fontFamily="serif"
+                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                               />
+
+
+
+                       </LinearLayout>
+
+                       <LinearLayout
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_marginTop="15dp"
+                           android:orientation="horizontal"
+                           >
+                           <TextView
+                               android:layout_width="150dp"
+                               android:layout_height="wrap_content"
+                               android:text="Location : "
+                               android:textStyle="bold"
+                               android:drawablePadding="5dp"
+                               android:drawableLeft="@mipmap/tab"
+                               android:textColor="@color/colorBlue"
+                               android:fontFamily="serif"
+                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                               />
+
+
+                           <TextView
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:text="Karachi"
+                               android:layout_marginLeft="10dp"
+                               android:drawablePadding="5dp"
+                               android:textColor="@color/colorBlue"
+                               android:fontFamily="serif"
+                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                               />
+
+
+
+                       </LinearLayout>
+
+                       <LinearLayout
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_marginTop="15dp"
+                           android:orientation="horizontal"
+                           >
+                           <TextView
+                               android:layout_width="150dp"
+                               android:layout_height="wrap_content"
+                               android:text="Contact : "
+                               android:textStyle="bold"
+                               android:drawablePadding="5dp"
+                               android:drawableLeft="@mipmap/tab"
+                               android:textColor="@color/colorBlue"
+                               android:fontFamily="serif"
+                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                               />
+
+
+                           <TextView
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:text="+92-343-2929045"
+                               android:layout_marginLeft="10dp"
+                               android:drawablePadding="5dp"
+                               android:textColor="@color/colorBlue"
+                               android:fontFamily="serif"
+                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                               />
+
+
+
+                       </LinearLayout>
+
+
+
+                   </LinearLayout>
+
+
+
+               </android.support.v7.widget.CardView>
+
+
+
+           </RelativeLayout>
+
+
+
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:paddingLeft="10dp"
+               android:id="@+id/RelativePlatinum"
+               android:paddingRight="10dp"
+               >
+
+               <android.support.v7.widget.CardView
+                   xmlns:android="http://schemas.android.com/apk/res/android"
+                   xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_margin="6dp"
+                   card_view:cardUseCompatPadding="true"
+                   card_view:cardElevation="4dp"
+                   card_view:cardCornerRadius="3dp">
+
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                       android:text="Platinum Package"
+                       android:textStyle="bold"
+                       android:padding="5dp"
+                       android:fontFamily="serif"
+                       android:textColor="@color/colorBlue"
+
+                       />
+
+                   <ImageView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:src="@mipmap/arrow"
+                       android:layout_marginTop="15dp"
+                       android:layout_marginRight="15dp"
+                       android:layout_gravity="right"
+                       />
+
+
+               </android.support.v7.widget.CardView>
+
+
+
+
+           </RelativeLayout>
+
+
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:paddingLeft="10dp"
+               android:id="@+id/RelativePlatinumDetail"
+               android:visibility="visible"
+
+               android:layout_marginTop="-10dp"
+               android:paddingRight="10dp">
+
+
+               <android.support.v7.widget.CardView
+                   xmlns:android="http://schemas.android.com/apk/res/android"
+                   xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_margin="6dp"
+                   card_view:cardUseCompatPadding="true"
+                   card_view:cardElevation="3dp"
+                   card_view:cardCornerRadius="3dp">
+
+
+                   <LinearLayout
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:padding="5dp"
+                       android:orientation="vertical">
+
+                       <LinearLayout
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:orientation="horizontal"
+                           android:layout_marginTop="5dp"
+                           >
+                           <TextView
+                               android:layout_width="150dp"
+                               android:layout_height="wrap_content"
+                               android:text="Price in $ : "
+                               android:textStyle="bold"
+                               android:drawablePadding="5dp"
+                               android:drawableLeft="@mipmap/tab"
+                               android:textColor="@color/colorBlue"
+                               android:fontFamily="serif"
+                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                               />
+
+
+                           <TextView
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:text="200$"
+                               android:layout_marginLeft="10dp"
+                               android:drawablePadding="5dp"
+                               android:textColor="@color/colorBlue"
+                               android:fontFamily="serif"
+                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                               />
+
+
+
+                       </LinearLayout>
+
+                       <LinearLayout
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_marginTop="15dp"
+                           android:orientation="horizontal"
+                           >
+                           <TextView
+                               android:layout_width="150dp"
+                               android:layout_height="wrap_content"
+                               android:text="Last Name : "
+                               android:textStyle="bold"
+                               android:drawablePadding="5dp"
+                               android:drawableLeft="@mipmap/tab"
+                               android:textColor="@color/colorBlue"
+                               android:fontFamily="serif"
+                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                               />
+
+
+                           <TextView
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:text="Ali"
+                               android:layout_marginLeft="10dp"
+                               android:drawablePadding="5dp"
+                               android:textColor="@color/colorBlue"
+                               android:fontFamily="serif"
+                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                               />
+
+
+
+                       </LinearLayout>
+
+                       <LinearLayout
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_marginTop="15dp"
+                           android:orientation="horizontal"
+                           >
+                           <TextView
+                               android:layout_width="150dp"
+                               android:layout_height="wrap_content"
+                               android:text="Gender : "
+                               android:textStyle="bold"
+                               android:drawablePadding="5dp"
+                               android:drawableLeft="@mipmap/tab"
+                               android:textColor="@color/colorBlue"
+                               android:fontFamily="serif"
+                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                               />
+
+
+                           <TextView
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:text="Male"
+                               android:layout_marginLeft="10dp"
+                               android:drawablePadding="5dp"
+                               android:textColor="@color/colorBlue"
+                               android:fontFamily="serif"
+                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                               />
+
+
+
+                       </LinearLayout>
+
+                       <LinearLayout
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_marginTop="15dp"
+                           android:orientation="horizontal"
+                           >
+                           <TextView
+                               android:layout_width="150dp"
+                               android:layout_height="wrap_content"
+                               android:text="Location : "
+                               android:textStyle="bold"
+                               android:drawablePadding="5dp"
+                               android:drawableLeft="@mipmap/tab"
+                               android:textColor="@color/colorBlue"
+                               android:fontFamily="serif"
+                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                               />
+
+
+                           <TextView
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:text="Karachi"
+                               android:layout_marginLeft="10dp"
+                               android:drawablePadding="5dp"
+                               android:textColor="@color/colorBlue"
+                               android:fontFamily="serif"
+                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                               />
+
+
+
+                       </LinearLayout>
+
+                       <LinearLayout
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_marginTop="15dp"
+                           android:orientation="horizontal"
+                           >
+                           <TextView
+                               android:layout_width="150dp"
+                               android:layout_height="wrap_content"
+                               android:text="Contact : "
+                               android:textStyle="bold"
+                               android:drawablePadding="5dp"
+                               android:drawableLeft="@mipmap/tab"
+                               android:textColor="@color/colorBlue"
+                               android:fontFamily="serif"
+                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                               />
+
+
+                           <TextView
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:text="+92-343-2929045"
+                               android:layout_marginLeft="10dp"
+                               android:drawablePadding="5dp"
+                               android:textColor="@color/colorBlue"
+                               android:fontFamily="serif"
+                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                               />
+
+
+
+                       </LinearLayout>
+
+
+
+                   </LinearLayout>
+
+
+
+               </android.support.v7.widget.CardView>
+
+
+
+           </RelativeLayout>
 
 
 
 
        </LinearLayout>
+
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentBottom="true"
+            >
+
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/colorWhite"
+                android:paddingLeft="10dp"
+                android:textSize="15dp"
+                android:fontFamily="serif"
+                android:textStyle="bold"
+                android:id="@+id/BtnRes"
+                android:textAllCaps="false"
+                android:paddingRight="10dp"
+                android:text="Book for Reservation"
+                android:background="@drawable/button_edges_lblue"
+
+                />
+
+        </RelativeLayout>
 
 
     </RelativeLayout>

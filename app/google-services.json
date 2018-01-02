@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "447708695851",
+    "firebase_url": "https://bookphotographer-92efb.firebaseio.com",
+    "project_id": "bookphotographer-92efb",
+    "storage_bucket": "bookphotographer-92efb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447708695851:android:c3fd6cc3f6651339",
+        "android_client_info": {
+          "package_name": "com.example.kashif.bookphotographer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "447708695851-9jml6ph1spd65mgf1m2oolj4rfj1c551.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUB-iMX0OHvMXVBAJ-odV1Z0KdpbQ3d5s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

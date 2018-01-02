@@ -1,8 +1,10 @@
 package com.example.kashif.bookphotographer.Activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import com.example.kashif.bookphotographer.R;
@@ -10,6 +12,7 @@ import com.example.kashif.bookphotographer.R;
 public class Photographer_Profile extends AppCompatActivity {
 
     RelativeLayout relativeLayout , Relative1;
+    Button BtnRes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +21,7 @@ public class Photographer_Profile extends AppCompatActivity {
 
         relativeLayout = (RelativeLayout) findViewById(R.id.RelativeExp);
         Relative1 = (RelativeLayout) findViewById(R.id.Relative1);
+        BtnRes = (Button) findViewById(R.id.BtnRes);
 
         relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,6 +40,17 @@ public class Photographer_Profile extends AppCompatActivity {
 
                 }
 
+
+            }
+        });
+
+        BtnRes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                Intent   intent = new Intent(Photographer_Profile.this , BookingActivity.class);
+                startActivity(intent);
 
             }
         });
