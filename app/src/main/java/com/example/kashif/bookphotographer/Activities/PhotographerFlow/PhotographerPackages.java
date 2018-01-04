@@ -32,4 +32,10 @@ public class PhotographerPackages extends AppCompatActivity {
 
     }
 
+    public  void Pckg1(){}
+    public  void Pckg2(){}
+    public  void Pckg3(){}
+    public  void Pckg4(){}
+    public  void Pckg5(){}
+
 }

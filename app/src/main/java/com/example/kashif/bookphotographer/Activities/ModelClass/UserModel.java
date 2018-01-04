@@ -16,7 +16,7 @@ public class UserModel  {
 
     //// Photographer Data ////
 
-    String firstname, lastname, gender, country, city, add;
+    String firstname, lastname, gender, country, city, add , imageUrl;
 
     public UserModel() {
     }
@@ -29,7 +29,9 @@ public class UserModel  {
     }
 
 
-    public UserModel(String id, String email, String pass, String type, String firstname, String lastname, String gender, String country, String city, String add) {
+
+
+    public UserModel(String id, String email, String pass, String type, String firstname, String lastname, String gender, String country, String city, String add , String imageUrl) {
         this.id = id;
         this.email = email;
         this.pass = pass;
@@ -39,7 +41,9 @@ public class UserModel  {
         this.gender = gender;
         this.country = country;
         this.city = city;
+
         this.add = add;
+        this.imageUrl  = imageUrl;
     }
 
 
@@ -121,5 +125,13 @@ public class UserModel  {
 
     public void setAdd(String add) {
         this.add = add;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

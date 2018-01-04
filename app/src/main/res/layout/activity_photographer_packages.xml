@@ -31,11 +31,13 @@
                     android:orientation="vertical">
 
 
-                    <TextView
+                    <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Diamond Package"
+                        android:hint="Enter your Package Name"
                         android:textStyle="bold"
+                        android:textColor="@color/colorBlack"
+                        android:textColorHint="@color/colorBlack"
                         android:layout_marginTop="5dp"
                         android:layout_gravity="center"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
@@ -57,6 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
+                android:id="@+id/EditPrice1"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:textColor="@color/colorBlue"
@@ -67,7 +70,30 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Enter Description "
+                        android:text="Specify days"
+                        android:layout_marginLeft="10dp"
+                        android:padding="5dp"
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/colorBlack"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                        />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:id="@+id/EditSp1"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:textColor="@color/colorBlue"
+                        android:hint="per day or two day"
+                        />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Enter Description about "
                         android:layout_marginLeft="10dp"
                         android:padding="5dp"
                         android:layout_marginTop="5dp"
@@ -80,10 +106,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="5dp"
+                        android:id="@+id/EditDes1"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:textColor="@color/colorBlue"
-                        android:hint="Enter Your Description"
+                        android:hint="Enter Your Description about your package, how many hour you will available in a day, how many photographers, what you wil provide after shooting etc."
                         />
 
                 </LinearLayout>
@@ -107,15 +134,18 @@
                 android:orientation="vertical">
 
 
-                <TextView
+                <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Platinum Package"
+                    android:hint="Enter your Package Name"
                     android:textStyle="bold"
+                    android:textColor="@color/colorBlack"
+                    android:textColorHint="@color/colorBlack"
                     android:layout_marginTop="5dp"
                     android:layout_gravity="center"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                     />
+
 
 
                 <TextView
@@ -133,10 +163,33 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
+                    android:id="@+id/EditPrice2"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:textColor="@color/colorBlue"
                     android:hint="Enter Your Price. E.g $200.0"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Specify days"
+                    android:layout_marginLeft="10dp"
+                    android:padding="5dp"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/colorBlack"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:id="@+id/EditSp2"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/colorBlue"
+                    android:hint="per day or two day"
                     />
 
 
@@ -156,10 +209,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
+                    android:id="@+id/EditDes2"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:textColor="@color/colorBlue"
-                    android:hint="Enter Your Description"
+                    android:hint="Enter Your Description about your package, how many hour you will available in a day, how many photographers, what you wil provide after shooting etc."
                     />
 
             </LinearLayout>
@@ -183,11 +237,13 @@
                 android:orientation="vertical">
 
 
-                <TextView
+                <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Golden Package"
+                    android:hint="Enter your Package Name"
                     android:textStyle="bold"
+                    android:textColor="@color/colorBlack"
+                    android:textColorHint="@color/colorBlack"
                     android:layout_marginTop="5dp"
                     android:layout_gravity="center"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
@@ -209,10 +265,34 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
+                    android:id="@+id/EditPrice3"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:textColor="@color/colorBlue"
                     android:hint="Enter Your Price. E.g $200.0"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Specify days"
+
+                    android:layout_marginLeft="10dp"
+                    android:padding="5dp"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/colorBlack"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:id="@+id/EditSp3"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/colorBlue"
+                    android:hint="per day or two day"
                     />
 
 
@@ -232,10 +312,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
+                    android:id="@+id/EditDes3"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:textColor="@color/colorBlue"
-                    android:hint="Enter Your Description"
+                    android:hint="Enter Your Description about your package, how many hour you will available in a day, how many photographers, what you wil provide after shooting etc."
                     />
 
             </LinearLayout>
@@ -259,11 +340,13 @@
                 android:orientation="vertical">
 
 
-                <TextView
+                <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Silver Package"
+                    android:hint="Enter your Package Name"
                     android:textStyle="bold"
+                    android:textColor="@color/colorBlack"
+                    android:textColorHint="@color/colorBlack"
                     android:layout_marginTop="5dp"
                     android:layout_gravity="center"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
@@ -285,10 +368,34 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
+                    android:id="@+id/EditPrice4"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:textColor="@color/colorBlue"
                     android:hint="Enter Your Price. E.g $200.0"
+                    />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Specify days"
+                    android:layout_marginLeft="10dp"
+                    android:padding="5dp"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/colorBlack"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:id="@+id/EditSp4"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/colorBlue"
+                    android:hint="per day or two day"
                     />
 
 
@@ -308,10 +415,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
+                    android:id="@+id/EditDes4"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:textColor="@color/colorBlue"
-                    android:hint="Enter Your Description"
+                    android:hint="Enter Your Description about your package, how many hour you will available in a day, how many photographers, what you wil provide after shooting etc."
                     />
 
             </LinearLayout>
@@ -334,11 +442,13 @@
                 android:orientation="vertical">
 
 
-                <TextView
+                <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Bronze Package"
+                    android:hint="Enter your Package Name"
                     android:textStyle="bold"
+                    android:textColor="@color/colorBlack"
+                    android:textColorHint="@color/colorBlack"
                     android:layout_marginTop="5dp"
                     android:layout_gravity="center"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
@@ -360,6 +470,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
+                    android:id="@+id/EditPrice5"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:textColor="@color/colorBlue"
@@ -370,7 +481,30 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Enter Description "
+                    android:text="Specify days"
+                    android:layout_marginLeft="10dp"
+                    android:padding="5dp"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/colorBlack"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:id="@+id/EditSp5"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/colorBlue"
+                    android:hint="per day or two day"
+                    />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Enter Your Description about your package, how many hour you will available in a day, how many photographers, what you wil provide after shooting etc."
                     android:layout_marginLeft="10dp"
                     android:padding="5dp"
                     android:layout_marginTop="5dp"
@@ -383,6 +517,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
+                    android:id="@+id/EditDes5"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:textColor="@color/colorBlue"

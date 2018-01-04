@@ -445,7 +445,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
                 android:id="@+id/RelativeBronzeDetail"
-                android:visibility="gone"
+
 
                 android:layout_marginTop="-10dp"
                 android:paddingRight="10dp">
