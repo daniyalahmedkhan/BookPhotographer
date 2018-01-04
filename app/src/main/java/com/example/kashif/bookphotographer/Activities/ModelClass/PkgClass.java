@@ -13,8 +13,7 @@ public class PkgClass {
     String description;
     String type;
 
-    public PkgClass() {
-    }
+    public PkgClass() {}
 
     public PkgClass(String id, String name, String price, String days, String description, String type) {
         this.id = id;
