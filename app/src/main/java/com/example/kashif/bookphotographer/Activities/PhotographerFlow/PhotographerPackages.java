@@ -104,8 +104,8 @@ public class PhotographerPackages extends AppCompatActivity {
         }
 
 
-        if (!(editprice1.getText().toString().isEmpty()) && (editsp1.getText().toString().isEmpty())
-                && (editdes1.getText().toString().isEmpty()) ){
+        if (!((editprice1.getText().toString().isEmpty()) && (editsp1.getText().toString().isEmpty())
+                && (editdes1.getText().toString().isEmpty())) ){
 
 
             price = editprice1.getText().toString().trim();
@@ -127,7 +127,7 @@ public class PhotographerPackages extends AppCompatActivity {
 
         PkgClass pkgClass  = new PkgClass(id , pName , price , days , description , type);
 
-        firebaseDatabase.child("packages").child(id).setValue(pkgClass, new DatabaseReference.CompletionListener() {
+        firebaseDatabase.child("packages").child(ProfileManage.uid).child(id).setValue(pkgClass, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
 
@@ -163,8 +163,8 @@ public class PhotographerPackages extends AppCompatActivity {
         }
 
 
-        if (!(editprice2.getText().toString().isEmpty()) && (editsp2.getText().toString().isEmpty())
-                && (editdes2.getText().toString().isEmpty()) ){
+        if (!((editprice2.getText().toString().isEmpty()) && (editsp2.getText().toString().isEmpty())
+                && (editdes2.getText().toString().isEmpty())) ){
 
 
             price = editprice2.getText().toString().trim();
@@ -186,7 +186,7 @@ public class PhotographerPackages extends AppCompatActivity {
 
         PkgClass pkgClass  = new PkgClass(id2 , pName , price , days , description , type);
 
-        firebaseDatabase.child("packages").child(id2).setValue(pkgClass, new DatabaseReference.CompletionListener() {
+        firebaseDatabase.child("packages").child(ProfileManage.uid).child(id2).setValue(pkgClass, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
 
@@ -227,8 +227,8 @@ public class PhotographerPackages extends AppCompatActivity {
         }
 
 
-        if (!(editprice3.getText().toString().isEmpty()) && (editsp3.getText().toString().isEmpty())
-                && (editdes3.getText().toString().isEmpty()) ){
+        if (!((editprice3.getText().toString().isEmpty()) && (editsp3.getText().toString().isEmpty())
+                && (editdes3.getText().toString().isEmpty())) ){
 
 
             price = editprice3.getText().toString().trim();
@@ -250,7 +250,7 @@ public class PhotographerPackages extends AppCompatActivity {
 
         PkgClass pkgClass  = new PkgClass(id3 , pName , price , days , description , type);
 
-        firebaseDatabase.child("packages").child(id3).setValue(pkgClass, new DatabaseReference.CompletionListener() {
+        firebaseDatabase.child("packages").child(ProfileManage.uid).child(id3).setValue(pkgClass, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
 
@@ -291,8 +291,8 @@ public class PhotographerPackages extends AppCompatActivity {
         }
 
 
-        if (!(editprice4.getText().toString().isEmpty()) && (editsp4.getText().toString().isEmpty())
-                && (editdes4.getText().toString().isEmpty()) ){
+        if (!((editprice4.getText().toString().isEmpty()) && (editsp4.getText().toString().isEmpty())
+                && (editdes4.getText().toString().isEmpty())) ){
 
 
             price = editprice4.getText().toString().trim();
@@ -314,7 +314,7 @@ public class PhotographerPackages extends AppCompatActivity {
 
         PkgClass pkgClass  = new PkgClass(id4 , pName , price , days , description , type);
 
-        firebaseDatabase.child("packages").child(id4).setValue(pkgClass, new DatabaseReference.CompletionListener() {
+        firebaseDatabase.child("packages").child(ProfileManage.uid).child(id4).setValue(pkgClass, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
 
@@ -354,8 +354,8 @@ public class PhotographerPackages extends AppCompatActivity {
         }
 
 
-        if (!(editprice5.getText().toString().isEmpty()) && (editsp5.getText().toString().isEmpty())
-                && (editdes5.getText().toString().isEmpty()) ){
+        if (!((editprice5.getText().toString().isEmpty()) && (editsp5.getText().toString().isEmpty())
+                && (editdes5.getText().toString().isEmpty())) ){
 
 
             price = editprice5.getText().toString().trim();
@@ -377,7 +377,7 @@ public class PhotographerPackages extends AppCompatActivity {
 
         PkgClass pkgClass  = new PkgClass(id5 , pName , price , days , description , type);
 
-        firebaseDatabase.child("packages").child(id5).setValue(pkgClass, new DatabaseReference.CompletionListener() {
+        firebaseDatabase.child("packages").child(ProfileManage.uid).child(id5).setValue(pkgClass, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
 
