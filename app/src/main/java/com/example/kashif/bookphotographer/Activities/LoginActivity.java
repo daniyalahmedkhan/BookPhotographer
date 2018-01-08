@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -18,6 +19,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.kashif.bookphotographer.Activities.ModelClass.UserModel;
+import com.example.kashif.bookphotographer.Activities.PhotographerFlow.MyProfile;
+import com.example.kashif.bookphotographer.Activities.PhotographerFlow.SampleImages;
 import com.example.kashif.bookphotographer.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -38,10 +41,11 @@ public class LoginActivity extends AppCompatActivity {
     AlertDialog alertDialog;
     AlertDialog.Builder builder;
     EditText LoginEmail , LoginPass;
-    String email , pass , uid , type;
+   public static String email , pass , uid , type;
     FirebaseAuth firebaseAuth;
     DatabaseReference firebaseDatabase;
     Button Signin;
+    ProgressDialog progressDialog;
 
 
     @Override
@@ -53,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.setStatusBarColor(Color.TRANSPARENT);
-
+        progressDialog = new ProgressDialog(this);
 
         setContentView(R.layout.activity_login);
 
@@ -108,8 +112,24 @@ public class LoginActivity extends AppCompatActivity {
                    public void onComplete(@NonNull Task<AuthResult> task) {
 
 
+
+                   }
+               }).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                   @Override
+                   public void onSuccess(AuthResult authResult) {
+
                        uid = firebaseAuth.getCurrentUser().getUid();
+                       progressDialog.setMessage("Please Wait");
+                       progressDialog.show();
                        CheckUser();
+
+                   }
+               }).addOnFailureListener(new OnFailureListener() {
+                   @Override
+                   public void onFailure(@NonNull Exception e) {
+
+
+                       Toast.makeText(LoginActivity.this , "Invalid" , Toast.LENGTH_LONG).show();
                    }
                });
 
@@ -136,16 +156,29 @@ public class LoginActivity extends AppCompatActivity {
 
                     if (type.equals("user")){
 
+
+                        progressDialog.dismiss();
+
                         Intent intent = new Intent(LoginActivity.this , HomeActivity.class);
                         startActivity(intent);
 
-                    }else {
-                        Toast.makeText(LoginActivity.this , "Not a User" , Toast.LENGTH_SHORT).show();
+                    }else if (type.equals("photographer")){
 
+                        progressDialog.dismiss();
+                        Intent intent = new Intent(LoginActivity.this , MyProfile.class);
+                        startActivity(intent);
+
+                    }else {
+
+                        progressDialog.dismiss();
+
+                        Toast.makeText(LoginActivity.this , "No one" , Toast.LENGTH_SHORT).show();
 
                     }
 
                 }else {
+                    progressDialog.dismiss();
+
 
                     Toast.makeText(LoginActivity.this , "Not Exists" , Toast.LENGTH_SHORT).show();
                 }
@@ -178,8 +211,8 @@ public class LoginActivity extends AppCompatActivity {
                 //do something with edt.getText().toString();
 //                e1.setText(age);
 
-                Intent intent = new Intent(LoginActivity.this , HomeActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(LoginActivity.this , SampleImag.class);
+//                startActivity(intent);
 
             }
         });

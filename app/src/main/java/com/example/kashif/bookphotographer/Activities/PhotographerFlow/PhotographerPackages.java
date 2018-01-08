@@ -127,7 +127,7 @@ public class PhotographerPackages extends AppCompatActivity {
 
         PkgClass pkgClass  = new PkgClass(id , pName , price , days , description , type);
 
-        firebaseDatabase.child("packages").child(ProfileManage.uid).child(id).setValue(pkgClass, new DatabaseReference.CompletionListener() {
+        firebaseDatabase.child("packages").child(ProfileManage.uid).child("pkg1").setValue(pkgClass, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
 
@@ -186,7 +186,7 @@ public class PhotographerPackages extends AppCompatActivity {
 
         PkgClass pkgClass  = new PkgClass(id2 , pName , price , days , description , type);
 
-        firebaseDatabase.child("packages").child(ProfileManage.uid).child(id2).setValue(pkgClass, new DatabaseReference.CompletionListener() {
+        firebaseDatabase.child("packages").child(ProfileManage.uid).child("pkg2").setValue(pkgClass, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
 
@@ -250,7 +250,7 @@ public class PhotographerPackages extends AppCompatActivity {
 
         PkgClass pkgClass  = new PkgClass(id3 , pName , price , days , description , type);
 
-        firebaseDatabase.child("packages").child(ProfileManage.uid).child(id3).setValue(pkgClass, new DatabaseReference.CompletionListener() {
+        firebaseDatabase.child("packages").child(ProfileManage.uid).child("pkg3").setValue(pkgClass, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
 
@@ -314,7 +314,7 @@ public class PhotographerPackages extends AppCompatActivity {
 
         PkgClass pkgClass  = new PkgClass(id4 , pName , price , days , description , type);
 
-        firebaseDatabase.child("packages").child(ProfileManage.uid).child(id4).setValue(pkgClass, new DatabaseReference.CompletionListener() {
+        firebaseDatabase.child("packages").child(ProfileManage.uid).child("pkg4").setValue(pkgClass, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
 
@@ -377,7 +377,7 @@ public class PhotographerPackages extends AppCompatActivity {
 
         PkgClass pkgClass  = new PkgClass(id5 , pName , price , days , description , type);
 
-        firebaseDatabase.child("packages").child(ProfileManage.uid).child(id5).setValue(pkgClass, new DatabaseReference.CompletionListener() {
+        firebaseDatabase.child("packages").child(ProfileManage.uid).child("pkg5").setValue(pkgClass, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
 

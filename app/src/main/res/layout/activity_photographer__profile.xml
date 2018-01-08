@@ -13,1176 +13,1254 @@
 
 
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:id="@+id/Top"
-        android:background="@color/colorBlue">
-
-
         <RelativeLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true">
+            android:padding="10dp"
+            android:id="@+id/Top"
+            android:background="@color/colorBlue">
 
 
-
-            <ImageView
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/back_icon"
-                android:padding="10dp"
+                android:layout_alignParentLeft="true">
 
-                />
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/sidemenu_icon"
+                    android:padding="10dp"
+
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:id="@+id/CenterImage"
+                android:layout_centerHorizontal="true">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:id="@+id/HeadImg"
+                    android:src="@mipmap/contactlist_img_four"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/CenterImage"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Daniyal Ak"
+                    android:id="@+id/HeadName"
+                    android:fontFamily="serif"
+                    android:gravity="center"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                    android:textColor="@color/colorWhite"
+
+                    />
+
+            </RelativeLayout>
+
+
+
 
         </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:id="@+id/CenterImage"
-            android:layout_centerHorizontal="true">
+            android:orientation="vertical"
+            android:layout_marginBottom="40dp"
+            android:paddingBottom="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/Top">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="wrap_content"
+
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/contactlist_img_four"
-                />
+                android:paddingLeft="10dp"
 
-        </RelativeLayout>
+                android:id="@+id/RelativeExp"
+                android:paddingRight="10dp"
+                >
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/CenterImage"
-            android:layout_marginTop="10dp"
-            android:layout_centerHorizontal="true">
+                <android.support.v7.widget.CardView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="6dp"
 
-            <TextView
-                android:layout_width="wrap_content"
+                    card_view:cardUseCompatPadding="true"
+                    card_view:cardElevation="4dp"
+                    card_view:cardCornerRadius="3dp">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                        android:text="About"
+                        android:background="@mipmap/bck5"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:padding="5dp"
+                        android:fontFamily="serif"
+                        android:textColor="@color/colorWhite"
+
+                        />
+
+
+
+                </android.support.v7.widget.CardView>
+
+
+
+
+            </RelativeLayout>
+
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Daniyal Ak"
-                android:fontFamily="serif"
-                android:gravity="center"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                android:textColor="@color/colorWhite"
+                android:paddingLeft="10dp"
+                android:id="@+id/Relative1"
+                android:visibility="visible"
 
-                />
-
-        </RelativeLayout>
+                android:layout_marginTop="-10dp"
+                android:paddingRight="10dp">
 
 
+                <android.support.v7.widget.CardView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="6dp"
+                    card_view:cardUseCompatPadding="true"
+                    card_view:cardElevation="3dp"
+                    card_view:cardCornerRadius="3dp">
 
-
-    </RelativeLayout>
-
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:orientation="vertical"
-           android:layout_marginBottom="40dp"
-           android:paddingBottom="40dp"
-           android:layout_marginTop="5dp"
-           android:layout_below="@id/Top">
-
-
-           <RelativeLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:paddingLeft="10dp"
-               android:id="@+id/RelativeExp"
-               android:paddingRight="10dp"
-               >
-
-               <android.support.v7.widget.CardView
-                   xmlns:android="http://schemas.android.com/apk/res/android"
-                   xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:layout_margin="6dp"
-                   card_view:cardUseCompatPadding="true"
-                   card_view:cardElevation="4dp"
-                   card_view:cardCornerRadius="3dp">
-
-
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                       android:text="About"
-                       android:textStyle="bold"
-                       android:padding="5dp"
-                       android:fontFamily="serif"
-                       android:textColor="@color/colorBlue"
-
-                       />
-
-                   <ImageView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:src="@mipmap/arrow"
-                       android:layout_marginTop="15dp"
-                       android:layout_marginRight="15dp"
-                       android:layout_gravity="right"
-                       />
-
-
-               </android.support.v7.widget.CardView>
-
-
-
-
-           </RelativeLayout>
-
-
-
-
-           <RelativeLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:paddingLeft="10dp"
-               android:id="@+id/Relative1"
-               android:visibility="visible"
-
-               android:layout_marginTop="-10dp"
-               android:paddingRight="10dp">
-
-
-               <android.support.v7.widget.CardView
-                   xmlns:android="http://schemas.android.com/apk/res/android"
-                   xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:layout_margin="6dp"
-                   card_view:cardUseCompatPadding="true"
-                   card_view:cardElevation="3dp"
-                   card_view:cardCornerRadius="3dp">
-
-
-                  <LinearLayout
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:padding="5dp"
-                      android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="5dp"
-                        >
-                      <TextView
-                          android:layout_width="150dp"
-                          android:layout_height="wrap_content"
-                          android:text="First Name : "
-                          android:textStyle="bold"
-                          android:drawablePadding="5dp"
-                          android:drawableLeft="@mipmap/tab"
-                          android:textColor="@color/colorBlue"
-                          android:fontFamily="serif"
-                          android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                          />
+                        android:padding="5dp"
+                        android:orientation="vertical">
 
-
-                        <TextView
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Sadat"
-                            android:layout_marginLeft="10dp"
-                            android:drawablePadding="5dp"
-                            android:textColor="@color/colorBlue"
-                            android:fontFamily="serif"
-                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                            />
+                            android:orientation="horizontal"
+                            android:layout_marginTop="5dp"
+                            >
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:text="First Name : "
+                                android:textStyle="bold"
+                                android:drawablePadding="5dp"
+                                android:drawableLeft="@mipmap/tab"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sadat"
+                                android:id="@+id/PhotographerFname"
+                                android:layout_marginLeft="10dp"
+                                android:drawablePadding="5dp"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:orientation="horizontal"
+                            >
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:text="Last Name : "
+                                android:textStyle="bold"
+                                android:drawablePadding="5dp"
+                                android:drawableLeft="@mipmap/tab"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Ali"
+                                android:id="@+id/PhotographerLname"
+                                android:layout_marginLeft="10dp"
+                                android:drawablePadding="5dp"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:orientation="horizontal"
+                            >
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:text="Gender : "
+                                android:textStyle="bold"
+                                android:drawablePadding="5dp"
+                                android:drawableLeft="@mipmap/tab"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Male"
+                                android:id="@+id/PhotographerGender"
+                                android:layout_marginLeft="10dp"
+                                android:drawablePadding="5dp"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:orientation="horizontal"
+                            >
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:text="Location : "
+                                android:textStyle="bold"
+                                android:drawablePadding="5dp"
+                                android:drawableLeft="@mipmap/tab"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Karachi"
+                                android:id="@+id/PhotographerLocation"
+                                android:layout_marginLeft="10dp"
+                                android:drawablePadding="5dp"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:visibility="gone"
+                            android:orientation="horizontal"
+                            >
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:text="Contact : "
+                                android:textStyle="bold"
+                                android:drawablePadding="5dp"
+                                android:drawableLeft="@mipmap/tab"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="+92-343-2929045"
+                                android:layout_marginLeft="10dp"
+                                android:drawablePadding="5dp"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+
+                        </LinearLayout>
 
 
 
                     </LinearLayout>
 
-                      <LinearLayout
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:layout_marginTop="15dp"
-                          android:orientation="horizontal"
-                          >
-                          <TextView
-                              android:layout_width="150dp"
-                              android:layout_height="wrap_content"
-                              android:text="Last Name : "
-                              android:textStyle="bold"
-                              android:drawablePadding="5dp"
-                              android:drawableLeft="@mipmap/tab"
-                              android:textColor="@color/colorBlue"
-                              android:fontFamily="serif"
-                              android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                              />
-
-
-                          <TextView
-                              android:layout_width="wrap_content"
-                              android:layout_height="wrap_content"
-                              android:text="Ali"
-                              android:layout_marginLeft="10dp"
-                              android:drawablePadding="5dp"
-                              android:textColor="@color/colorBlue"
-                              android:fontFamily="serif"
-                              android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                              />
-
-
-
-                      </LinearLayout>
-
-                      <LinearLayout
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:layout_marginTop="15dp"
-                          android:orientation="horizontal"
-                          >
-                          <TextView
-                              android:layout_width="150dp"
-                              android:layout_height="wrap_content"
-                              android:text="Gender : "
-                              android:textStyle="bold"
-                              android:drawablePadding="5dp"
-                              android:drawableLeft="@mipmap/tab"
-                              android:textColor="@color/colorBlue"
-                              android:fontFamily="serif"
-                              android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                              />
-
-
-                          <TextView
-                              android:layout_width="wrap_content"
-                              android:layout_height="wrap_content"
-                              android:text="Male"
-                              android:layout_marginLeft="10dp"
-                              android:drawablePadding="5dp"
-                              android:textColor="@color/colorBlue"
-                              android:fontFamily="serif"
-                              android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                              />
-
-
-
-                      </LinearLayout>
-
-                      <LinearLayout
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:layout_marginTop="15dp"
-                          android:orientation="horizontal"
-                          >
-                          <TextView
-                              android:layout_width="150dp"
-                              android:layout_height="wrap_content"
-                              android:text="Location : "
-                              android:textStyle="bold"
-                              android:drawablePadding="5dp"
-                              android:drawableLeft="@mipmap/tab"
-                              android:textColor="@color/colorBlue"
-                              android:fontFamily="serif"
-                              android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                              />
-
-
-                          <TextView
-                              android:layout_width="wrap_content"
-                              android:layout_height="wrap_content"
-                              android:text="Karachi"
-                              android:layout_marginLeft="10dp"
-                              android:drawablePadding="5dp"
-                              android:textColor="@color/colorBlue"
-                              android:fontFamily="serif"
-                              android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                              />
-
-
-
-                      </LinearLayout>
 
-                      <LinearLayout
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:layout_marginTop="15dp"
-                          android:orientation="horizontal"
-                          >
-                          <TextView
-                              android:layout_width="150dp"
-                              android:layout_height="wrap_content"
-                              android:text="Contact : "
-                              android:textStyle="bold"
-                              android:drawablePadding="5dp"
-                              android:drawableLeft="@mipmap/tab"
-                              android:textColor="@color/colorBlue"
-                              android:fontFamily="serif"
-                              android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                              />
 
+                </android.support.v7.widget.CardView>
 
-                          <TextView
-                              android:layout_width="wrap_content"
-                              android:layout_height="wrap_content"
-                              android:text="+92-343-2929045"
-                              android:layout_marginLeft="10dp"
-                              android:drawablePadding="5dp"
-                              android:textColor="@color/colorBlue"
-                              android:fontFamily="serif"
-                              android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                              />
 
 
+            </RelativeLayout>
 
-                      </LinearLayout>
 
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:id="@+id/RelativeSer"
+                android:paddingRight="10dp"
+                >
 
-                  </LinearLayout>
+                <android.support.v7.widget.CardView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="6dp"
+                    card_view:cardUseCompatPadding="true"
+                    card_view:cardElevation="4dp"
+                    card_view:cardCornerRadius="3dp">
 
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                        android:text="Services"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"
+                        android:padding="5dp"
+                        android:fontFamily="serif"
+                        android:textColor="@color/colorBlue"
 
-               </android.support.v7.widget.CardView>
+                        />
 
 
 
-           </RelativeLayout>
+                </android.support.v7.widget.CardView>
 
 
 
-           <RelativeLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:paddingLeft="10dp"
-               android:id="@+id/RelativeSer"
-               android:paddingRight="10dp"
-               >
 
-               <android.support.v7.widget.CardView
-                   xmlns:android="http://schemas.android.com/apk/res/android"
-                   xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:layout_margin="6dp"
-                   card_view:cardUseCompatPadding="true"
-                   card_view:cardElevation="4dp"
-                   card_view:cardCornerRadius="3dp">
+            </RelativeLayout>
 
 
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                       android:text="Services"
-                       android:textStyle="bold"
-                       android:padding="5dp"
-                       android:fontFamily="serif"
-                       android:textColor="@color/colorBlue"
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:id="@+id/RelativeBronze"
+                android:paddingRight="10dp"
+                >
 
-                       />
+                <android.support.v7.widget.CardView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="6dp"
+                    card_view:cardUseCompatPadding="true"
+                    card_view:cardElevation="4dp"
+                    card_view:cardCornerRadius="3dp">
 
-                   <ImageView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:src="@mipmap/arrow"
-                       android:layout_marginTop="15dp"
-                       android:layout_marginRight="15dp"
-                       android:layout_gravity="right"
-                       />
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                        android:text="Bronze Package"
+                        android:textStyle="bold"
+                        android:id="@+id/PgkTname1"
+                        android:padding="5dp"
+                        android:fontFamily="serif"
+                        android:textColor="@color/colorBlue"
+
+                        />
 
-               </android.support.v7.widget.CardView>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/arrow"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_gravity="right"
+                        />
+
+
+                </android.support.v7.widget.CardView>
+
+
 
 
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:id="@+id/RelativeBronzeDetail"
+                android:visibility="gone"
+
+                android:layout_marginTop="-10dp"
+                android:paddingRight="10dp">
 
 
-           </RelativeLayout>
+                <android.support.v7.widget.CardView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="6dp"
+                    card_view:cardUseCompatPadding="true"
+                    card_view:cardElevation="3dp"
+                    card_view:cardCornerRadius="3dp">
 
-           <RelativeLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:paddingLeft="10dp"
-               android:id="@+id/RelativeSilver"
-               android:paddingRight="10dp"
-               >
 
-               <android.support.v7.widget.CardView
-                   xmlns:android="http://schemas.android.com/apk/res/android"
-                   xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:layout_margin="6dp"
-                   card_view:cardUseCompatPadding="true"
-                   card_view:cardElevation="4dp"
-                   card_view:cardCornerRadius="3dp">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="5dp"
+                            >
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:text="Price in $ : "
+                                android:textStyle="bold"
+                                android:drawablePadding="5dp"
+                                android:drawableLeft="@mipmap/tab"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="200$"
+                                android:id="@+id/PkgTprice1"
+                                android:layout_marginLeft="10dp"
+                                android:drawablePadding="5dp"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
 
 
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                       android:text="Silver Package"
-                       android:textStyle="bold"
-                       android:padding="5dp"
-                       android:fontFamily="serif"
-                       android:textColor="@color/colorBlue"
-
-                       />
-
-                   <ImageView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:src="@mipmap/arrow"
-                       android:layout_marginTop="15dp"
-                       android:layout_marginRight="15dp"
-                       android:layout_gravity="right"
-                       />
-
-
-               </android.support.v7.widget.CardView>
-
-
-
-
-           </RelativeLayout>
-
-           <RelativeLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:paddingLeft="10dp"
-               android:id="@+id/RelativeSilverDetail"
-               android:visibility="visible"
-
-               android:layout_marginTop="-10dp"
-               android:paddingRight="10dp">
-
-
-               <android.support.v7.widget.CardView
-                   xmlns:android="http://schemas.android.com/apk/res/android"
-                   xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:layout_margin="6dp"
-                   card_view:cardUseCompatPadding="true"
-                   card_view:cardElevation="3dp"
-                   card_view:cardCornerRadius="3dp">
-
-
-                   <LinearLayout
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:padding="5dp"
-                       android:orientation="vertical">
-
-                       <LinearLayout
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:orientation="horizontal"
-                           android:layout_marginTop="5dp"
-                           >
-                           <TextView
-                               android:layout_width="150dp"
-                               android:layout_height="wrap_content"
-                               android:text="Price in $ : "
-                               android:textStyle="bold"
-                               android:drawablePadding="5dp"
-                               android:drawableLeft="@mipmap/tab"
-                               android:textColor="@color/colorBlue"
-                               android:fontFamily="serif"
-                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                               />
-
-
-                           <TextView
-                               android:layout_width="wrap_content"
-                               android:layout_height="wrap_content"
-                               android:text="200$"
-                               android:layout_marginLeft="10dp"
-                               android:drawablePadding="5dp"
-                               android:textColor="@color/colorBlue"
-                               android:fontFamily="serif"
-                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                               />
-
-
-
-                       </LinearLayout>
-
-                       <LinearLayout
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:layout_marginTop="15dp"
-                           android:orientation="horizontal"
-                           >
-                           <TextView
-                               android:layout_width="150dp"
-                               android:layout_height="wrap_content"
-                               android:text="Last Name : "
-                               android:textStyle="bold"
-                               android:drawablePadding="5dp"
-                               android:drawableLeft="@mipmap/tab"
-                               android:textColor="@color/colorBlue"
-                               android:fontFamily="serif"
-                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                               />
-
-
-                           <TextView
-                               android:layout_width="wrap_content"
-                               android:layout_height="wrap_content"
-                               android:text="Ali"
-                               android:layout_marginLeft="10dp"
-                               android:drawablePadding="5dp"
-                               android:textColor="@color/colorBlue"
-                               android:fontFamily="serif"
-                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                               />
-
-
-
-                       </LinearLayout>
-
-                       <LinearLayout
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:layout_marginTop="15dp"
-                           android:orientation="horizontal"
-                           >
-                           <TextView
-                               android:layout_width="150dp"
-                               android:layout_height="wrap_content"
-                               android:text="Gender : "
-                               android:textStyle="bold"
-                               android:drawablePadding="5dp"
-                               android:drawableLeft="@mipmap/tab"
-                               android:textColor="@color/colorBlue"
-                               android:fontFamily="serif"
-                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                               />
 
+                        </LinearLayout>
 
-                           <TextView
-                               android:layout_width="wrap_content"
-                               android:layout_height="wrap_content"
-                               android:text="Male"
-                               android:layout_marginLeft="10dp"
-                               android:drawablePadding="5dp"
-                               android:textColor="@color/colorBlue"
-                               android:fontFamily="serif"
-                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                               />
-
-
-
-                       </LinearLayout>
-
-                       <LinearLayout
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:layout_marginTop="15dp"
-                           android:orientation="horizontal"
-                           >
-                           <TextView
-                               android:layout_width="150dp"
-                               android:layout_height="wrap_content"
-                               android:text="Location : "
-                               android:textStyle="bold"
-                               android:drawablePadding="5dp"
-                               android:drawableLeft="@mipmap/tab"
-                               android:textColor="@color/colorBlue"
-                               android:fontFamily="serif"
-                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                               />
-
-
-                           <TextView
-                               android:layout_width="wrap_content"
-                               android:layout_height="wrap_content"
-                               android:text="Karachi"
-                               android:layout_marginLeft="10dp"
-                               android:drawablePadding="5dp"
-                               android:textColor="@color/colorBlue"
-                               android:fontFamily="serif"
-                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                               />
-
-
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:orientation="horizontal"
+                            >
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:text="Discription : "
+                                android:textStyle="bold"
+                                android:drawablePadding="5dp"
+                                android:drawableLeft="@mipmap/tab"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
 
-                       </LinearLayout>
-
-                       <LinearLayout
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:layout_marginTop="15dp"
-                           android:orientation="horizontal"
-                           >
-                           <TextView
-                               android:layout_width="150dp"
-                               android:layout_height="wrap_content"
-                               android:text="Contact : "
-                               android:textStyle="bold"
-                               android:drawablePadding="5dp"
-                               android:drawableLeft="@mipmap/tab"
-                               android:textColor="@color/colorBlue"
-                               android:fontFamily="serif"
-                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                               />
-
-
-                           <TextView
-                               android:layout_width="wrap_content"
-                               android:layout_height="wrap_content"
-                               android:text="+92-343-2929045"
-                               android:layout_marginLeft="10dp"
-                               android:drawablePadding="5dp"
-                               android:textColor="@color/colorBlue"
-                               android:fontFamily="serif"
-                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                               />
-
-
-
-                       </LinearLayout>
-
-
-
-                   </LinearLayout>
-
-
-
-               </android.support.v7.widget.CardView>
-
-
-
-           </RelativeLayout>
-
-
-
-
-           <RelativeLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:paddingLeft="10dp"
-               android:id="@+id/RelativeGolden"
-               android:paddingRight="10dp"
-               >
-
-               <android.support.v7.widget.CardView
-                   xmlns:android="http://schemas.android.com/apk/res/android"
-                   xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:layout_margin="6dp"
-                   card_view:cardUseCompatPadding="true"
-                   card_view:cardElevation="4dp"
-                   card_view:cardCornerRadius="3dp">
-
-
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                       android:text="Golden Package"
-                       android:textStyle="bold"
-                       android:padding="5dp"
-                       android:fontFamily="serif"
-                       android:textColor="@color/colorBlue"
-
-                       />
-
-                   <ImageView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:src="@mipmap/arrow"
-                       android:layout_marginTop="15dp"
-                       android:layout_marginRight="15dp"
-                       android:layout_gravity="right"
-                       />
-
-
-               </android.support.v7.widget.CardView>
-
-
-
-
-           </RelativeLayout>
-
-           <RelativeLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:paddingLeft="10dp"
-               android:id="@+id/RelativeGoldenDetail"
-               android:visibility="visible"
-
-               android:layout_marginTop="-10dp"
-               android:paddingRight="10dp">
-
-
-               <android.support.v7.widget.CardView
-                   xmlns:android="http://schemas.android.com/apk/res/android"
-                   xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:layout_margin="6dp"
-                   card_view:cardUseCompatPadding="true"
-                   card_view:cardElevation="3dp"
-                   card_view:cardCornerRadius="3dp">
-
-
-                   <LinearLayout
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:padding="5dp"
-                       android:orientation="vertical">
-
-                       <LinearLayout
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:orientation="horizontal"
-                           android:layout_marginTop="5dp"
-                           >
-                           <TextView
-                               android:layout_width="150dp"
-                               android:layout_height="wrap_content"
-                               android:text="Price in $ : "
-                               android:textStyle="bold"
-                               android:drawablePadding="5dp"
-                               android:drawableLeft="@mipmap/tab"
-                               android:textColor="@color/colorBlue"
-                               android:fontFamily="serif"
-                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                               />
-
-
-                           <TextView
-                               android:layout_width="wrap_content"
-                               android:layout_height="wrap_content"
-                               android:text="200$"
-                               android:layout_marginLeft="10dp"
-                               android:drawablePadding="5dp"
-                               android:textColor="@color/colorBlue"
-                               android:fontFamily="serif"
-                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                               />
-
-
-
-                       </LinearLayout>
-
-                       <LinearLayout
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:layout_marginTop="15dp"
-                           android:orientation="horizontal"
-                           >
-                           <TextView
-                               android:layout_width="150dp"
-                               android:layout_height="wrap_content"
-                               android:text="Last Name : "
-                               android:textStyle="bold"
-                               android:drawablePadding="5dp"
-                               android:drawableLeft="@mipmap/tab"
-                               android:textColor="@color/colorBlue"
-                               android:fontFamily="serif"
-                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                               />
-
-
-                           <TextView
-                               android:layout_width="wrap_content"
-                               android:layout_height="wrap_content"
-                               android:text="Ali"
-                               android:layout_marginLeft="10dp"
-                               android:drawablePadding="5dp"
-                               android:textColor="@color/colorBlue"
-                               android:fontFamily="serif"
-                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                               />
-
-
-
-                       </LinearLayout>
-
-                       <LinearLayout
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:layout_marginTop="15dp"
-                           android:orientation="horizontal"
-                           >
-                           <TextView
-                               android:layout_width="150dp"
-                               android:layout_height="wrap_content"
-                               android:text="Gender : "
-                               android:textStyle="bold"
-                               android:drawablePadding="5dp"
-                               android:drawableLeft="@mipmap/tab"
-                               android:textColor="@color/colorBlue"
-                               android:fontFamily="serif"
-                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                               />
-
-
-                           <TextView
-                               android:layout_width="wrap_content"
-                               android:layout_height="wrap_content"
-                               android:text="Male"
-                               android:layout_marginLeft="10dp"
-                               android:drawablePadding="5dp"
-                               android:textColor="@color/colorBlue"
-                               android:fontFamily="serif"
-                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                               />
-
-
-
-                       </LinearLayout>
-
-                       <LinearLayout
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:layout_marginTop="15dp"
-                           android:orientation="horizontal"
-                           >
-                           <TextView
-                               android:layout_width="150dp"
-                               android:layout_height="wrap_content"
-                               android:text="Location : "
-                               android:textStyle="bold"
-                               android:drawablePadding="5dp"
-                               android:drawableLeft="@mipmap/tab"
-                               android:textColor="@color/colorBlue"
-                               android:fontFamily="serif"
-                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                               />
-
-
-                           <TextView
-                               android:layout_width="wrap_content"
-                               android:layout_height="wrap_content"
-                               android:text="Karachi"
-                               android:layout_marginLeft="10dp"
-                               android:drawablePadding="5dp"
-                               android:textColor="@color/colorBlue"
-                               android:fontFamily="serif"
-                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                               />
-
-
-
-                       </LinearLayout>
-
-                       <LinearLayout
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:layout_marginTop="15dp"
-                           android:orientation="horizontal"
-                           >
-                           <TextView
-                               android:layout_width="150dp"
-                               android:layout_height="wrap_content"
-                               android:text="Contact : "
-                               android:textStyle="bold"
-                               android:drawablePadding="5dp"
-                               android:drawableLeft="@mipmap/tab"
-                               android:textColor="@color/colorBlue"
-                               android:fontFamily="serif"
-                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                               />
-
-
-                           <TextView
-                               android:layout_width="wrap_content"
-                               android:layout_height="wrap_content"
-                               android:text="+92-343-2929045"
-                               android:layout_marginLeft="10dp"
-                               android:drawablePadding="5dp"
-                               android:textColor="@color/colorBlue"
-                               android:fontFamily="serif"
-                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                               />
-
-
-
-                       </LinearLayout>
-
-
-
-                   </LinearLayout>
-
-
-
-               </android.support.v7.widget.CardView>
-
-
-
-           </RelativeLayout>
-
-
-
-           <RelativeLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:paddingLeft="10dp"
-               android:id="@+id/RelativePlatinum"
-               android:paddingRight="10dp"
-               >
-
-               <android.support.v7.widget.CardView
-                   xmlns:android="http://schemas.android.com/apk/res/android"
-                   xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:layout_margin="6dp"
-                   card_view:cardUseCompatPadding="true"
-                   card_view:cardElevation="4dp"
-                   card_view:cardCornerRadius="3dp">
-
-
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                       android:text="Platinum Package"
-                       android:textStyle="bold"
-                       android:padding="5dp"
-                       android:fontFamily="serif"
-                       android:textColor="@color/colorBlue"
-
-                       />
-
-                   <ImageView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:src="@mipmap/arrow"
-                       android:layout_marginTop="15dp"
-                       android:layout_marginRight="15dp"
-                       android:layout_gravity="right"
-                       />
-
-
-               </android.support.v7.widget.CardView>
-
-
-
-
-           </RelativeLayout>
-
-
-           <RelativeLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:paddingLeft="10dp"
-               android:id="@+id/RelativePlatinumDetail"
-               android:visibility="visible"
-
-               android:layout_marginTop="-10dp"
-               android:paddingRight="10dp">
-
-
-               <android.support.v7.widget.CardView
-                   xmlns:android="http://schemas.android.com/apk/res/android"
-                   xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:layout_margin="6dp"
-                   card_view:cardUseCompatPadding="true"
-                   card_view:cardElevation="3dp"
-                   card_view:cardCornerRadius="3dp">
-
-
-                   <LinearLayout
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:padding="5dp"
-                       android:orientation="vertical">
-
-                       <LinearLayout
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:orientation="horizontal"
-                           android:layout_marginTop="5dp"
-                           >
-                           <TextView
-                               android:layout_width="150dp"
-                               android:layout_height="wrap_content"
-                               android:text="Price in $ : "
-                               android:textStyle="bold"
-                               android:drawablePadding="5dp"
-                               android:drawableLeft="@mipmap/tab"
-                               android:textColor="@color/colorBlue"
-                               android:fontFamily="serif"
-                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                               />
-
-
-                           <TextView
-                               android:layout_width="wrap_content"
-                               android:layout_height="wrap_content"
-                               android:text="200$"
-                               android:layout_marginLeft="10dp"
-                               android:drawablePadding="5dp"
-                               android:textColor="@color/colorBlue"
-                               android:fontFamily="serif"
-                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                               />
-
-
-
-                       </LinearLayout>
-
-                       <LinearLayout
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:layout_marginTop="15dp"
-                           android:orientation="horizontal"
-                           >
-                           <TextView
-                               android:layout_width="150dp"
-                               android:layout_height="wrap_content"
-                               android:text="Last Name : "
-                               android:textStyle="bold"
-                               android:drawablePadding="5dp"
-                               android:drawableLeft="@mipmap/tab"
-                               android:textColor="@color/colorBlue"
-                               android:fontFamily="serif"
-                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                               />
-
-
-                           <TextView
-                               android:layout_width="wrap_content"
-                               android:layout_height="wrap_content"
-                               android:text="Ali"
-                               android:layout_marginLeft="10dp"
-                               android:drawablePadding="5dp"
-                               android:textColor="@color/colorBlue"
-                               android:fontFamily="serif"
-                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                               />
-
-
-
-                       </LinearLayout>
-
-                       <LinearLayout
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:layout_marginTop="15dp"
-                           android:orientation="horizontal"
-                           >
-                           <TextView
-                               android:layout_width="150dp"
-                               android:layout_height="wrap_content"
-                               android:text="Gender : "
-                               android:textStyle="bold"
-                               android:drawablePadding="5dp"
-                               android:drawableLeft="@mipmap/tab"
-                               android:textColor="@color/colorBlue"
-                               android:fontFamily="serif"
-                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                               />
-
-
-                           <TextView
-                               android:layout_width="wrap_content"
-                               android:layout_height="wrap_content"
-                               android:text="Male"
-                               android:layout_marginLeft="10dp"
-                               android:drawablePadding="5dp"
-                               android:textColor="@color/colorBlue"
-                               android:fontFamily="serif"
-                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                               />
-
-
-
-                       </LinearLayout>
-
-                       <LinearLayout
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:layout_marginTop="15dp"
-                           android:orientation="horizontal"
-                           >
-                           <TextView
-                               android:layout_width="150dp"
-                               android:layout_height="wrap_content"
-                               android:text="Location : "
-                               android:textStyle="bold"
-                               android:drawablePadding="5dp"
-                               android:drawableLeft="@mipmap/tab"
-                               android:textColor="@color/colorBlue"
-                               android:fontFamily="serif"
-                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                               />
-
-
-                           <TextView
-                               android:layout_width="wrap_content"
-                               android:layout_height="wrap_content"
-                               android:text="Karachi"
-                               android:layout_marginLeft="10dp"
-                               android:drawablePadding="5dp"
-                               android:textColor="@color/colorBlue"
-                               android:fontFamily="serif"
-                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                               />
-
-
-
-                       </LinearLayout>
-
-                       <LinearLayout
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:layout_marginTop="15dp"
-                           android:orientation="horizontal"
-                           >
-                           <TextView
-                               android:layout_width="150dp"
-                               android:layout_height="wrap_content"
-                               android:text="Contact : "
-                               android:textStyle="bold"
-                               android:drawablePadding="5dp"
-                               android:drawableLeft="@mipmap/tab"
-                               android:textColor="@color/colorBlue"
-                               android:fontFamily="serif"
-                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                               />
-
-
-                           <TextView
-                               android:layout_width="wrap_content"
-                               android:layout_height="wrap_content"
-                               android:text="+92-343-2929045"
-                               android:layout_marginLeft="10dp"
-                               android:drawablePadding="5dp"
-                               android:textColor="@color/colorBlue"
-                               android:fontFamily="serif"
-                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                               />
-
-
-
-                       </LinearLayout>
-
-
-
-                   </LinearLayout>
-
-
-
-               </android.support.v7.widget.CardView>
-
-
-
-           </RelativeLayout>
-
-
-
-
-       </LinearLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Basic purpose of this use case is to get authorized credentials of the users (photographer, client) to use all the available features of the application according to their privileges."
+                                android:layout_marginLeft="10dp"
+                                android:drawablePadding="5dp"
+                                android:id="@+id/PkgTdes1"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+
+                        </LinearLayout>
+
+
+
+
+
+                    </LinearLayout>
+
+
+
+                </android.support.v7.widget.CardView>
+
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:id="@+id/RelativeSilver"
+                android:paddingRight="10dp"
+                >
+
+                <android.support.v7.widget.CardView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="6dp"
+                    card_view:cardUseCompatPadding="true"
+                    card_view:cardElevation="4dp"
+                    card_view:cardCornerRadius="3dp">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                        android:text="Silver Package"
+                        android:textStyle="bold"
+                        android:id="@+id/PkgTname2"
+                        android:padding="5dp"
+                        android:fontFamily="serif"
+                        android:textColor="@color/colorBlue"
+
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/arrow"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_gravity="right"
+                        />
+
+
+                </android.support.v7.widget.CardView>
+
+
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:id="@+id/RelativeSilverDetail"
+                android:visibility="gone"
+
+                android:layout_marginTop="-10dp"
+                android:paddingRight="10dp">
+
+
+                <android.support.v7.widget.CardView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="6dp"
+                    card_view:cardUseCompatPadding="true"
+                    card_view:cardElevation="3dp"
+                    card_view:cardCornerRadius="3dp">
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="5dp"
+                            >
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:text="Price in $ : "
+                                android:textStyle="bold"
+
+                                android:drawablePadding="5dp"
+                                android:drawableLeft="@mipmap/tab"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="200$"
+                                android:id="@+id/PkgTprice2"
+                                android:layout_marginLeft="10dp"
+                                android:drawablePadding="5dp"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:orientation="horizontal"
+                            >
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:text="Discription : "
+                                android:textStyle="bold"
+                                android:drawablePadding="5dp"
+                                android:drawableLeft="@mipmap/tab"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Basic purpose of this use case is to get authorized credentials of the users (photographer, client) to use all the available features of the application according to their privileges."
+                                android:layout_marginLeft="10dp"
+                                android:drawablePadding="5dp"
+                                android:id="@+id/PkgTdes2"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+
+                        </LinearLayout>
+
+
+
+
+
+                    </LinearLayout>
+
+
+
+                </android.support.v7.widget.CardView>
+
+
+
+            </RelativeLayout>
+
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:id="@+id/RelativeGolden"
+                android:paddingRight="10dp"
+                >
+
+                <android.support.v7.widget.CardView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="6dp"
+                    card_view:cardUseCompatPadding="true"
+                    card_view:cardElevation="4dp"
+                    card_view:cardCornerRadius="3dp">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                        android:text="Golden Package"
+                        android:textStyle="bold"
+                        android:padding="5dp"
+                        android:id="@+id/PkgTname3"
+                        android:fontFamily="serif"
+                        android:textColor="@color/colorBlue"
+
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/arrow"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_gravity="right"
+                        />
+
+
+                </android.support.v7.widget.CardView>
+
+
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:id="@+id/RelativeGoldenDetail"
+                android:visibility="gone"
+
+                android:layout_marginTop="-10dp"
+                android:paddingRight="10dp">
+
+
+                <android.support.v7.widget.CardView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="6dp"
+                    card_view:cardUseCompatPadding="true"
+                    card_view:cardElevation="3dp"
+                    card_view:cardCornerRadius="3dp">
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="5dp"
+                            >
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:text="Price in $ : "
+                                android:textStyle="bold"
+                                android:drawablePadding="5dp"
+                                android:drawableLeft="@mipmap/tab"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="200$"
+                                android:id="@+id/PkgTprice3"
+                                android:layout_marginLeft="10dp"
+                                android:drawablePadding="5dp"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:orientation="horizontal"
+                            >
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:text="Discription : "
+                                android:textStyle="bold"
+                                android:drawablePadding="5dp"
+                                android:drawableLeft="@mipmap/tab"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Basic purpose of this use case is to get authorized credentials of the users (photographer, client) to use all the available features of the application according to their privileges."
+                                android:layout_marginLeft="10dp"
+                                android:drawablePadding="5dp"
+                                android:id="@+id/PkgTdes3"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+
+                        </LinearLayout>
+
+
+
+
+
+                    </LinearLayout>
+
+
+
+                </android.support.v7.widget.CardView>
+
+
+
+            </RelativeLayout>
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:id="@+id/RelativePlatinum"
+                android:paddingRight="10dp"
+                >
+
+                <android.support.v7.widget.CardView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="6dp"
+                    card_view:cardUseCompatPadding="true"
+                    card_view:cardElevation="4dp"
+                    card_view:cardCornerRadius="3dp">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                        android:text="Platinum Package"
+                        android:textStyle="bold"
+                        android:id="@+id/PkgTname4"
+                        android:padding="5dp"
+                        android:fontFamily="serif"
+                        android:textColor="@color/colorBlue"
+
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/arrow"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_gravity="right"
+                        />
+
+
+                </android.support.v7.widget.CardView>
+
+
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:id="@+id/RelativePlatinumDetail"
+                android:visibility="gone"
+
+                android:layout_marginTop="-10dp"
+                android:paddingRight="10dp">
+
+
+                <android.support.v7.widget.CardView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="6dp"
+                    card_view:cardUseCompatPadding="true"
+                    card_view:cardElevation="3dp"
+                    card_view:cardCornerRadius="3dp">
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="5dp"
+                            >
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:text="Price in $ : "
+                                android:textStyle="bold"
+                                android:drawablePadding="5dp"
+                                android:drawableLeft="@mipmap/tab"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="200$"
+                                android:id="@+id/PkgTprice4"
+                                android:layout_marginLeft="10dp"
+                                android:drawablePadding="5dp"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:orientation="horizontal"
+                            >
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:text="Discription : "
+                                android:textStyle="bold"
+                                android:drawablePadding="5dp"
+                                android:drawableLeft="@mipmap/tab"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Basic purpose of this use case is to get authorized credentials of the users (photographer, client) to use all the available features of the application according to their privileges."
+                                android:layout_marginLeft="10dp"
+                                android:drawablePadding="5dp"
+                                android:id="@+id/PkgTdes4"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+
+                        </LinearLayout>
+
+
+
+
+
+                    </LinearLayout>
+
+
+
+                </android.support.v7.widget.CardView>
+
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:id="@+id/RelativeDiamond"
+                android:paddingRight="10dp"
+                >
+
+                <android.support.v7.widget.CardView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="6dp"
+                    card_view:cardUseCompatPadding="true"
+                    card_view:cardElevation="4dp"
+                    card_view:cardCornerRadius="3dp">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                        android:text="Diamond Package"
+                        android:textStyle="bold"
+                        android:padding="5dp"
+                        android:id="@+id/PkgTname5"
+                        android:fontFamily="serif"
+                        android:textColor="@color/colorBlue"
+
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/arrow"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_gravity="right"
+                        />
+
+
+                </android.support.v7.widget.CardView>
+
+
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:id="@+id/RelativeDiamondDetail"
+                android:visibility="gone"
+
+                android:layout_marginTop="-10dp"
+                android:paddingRight="10dp">
+
+
+                <android.support.v7.widget.CardView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="6dp"
+                    card_view:cardUseCompatPadding="true"
+                    card_view:cardElevation="3dp"
+                    card_view:cardCornerRadius="3dp">
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="5dp"
+                            >
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:text="Price in $ : "
+                                android:textStyle="bold"
+                                android:drawablePadding="5dp"
+                                android:drawableLeft="@mipmap/tab"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="200$"
+                                android:id="@+id/PkgTprice5"
+                                android:layout_marginLeft="10dp"
+                                android:drawablePadding="5dp"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:orientation="horizontal"
+                            >
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:text="Discription : "
+                                android:textStyle="bold"
+                                android:drawablePadding="5dp"
+                                android:drawableLeft="@mipmap/tab"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Basic purpose of this use case is to get authorized credentials of the users (photographer, client) to use all the available features of the application according to their privileges."
+                                android:layout_marginLeft="10dp"
+                                android:drawablePadding="5dp"
+                                android:id="@+id/PkgTdes5"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+
+                        </LinearLayout>
+
+
+
+
+
+                    </LinearLayout>
+
+
+
+                </android.support.v7.widget.CardView>
+
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:id="@+id/RelativeGallery"
+                android:paddingRight="10dp"
+                >
+
+                <android.support.v7.widget.CardView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="6dp"
+                    card_view:cardUseCompatPadding="true"
+                    card_view:cardElevation="4dp"
+                    card_view:cardCornerRadius="3dp">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                        android:text="Work Gallery"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"
+                        android:padding="5dp"
+                        android:fontFamily="serif"
+                        android:textColor="@color/colorBlue"
+
+                        />
+
+
+                </android.support.v7.widget.CardView>
+
+
+
+
+            </RelativeLayout>
+
+
+
+
+        </LinearLayout>
+
+
+
 
 
 
@@ -1216,5 +1294,8 @@
         </RelativeLayout>
 
 
+
     </RelativeLayout>
+
+
 </ScrollView>

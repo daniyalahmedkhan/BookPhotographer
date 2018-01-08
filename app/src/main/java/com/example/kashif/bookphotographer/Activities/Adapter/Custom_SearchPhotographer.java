@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.kashif.bookphotographer.Activities.Photographer_Profile;
 import com.example.kashif.bookphotographer.R;
 
@@ -22,10 +23,11 @@ public class Custom_SearchPhotographer extends BaseAdapter {
     public Context mContext;
     public final String[] gridViewString;
     public final String[] gridViewString2;
-    public final int[] gridViewImageId;
+    public final String[] gridViewImageId;
+    public final String[] id;
 
 
-    public Custom_SearchPhotographer(Context context , String[] gridViewString , String[] gridViewString2 , int[] gridViewImageId){
+    public Custom_SearchPhotographer(Context context , String[] gridViewString , String[] gridViewString2 , String[] gridViewImageId , String[] id){
 
 
 
@@ -33,7 +35,7 @@ public class Custom_SearchPhotographer extends BaseAdapter {
         this.gridViewImageId = gridViewImageId;
         this.gridViewString = gridViewString;
         this.gridViewString2 = gridViewString2;
-
+        this.id = id;
     }
 
     @Override
@@ -75,7 +77,8 @@ public class Custom_SearchPhotographer extends BaseAdapter {
             obj.imageView1 = (ImageView) view.findViewById(R.id.Img1);
             obj.textView1.setText(gridViewString[i]);
             obj.textView2.setText(gridViewString2[i]);
-            obj.imageView1.setImageResource(gridViewImageId[i]);
+           // obj.imageView1.setImageResource(gridViewImageId[i]);
+            Glide.with(mContext).load(gridViewImageId[i]).into(obj.imageView1);
 
             view.setTag(obj);
 
@@ -85,23 +88,15 @@ public class Custom_SearchPhotographer extends BaseAdapter {
         }
 
 
-//        gridView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//
-//                String name = gridViewString[i];
-//                mContext.startActivity(new Intent(mContext , Photographer_Profile.class));
-//                Toast.makeText(mContext , " " + name , Toast.LENGTH_SHORT).show();
-//
-//            }
-//        });
+
 
         return view;
 
 
 
     }
+
+
 
    public  static  class  ViewHodler{
 

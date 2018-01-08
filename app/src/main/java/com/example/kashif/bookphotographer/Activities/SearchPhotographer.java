@@ -12,29 +12,29 @@ import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.kashif.bookphotographer.Activities.Adapter.Custom_SearchPhotographer;
 import com.example.kashif.bookphotographer.R;
 
 public class SearchPhotographer extends AppCompatActivity {
 
+//    String img =  HomeActivity.imgrl;
+
+
+//{String.valueOf(HomeActivity.name)} ;
     GridView androidGridView;
 
-    String[] gridViewString = {
-            "Daniyal ak", "M.Ahsan", "J.Jaffery", "Qamber", "Sadat Ali", "M.Farhan"
+   public static String CurrntID;
 
-    } ;
+  public static   String[] gridViewString = HomeActivity.name.toArray(new String[HomeActivity.name.size()]);
 
-    String[] gridViewString2 = {
-            "Karchi", "Lahore", "Multan", "Islamabad", "Quetta", "Murre"
-
-    } ;
+  public static   String[] gridViewString2 =  HomeActivity.loc.toArray(new String[HomeActivity.loc.size()]);
 
 
 
-    int[] gridViewImageId = {
-            R.mipmap.contactlist_img_one , R.mipmap.contactlist_img_two , R.mipmap.contactlist_img_three , R.mipmap.contactlist_img_four , R.mipmap.contactlist_img_one , R.mipmap.contactlist_img_two
-    };
+  public static   String[] gridViewImageId = HomeActivity.imgrl.toArray(new String[HomeActivity.imgrl.size()]);
 
+  public  static  String[] id = HomeActivity.id.toArray(new String[HomeActivity.id.size()]);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,24 +51,29 @@ public class SearchPhotographer extends AppCompatActivity {
         setContentView(R.layout.activity_search_photographer);
 
 
-        final Custom_SearchPhotographer adapterViewAndroid = new Custom_SearchPhotographer(SearchPhotographer.this, gridViewString, gridViewString2, gridViewImageId);
+        final Custom_SearchPhotographer adapterViewAndroid = new Custom_SearchPhotographer(SearchPhotographer.this, gridViewString, gridViewString2, gridViewImageId , id);
         androidGridView=(GridView)findViewById(R.id.grid_view_image_text);
         androidGridView.setAdapter(adapterViewAndroid);
 
 
-       androidGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+
+
+        androidGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
            @Override
            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
 
                  TextView name =  view.findViewById(R.id.Txt1);
                 String name2 = name.getText().toString();
+               // String id =
 
-
+               CurrntID = null;
+               CurrntID = id[i];
                 Intent intent = new Intent(SearchPhotographer.this , Photographer_Profile.class);
                 startActivity(intent);
 
-               Toast.makeText(SearchPhotographer.this, "" + name2, Toast.LENGTH_SHORT).show();
+               //Toast.makeText(SearchPhotographer.this, "" + name2 + "" + id[i], Toast.LENGTH_SHORT).show();
            }
        });
 
