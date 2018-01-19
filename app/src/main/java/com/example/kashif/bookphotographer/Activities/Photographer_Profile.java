@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.kashif.bookphotographer.Activities.ModelClass.PkgClass;
+import com.example.kashif.bookphotographer.Activities.ModelClass.SampleImag;
 import com.example.kashif.bookphotographer.Activities.ModelClass.UserModel;
 import com.example.kashif.bookphotographer.Activities.PhotographerFlow.MyProfile;
 import com.example.kashif.bookphotographer.R;
@@ -22,11 +23,18 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class Photographer_Profile extends AppCompatActivity {
 
     TextView FirstName , LastName , Gender , Location , HeadName;
     String Fname , Lname , Gend , Loc , url;
     ProgressDialog progressDialog;
+    ImageView image1 , image2;
+    String imgUrl1 , imgUrl2;
+    Button BtnRes;
+
+    public  static ArrayList<String> arrayList;
 
     TextView PkgTname , PkgTprice , PkgTdays , PkgTdescription;
     TextView PkgTname2 , PkgTprice2 , PkgTdays2 , PkgTdescription2;
@@ -49,6 +57,11 @@ public class Photographer_Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photographer__profile);
 
+        arrayList = new ArrayList<String>();
+
+        image1 = (ImageView) findViewById(R.id.Image1);
+        image2 = (ImageView) findViewById(R.id.Image2);
+        BtnRes = (Button) findViewById(R.id.BtnRes);
 
 
         databaseReference = FirebaseDatabase.getInstance().getReference("allusers");
@@ -194,13 +207,24 @@ public class Photographer_Profile extends AppCompatActivity {
             }
         });
 
+
+        BtnRes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(Photographer_Profile.this , BookingActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
         getData();
         getPkg1();
         getPkg2();
         getPkg3();
         getPkg4();
         getPkg5();
-
+        getImages();
 
 
     }
@@ -284,7 +308,7 @@ public class Photographer_Profile extends AppCompatActivity {
                     PkgTname.setText(PkgName);
                     PkgTprice.setText(PkgPrice);
                     PkgTdescription.setText(PkgDescription);
-
+                    arrayList.add(PkgName);
 
 
 
@@ -332,7 +356,7 @@ public class Photographer_Profile extends AppCompatActivity {
                     PkgTname2.setText(PkgName);
                     PkgTprice2.setText(PkgPrice);
                     PkgTdescription2.setText(PkgDescription);
-
+                    arrayList.add(PkgName);
 
 
 
@@ -380,7 +404,7 @@ public class Photographer_Profile extends AppCompatActivity {
                     PkgTname3.setText(PkgName);
                     PkgTprice3.setText(PkgPrice);
                     PkgTdescription3.setText(PkgDescription);
-
+                   arrayList.add(PkgName);
 
 
 
@@ -428,7 +452,7 @@ public class Photographer_Profile extends AppCompatActivity {
                     PkgTname4.setText(PkgName);
                     PkgTprice4.setText(PkgPrice);
                     PkgTdescription4.setText(PkgDescription);
-
+                    arrayList.add(PkgName);
 
 
 
@@ -476,7 +500,7 @@ public class Photographer_Profile extends AppCompatActivity {
                     PkgTname3.setText(PkgName);
                     PkgTprice3.setText(PkgPrice);
                     PkgTdescription3.setText(PkgDescription);
-
+                    arrayList.add(PkgName);
 
 
 
@@ -500,6 +524,46 @@ public class Photographer_Profile extends AppCompatActivity {
 
 
     }
+
+    public  void getImages(){
+
+
+        databaseReference.child("sampleImages").child(SearchPhotographer.CurrntID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+        if (dataSnapshot.exists()){
+
+
+                    SampleImag sampleImag = dataSnapshot.getValue(SampleImag.class);
+
+                     imgUrl1 = sampleImag.getImage1();
+                     imgUrl2 = sampleImag.getImage2();
+
+
+
+
+            Glide.with(getApplicationContext()).load(imgUrl1).into(image1);
+            Glide.with(getApplicationContext()).load(imgUrl2).into(image2);
+
+        }else {
+
+            Toast.makeText(Photographer_Profile.this, "Not Found Images", Toast.LENGTH_SHORT).show();
+        }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+    }
+
 
 
 }

@@ -33,7 +33,7 @@
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
                    android:background="@color/colorWhite"
-                   android:text="Enter Dates comma seprated"
+                   android:hint="Enter Dates comma seprated"
                    android:padding="20dp"
                    android:id="@+id/Ocassions"
                    android:textColor="@color/colorBlue"
@@ -57,7 +57,7 @@
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
                    android:background="@color/colorWhite"
-                   android:text="Enter Location"
+                   android:hint="Enter Location"
                    android:padding="20dp"
                    android:id="@+id/Venue"
                    android:textColor="@color/colorBlue"
@@ -78,11 +78,11 @@
                android:layout_gravity="center">
 
 
-               <EditText
+               <Spinner
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
                    android:background="@color/colorWhite"
-                   android:text="Select a Package"
+                   android:prompt="@string/spinner_title"
                    android:padding="20dp"
                    android:id="@+id/EditPck"
                    android:textColor="@color/colorBlue"
@@ -106,7 +106,7 @@
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
                    android:background="@color/colorWhite"
-                   android:text="Type any Message to Photographer"
+                   android:hint="Type any Message to Photographer"
                    android:padding="20dp"
                    android:id="@+id/Msg"
                    android:textColor="@color/colorBlue"
