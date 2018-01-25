@@ -12,19 +12,23 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.kashif.bookphotographer.Activities.Adapter.ListofAddEvents;
 import com.example.kashif.bookphotographer.Activities.ModelClass.BookReservation;
 import com.example.kashif.bookphotographer.Activities.ModelClass.PkgClass;
 import com.example.kashif.bookphotographer.R;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,6 +36,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.timessquare.CalendarPickerView;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -47,10 +52,15 @@ public class BookingActivity extends AppCompatActivity {
     AlertDialog.Builder builder;
     public  static List<Date> dates;
     public String id, Pkg, occ , ven , msg;
-    Button BtnSubmit;
+    Button BtnSubmit , BtnAdd;
     DatabaseReference firebaseDatabase;
+    FirebaseAuth firebaseAuth;
 
-    String UserID , PhotographerID;
+
+    ListView ListofEvents;
+
+    ArrayList<String> arrOC, arrVEN , arrPKG , arrMSG;
+    String UserID , PhotographerID , UserEmail, PhotographerName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +74,22 @@ public class BookingActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_booking);
 
+
+
+
+        arrOC = new ArrayList<String>();
+        arrVEN = new ArrayList<String>();
+        arrPKG = new ArrayList<String>();
+        arrMSG = new ArrayList<String>();
+
+        final ListofAddEvents listofAddEvents = new ListofAddEvents(BookingActivity.this, arrOC , arrVEN , arrPKG, arrMSG);
+
+
+
+
+
+        firebaseAuth = FirebaseAuth.getInstance();
+
         firebaseDatabase = FirebaseDatabase.getInstance().getReference("allusers");
 
 
@@ -74,9 +100,51 @@ public class BookingActivity extends AppCompatActivity {
         Venue = (EditText) findViewById(R.id.Venue);
         Msg = (EditText) findViewById(R.id.Msg);
         BtnSubmit = (Button) findViewById(R.id.BtnSubmit);
+        BtnAdd = (Button) findViewById(R.id.BtnAdd);
+
+        ListofEvents = (ListView) findViewById(R.id.ListofEvents);
+
 
         ArrayAdapter<String> adp = new ArrayAdapter<String> (this,android.R.layout.simple_spinner_dropdown_item,Photographer_Profile.arrayList);
         EditPck.setAdapter(adp);
+
+
+
+        BtnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                if(!(Ocassions.getText().toString().isEmpty() && Venue.getText().toString().isEmpty()
+
+                        && Msg.getText().toString().isEmpty())){
+
+
+                   arrOC.add(Ocassions.getText().toString().trim());
+                   arrVEN.add(Venue.getText().toString().trim());
+                   arrMSG.add(Msg.getText().toString().trim());
+                   arrPKG.add(Pkg);
+
+                    listofAddEvents.notifyDataSetChanged();
+                    ListofEvents.setAdapter(listofAddEvents);
+
+                    Ocassions.setText("");
+                    Venue.setText("");
+                    Msg.setText("");
+
+
+                }else {
+
+                    Toast.makeText(BookingActivity.this , "Can't Leave as Empty " , Toast.LENGTH_SHORT).show();
+
+
+                }
+
+            }
+        });
+
+
+
 
 
         BtnSubmit.setOnClickListener(new View.OnClickListener() {
@@ -84,6 +152,8 @@ public class BookingActivity extends AppCompatActivity {
             public void onClick(View view) {
 
             BookRes();
+
+
 
             }
         });
@@ -106,6 +176,7 @@ public class BookingActivity extends AppCompatActivity {
 
     }
 
+
     public  void BookRes(){
 
 
@@ -120,6 +191,8 @@ public class BookingActivity extends AppCompatActivity {
             id  = firebaseDatabase.push().getKey();
             UserID  = LoginActivity.uid;
             PhotographerID = SearchPhotographer.CurrntID;
+            UserEmail = LoginActivity.email;
+            PhotographerName = Photographer_Profile.Fname;
 
 
 
@@ -140,9 +213,9 @@ public class BookingActivity extends AppCompatActivity {
     public void ForUser(){
 
 
-        BookReservation bookReservation = new BookReservation(id , occ , ven , msg , Pkg , UserID , PhotographerID);
+        BookReservation bookReservation = new BookReservation(id , occ , ven , msg , Pkg , UserID , PhotographerID , UserEmail , PhotographerName);
 
-        firebaseDatabase.child("bookres").child("foruser").child(LoginActivity.uid).child(id).setValue(bookReservation, new DatabaseReference.CompletionListener() {
+        firebaseDatabase.child("bookres").child("foruser").child(firebaseAuth.getCurrentUser().getUid()).child(id).setValue(bookReservation, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
 
@@ -168,7 +241,7 @@ public class BookingActivity extends AppCompatActivity {
 
 
     public  void  ForPhotographer(){
-        BookReservation bookReservation = new BookReservation(id , occ , ven , msg , Pkg , UserID , PhotographerID);
+        BookReservation bookReservation = new BookReservation(id , occ , ven , msg , Pkg , UserID , PhotographerID , UserEmail , PhotographerName);
 
         firebaseDatabase.child("bookres").child("forphotographer").child(SearchPhotographer.CurrntID).child(id).setValue(bookReservation, new DatabaseReference.CompletionListener() {
             @Override

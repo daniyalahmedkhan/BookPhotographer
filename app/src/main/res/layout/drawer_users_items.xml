@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:id="@+id/home_sidemenu_icon"
-            android:src="@mipmap/sidemenu_icon"
+            android:src="@mipmap/camera"
             />
         <TextView
             android:layout_width="wrap_content"

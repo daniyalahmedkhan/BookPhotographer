@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.kashif.bookphotographer">
 
-
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -54,10 +53,15 @@
             android:name=".Activities.PhotographerFlow.SampleImages"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-        <activity android:name=".Activities.PhotographerFlow.MyProfile"
+        <activity
+            android:name=".Activities.PhotographerFlow.MyProfile"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
-            ></activity>
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name=".Activities.UserBookingManage"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity android:name=".Activities.PhotographerFlow.photographerBookingManage"></activity>
     </application>
 
 </manifest>

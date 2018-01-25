@@ -1,31 +1,55 @@
 package com.example.kashif.bookphotographer.Activities.PhotographerFlow;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.kashif.bookphotographer.Activities.Adapter.CustomDrawerUser;
+import com.example.kashif.bookphotographer.Activities.HomeActivity;
 import com.example.kashif.bookphotographer.Activities.LoginActivity;
+import com.example.kashif.bookphotographer.Activities.ModelClass.BookReservation;
 import com.example.kashif.bookphotographer.Activities.ModelClass.PkgClass;
 import com.example.kashif.bookphotographer.Activities.ModelClass.UserModel;
+import com.example.kashif.bookphotographer.Activities.UserBookingManage;
 import com.example.kashif.bookphotographer.R;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class MyProfile extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class MyProfile extends AppCompatActivity implements  View.OnClickListener{
 
     TextView FirstName , LastName , Gender , Location , HeadName;
     String Fname , Lname , Gend , Loc , url;
     ProgressDialog progressDialog;
+    DrawerLayout mDrawerLayout;
+    ListView mDrawerList;
+    ImageView ImageDrawer;
+    String names[];
+
+        int couter = 1;
+
+    FirebaseAuth firebaseAuth;
+
+    TextView Emp_Name;
+    ImageView proImg;
 
     TextView PkgTname , PkgTprice , PkgTdays , PkgTdescription;
     TextView PkgTname2 , PkgTprice2 , PkgTdays2 , PkgTdescription2;
@@ -42,10 +66,29 @@ public class MyProfile extends AppCompatActivity {
     RelativeLayout RelativeBronze, RelativeSilver, RelativeGold, RelativePlatinum, RelativeDiamond;
     RelativeLayout RBronzeDetail, RSilverDetail, RGoldDetail, RPlatinumDetail, RDiamondDetail;
 
+    public static ArrayList<String> Order , Photographer , EventDate, EventVenue, Pckg , id;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_profile);
+
+
+
+        ImageDrawer = (ImageView) findViewById(R.id.ImageDrawer);
+
+
+        Order = new ArrayList<String>();
+        Photographer = new ArrayList<String>();
+        EventDate = new ArrayList<String>();
+        EventVenue = new ArrayList<String>();
+        Pckg = new ArrayList<String>();
+        id = new ArrayList<String>();
+
+
+
+        firebaseAuth = FirebaseAuth.getInstance();
 
         databaseReference = FirebaseDatabase.getInstance().getReference("allusers");
         progressDialog = new ProgressDialog(this);
@@ -94,6 +137,59 @@ public class MyProfile extends AppCompatActivity {
         RGoldDetail = (RelativeLayout) findViewById(R.id.RelativeGoldenDetail);
         RPlatinumDetail = (RelativeLayout) findViewById(R.id.RelativePlatinumDetail);
         RDiamondDetail = (RelativeLayout) findViewById(R.id.RelativeDiamondDetail);
+
+
+
+        //// Side Drawer///
+
+
+        names = new String[]{"My Request" , "Logout"};
+        int img[] = {R.mipmap.camera , R.mipmap.logout_sidemenu_icon};
+        //mPlanetTitles = getResources().getStringArray(R.array.planets_array);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerList = (ListView) findViewById(R.id.Left_Drawer);
+
+        mDrawerList.setFitsSystemWindows(true);
+
+        mDrawerList.setAdapter(new CustomDrawerUser(this, img, names));
+        ViewGroup header = (ViewGroup) getLayoutInflater().inflate(R.layout.drawer_header, mDrawerList, false);
+
+
+        Emp_Name = (TextView) header.findViewById(R.id.Emp_Name);
+        proImg = (ImageView) header.findViewById(R.id.proImg);
+
+
+        mDrawerList.addHeaderView(header, null, false);
+
+        ImageDrawer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(mDrawerLayout.isDrawerOpen(Gravity.LEFT))
+                {
+                    mDrawerLayout.closeDrawer(mDrawerList);
+                    // getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+                    // getSupportActionBar().setCustomView(R.layout.menu_title);
+                    // getSupportActionBar().show();
+
+
+                }
+                else {
+                    mDrawerLayout.openDrawer(Gravity.LEFT);
+                    //getSupportActionBar().hide();
+                    // requestWindowFeature(Window.FEATURE_NO_TITLE);
+                }
+
+            }
+        });
+
+        mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
+
+
+        //////// Side Drawer End //////
+
+
+
 
 
 
@@ -191,6 +287,7 @@ public class MyProfile extends AppCompatActivity {
         });
 
 
+        getReqData();
         getData();
         getPkg1();
         getPkg2();
@@ -224,11 +321,14 @@ public class MyProfile extends AppCompatActivity {
 
                         String FirstLast = Fname + " " + Lname;
                         HeadName.setText(FirstLast);
+                        Emp_Name.setText(FirstLast);
                         FirstName.setText(Fname);
                         LastName.setText(Lname);
                         Gender.setText(Gend);
                         Location.setText(Loc);
                         Glide.with(getApplicationContext()).load(url).into(HeadImage);
+                        Glide.with(getApplicationContext()).load(url).into(proImg);
+
 
 
 
@@ -496,5 +596,106 @@ public class MyProfile extends AppCompatActivity {
 
     }
 
+
+    @Override
+    public void onClick(View view) {
+
+    }
+
+    private class DrawerItemClickListener implements ListView.OnItemClickListener {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            selectItem(position);
+        }
+    }
+
+    public  void  selectItem(int pos){
+
+        Intent i;
+
+        switch (pos){
+
+            case 1:
+
+                i = new Intent(MyProfile.this, photographerBookingManage.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+                startActivity(i);
+                break;
+
+
+            case 2:
+
+                FirebaseAuth.getInstance().signOut();
+                i = new Intent(MyProfile.this, LoginActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+                break;
+
+
+
+            default:
+                break;
+
+        }
+
+
+    }
+    public void getReqData(){
+
+        databaseReference.child("bookres").child("forphotographer").child(firebaseAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if (dataSnapshot.exists()){
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+
+                        BookReservation bookReservation = snapshot.getValue(BookReservation.class);
+
+                        Order.add(String.valueOf(couter));
+
+
+                        id.add(bookReservation.getId());
+                        Photographer.add(bookReservation.getPhotographername());
+                        EventDate.add(bookReservation.getOcc());
+                        EventVenue.add(bookReservation.getVen());
+                        Pckg.add(bookReservation.getPkg());
+                        couter++;
+
+
+
+
+
+                    }
+
+
+
+//
+
+
+
+
+
+
+                }else {
+
+
+                    Toast.makeText(MyProfile.this , "NO REQUEST FOUND" , Toast.LENGTH_SHORT).show();
+
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+    }
 
 }

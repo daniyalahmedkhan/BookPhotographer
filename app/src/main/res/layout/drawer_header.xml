@@ -23,14 +23,24 @@
             android:layout_marginRight="20dp"
             >
 
-            <ImageView
+            <!--<ImageView-->
+                <!--android:id="@+id/proImg"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:clickable="false"-->
+                <!--android:elevation="2dp"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--/>-->
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/proImg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="false"
-                android:elevation="2dp"
-                android:layout_marginLeft="10dp"
-                />
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@mipmap/contactlist_img_one"
+
+                app:civ_border_color="#FF000000"/>
+
 
         </LinearLayout>
 

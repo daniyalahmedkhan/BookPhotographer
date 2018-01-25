@@ -164,7 +164,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                         }else {
 
-                            Intent intent = new Intent(RegisterActivity.this , HomeActivity.class);
+                            Intent intent = new Intent(RegisterActivity.this , LoginActivity.class);
                                 startActivity(intent);
 
 

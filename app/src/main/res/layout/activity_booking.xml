@@ -1,151 +1,213 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ded8d8"
-    android:id="@+id/fragment_frame"
-    tools:context="com.example.kashif.bookphotographer.Activities.BookingActivity">
+    android:background="#fff">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/Relative1">
 
 
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-
-           android:orientation="vertical"
-           >
-
-
-
-           <RelativeLayout
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_marginTop="20dp"
-               android:layout_gravity="center">
-
-
-               <EditText
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:background="@color/colorWhite"
-                   android:hint="Enter Dates comma seprated"
-                   android:padding="20dp"
-                   android:id="@+id/Ocassions"
-                   android:textColor="@color/colorBlue"
-                   android:layout_marginRight="20dp"
-                   android:layout_marginLeft="20dp"
-
-                   />
-
-
-           </RelativeLayout>
-
-
-           <RelativeLayout
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_marginTop="20dp"
-               android:layout_gravity="center">
-
-
-               <EditText
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:background="@color/colorWhite"
-                   android:hint="Enter Location"
-                   android:padding="20dp"
-                   android:id="@+id/Venue"
-                   android:textColor="@color/colorBlue"
-                   android:layout_marginRight="20dp"
-                   android:layout_marginLeft="20dp"
-
-                   />
-
-
-           </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
 
 
-           <RelativeLayout
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_marginTop="20dp"
-               android:layout_gravity="center">
+            <android.support.v7.widget.CardView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                card_view:cardUseCompatPadding="true"
+                card_view:cardElevation="4dp"
+                card_view:cardCornerRadius="3dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center">
 
 
-               <Spinner
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:background="@color/colorWhite"
-                   android:prompt="@string/spinner_title"
-                   android:padding="20dp"
-                   android:id="@+id/EditPck"
-                   android:textColor="@color/colorBlue"
-                   android:layout_marginRight="20dp"
-                   android:layout_marginLeft="20dp"
-                   android:drawableRight="@mipmap/arrow"
-                   />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="Enter Date"
+                        android:padding="10dp"
+                        android:inputType="number"
+                        android:id="@+id/Ocassions"
+                        android:textColor="@color/colorBlue" />
 
 
-           </RelativeLayout>
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
 
 
-           <RelativeLayout
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_marginTop="20dp"
-               android:layout_gravity="center">
+            <android.support.v7.widget.CardView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                card_view:cardUseCompatPadding="true"
+                card_view:cardElevation="4dp"
+                card_view:cardCornerRadius="3dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:layout_gravity="center">
 
 
-               <EditText
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:background="@color/colorWhite"
-                   android:hint="Type any Message to Photographer"
-                   android:padding="20dp"
-                   android:id="@+id/Msg"
-                   android:textColor="@color/colorBlue"
-                   android:layout_marginRight="20dp"
-                   android:layout_marginLeft="20dp"
-
-                   />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="Enter Location"
+                        android:padding="10dp"
+                        android:id="@+id/Venue"
+                        android:textColor="@color/colorBlue" />
 
 
-           </RelativeLayout>
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
 
 
-           <RelativeLayout
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_marginTop="20dp"
-               android:gravity="bottom"
-               android:layout_gravity="center">
 
 
-               <Button
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="Submit"
-                   android:id="@+id/BtnSubmit"
-                   android:textStyle="bold"
-                   android:background="@drawable/button_edges_lblue"
-                   android:textColor="@color/colorWhite"
+            <android.support.v7.widget.CardView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                card_view:cardUseCompatPadding="true"
+                card_view:cardElevation="4dp"
+                card_view:cardCornerRadius="3dp">
 
-                   />
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_gravity="center">
 
 
-           </RelativeLayout>
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:prompt="@string/title"
+                        android:padding="20dp"
+                        android:id="@+id/EditPck"
+                        android:textColor="@color/colorBlue"
+                        android:drawableRight="@mipmap/arrow"
+                        />
 
 
-       </LinearLayout>
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                card_view:cardUseCompatPadding="true"
+                card_view:cardElevation="4dp"
+                card_view:cardCornerRadius="3dp">
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="Type any Message to Photographer"
+                        android:padding="10dp"
+                        android:id="@+id/Msg"
+                        android:inputType="text"
+                        android:textColor="@color/colorBlue"
+
+                        />
+
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="bottom"
+                android:layout_gravity="center">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Submit"
+                    android:padding="5dp"
+                    android:layout_marginRight="5dp"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:id="@+id/BtnSubmit"
+                    android:textStyle="bold"
+                    android:fontFamily="serif"
+                    android:background="@drawable/buttnround"
+                    android:textColor="@color/colorWhite"
+
+                    />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Add Event"
+                        android:padding="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                        android:id="@+id/BtnAdd"
+                        android:textStyle="bold"
+                        android:fontFamily="serif"
+                        android:background="@drawable/buttnround"
+                        android:textColor="@color/colorWhite"
+
+                        />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
 
 
 
     </RelativeLayout>
 
-</ScrollView>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Relative1"
+        android:id="@+id/ListofEvents"
+        android:layout_marginTop="10dp"/>
+
+
+</RelativeLayout>

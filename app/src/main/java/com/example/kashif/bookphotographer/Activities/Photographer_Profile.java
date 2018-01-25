@@ -28,7 +28,7 @@ import java.util.ArrayList;
 public class Photographer_Profile extends AppCompatActivity {
 
     TextView FirstName , LastName , Gender , Location , HeadName;
-    String Fname , Lname , Gend , Loc , url;
+   public static String Fname , Lname , Gend , Loc , url;
     ProgressDialog progressDialog;
     ImageView image1 , image2;
     String imgUrl1 , imgUrl2;

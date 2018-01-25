@@ -13,11 +13,13 @@ public class BookReservation {
     String id;
     String userid;
     String photographerid;
+    String useremail;
+    String photographername;
 
     public BookReservation() {
     }
 
-    public BookReservation(String id ,String occ, String ven, String msg, String pkg , String userid , String photographerid) {
+    public BookReservation(String id ,String occ, String ven, String msg, String pkg , String userid , String photographerid , String useremail , String photographername) {
         this.id = id;
         this.occ = occ;
         this.ven = ven;
@@ -25,6 +27,25 @@ public class BookReservation {
         this.pkg = pkg;
         this.userid = userid;
         this.photographerid = photographerid;
+        this.useremail = useremail;
+        this.photographername = photographername;
+    }
+
+
+    public String getUseremail() {
+        return useremail;
+    }
+
+    public void setUseremail(String useremail) {
+        this.useremail = useremail;
+    }
+
+    public String getPhotographername() {
+        return photographername;
+    }
+
+    public void setPhotographername(String photographername) {
+        this.photographername = photographername;
     }
 
     public String getUserid() {
