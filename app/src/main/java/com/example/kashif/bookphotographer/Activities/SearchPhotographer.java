@@ -18,23 +18,32 @@ import com.example.kashif.bookphotographer.R;
 
 public class SearchPhotographer extends AppCompatActivity {
 
-//    String img =  HomeActivity.imgrl;
 
-
-//{String.valueOf(HomeActivity.name)} ;
     GridView androidGridView;
 
    public static String CurrntID;
 
-  public static   String[] gridViewString = HomeActivity.name.toArray(new String[HomeActivity.name.size()]);
+  public static   String[] gridViewString ;
 
-  public static   String[] gridViewString2 =  HomeActivity.loc.toArray(new String[HomeActivity.loc.size()]);
+  public static   String[] gridViewString2 ;
 
 
 
-  public static   String[] gridViewImageId = HomeActivity.imgrl.toArray(new String[HomeActivity.imgrl.size()]);
+  public static   String[] gridViewImageId ;
 
-  public  static  String[] id = HomeActivity.id.toArray(new String[HomeActivity.id.size()]);
+  public  static  String[] id ;
+
+    public SearchPhotographer() {
+    }
+
+    public SearchPhotographer(String[] gridViewString , String[] gridViewString2 , String[] gridViewImageId , String[] id) {
+
+        this.gridViewString = gridViewString;
+        this.gridViewString2 = gridViewString2;
+        this.gridViewImageId = gridViewImageId;
+        this.id = id;
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +60,12 @@ public class SearchPhotographer extends AppCompatActivity {
         setContentView(R.layout.activity_search_photographer);
 
 
-        final Custom_SearchPhotographer adapterViewAndroid = new Custom_SearchPhotographer(SearchPhotographer.this, gridViewString, gridViewString2, gridViewImageId , id);
+
+
+        Custom_SearchPhotographer adapterViewAndroid = new Custom_SearchPhotographer(SearchPhotographer.this, gridViewString, gridViewString2, gridViewImageId , id);
         androidGridView=(GridView)findViewById(R.id.grid_view_image_text);
         androidGridView.setAdapter(adapterViewAndroid);
+        adapterViewAndroid.notifyDataSetChanged();
 
 
 
@@ -77,5 +89,13 @@ public class SearchPhotographer extends AppCompatActivity {
            }
        });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(SearchPhotographer.this , HomeActivity.class);
+        startActivity(intent);
+        this.finish();
     }
 }

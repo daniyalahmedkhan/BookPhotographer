@@ -1,6 +1,7 @@
 package com.example.kashif.bookphotographer.Activities;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -18,6 +19,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioGroup;
@@ -55,12 +57,13 @@ public class BookingActivity extends AppCompatActivity {
     Button BtnSubmit , BtnAdd;
     DatabaseReference firebaseDatabase;
     FirebaseAuth firebaseAuth;
-
-
     ListView ListofEvents;
 
     ArrayList<String> arrOC, arrVEN , arrPKG , arrMSG;
     String UserID , PhotographerID , UserEmail, PhotographerName;
+
+    Calendar mCalender;
+    int month , day , year;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +78,10 @@ public class BookingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_booking);
 
 
+        mCalender = Calendar.getInstance();
+        day = mCalender.get(Calendar.DAY_OF_MONTH);
+        month = mCalender.get(Calendar.MONTH);
+        year = mCalender.get(Calendar.YEAR);
 
 
         arrOC = new ArrayList<String>();
@@ -107,6 +114,27 @@ public class BookingActivity extends AppCompatActivity {
 
         ArrayAdapter<String> adp = new ArrayAdapter<String> (this,android.R.layout.simple_spinner_dropdown_item,Photographer_Profile.arrayList);
         EditPck.setAdapter(adp);
+
+
+        Ocassions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                DatePickerDialog datePickerDialog = new DatePickerDialog(BookingActivity.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+
+                        i1 = i1+1;
+
+                        //Toast.makeText(BookingActivity.this , " " +i2 + "/" + i1 + "/" + i , Toast.LENGTH_SHORT ).show();
+                      Ocassions.setText(i2 + "/" + i1 + "/" + i);
+
+                    }
+                } , year , month , day);
+                datePickerDialog.show();
+            }
+        });
 
 
 
