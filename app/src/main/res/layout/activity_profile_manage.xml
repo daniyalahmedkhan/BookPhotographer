@@ -139,6 +139,18 @@
                     android:layout_marginRight="20dp"
                     android:layout_height="wrap_content" />
 
+                <EditText
+                    android:layout_width="match_parent"
+                    android:hint="Enter Your Contact"
+                    android:layout_marginLeft="20dp"
+                    android:singleLine="true"
+                    android:id="@+id/ContactNo"
+                    android:layout_marginTop="10dp"
+                    android:textColorHint="@color/colorBlack"
+                    android:textColor="@color/colorBlue"
+                    android:layout_marginRight="20dp"
+                    android:layout_height="wrap_content" />
+
 
 
                 <Button

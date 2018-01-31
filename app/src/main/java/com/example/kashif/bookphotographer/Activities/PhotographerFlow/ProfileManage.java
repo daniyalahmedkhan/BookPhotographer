@@ -29,6 +29,9 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class ProfileManage extends AppCompatActivity {
 
@@ -37,13 +40,13 @@ public class ProfileManage extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     DatabaseReference databaseReference;
     public static String email, pass, type, uid;
-    EditText FirstName, LastName, Gender, Country, City, Address;
-    String FirstN, LastN, Gend, Count, Cit, Addr , imageUrl;
+    EditText FirstName, LastName, Gender, Country, City, Address , Contact;
+    String FirstN, LastN, Gend, Count, Cit, Addr , imageUrl , Contact_No;
     ImageView ProfileImage;
     private static final int PICK_IMAGE_REQUEST = 234 ;
     private Uri filepath;
     private StorageReference storageReference;
-
+    String LocationID , CityID , CountryID, TodayDate;
 
     public ProfileManage() {
     }
@@ -70,7 +73,15 @@ public class ProfileManage extends AppCompatActivity {
         Address = (EditText) findViewById(R.id.AddressName);
         Country = (EditText) findViewById(R.id.CountryName);
         City = (EditText) findViewById(R.id.CityName);
+        Contact = (EditText) findViewById(R.id.ContactNo);
         ProfileImage = (ImageView) findViewById(R.id.ProfileImage);
+
+
+        /// Getting Current Date and Time //
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Calendar cal = Calendar.getInstance();
+        TodayDate = dateFormat.format(cal.getTime());
+        ///
 
 
 
@@ -104,11 +115,9 @@ public class ProfileManage extends AppCompatActivity {
                     Count = Country.getText().toString().trim();
                     Cit = City.getText().toString().trim();
                     Addr = Address.getText().toString().trim();
+                    Contact_No = Contact.getText().toString().trim();
 
                     PhotographerSignUp();
-//                    Intent intent = new Intent(ProfileManage.this, PhotographerPackages.class);
-//                    startActivity(intent);
-
 
                 }
 
@@ -136,18 +145,6 @@ public class ProfileManage extends AppCompatActivity {
 
                         uid = firebaseAuth.getCurrentUser().getUid();
                         uploadfile();
-
-//                        UserModel userModel = new UserModel(uid, email, pass, type, FirstN, LastN, Gend, Count, Cit, Addr);
-//
-//                        databaseReference.child("users").child(uid).setValue(userModel, new DatabaseReference.CompletionListener() {
-//                            @Override
-//                            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-//
-//                                Toast.makeText(ProfileManage.this, "saved data", Toast.LENGTH_SHORT).show();
-//
-//                            }
-//                        });
-
 
 
 
@@ -209,25 +206,102 @@ public class ProfileManage extends AppCompatActivity {
     public void SaveData(){
 
 
-        UserModel Mod = new UserModel(uid , email , pass , type , FirstN , LastN , Gend , Count , Cit , Addr , imageUrl);
-        databaseReference.child("users").child(uid).setValue(Mod, new DatabaseReference.CompletionListener() {
+        LocationID =  firebaseDatabase.getReference().push().getKey();
+        CityID =  firebaseDatabase.getReference().push().getKey();
+        CountryID =  firebaseDatabase.getReference().push().getKey();
+
+        UserModel Mod = new UserModel(uid , email , pass , type , FirstN , LastN , Gend , imageUrl , LocationID ,  Contact_No , TodayDate);
+
+
+        databaseReference.child("Users").child("Photographer").child(uid).setValue(Mod, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                 if (databaseReference.equals(databaseError)){
-//                    progressDialog.dismiss();
+
                     Toast.makeText(ProfileManage.this , "Error in Saving" , Toast.LENGTH_SHORT).show();
                 }else {
 
+                    Location();
 
-//                     progressDialog.dismiss();
-                    Intent i = new Intent(ProfileManage.this , PhotographerPackages.class);
-                    startActivity(i);
                 }
 
             }
         });
 
     }
+
+    public  void Location(){
+
+
+        UserModel userModel = new UserModel(uid , LocationID , Addr , CityID , "NIL");
+
+        databaseReference.child("Users").child("Photographer").child("Location").child(LocationID).setValue(userModel, new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+
+
+                if (databaseReference.equals(databaseError)){
+
+                    Toast.makeText(ProfileManage.this , "Error in Saving" , Toast.LENGTH_SHORT).show();
+                }else {
+
+                 City();
+
+                }
+            }
+        });
+
+
+    }
+
+
+    public void City(){
+
+
+        UserModel userModel = new UserModel(uid , CityID , Cit , CountryID);
+
+        databaseReference.child("Users").child("Photographer").child("City").child(CityID).setValue(userModel, new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+
+
+                if (databaseReference.equals(databaseError)){
+
+                    Toast.makeText(ProfileManage.this , "Error in Saving" , Toast.LENGTH_SHORT).show();
+                }else {
+
+                    Country();
+
+                }
+            }
+        });
+    }
+
+    public void  Country(){
+
+
+        UserModel userModel = new UserModel(uid , CountryID , Count);
+
+        databaseReference.child("Users").child("Photographer").child("Country").child(CountryID).setValue(userModel, new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                if (databaseReference.equals(databaseError)){
+
+                    Toast.makeText(ProfileManage.this , "Error in Saving" , Toast.LENGTH_SHORT).show();
+                }else {
+
+                    Intent intent = new Intent(ProfileManage.this , SampleImages.class);
+                    startActivity(intent);
+                }
+
+
+
+            }
+        });
+
+
+    }
+
 
 
 

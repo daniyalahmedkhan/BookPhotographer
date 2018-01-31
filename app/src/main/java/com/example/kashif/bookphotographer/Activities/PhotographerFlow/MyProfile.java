@@ -287,7 +287,7 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
         });
 
 
-        getReqData();
+        //getReqData();
         getData();
         getPkg1();
         getPkg2();
@@ -657,12 +657,12 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
                         Order.add(String.valueOf(couter));
 
 
-                        id.add(bookReservation.getId());
-                        Photographer.add(bookReservation.getPhotographername());
-                        EventDate.add(bookReservation.getOcc());
-                        EventVenue.add(bookReservation.getVen());
-                        Pckg.add(bookReservation.getPkg());
-                        couter++;
+//                        id.add(bookReservation.getId());
+//                        Photographer.add(bookReservation.getPhotographername());
+//                        EventDate.add(bookReservation.getOcc());
+//                        EventVenue.add(bookReservation.getVen());
+//                        Pckg.add(bookReservation.getPkg());
+//                        couter++;
 
 
 

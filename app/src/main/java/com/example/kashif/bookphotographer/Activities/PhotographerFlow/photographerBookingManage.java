@@ -48,7 +48,7 @@ public class photographerBookingManage extends AppCompatActivity {
         final PhotographerBookingCustom adapter = new PhotographerBookingCustom(getApplicationContext() ,id , order , photographer , eventdate , eventvenue , pckg);
         ListViewOrder.setAdapter(adapter);
 
-        final BookReservation bookReservation = new BookReservation();
+        //final BookReservation bookReservation = new BookReservation();
 
         ListViewOrder.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

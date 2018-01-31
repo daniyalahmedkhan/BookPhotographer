@@ -26,7 +26,10 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class SampleImages extends AppCompatActivity {
 
@@ -38,9 +41,10 @@ public class SampleImages extends AppCompatActivity {
     DatabaseReference databaseReference;
     ImageView CurrentImageView = null;
     ArrayList<Uri> arrayList;
+    FirebaseDatabase firebaseDatabase;
     private StorageReference storageReference;
 
-    String  imageUrl1 , imageUrl2;
+    String  imageUrl1 , imageUrl2 , Gallery_ID , Date;
     ArrayList img;
 
 
@@ -57,8 +61,17 @@ public class SampleImages extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference("allusers");
         storageReference = FirebaseStorage.getInstance().getReference();
+        firebaseAuth = FirebaseAuth.getInstance();
+
         arrayList = new ArrayList<>();
         img = new ArrayList();
+
+
+        /// Getting Current Date and Time //
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Calendar cal = Calendar.getInstance();
+        Date = dateFormat.format(cal.getTime());
+        ///
 
 
         image1.setOnClickListener(new View.OnClickListener() {
@@ -74,10 +87,6 @@ public class SampleImages extends AppCompatActivity {
                 startActivityForResult(Intent.createChooser(intent, "Select any image") , PICK_IMAGE_REQUEST);
                 CurrentImageView = (ImageView) view;
                 }catch (Exception e){
-
-//                    Intent intent = getIntent();
-//                    finish();
-//                    startActivity(intent);
 
                 }
             }
@@ -99,10 +108,6 @@ public class SampleImages extends AppCompatActivity {
                 CurrentImageView  = (ImageView) view;
 
                 }catch (Exception e){
-
-//                    Intent intent = getIntent();
-//                    finish();
-//                    startActivity(intent);
 
 
                 }
@@ -128,9 +133,6 @@ public class SampleImages extends AppCompatActivity {
             public void onClick(View view) {
 
                 uploadfile();
-//                saveData();
-//                Intent intent = new Intent(SampleImag.this , MyProfile.class);
-//                startActivity(intent);
 
             }
         });
@@ -196,10 +198,8 @@ public class SampleImages extends AppCompatActivity {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             Uri downUrl = taskSnapshot.getDownloadUrl();
-                            // Log.d("downUrl" , downUrl.toString());
                             img.add(downUrl.toString());
-                            // ValidationMethod();
-//                           saveData();
+
                         }
 
                     })
@@ -220,10 +220,6 @@ public class SampleImages extends AppCompatActivity {
         }
         }catch (Exception e){
 
-//            Intent intent = getIntent();
-//            finish();
-//            startActivity(intent);
-
 
 
         }
@@ -241,9 +237,10 @@ public class SampleImages extends AppCompatActivity {
             imageUrl1 = String.valueOf(img.get(0));
             imageUrl2 = String.valueOf(img.get(1));
 
-            SampleImag sampleImag = new SampleImag(imageUrl1, imageUrl2);
+            Gallery_ID = firebaseDatabase.getReference().push().getKey();
+            SampleImag sampleImag = new SampleImag(imageUrl1, imageUrl2 , ProfileManage.uid , Gallery_ID , Date );
 
-            databaseReference.child("sampleImages").child(ProfileManage.uid).setValue(sampleImag, new DatabaseReference.CompletionListener() {
+            databaseReference.child("Gallery").child(Gallery_ID).child(ProfileManage.uid).setValue(sampleImag, new DatabaseReference.CompletionListener() {
                 @Override
                 public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
 

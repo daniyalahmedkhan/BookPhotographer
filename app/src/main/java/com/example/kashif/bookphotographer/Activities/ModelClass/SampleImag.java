@@ -6,13 +6,18 @@ package com.example.kashif.bookphotographer.Activities.ModelClass;
 
 public class SampleImag {
 
+
+    String Photographer_ID;
+    String Gallery_ID;
+    String Date;
     String image1;
     String image2;
 
     public SampleImag() {
     }
 
-    public SampleImag(String image1, String image2) {
+    public SampleImag(String Photographer_ID , String Gallery_ID , String Date ,String image1, String image2) {
+
         this.image1 = image1;
         this.image2 = image2;
     }

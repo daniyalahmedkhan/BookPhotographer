@@ -38,6 +38,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.timessquare.CalendarPickerView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -49,18 +51,24 @@ public class BookingActivity extends AppCompatActivity {
 
 
     EditText Ocassions, Venue , Msg;
-    AlertDialog alertDialog;
+
     Spinner EditPck;
-    AlertDialog.Builder builder;
+
     public  static List<Date> dates;
-    public String id, Pkg, occ , ven , msg;
+
+
     Button BtnSubmit , BtnAdd;
     DatabaseReference firebaseDatabase;
     FirebaseAuth firebaseAuth;
     ListView ListofEvents;
 
     ArrayList<String> arrOC, arrVEN , arrPKG , arrMSG;
-    String UserID , PhotographerID , UserEmail, PhotographerName;
+
+    String PushId , UId , PID , TodayDate , OCC , VEN , MSG , PKG , UEMAIL , PNAME ;
+
+    ArrayList<String> id, Pkg, occ , ven , msg ,UserID , PhotographerID , UserEmail, PhotographerName;
+
+
 
     Calendar mCalender;
     int month , day , year;
@@ -74,9 +82,14 @@ public class BookingActivity extends AppCompatActivity {
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.setStatusBarColor(Color.TRANSPARENT);
-
         setContentView(R.layout.activity_booking);
 
+
+        /// Getting Current Date and Time //
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Calendar cal = Calendar.getInstance();
+        TodayDate = dateFormat.format(cal.getTime());
+        ///
 
         mCalender = Calendar.getInstance();
         day = mCalender.get(Calendar.DAY_OF_MONTH);
@@ -89,10 +102,19 @@ public class BookingActivity extends AppCompatActivity {
         arrPKG = new ArrayList<String>();
         arrMSG = new ArrayList<String>();
 
+        id = new ArrayList<String>();
+        Pkg = new ArrayList<String>();
+        occ = new ArrayList<String>();
+        ven = new ArrayList<String>();
+        msg = new ArrayList<String>();
+        UserID = new ArrayList<String>();
+        PhotographerID = new ArrayList<String>();
+        UserEmail = new ArrayList<String>();
+        PhotographerName = new ArrayList<String>();
+
+
+
         final ListofAddEvents listofAddEvents = new ListofAddEvents(BookingActivity.this, arrOC , arrVEN , arrPKG, arrMSG);
-
-
-
 
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -151,7 +173,7 @@ public class BookingActivity extends AppCompatActivity {
                    arrOC.add(Ocassions.getText().toString().trim());
                    arrVEN.add(Venue.getText().toString().trim());
                    arrMSG.add(Msg.getText().toString().trim());
-                   arrPKG.add(Pkg);
+                   arrPKG.addAll(Pkg);
 
                     listofAddEvents.notifyDataSetChanged();
                     ListofEvents.setAdapter(listofAddEvents);
@@ -190,7 +212,8 @@ public class BookingActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
-                Pkg = adapterView.getItemAtPosition(i).toString();
+
+                Pkg.add(adapterView.getItemAtPosition(i).toString());
                // Toast.makeText(adapterView.getContext(), city, Toast.LENGTH_LONG).show();
 
 
@@ -202,34 +225,33 @@ public class BookingActivity extends AppCompatActivity {
             }
         });
 
-    }
+}
 
 
     public  void BookRes(){
 
 
-        if(!(Ocassions.getText().toString().isEmpty() && Venue.getText().toString().isEmpty()
-
-                && Msg.getText().toString().isEmpty())){
-
-
-            occ = Ocassions.getText().toString().trim();
-            ven = Venue.getText().toString().trim();
-            msg = Msg.getText().toString().trim();
-            id  = firebaseDatabase.push().getKey();
-            UserID  = LoginActivity.uid;
-            PhotographerID = SearchPhotographer.CurrntID;
-            UserEmail = LoginActivity.email;
-            PhotographerName = Photographer_Profile.Fname;
+        if(!(arrOC.isEmpty() && arrMSG.isEmpty() && arrMSG.isEmpty() && arrPKG.isEmpty())){
 
 
 
-            ForUser();
-            ForPhotographer();
+
+            occ.addAll(arrOC);
+            ven.addAll(arrVEN);
+            msg.addAll(arrMSG);
+            PushId = firebaseDatabase.push().getKey();
+            UserID.add(LoginActivity.uid);
+            PhotographerID.add(SearchPhotographer.CurrntID);
+            UserEmail.add(LoginActivity.email);
+            PhotographerName.add(Photographer_Profile.Fname);
+            Reservation();
+
+
+
 
         }else {
 
-            Toast.makeText(BookingActivity.this , "Can't Leave as Empty " , Toast.LENGTH_SHORT).show();
+            Toast.makeText(BookingActivity.this , "No Event Added" , Toast.LENGTH_SHORT).show();
 
 
 
@@ -237,16 +259,20 @@ public class BookingActivity extends AppCompatActivity {
 
     }
 
+    public void Reservation(){
 
-    public void ForUser(){
+        for (int i =1; i<UserID.size(); i++){
+
+            UId = UserID.get(i);
+            PID = PhotographerID.get(i);
 
 
-        BookReservation bookReservation = new BookReservation(id , occ , ven , msg , Pkg , UserID , PhotographerID , UserEmail , PhotographerName);
 
-        firebaseDatabase.child("bookres").child("foruser").child(firebaseAuth.getCurrentUser().getUid()).child(id).setValue(bookReservation, new DatabaseReference.CompletionListener() {
+        BookReservation bookReservation = new BookReservation(PushId , UId , PID , TodayDate);
+
+        firebaseDatabase.child("Reservation").child(PushId).setValue(bookReservation, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-
 
                 if (databaseReference.equals(databaseError)){
 
@@ -255,33 +281,69 @@ public class BookingActivity extends AppCompatActivity {
 
                 }else {
 
-                    Intent intent = new Intent(BookingActivity.this , HomeActivity.class);
-                    startActivity(intent);
+
+                    ReservationDetail();
+                }
+
+            }
+        });
+
+        }
+
+
+
+    }
+
+
+    public void ReservationDetail(){
+
+
+        for (int i =0; i<ListofEvents.getAdapter().getCount(); i++){
+
+
+
+
+            UId = UserID.get(1);
+            PID = PhotographerID.get(1);
+            OCC = occ.get(i);
+            VEN = ven.get(i);
+            MSG = msg.get(i);
+            PKG = Pkg.get(i);
+            UEMAIL = UserEmail.get(1);
+            PNAME = PhotographerName.get(1);
+
+            BookReservation bookReservation = new BookReservation(OCC , VEN , MSG , PKG , PushId , UId , PID , UEMAIL , PNAME , TodayDate);
+
+
+            firebaseDatabase.child("ReservationDetail").child(PushId).child(String.valueOf(i)).setValue(bookReservation, new DatabaseReference.CompletionListener() {
+                @Override
+                public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+
+
+                    if (databaseReference.equals(databaseError)){
+
+
+                        Toast.makeText(BookingActivity.this , "Error in Saving" , Toast.LENGTH_SHORT).show();
+
+                    }else {
+
+                        Intent intent = new Intent(BookingActivity.this , HomeActivity.class);
+                        startActivity(intent);
+
+                    }
+
+
 
 
                 }
+            });
+
+        }
 
 
-            }
-        });
 
     }
 
-
-    public  void  ForPhotographer(){
-        BookReservation bookReservation = new BookReservation(id , occ , ven , msg , Pkg , UserID , PhotographerID , UserEmail , PhotographerName);
-
-        firebaseDatabase.child("bookres").child("forphotographer").child(SearchPhotographer.CurrntID).child(id).setValue(bookReservation, new DatabaseReference.CompletionListener() {
-            @Override
-            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-
-
-
-            }
-        });
-
-
-    }
 
 
 

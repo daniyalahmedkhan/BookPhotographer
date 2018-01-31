@@ -172,53 +172,7 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
 
 
 
-        getReqData();
-
-    }
-
-
-    public void getData(){
-
-
-        databaseReference.child("users").orderByChild("firstname").equalTo(ESearch).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                if (dataSnapshot.exists()){
-
-
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-
-
-                    UserModel userModel = snapshot.getValue(UserModel.class);
-
-
-                    name.add(userModel.getFirstname());
-                    id.add(userModel.getId());
-                    loc.add(userModel.getCity());
-                    imgrl.add(userModel.getImageUrl()); }
-
-//             img = String.valueOf(Glide.with(getApplicationContext()).load(imgrl));
-
-
-                Intent intent = new Intent(HomeActivity.this , SearchPhotographer.class);
-                startActivity(intent);
-
-
-                }else {
-
-
-                    Toast.makeText(HomeActivity.this , "Not Found " , Toast.LENGTH_SHORT).show();
-                }
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
+       // getReqData();
 
     }
 
@@ -281,12 +235,12 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
 
                         BookReservation bookReservation = snapshot.getValue(BookReservation.class);
 
-                        Order.add(String.valueOf(couter));
-                        Photographer.add(bookReservation.getPhotographername());
-                        EventDate.add(bookReservation.getOcc());
-                        EventVenue.add(bookReservation.getVen());
-                        Pckg.add(bookReservation.getPkg());
-                        couter++;
+//                        Order.add(String.valueOf(couter));
+//                        Photographer.add(bookReservation.getPhotographername());
+//                        EventDate.add(bookReservation.getOcc());
+//                        EventVenue.add(bookReservation.getVen());
+//                        Pckg.add(bookReservation.getPkg());
+//                        couter++;
 
 
 
