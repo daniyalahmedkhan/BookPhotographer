@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -43,8 +44,9 @@ public class SampleImages extends AppCompatActivity {
     ArrayList<Uri> arrayList;
     FirebaseDatabase firebaseDatabase;
     private StorageReference storageReference;
+    EditText EditCategory;
 
-    String  imageUrl1 , imageUrl2 , Gallery_ID , Date;
+    String  imageUrl1 , imageUrl2 , Gallery_ID , Category_ID  , Date , Image_ID;
     ArrayList img;
 
 
@@ -57,11 +59,12 @@ public class SampleImages extends AppCompatActivity {
         setContentView(R.layout.activity_sample_images);
         image1 = (ImageView) findViewById(R.id.Image1);
         image2 = (ImageView) findViewById(R.id.Image2);
-        image3 = (ImageView) findViewById(R.id.Image3);
+
         firebaseAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference("allusers");
         storageReference = FirebaseStorage.getInstance().getReference();
-        firebaseAuth = FirebaseAuth.getInstance();
+
+        EditCategory = (EditText) findViewById(R.id.EditCategory);
 
         arrayList = new ArrayList<>();
         img = new ArrayList();
@@ -237,10 +240,14 @@ public class SampleImages extends AppCompatActivity {
             imageUrl1 = String.valueOf(img.get(0));
             imageUrl2 = String.valueOf(img.get(1));
 
-            Gallery_ID = firebaseDatabase.getReference().push().getKey();
-            SampleImag sampleImag = new SampleImag(imageUrl1, imageUrl2 , ProfileManage.uid , Gallery_ID , Date );
+            Image_ID = databaseReference.push().getKey();
+            Gallery_ID = databaseReference.push().getKey();
+            Category_ID = PhotographerPackages.Category_ID.toString();
 
-            databaseReference.child("Gallery").child(Gallery_ID).child(ProfileManage.uid).setValue(sampleImag, new DatabaseReference.CompletionListener() {
+
+            SampleImag sampleImag = new SampleImag(Category_ID , Date ,imageUrl1, imageUrl2);
+
+            databaseReference.child("Gallery").child(Image_ID).child(Gallery_ID).child(ProfileManage.uid).setValue(sampleImag, new DatabaseReference.CompletionListener() {
                 @Override
                 public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
 
@@ -251,9 +258,30 @@ public class SampleImages extends AppCompatActivity {
                     } else {
 
 
-//                     progressDialog.dismiss();
-                        Intent i = new Intent(SampleImages.this, LoginActivity.class);
-                        startActivity(i);
+                        String Parent_Category_ID = databaseReference.push().getKey();
+                        String Category_Des  = EditCategory.getText().toString();
+
+                        SampleImag CategoryData = new SampleImag(Category_Des  , Category_ID);
+
+                        databaseReference.child("Category").child(Parent_Category_ID).child(ProfileManage.uid).setValue(CategoryData, new DatabaseReference.CompletionListener() {
+                            @Override
+                            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+
+
+                                if (databaseReference.equals(databaseError)) {
+
+                                    Toast.makeText(SampleImages.this, "Error in Saving", Toast.LENGTH_SHORT).show();
+                                } else {
+
+                                    Intent intent  = new Intent(SampleImages.this , LoginActivity.class);
+                                    startActivity(intent);
+
+                                }
+
+                            }
+                        });
+
+
                     }
                 }
             });

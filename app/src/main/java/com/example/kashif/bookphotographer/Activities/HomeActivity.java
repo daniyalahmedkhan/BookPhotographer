@@ -323,24 +323,24 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
             }else if(((!GetName.isEmpty()) && GetLocation.isEmpty()
                     && GetPrice.isEmpty())){
 
-                NameSearch();
+            //    NameSearch();
 
 
             }else if(((GetName.isEmpty()) && (!GetLocation.isEmpty())
                     && GetPrice.isEmpty())){
 
-                LocationSearch();
+            //    LocationSearch();
 
 
             }else if(((GetName.isEmpty()) && GetLocation.isEmpty()
                     && (!GetPrice.isEmpty()))){
 
-                PriceSearch();
+           //     PriceSearch();
 
             }else if(((!GetName.isEmpty()) && (!GetLocation.isEmpty())
                     && GetPrice.isEmpty())){
 
-                NameLocationSearch();
+            //    NameLocationSearch();
 
 
 
@@ -348,18 +348,18 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
                     && (!GetPrice.isEmpty()))){
 
 
-                NamePriceSearch();
+            //    NamePriceSearch();
 
             }else if((GetName.isEmpty() && (!GetLocation.isEmpty())
                     && (!GetPrice.isEmpty()))){
 
 
-                LocationPriceSearch();
+            //    LocationPriceSearch();
 
             }else if(!((GetName.isEmpty() && GetLocation.isEmpty()
                     && GetPrice.isEmpty()))){
 
-                NameLocationPriceSearch();
+           //     NameLocationPriceSearch();
 
             }else {
 
@@ -387,468 +387,468 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
 
     }
 
-
-    public void NameSearch(){
-
-        databaseReference.child("users").orderByChild("firstname").equalTo(GetName).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                if (dataSnapshot.exists()){
-
-
-                    name.clear();
-                    loc.clear();
-                    imgrl.clear();
-                    id.clear();
-
-
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-
-
-                        UserModel userModel = snapshot.getValue(UserModel.class);
-
-
-
-
-                        name.add(userModel.getFirstname());
-                        id.add(userModel.getId());
-                        loc.add(userModel.getCity());
-                        imgrl.add(userModel.getImageUrl()); }
-
-
-                     SearchPhotographer searchPhotographer = new SearchPhotographer(name.toArray(new String[name.size()]) , loc.toArray(new String[loc.size()]) , imgrl.toArray(new String[imgrl.size()]) , id.toArray(new String[id.size()]) );
-
-//             img = String.valueOf(Glide.with(getApplicationContext()).load(imgrl));
-
-                  //  Toast.makeText(HomeActivity.this , "name"+ name , Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(HomeActivity.this, SearchPhotographer.class);// New activity
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
-                    finish();
-
-                }else {
-
-
-                    Toast.makeText(HomeActivity.this , "Not Found " , Toast.LENGTH_SHORT).show();
-                }
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-    }
-
-    public void LocationSearch(){
-
-
-        databaseReference.child("users").orderByChild("city").equalTo(GetLocation).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                if (dataSnapshot.exists()){
-
-                    name.clear();
-                    loc.clear();
-                    imgrl.clear();
-                    id.clear();
-
-
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-
-
-                        UserModel userModel = snapshot.getValue(UserModel.class);
-
-
-
-
-
-                        name.add(userModel.getFirstname());
-                        id.add(userModel.getId());
-                        loc.add(userModel.getCity());
-                        imgrl.add(userModel.getImageUrl()); }
-
-//             img = String.valueOf(Glide.with(getApplicationContext()).load(imgrl));
-
-
-                    SearchPhotographer searchPhotographer = new SearchPhotographer(name.toArray(new String[name.size()]) , loc.toArray(new String[loc.size()]) , imgrl.toArray(new String[imgrl.size()]) , id.toArray(new String[id.size()]) );
-
-                    Intent intent = new Intent(HomeActivity.this, SearchPhotographer.class);// New activity
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
-                    finish();
-
-
-                }else {
-
-
-                    Toast.makeText(HomeActivity.this , "Not Found " , Toast.LENGTH_SHORT).show();
-                }
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-    }
-
-    public void PriceSearch(){
-
-
-        databaseReference.child("users").orderByChild("type").equalTo("photographer").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                if (dataSnapshot.exists()){
-
-
-                    name.clear();
-                    loc.clear();
-                    imgrl.clear();
-                    id.clear();
-
-
-
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-
-                     UserModel   userModel   = snapshot.getValue(UserModel.class);
-
-
-                        name.add(userModel.getFirstname());
-                        id.add(userModel.getId());
-                        loc.add(userModel.getCity());
-                        imgrl.add(userModel.getImageUrl());
-
-                    }
-        for (int i=0; i<id.size(); i++){
-
-
-            final int finalI = i;
-            databaseReference.child("packages").child(id.get(i)).addValueEventListener(new ValueEventListener() {
-                       @Override
-                       public void onDataChange(DataSnapshot dataSnapshot) {
-
-                           for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-
-
-                               PkgClass pkgClass = snapshot.getValue(PkgClass.class);
-
-                               if (GetPrice.equals(pkgClass.getPrice())){
-
-                                    Pname.add(name.get(finalI));
-                                    Ploc.add(loc.get(finalI));
-                                    Pimgurl.add(imgrl.get(finalI));
-                                    Pid.add(id.get(finalI));
-
-                             //      Toast.makeText(HomeActivity.this, "" + id.get(finalI) , Toast.LENGTH_SHORT).show();
-
-
-                               }
-                           }
-
-                                   SearchPhotographer searchPhotographer = new SearchPhotographer(Pname.toArray(new String[Pname.size()]) , Ploc.toArray(new String[Ploc.size()]) , Pimgurl.toArray(new String[Pimgurl.size()]) , Pid.toArray(new String[Pid.size()]) );
-
-                                   Intent intent = new Intent(HomeActivity.this, SearchPhotographer.class);// New activity
-                                   intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                   startActivity(intent);
-                                   finish();
-
-
-
-
-
-
-                       }
-
-                       @Override
-                       public void onCancelled(DatabaseError databaseError) {
-
-                       }
-                   });
-        }
-
-
-                }
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-
-
-    }
-
-
-    public void NameLocationSearch(){
-
-        databaseReference.child("users").orderByChild("firstname").equalTo(GetName).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                if (dataSnapshot.exists()){
-
-
-                    name.clear();
-                    loc.clear();
-                    imgrl.clear();
-                    id.clear();
-
-
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-
-
-                        UserModel userModel = snapshot.getValue(UserModel.class);
-
-                        if (GetLocation.equals(userModel.getCity())){
-                            name.add(userModel.getFirstname());
-                            id.add(userModel.getId());
-                            loc.add(userModel.getCity());
-                            imgrl.add(userModel.getImageUrl());
-
-
-                        }
-
-
-                    }
-
-                    if (!name.isEmpty()){
-
-                        SearchPhotographer searchPhotographer = new SearchPhotographer(name.toArray(new String[name.size()]) , loc.toArray(new String[loc.size()]) , imgrl.toArray(new String[imgrl.size()]) , id.toArray(new String[id.size()]) );
-                        Intent intent = new Intent(HomeActivity.this, SearchPhotographer.class);// New activity
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(intent);
-                        finish();
-
-                    }else {
-
-
-                        Toast.makeText(HomeActivity.this , "Not Found " , Toast.LENGTH_SHORT).show();
-
-
-                    }
-
-
-
-
-                }else {
-
-
-                    Toast.makeText(HomeActivity.this , "Not Found " , Toast.LENGTH_SHORT).show();
-                }
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-
-
-
-
-    }
-
-    public void NamePriceSearch(){
-
-        databaseReference.child("users").orderByChild("firstname").equalTo(GetName).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                if (dataSnapshot.exists()){
-
-
-                    name.clear();
-                    loc.clear();
-                    imgrl.clear();
-                    id.clear();
-
-
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-
-
-                        final UserModel userModel = snapshot.getValue(UserModel.class);
-
-
-                        String Pid = userModel.getId();
-
-
-
-                        databaseReference.child("packages").child(Pid.toString()).addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
-
-
-
-                                for (DataSnapshot snapshot1 : dataSnapshot.getChildren()){
-
-
-                                    PkgClass pkgClass = snapshot1.getValue(PkgClass.class);
-
-                                    if (GetPrice.equals(pkgClass.getPrice())){
-
-                                        name.add(userModel.getFirstname());
-                                        id.add(userModel.getId());
-                                        loc.add(userModel.getCity());
-                                        imgrl.add(userModel.getImageUrl());
-
-
-                                    }else if (!name.isEmpty()){
-
-
-                                        SearchPhotographer searchPhotographer = new SearchPhotographer(name.toArray(new String[name.size()]) , loc.toArray(new String[loc.size()]) , imgrl.toArray(new String[imgrl.size()]) , id.toArray(new String[id.size()]) );
-
-
-                                        Intent intent = new Intent(HomeActivity.this, SearchPhotographer.class);// New activity
-                                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                        startActivity(intent);
-                                        finish();
-                                    }
-
-
-                                }
-
-                            }
-
-                            @Override
-                            public void onCancelled(DatabaseError databaseError) {
-
-                            }
-                        });
-
-
-                        }
-
-
-
-
-                }else {
-
-
-                    Toast.makeText(HomeActivity.this , "Not Found " , Toast.LENGTH_SHORT).show();
-                }
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-
-
-    }
-
-    public void LocationPriceSearch(){
-
-
-
-        databaseReference.child("users").orderByChild("city").equalTo(GetLocation).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                if (dataSnapshot.exists()){
-
-
-                    name.clear();
-                    loc.clear();
-                    imgrl.clear();
-                    id.clear();
-
-
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-
-
-                        final UserModel userModel = snapshot.getValue(UserModel.class);
-
-
-                        String Pid = userModel.getId();
-
-
-
-                        databaseReference.child("packages").child(Pid.toString()).addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
-
-
-
-                                for (DataSnapshot snapshot1 : dataSnapshot.getChildren()){
-
-
-                                    PkgClass pkgClass = snapshot1.getValue(PkgClass.class);
-
-                                    if (GetPrice.equals(pkgClass.getPrice())){
-
-                                        name.add(userModel.getFirstname());
-                                        id.add(userModel.getId());
-                                        loc.add(userModel.getCity());
-                                        imgrl.add(userModel.getImageUrl());
-
-
-                                    }else if (!name.isEmpty()){
-
-
-                                        SearchPhotographer searchPhotographer = new SearchPhotographer(name.toArray(new String[name.size()]) , loc.toArray(new String[loc.size()]) , imgrl.toArray(new String[imgrl.size()]) , id.toArray(new String[id.size()]) );
-
-
-                                        Intent intent = new Intent(HomeActivity.this, SearchPhotographer.class);// New activity
-                                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                        startActivity(intent);
-                                        finish();
-                                    }
-
-
-                                }
-
-                            }
-
-                            @Override
-                            public void onCancelled(DatabaseError databaseError) {
-
-                            }
-                        });
-
-
-                    }
-
-
-
-
-                }else {
-
-
-                    Toast.makeText(HomeActivity.this , "Not Found " , Toast.LENGTH_SHORT).show();
-                }
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-
-
-    }
-
-    public void NameLocationPriceSearch(){
-
-
-        Toast.makeText(HomeActivity.this , "NameLocationPrice Search" , Toast.LENGTH_SHORT).show();
-
-    }
+//
+//    public void NameSearch(){
+//
+//        databaseReference.child("users").orderByChild("firstname").equalTo(GetName).addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//
+//                if (dataSnapshot.exists()){
+//
+//
+//                    name.clear();
+//                    loc.clear();
+//                    imgrl.clear();
+//                    id.clear();
+//
+//
+//                    for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+//
+//
+//                        UserModel userModel = snapshot.getValue(UserModel.class);
+//
+//
+//
+//
+//                        name.add(userModel.getFirstname());
+//                        id.add(userModel.getId());
+//                        loc.add(userModel.getCity());
+//                        imgrl.add(userModel.getImageUrl()); }
+//
+//
+//                     SearchPhotographer searchPhotographer = new SearchPhotographer(name.toArray(new String[name.size()]) , loc.toArray(new String[loc.size()]) , imgrl.toArray(new String[imgrl.size()]) , id.toArray(new String[id.size()]) );
+//
+////             img = String.valueOf(Glide.with(getApplicationContext()).load(imgrl));
+//
+//                  //  Toast.makeText(HomeActivity.this , "name"+ name , Toast.LENGTH_SHORT).show();
+//                    Intent intent = new Intent(HomeActivity.this, SearchPhotographer.class);// New activity
+//                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                    startActivity(intent);
+//                    finish();
+//
+//                }else {
+//
+//
+//                    Toast.makeText(HomeActivity.this , "Not Found " , Toast.LENGTH_SHORT).show();
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        });
+//
+//    }
+//
+//    public void LocationSearch(){
+//
+//
+//        databaseReference.child("users").orderByChild("city").equalTo(GetLocation).addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//
+//                if (dataSnapshot.exists()){
+//
+//                    name.clear();
+//                    loc.clear();
+//                    imgrl.clear();
+//                    id.clear();
+//
+//
+//                    for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+//
+//
+//                        UserModel userModel = snapshot.getValue(UserModel.class);
+//
+//
+//
+//
+//
+//                        name.add(userModel.getFirstname());
+//                        id.add(userModel.getId());
+//                        loc.add(userModel.getCity());
+//                        imgrl.add(userModel.getImageUrl()); }
+//
+////             img = String.valueOf(Glide.with(getApplicationContext()).load(imgrl));
+//
+//
+//                    SearchPhotographer searchPhotographer = new SearchPhotographer(name.toArray(new String[name.size()]) , loc.toArray(new String[loc.size()]) , imgrl.toArray(new String[imgrl.size()]) , id.toArray(new String[id.size()]) );
+//
+//                    Intent intent = new Intent(HomeActivity.this, SearchPhotographer.class);// New activity
+//                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                    startActivity(intent);
+//                    finish();
+//
+//
+//                }else {
+//
+//
+//                    Toast.makeText(HomeActivity.this , "Not Found " , Toast.LENGTH_SHORT).show();
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        });
+//
+//    }
+//
+//    public void PriceSearch(){
+//
+//
+//        databaseReference.child("users").orderByChild("type").equalTo("photographer").addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//
+//                if (dataSnapshot.exists()){
+//
+//
+//                    name.clear();
+//                    loc.clear();
+//                    imgrl.clear();
+//                    id.clear();
+//
+//
+//
+//                    for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+//
+//                     UserModel   userModel   = snapshot.getValue(UserModel.class);
+//
+//
+//                        name.add(userModel.getFirstname());
+//                        id.add(userModel.getId());
+//                        loc.add(userModel.getCity());
+//                        imgrl.add(userModel.getImageUrl());
+//
+//                    }
+//        for (int i=0; i<id.size(); i++){
+//
+//
+//            final int finalI = i;
+//            databaseReference.child("packages").child(id.get(i)).addValueEventListener(new ValueEventListener() {
+//                       @Override
+//                       public void onDataChange(DataSnapshot dataSnapshot) {
+//
+//                           for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+//
+//
+//                               PkgClass pkgClass = snapshot.getValue(PkgClass.class);
+//
+//                               if (GetPrice.equals(pkgClass.getPrice())){
+//
+//                                    Pname.add(name.get(finalI));
+//                                    Ploc.add(loc.get(finalI));
+//                                    Pimgurl.add(imgrl.get(finalI));
+//                                    Pid.add(id.get(finalI));
+//
+//                             //      Toast.makeText(HomeActivity.this, "" + id.get(finalI) , Toast.LENGTH_SHORT).show();
+//
+//
+//                               }
+//                           }
+//
+//                                   SearchPhotographer searchPhotographer = new SearchPhotographer(Pname.toArray(new String[Pname.size()]) , Ploc.toArray(new String[Ploc.size()]) , Pimgurl.toArray(new String[Pimgurl.size()]) , Pid.toArray(new String[Pid.size()]) );
+//
+//                                   Intent intent = new Intent(HomeActivity.this, SearchPhotographer.class);// New activity
+//                                   intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                                   startActivity(intent);
+//                                   finish();
+//
+//
+//
+//
+//
+//
+//                       }
+//
+//                       @Override
+//                       public void onCancelled(DatabaseError databaseError) {
+//
+//                       }
+//                   });
+//        }
+//
+//
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        });
+//
+//
+//
+//    }
+//
+//
+//    public void NameLocationSearch(){
+//
+//        databaseReference.child("users").orderByChild("firstname").equalTo(GetName).addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//
+//                if (dataSnapshot.exists()){
+//
+//
+//                    name.clear();
+//                    loc.clear();
+//                    imgrl.clear();
+//                    id.clear();
+//
+//
+//                    for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+//
+//
+//                        UserModel userModel = snapshot.getValue(UserModel.class);
+//
+//                        if (GetLocation.equals(userModel.getCity())){
+//                            name.add(userModel.getFirstname());
+//                            id.add(userModel.getId());
+//                            loc.add(userModel.getCity());
+//                            imgrl.add(userModel.getImageUrl());
+//
+//
+//                        }
+//
+//
+//                    }
+//
+//                    if (!name.isEmpty()){
+//
+//                        SearchPhotographer searchPhotographer = new SearchPhotographer(name.toArray(new String[name.size()]) , loc.toArray(new String[loc.size()]) , imgrl.toArray(new String[imgrl.size()]) , id.toArray(new String[id.size()]) );
+//                        Intent intent = new Intent(HomeActivity.this, SearchPhotographer.class);// New activity
+//                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                        startActivity(intent);
+//                        finish();
+//
+//                    }else {
+//
+//
+//                        Toast.makeText(HomeActivity.this , "Not Found " , Toast.LENGTH_SHORT).show();
+//
+//
+//                    }
+//
+//
+//
+//
+//                }else {
+//
+//
+//                    Toast.makeText(HomeActivity.this , "Not Found " , Toast.LENGTH_SHORT).show();
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        });
+//
+//
+//
+//
+//
+//    }
+//
+//    public void NamePriceSearch(){
+//
+//        databaseReference.child("users").orderByChild("firstname").equalTo(GetName).addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//
+//                if (dataSnapshot.exists()){
+//
+//
+//                    name.clear();
+//                    loc.clear();
+//                    imgrl.clear();
+//                    id.clear();
+//
+//
+//                    for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+//
+//
+//                        final UserModel userModel = snapshot.getValue(UserModel.class);
+//
+//
+//                        String Pid = userModel.getId();
+//
+//
+//
+//                        databaseReference.child("packages").child(Pid.toString()).addValueEventListener(new ValueEventListener() {
+//                            @Override
+//                            public void onDataChange(DataSnapshot dataSnapshot) {
+//
+//
+//
+//                                for (DataSnapshot snapshot1 : dataSnapshot.getChildren()){
+//
+//
+//                                    PkgClass pkgClass = snapshot1.getValue(PkgClass.class);
+//
+//                                    if (GetPrice.equals(pkgClass.getPrice())){
+//
+//                                        name.add(userModel.getFirstname());
+//                                        id.add(userModel.getId());
+//                                        loc.add(userModel.getCity());
+//                                        imgrl.add(userModel.getImageUrl());
+//
+//
+//                                    }else if (!name.isEmpty()){
+//
+//
+//                                        SearchPhotographer searchPhotographer = new SearchPhotographer(name.toArray(new String[name.size()]) , loc.toArray(new String[loc.size()]) , imgrl.toArray(new String[imgrl.size()]) , id.toArray(new String[id.size()]) );
+//
+//
+//                                        Intent intent = new Intent(HomeActivity.this, SearchPhotographer.class);// New activity
+//                                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                                        startActivity(intent);
+//                                        finish();
+//                                    }
+//
+//
+//                                }
+//
+//                            }
+//
+//                            @Override
+//                            public void onCancelled(DatabaseError databaseError) {
+//
+//                            }
+//                        });
+//
+//
+//                        }
+//
+//
+//
+//
+//                }else {
+//
+//
+//                    Toast.makeText(HomeActivity.this , "Not Found " , Toast.LENGTH_SHORT).show();
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        });
+//
+//
+//
+//    }
+//
+//    public void LocationPriceSearch(){
+//
+//
+//
+//        databaseReference.child("users").orderByChild("city").equalTo(GetLocation).addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//
+//                if (dataSnapshot.exists()){
+//
+//
+//                    name.clear();
+//                    loc.clear();
+//                    imgrl.clear();
+//                    id.clear();
+//
+//
+//                    for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+//
+//
+//                        final UserModel userModel = snapshot.getValue(UserModel.class);
+//
+//
+//                        String Pid = userModel.getId();
+//
+//
+//
+//                        databaseReference.child("packages").child(Pid.toString()).addValueEventListener(new ValueEventListener() {
+//                            @Override
+//                            public void onDataChange(DataSnapshot dataSnapshot) {
+//
+//
+//
+//                                for (DataSnapshot snapshot1 : dataSnapshot.getChildren()){
+//
+//
+//                                    PkgClass pkgClass = snapshot1.getValue(PkgClass.class);
+//
+//                                    if (GetPrice.equals(pkgClass.getPrice())){
+//
+//                                        name.add(userModel.getFirstname());
+//                                        id.add(userModel.getId());
+//                                        loc.add(userModel.getCity());
+//                                        imgrl.add(userModel.getImageUrl());
+//
+//
+//                                    }else if (!name.isEmpty()){
+//
+//
+//                                        SearchPhotographer searchPhotographer = new SearchPhotographer(name.toArray(new String[name.size()]) , loc.toArray(new String[loc.size()]) , imgrl.toArray(new String[imgrl.size()]) , id.toArray(new String[id.size()]) );
+//
+//
+//                                        Intent intent = new Intent(HomeActivity.this, SearchPhotographer.class);// New activity
+//                                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                                        startActivity(intent);
+//                                        finish();
+//                                    }
+//
+//
+//                                }
+//
+//                            }
+//
+//                            @Override
+//                            public void onCancelled(DatabaseError databaseError) {
+//
+//                            }
+//                        });
+//
+//
+//                    }
+//
+//
+//
+//
+//                }else {
+//
+//
+//                    Toast.makeText(HomeActivity.this , "Not Found " , Toast.LENGTH_SHORT).show();
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        });
+//
+//
+//
+//    }
+//
+//    public void NameLocationPriceSearch(){
+//
+//
+//        Toast.makeText(HomeActivity.this , "NameLocationPrice Search" , Toast.LENGTH_SHORT).show();
+//
+//    }
 }

@@ -5,36 +5,36 @@ public class UserModel  {
 
 
     //// User Data ///
-    String User_Name;
-    String User_ID;
-    String Email;
-    String Pass;
-    String Type;
-    String Date;
+   private String User_Name;
+   private String User_ID;
+   private String Email;
+   private String Pass;
+   private String Type;
+   private String Date;
 
 
     //// Photographer Data ////
 
-    String Photographer_ID ,First_Name, Last_Name, Gender, Country, City , Address ,  Profile_Img , Contact_No;
+  private   String Photographer_ID ,First_Name, Last_Name, Gender, Country, City , Address ,  Profile_Img , Contact_No;
 
     /// Location Data ///
 
-    String  Location_ID;
-    String  Location_Desc;
-    String  City_ID;
-    String  Location_Status;
+ private    String  Location_ID;
+ private    String  Location_Desc;
+ private    String  City_ID;
+ private    String  Location_Status;
 
 
 
     //// City Data  ///
 
 
-    String City_Des;
-    String Country_ID;
+  private   String City_Des;
+  private   String Country_ID;
 
     /// Country Data ///
 
-    String Country_Desc;
+  private   String Country_Desc;
 
 
     public UserModel() {}
@@ -89,14 +89,6 @@ public class UserModel  {
         this.Country_Desc = country_Desc;
     }
 
-    public String getDate() {
-        return Date;
-    }
-
-    public void setDate(String date) {
-        Date = date;
-    }
-
     public String getUser_Name() {
         return User_Name;
     }
@@ -137,20 +129,20 @@ public class UserModel  {
         Type = type;
     }
 
+    public String getDate() {
+        return Date;
+    }
+
+    public void setDate(String date) {
+        Date = date;
+    }
+
     public String getPhotographer_ID() {
         return Photographer_ID;
     }
 
     public void setPhotographer_ID(String photographer_ID) {
         Photographer_ID = photographer_ID;
-    }
-
-    public String getContact_No() {
-        return Contact_No;
-    }
-
-    public void setContact_No(String contact_No) {
-        Contact_No = contact_No;
     }
 
     public String getFirst_Name() {
@@ -207,6 +199,14 @@ public class UserModel  {
 
     public void setProfile_Img(String profile_Img) {
         Profile_Img = profile_Img;
+    }
+
+    public String getContact_No() {
+        return Contact_No;
+    }
+
+    public void setContact_No(String contact_No) {
+        Contact_No = contact_No;
     }
 
     public String getLocation_ID() {

@@ -6,62 +6,68 @@ package com.example.kashif.bookphotographer.Activities.ModelClass;
 
 public class PkgClass {
 
-    String id;
-    String name;
-    String price;
-    String days;
-    String description;
-    String type;
+
+ private    String Package_ID;
+ private    String Category_ID;
+ private    String Photographer_ID;
+ private    String Package_Name;
+ private    String Package_Price;
+ private    String Services_Days;
+ private    String Package_Description;
+ private    String type;
 
     public PkgClass() {}
 
-    public PkgClass(String id, String name, String price, String days, String description, String type) {
-        this.id = id;
-        this.name = name;
-        this.price = price;
-        this.days = days;
-        this.description = description;
+    public PkgClass(String Category_ID , String Photographer_ID , String id, String name, String price, String days, String description, String type) {
+
+        this.Category_ID  = Category_ID;
+        this.Photographer_ID = Photographer_ID;
+        this.Package_ID = id;
+        this.Package_Name = name;
+        this.Package_Price = price;
+        this.Services_Days = days;
+        this.Package_Description = description;
         this.type = type;
     }
 
-    public String getId() {
-        return id;
+    public String getID() {
+        return Package_ID;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setID(String ID) {
+        this.Package_ID = ID;
     }
 
-    public String getName() {
-        return name;
+    public String getPackage_Name() {
+        return Package_Name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPackage_Name(String package_Name) {
+        Package_Name = package_Name;
     }
 
-    public String getPrice() {
-        return price;
+    public String getPackage_Price() {
+        return Package_Price;
     }
 
-    public void setPrice(String price) {
-        this.price = price;
+    public void setPackage_Price(String package_Price) {
+        Package_Price = package_Price;
     }
 
-    public String getDays() {
-        return days;
+    public String getServices_Days() {
+        return Services_Days;
     }
 
-    public void setDays(String days) {
-        this.days = days;
+    public void setServices_Days(String services_Days) {
+        Services_Days = services_Days;
     }
 
-    public String getDescription() {
-        return description;
+    public String getPackage_Description() {
+        return Package_Description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setPackage_Description(String package_Description) {
+        Package_Description = package_Description;
     }
 
     public String getType() {

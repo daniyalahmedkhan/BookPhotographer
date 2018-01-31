@@ -89,11 +89,19 @@
                 android:layout_height="wrap_content">
 
 
-                <ImageView
+                <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/Image3"
-                    android:src="@mipmap/logo_passwordreset"
+                    android:id="@+id/EditCategory"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="10dp"
+                    android:hint="Please define your category that you cover"
+
+                    android:textColorHint="@color/colorBlack"
+                    android:fontFamily="serif"
+                    android:textSize="15dp"
                     />
 
 

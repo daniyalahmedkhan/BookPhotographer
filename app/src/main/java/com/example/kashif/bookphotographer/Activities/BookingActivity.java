@@ -244,7 +244,7 @@ public class BookingActivity extends AppCompatActivity {
             PhotographerID.add(SearchPhotographer.CurrntID);
             UserEmail.add(LoginActivity.email);
             PhotographerName.add(Photographer_Profile.Fname);
-            Reservation();
+           // Reservation();
 
 
 
@@ -259,91 +259,91 @@ public class BookingActivity extends AppCompatActivity {
 
     }
 
-    public void Reservation(){
+//    public void Reservation(){
+//
+//        for (int i =1; i<UserID.size(); i++){
+//
+//            UId = UserID.get(i);
+//            PID = PhotographerID.get(i);
+//
+//
+//
+//        BookReservation bookReservation = new BookReservation(PushId , UId , PID , TodayDate);
+//
+//        firebaseDatabase.child("Reservation").child(PushId).setValue(bookReservation, new DatabaseReference.CompletionListener() {
+//            @Override
+//            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+//
+//                if (databaseReference.equals(databaseError)){
+//
+//
+//                    Toast.makeText(BookingActivity.this , "Error in Saving" , Toast.LENGTH_SHORT).show();
+//
+//                }else {
+//
+//
+//                    //ReservationDetail();
+//                }
+//
+//            }
+//        });
+//
+//        }
+//
+//
+//
+//    }
 
-        for (int i =1; i<UserID.size(); i++){
-
-            UId = UserID.get(i);
-            PID = PhotographerID.get(i);
-
-
-
-        BookReservation bookReservation = new BookReservation(PushId , UId , PID , TodayDate);
-
-        firebaseDatabase.child("Reservation").child(PushId).setValue(bookReservation, new DatabaseReference.CompletionListener() {
-            @Override
-            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-
-                if (databaseReference.equals(databaseError)){
-
-
-                    Toast.makeText(BookingActivity.this , "Error in Saving" , Toast.LENGTH_SHORT).show();
-
-                }else {
-
-
-                    ReservationDetail();
-                }
-
-            }
-        });
-
-        }
-
-
-
-    }
-
-
-    public void ReservationDetail(){
-
-
-        for (int i =0; i<ListofEvents.getAdapter().getCount(); i++){
-
-
-
-
-            UId = UserID.get(1);
-            PID = PhotographerID.get(1);
-            OCC = occ.get(i);
-            VEN = ven.get(i);
-            MSG = msg.get(i);
-            PKG = Pkg.get(i);
-            UEMAIL = UserEmail.get(1);
-            PNAME = PhotographerName.get(1);
-
-            BookReservation bookReservation = new BookReservation(OCC , VEN , MSG , PKG , PushId , UId , PID , UEMAIL , PNAME , TodayDate);
-
-
-            firebaseDatabase.child("ReservationDetail").child(PushId).child(String.valueOf(i)).setValue(bookReservation, new DatabaseReference.CompletionListener() {
-                @Override
-                public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-
-
-                    if (databaseReference.equals(databaseError)){
-
-
-                        Toast.makeText(BookingActivity.this , "Error in Saving" , Toast.LENGTH_SHORT).show();
-
-                    }else {
-
-                        Intent intent = new Intent(BookingActivity.this , HomeActivity.class);
-                        startActivity(intent);
-
-                    }
-
-
-
-
-                }
-            });
-
-        }
-
-
-
-    }
-
+//
+//    public void ReservationDetail(){
+//
+//
+//        for (int i =0; i<ListofEvents.getAdapter().getCount(); i++){
+//
+//
+//
+//
+//            UId = UserID.get(1);
+//            PID = PhotographerID.get(1);
+//            OCC = occ.get(i);
+//            VEN = ven.get(i);
+//            MSG = msg.get(i);
+//            PKG = Pkg.get(i);
+//            UEMAIL = UserEmail.get(1);
+//            PNAME = PhotographerName.get(1);
+//
+//            BookReservation bookReservation = new BookReservation(OCC , VEN , MSG , PKG , PushId , UId , PID , UEMAIL , PNAME , TodayDate);
+//
+//
+//            firebaseDatabase.child("ReservationDetail").child(PushId).child(String.valueOf(i)).setValue(bookReservation, new DatabaseReference.CompletionListener() {
+//                @Override
+//                public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+//
+//
+//                    if (databaseReference.equals(databaseError)){
+//
+//
+//                        Toast.makeText(BookingActivity.this , "Error in Saving" , Toast.LENGTH_SHORT).show();
+//
+//                    }else {
+//
+//                        Intent intent = new Intent(BookingActivity.this , HomeActivity.class);
+//                        startActivity(intent);
+//
+//                    }
+//
+//
+//
+//
+//                }
+//            });
+//
+//        }
+//
+//
+//
+//    }
+//
 
 
 

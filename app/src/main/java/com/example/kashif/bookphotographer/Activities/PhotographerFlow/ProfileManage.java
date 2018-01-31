@@ -206,9 +206,9 @@ public class ProfileManage extends AppCompatActivity {
     public void SaveData(){
 
 
-        LocationID =  firebaseDatabase.getReference().push().getKey();
-        CityID =  firebaseDatabase.getReference().push().getKey();
-        CountryID =  firebaseDatabase.getReference().push().getKey();
+        LocationID =  databaseReference.push().getKey();
+        CityID = databaseReference.push().getKey();
+        CountryID =  databaseReference.push().getKey();
 
         UserModel Mod = new UserModel(uid , email , pass , type , FirstN , LastN , Gend , imageUrl , LocationID ,  Contact_No , TodayDate);
 
@@ -290,7 +290,7 @@ public class ProfileManage extends AppCompatActivity {
                     Toast.makeText(ProfileManage.this , "Error in Saving" , Toast.LENGTH_SHORT).show();
                 }else {
 
-                    Intent intent = new Intent(ProfileManage.this , SampleImages.class);
+                    Intent intent = new Intent(ProfileManage.this , PhotographerPackages.class);
                     startActivity(intent);
                 }
 
