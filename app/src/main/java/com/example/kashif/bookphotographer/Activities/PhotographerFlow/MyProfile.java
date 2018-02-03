@@ -37,7 +37,7 @@ import java.util.ArrayList;
 public class MyProfile extends AppCompatActivity implements  View.OnClickListener{
 
     TextView FirstName , LastName , Gender , Location , HeadName;
-    String Fname , Lname , Gend , Loc , url;
+    String Fname , Lname , Gend , Loc , url , ID ,  PID , key;
     ProgressDialog progressDialog;
     DrawerLayout mDrawerLayout;
     ListView mDrawerList;
@@ -58,7 +58,6 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
     TextView PkgTname5 , PkgTprice5 , PkgTdays5 , PkgTdescription5;
 
     String PkgName, PkgPrice , PkgDays, PkgDescription;
-
 
     ImageView HeadImage;
     DatabaseReference databaseReference;
@@ -287,10 +286,10 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
         });
 
 
-        //getReqData();
-//        getData();
-//        getPkg1();
-//        getPkg2();
+//            getReqData();
+        getData();
+   getPkg1();
+        getPkg2();
 //        getPkg3();
 //        getPkg4();
 //        getPkg5();
@@ -299,207 +298,280 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
     }
 
 
-//    public void getData(){
-//
-//        if (databaseReference.child("users").child(LoginActivity.uid) != null){
-//
-//            databaseReference.child("users").child(LoginActivity.uid).addValueEventListener(new ValueEventListener() {
-//                @Override
-//                public void onDataChange(DataSnapshot dataSnapshot) {
-//
-//
-//                    UserModel userModel = dataSnapshot.getValue(UserModel.class);
-//
-//                    if (userModel != null){
-//
-//
-//                        Fname = userModel.getFirstname();
-//                        Lname = userModel.getLastname();
-//                        Gend = userModel.getGender();
-//                        Loc = userModel.getCity();
-//                        url = userModel.getImageUrl();
-//
-//                        String FirstLast = Fname + " " + Lname;
-//                        HeadName.setText(FirstLast);
-//                        Emp_Name.setText(FirstLast);
-//                        FirstName.setText(Fname);
-//                        LastName.setText(Lname);
-//                        Gender.setText(Gend);
-//                        Location.setText(Loc);
-//                        Glide.with(getApplicationContext()).load(url).into(HeadImage);
-//                        Glide.with(getApplicationContext()).load(url).into(proImg);
-//
-//
-//
-//
-//                    }else {
-//
-//                        Toast.makeText(MyProfile.this , "EMPTY" , Toast.LENGTH_LONG).show();
-//                    }
-//
-//
-//
-//                }
-//
-//                @Override
-//                public void onCancelled(DatabaseError databaseError) {
-//
-//                }
-//            });
-//
-//
-//
-//
-//        }
-//
-//
-//
-//    }
-//
-//    public  void getPkg1(){
-//
-//
-//        databaseReference.child("packages").child(LoginActivity.uid).child("pkg1").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//
-//
-//
-//                PkgClass pkgClass = dataSnapshot.getValue(PkgClass.class);
-//
-//                if (!(pkgClass.getName().equals("unk") || pkgClass.getDescription().equals("unk") || pkgClass.getDays().equals("unk")
-//                        || pkgClass.getPrice().equals("unk"))){
-//
-//
-//
-//                    PkgName = pkgClass.getName();
-//                    PkgPrice = pkgClass.getPrice();
-//                    PkgDescription = pkgClass.getDescription();
-//
-//                    PkgTname.setText(PkgName);
-//                    PkgTprice.setText(PkgPrice);
-//                    PkgTdescription.setText(PkgDescription);
-//
-//
-//
-//
-//                }else {
-//
-//
-//                    RelativeBronze.setVisibility(View.GONE);
-//
-//                }
-//
-//
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//
-//            }
-//        });
-//
-//
-//
-//    }
-//
-//    public  void getPkg2(){
-//
-//
-//        databaseReference.child("packages").child(LoginActivity.uid).child("pkg2").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//
-//
-//
-//                PkgClass pkgClass = dataSnapshot.getValue(PkgClass.class);
-//
-//                if (!(pkgClass.getName().equals("unk") || pkgClass.getDescription().equals("unk") || pkgClass.getDays().equals("unk")
-//                        || pkgClass.getPrice().equals("unk"))){
-//
-//
-//
-//                    PkgName = pkgClass.getName();
-//                    PkgPrice = pkgClass.getPrice();
-//                    PkgDescription = pkgClass.getDescription();
-//
-//                    PkgTname2.setText(PkgName);
-//                    PkgTprice2.setText(PkgPrice);
-//                    PkgTdescription2.setText(PkgDescription);
-//
-//
-//
-//
-//                }else {
-//
-//
-//                    RelativeSilver.setVisibility(View.GONE);
-//
-//                }
-//
-//
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//
-//            }
-//        });
-//
-//
-//
-//    }
-//
-//    public  void getPkg3(){
-//
-//
-//        databaseReference.child("packages").child(LoginActivity.uid).child("pkg3").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//
-//
-//
-//                PkgClass pkgClass = dataSnapshot.getValue(PkgClass.class);
-//
-//                if (!(pkgClass.getName().equals("unk") || pkgClass.getDescription().equals("unk") || pkgClass.getDays().equals("unk")
-//                        || pkgClass.getPrice().equals("unk"))){
-//
-//
-//
-//                    PkgName = pkgClass.getName();
-//                    PkgPrice = pkgClass.getPrice();
-//                    PkgDescription = pkgClass.getDescription();
-//
-//                    PkgTname3.setText(PkgName);
-//                    PkgTprice3.setText(PkgPrice);
-//                    PkgTdescription3.setText(PkgDescription);
-//
-//
-//
-//
-//                }else {
-//
-//
-//                    RelativeGold.setVisibility(View.GONE);
-//
-//                }
-//
-//
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//
-//            }
-//        });
-//
-//
-//
-//    }
-//
+    public void getData(){
+
+        if (databaseReference.child("Users").child("Photographer").child(LoginActivity.uid) != null){
+
+            databaseReference.child("Users").child("Photographer").child(LoginActivity.uid).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                    final UserModel userModel = dataSnapshot.getValue(UserModel.class);
+
+                    if (userModel != null){
+
+
+                        Fname = userModel.getFirst_Name();
+                        Lname = userModel.getLast_Name();
+                        Gend = userModel.getGender();
+                        url = userModel.getProfile_Img();
+                        ID = userModel.getPhotographer_ID();
+
+
+                        getLocation();
+
+
+                        String FirstLast = Fname + " " + Lname;
+                        HeadName.setText(FirstLast);
+                        Emp_Name.setText(FirstLast);
+                        FirstName.setText(Fname);
+                        LastName.setText(Lname);
+                        Gender.setText(Gend);
+
+                        Glide.with(getApplicationContext()).load(url).into(HeadImage);
+                        Glide.with(getApplicationContext()).load(url).into(proImg);
+
+
+
+
+                    }else {
+
+                        Toast.makeText(MyProfile.this , "EMPTY" , Toast.LENGTH_LONG).show();
+                    }
+
+
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
+
+
+
+        }
+
+
+
+    }
+
+    public void  getLocation(){
+
+
+        databaseReference.child("Users").child("Photographer").child("City").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+
+
+                        UserModel userModel1 = snapshot.getValue(UserModel.class);
+
+                       PID  = userModel1.getPhotographer_ID();
+
+
+                        if (ID.equals(PID)) {
+
+                            Loc = userModel1.getCity_Des();
+                            Location.setText(Loc);
+                            Toast.makeText(MyProfile.this , "Proof" + Loc, Toast.LENGTH_SHORT).show();
+                        }else {
+
+                            Toast.makeText(MyProfile.this , "Not Proof" , Toast.LENGTH_SHORT).show();
+
+                            Loc = "buubububu";
+                        }
+
+
+
+
+                 }
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+
+    }
+
+    public  void getPkg1(){
+
+
+        databaseReference.child("Services").child(LoginActivity.uid).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                for (DataSnapshot snapshot: dataSnapshot.getChildren()){
+
+
+
+                    key = snapshot.getKey().toString();
+
+                PkgClass pkgClass = dataSnapshot.child(key).child("Package1").getValue(PkgClass.class);
+
+
+                PkgName = pkgClass.getPackage_Name();
+                PkgPrice = pkgClass.getPackage_Price();
+                PkgDescription = pkgClass.getPackage_Description();
+
+                PkgTname.setText(PkgName);
+                PkgTprice.setText(PkgPrice);
+                PkgTdescription.setText(PkgDescription);
+
+
+                  }
+
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+    }
+
+    public  void getPkg2(){
+
+
+        databaseReference.child("Services").child(LoginActivity.uid).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                 for (DataSnapshot snapshot1 : dataSnapshot.getChildren()){
+
+
+                     key = snapshot1.getKey().toString();
+
+
+                     PkgClass pkgClass = dataSnapshot.child(key).child("Package2").getValue(PkgClass.class);
+
+                        if (!(pkgClass.getPackage_Name().equals("unk") || pkgClass.getPackage_Description().equals("unk") || pkgClass.getServices_Days().equals("unk")
+                                || pkgClass.getPackage_Price().equals("unk"))){
+
+
+
+                            PkgName = pkgClass.getPackage_Name();
+                            PkgPrice = pkgClass.getPackage_Price();
+                            PkgDescription = pkgClass.getPackage_Description();
+
+                            PkgTname2.setText(PkgName);
+                            PkgTprice2.setText(PkgPrice);
+                            PkgTdescription2.setText(PkgDescription);
+
+
+
+
+                        }else {
+
+
+                            RelativeSilver.setVisibility(View.GONE);
+
+                        }
+
+
+
+                    }
+
+
+                }
+
+
+
+
+
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+    }
+
+    public  void getPkg3(){
+
+
+        databaseReference.child("Services").child(LoginActivity.uid).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+
+                    key = snapshot.getKey().toString();
+
+
+                    PkgClass pkgClass = dataSnapshot.child(key).child("Package3").getValue(PkgClass.class);
+
+                        if (!(pkgClass.getPackage_Name().equals("unk") || pkgClass.getPackage_Description().equals("unk") || pkgClass.getServices_Days().equals("unk")
+                                || pkgClass.getPackage_Price().equals("unk"))){
+
+
+
+                            PkgName = pkgClass.getPackage_Name();
+                            PkgPrice = pkgClass.getPackage_Price();
+                            PkgDescription = pkgClass.getPackage_Description();
+
+                            PkgTname3.setText(PkgName);
+                            PkgTprice3.setText(PkgPrice);
+                            PkgTdescription3.setText(PkgDescription);
+
+
+
+
+                        }else {
+
+
+                            RelativeGold.setVisibility(View.GONE);
+
+                        }
+
+
+
+
+
+
+
+
+                }
+
+
+
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+    }
+
 //    public  void getPkg4(){
 //
 //

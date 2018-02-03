@@ -160,9 +160,10 @@ public class LoginActivity extends AppCompatActivity {
     public void CheckUser(){
 
 
-        firebaseDatabase.child("users").child(firebaseAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+        firebaseDatabase.child("Users").child("Photographer").child(firebaseAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+
 
 
                 if (dataSnapshot.getValue() != null){
@@ -171,25 +172,20 @@ public class LoginActivity extends AppCompatActivity {
                     UserModel userModel = dataSnapshot.getValue(UserModel.class);
                     type = userModel.getType();
 
-                    if (type.equals("user")){
-
-
-                        progressDialog.dismiss();
-
-                        Intent intent = new Intent(LoginActivity.this , HomeActivity.class);
-                        startActivity(intent);
-
-                    }else if (type.equals("photographer")){
+                    if (type.equals("photographer")){
 
                         progressDialog.dismiss();
                         Intent intent = new Intent(LoginActivity.this , MyProfile.class);
                         startActivity(intent);
 
+                       // Toast.makeText(LoginActivity.this , "Photographer" , Toast.LENGTH_SHORT).show();
+
+
                     }else {
 
                         progressDialog.dismiss();
 
-                        Toast.makeText(LoginActivity.this , "No one" , Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this , "User" , Toast.LENGTH_SHORT).show();
 
                     }
 
@@ -201,6 +197,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
             }
+
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
