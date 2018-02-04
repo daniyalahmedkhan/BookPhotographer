@@ -49,9 +49,10 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
     FirebaseAuth firebaseAuth;
 
     TextView Emp_Name;
+
     ImageView proImg;
 
-    TextView PkgTname , PkgTprice , PkgTdays , PkgTdescription;
+    TextView PkgTname , PkgTprice ,     PkgTdays , PkgTdescription;
     TextView PkgTname2 , PkgTprice2 , PkgTdays2 , PkgTdescription2;
     TextView PkgTname3 , PkgTprice3 , PkgTdays3 , PkgTdescription3;
     TextView PkgTname4 , PkgTprice4 , PkgTdays4 , PkgTdescription4;
@@ -286,13 +287,13 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
         });
 
 
-//            getReqData();
+//getReqData();
         getData();
-   getPkg1();
+        getPkg1();
         getPkg2();
-//        getPkg3();
-//        getPkg4();
-//        getPkg5();
+        getPkg3();
+        getPkg4();
+        getPkg5();
 
 
     }
@@ -414,29 +415,49 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
             public void onDataChange(DataSnapshot dataSnapshot) {
 
 
-                for (DataSnapshot snapshot: dataSnapshot.getChildren()){
-
+                for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
 
 
                     key = snapshot.getKey().toString();
 
-                PkgClass pkgClass = dataSnapshot.child(key).child("Package1").getValue(PkgClass.class);
+                    if (dataSnapshot.child(key).child("Package1").exists()) {
+
+                        PkgClass pkgClass = dataSnapshot.child(key).child("Package1").getValue(PkgClass.class);
 
 
-                PkgName = pkgClass.getPackage_Name();
-                PkgPrice = pkgClass.getPackage_Price();
-                PkgDescription = pkgClass.getPackage_Description();
-
-                PkgTname.setText(PkgName);
-                PkgTprice.setText(PkgPrice);
-                PkgTdescription.setText(PkgDescription);
+                        if (!(pkgClass.getPackage_Name().equals("unk") || pkgClass.getPackage_Description().equals("unk") || pkgClass.getServices_Days().equals("unk")
+                                || pkgClass.getPackage_Price().equals("unk"))) {
 
 
-                  }
+                            PkgName = pkgClass.getPackage_Name();
+                            PkgPrice = pkgClass.getPackage_Price();
+                            PkgDescription = pkgClass.getPackage_Description();
+
+                            PkgTname.setText(PkgName);
+                            PkgTprice.setText(PkgPrice);
+                            PkgTdescription.setText(PkgDescription);
+                        }else {
+
+
+                            RelativeBronze.setVisibility(View.GONE);
+
+
+                        }
+
+                    }else{
+
+                            RelativeBronze.setVisibility(View.GONE);
+
+                    }
+
+                }
 
 
 
-            }
+
+                }
+
+
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -462,6 +483,9 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
                      key = snapshot1.getKey().toString();
 
 
+                     if (dataSnapshot.child(key).child("Package2").exists()){
+
+
                      PkgClass pkgClass = dataSnapshot.child(key).child("Package2").getValue(PkgClass.class);
 
                         if (!(pkgClass.getPackage_Name().equals("unk") || pkgClass.getPackage_Description().equals("unk") || pkgClass.getServices_Days().equals("unk")
@@ -480,14 +504,19 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
 
 
 
-                        }else {
+                        } else {
 
 
                             RelativeSilver.setVisibility(View.GONE);
 
                         }
 
+                     }
 
+                     else {
+
+                         Toast.makeText(MyProfile.this, "Pck2 Not Exists", Toast.LENGTH_SHORT).show();
+                     }
 
                     }
 
@@ -522,6 +551,8 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
                     key = snapshot.getKey().toString();
 
 
+
+                if (dataSnapshot.child(key).child("Package3").exists()){
                     PkgClass pkgClass = dataSnapshot.child(key).child("Package3").getValue(PkgClass.class);
 
                         if (!(pkgClass.getPackage_Name().equals("unk") || pkgClass.getPackage_Description().equals("unk") || pkgClass.getServices_Days().equals("unk")
@@ -552,7 +583,12 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
 
 
 
+                }else{
 
+                    RelativeGold.setVisibility(View.GONE);
+
+
+                }
 
                 }
 
@@ -572,101 +608,143 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
 
     }
 
-//    public  void getPkg4(){
-//
-//
-//        databaseReference.child("packages").child(LoginActivity.uid).child("pkg4").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//
-//
-//
-//                PkgClass pkgClass = dataSnapshot.getValue(PkgClass.class);
-//
-//                if (!(pkgClass.getName().equals("unk") || pkgClass.getDescription().equals("unk") || pkgClass.getDays().equals("unk")
-//                        || pkgClass.getPrice().equals("unk"))){
-//
-//
-//
-//                    PkgName = pkgClass.getName();
-//                    PkgPrice = pkgClass.getPrice();
-//                    PkgDescription = pkgClass.getDescription();
-//
-//                    PkgTname4.setText(PkgName);
-//                    PkgTprice4.setText(PkgPrice);
-//                    PkgTdescription4.setText(PkgDescription);
-//
-//
-//
-//
-//                }else {
-//
-//
-//                    RelativePlatinum.setVisibility(View.GONE);
-//
-//                }
-//
-//
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//
-//            }
-//        });
-//
-//
-//
-//    }
-//
-//    public  void getPkg5(){
-//
-//
-//        databaseReference.child("packages").child(LoginActivity.uid).child("pkg5").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//
-//
-//
-//                PkgClass pkgClass = dataSnapshot.getValue(PkgClass.class);
-//
-//                if (!(pkgClass.getName().equals("unk") || pkgClass.getDescription().equals("unk") || pkgClass.getDays().equals("unk")
-//                        || pkgClass.getPrice().equals("unk"))){
-//
-//
-//
-//                    PkgName = pkgClass.getName();
-//                    PkgPrice = pkgClass.getPrice();
-//                    PkgDescription = pkgClass.getDescription();
-//
-//                    PkgTname3.setText(PkgName);
-//                    PkgTprice3.setText(PkgPrice);
-//                    PkgTdescription3.setText(PkgDescription);
-//
-//
-//
-//
-//                }else {
-//
-//
-//                    RelativeDiamond.setVisibility(View.GONE);
-//
-//                }
-//
-//
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//
-//            }
-//        });
-//
-//
-//
-//    }
+    public  void getPkg4(){
+
+
+        databaseReference.child("Services").child(LoginActivity.uid).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+
+                    key = snapshot.getKey().toString();
+
+                    if (dataSnapshot.child(key).child("Package4").exists()){
+
+
+
+
+                        PkgClass pkgClass = dataSnapshot.child(key).child("Package4").getValue(PkgClass.class);
+
+                        if (!(pkgClass.getPackage_Name().equals("unk") || pkgClass.getPackage_Description().equals("unk") || pkgClass.getServices_Days().equals("unk")
+                                || pkgClass.getPackage_Price().equals("unk"))){
+
+
+
+                            PkgName = pkgClass.getPackage_Name();
+                            PkgPrice = pkgClass.getPackage_Price();
+                            PkgDescription = pkgClass.getPackage_Description();
+
+                            PkgTname4.setText(PkgName);
+                            PkgTprice4.setText(PkgPrice);
+                            PkgTdescription4.setText(PkgDescription);
+
+
+
+
+                        }else {
+
+
+                            RelativePlatinum.setVisibility(View.GONE);
+
+                        }
+
+
+
+                    }else {
+
+
+                        RelativePlatinum.setVisibility(View.GONE);
+
+                    }
+
+                }
+
+
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+    }
+
+    public  void getPkg5(){
+
+
+        databaseReference.child("Services").child(LoginActivity.uid).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+
+
+                    key = snapshot.getKey().toString();
+
+                    if (dataSnapshot.child(key).child("Package5").exists()){
+
+
+                        PkgClass pkgClass = dataSnapshot.child(key).child("Package5").getValue(PkgClass.class);
+
+                        if (!(pkgClass.getPackage_Name().equals("unk") || pkgClass.getPackage_Description().equals("unk") || pkgClass.getServices_Days().equals("unk")
+                                || pkgClass.getPackage_Price().equals("unk"))){
+
+
+
+                            PkgName = pkgClass.getPackage_Name();
+                            PkgPrice = pkgClass.getPackage_Price();
+                            PkgDescription = pkgClass.getPackage_Description();
+
+                            PkgTname5.setText(PkgName);
+                            PkgTprice5.setText(PkgPrice);
+                            PkgTdescription5.setText(PkgDescription);
+
+
+
+
+                        }else {
+
+
+                            RelativeDiamond.setVisibility(View.GONE);
+
+                        }
+
+
+
+
+
+
+
+
+                    }else {
+
+                        RelativeDiamond.setVisibility(View.GONE);
+
+                    }
+
+                }
+
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+    }
 
 
     @Override
