@@ -27,16 +27,20 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class RegisterActivity extends AppCompatActivity {
 
     Button btnSignUp;
     EditText editUser , editPass;
     RadioButton RadioUser , RadioPhoto;
     RadioGroup radioGroup;
-    EditText RegisterEmail, RegisterPass;
+    EditText RegisterEmail, RegisterPass , RegisterUserName;
     FirebaseAuth firebaseAuth;
     DatabaseReference databaseReference;
-   String email , pass, type , uid;
+   String email , pass, username, type , uid , date;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
     @Override
@@ -57,8 +61,17 @@ public class RegisterActivity extends AppCompatActivity {
         radioGroup = (RadioGroup) findViewById(R.id.RadioGroup);
         RegisterEmail = (EditText) findViewById(R.id.RegisterEmail);
         RegisterPass = (EditText) findViewById(R.id.RegisterPass);
+        RegisterUserName  = (EditText) findViewById(R.id.UserName);
         databaseReference = FirebaseDatabase.getInstance().getReference("allusers");
         firebaseAuth = FirebaseAuth.getInstance();
+
+
+        /// Getting Current Date and Time //
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Calendar cal = Calendar.getInstance();
+        date = dateFormat.format(cal.getTime());
+        ///
+
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,6 +89,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                     email = RegisterEmail.getText().toString().trim();
                     pass = RegisterPass.getText().toString().trim();
+                    username = RegisterUserName.getText().toString().trim();
                     if ((email.matches(emailPattern)) && pass.length() > 6){
 
 
@@ -92,7 +106,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                                 type = "user";
                                 UserSignUp();
-                                //Toast.makeText(RegisterActivity.this , "Radio User" , Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(RegisterActivity.this , "Radio User" , Toast.LENGTH_SHORT).show();
 //                                Intent intent = new Intent(RegisterActivity.this , HomeActivity.class);
 //                                startActivity(intent);
 
@@ -152,8 +166,8 @@ public class RegisterActivity extends AppCompatActivity {
 
                 uid = firebaseAuth.getCurrentUser().getUid();
 
-                UserModel userModel =  new UserModel(uid , email , pass , type);
-                databaseReference.child("users").child(uid).setValue(userModel, new DatabaseReference.CompletionListener() {
+                UserModel userModel =  new UserModel(username , uid , email , pass , type , date);
+                databaseReference.child("Users").child("Customer").child(uid).setValue(userModel, new DatabaseReference.CompletionListener() {
                     @Override
                     public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
 
@@ -165,7 +179,7 @@ public class RegisterActivity extends AppCompatActivity {
                         }else {
 
                             Intent intent = new Intent(RegisterActivity.this , LoginActivity.class);
-                                startActivity(intent);
+                            startActivity(intent);
 
 
                         }

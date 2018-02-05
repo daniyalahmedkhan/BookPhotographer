@@ -178,14 +178,39 @@ public class LoginActivity extends AppCompatActivity {
                         Intent intent = new Intent(LoginActivity.this , MyProfile.class);
                         startActivity(intent);
 
-                       // Toast.makeText(LoginActivity.this , "Photographer" , Toast.LENGTH_SHORT).show();
 
 
                     }else {
 
+                        firebaseDatabase.child("Users").child("Customer").child(firebaseAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                                if (dataSnapshot.getValue() != null) {
+
+
+                                    UserModel userModel = dataSnapshot.getValue(UserModel.class);
+                                    type = userModel.getType();
+
+                                    if (type.equals("user")) {
+
+                                        progressDialog.dismiss();
+                                        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                                        startActivity(intent);
+
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+
+                            }
+                        });
+
                         progressDialog.dismiss();
 
-                        Toast.makeText(LoginActivity.this , "User" , Toast.LENGTH_SHORT).show();
 
                     }
 

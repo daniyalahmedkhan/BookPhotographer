@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/bck5"
+    android:background="#046702"
     tools:context="com.example.kashif.bookphotographer.Activities.LoginActivity">
 
 
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/IMG1"
                 android:layout_centerHorizontal="true"
-                android:src="@mipmap/logo_passwordreset"
+                android:src="@drawable/logo"
                 />
             <TextView
                 android:layout_width="wrap_content"

@@ -5,12 +5,12 @@ public class UserModel  {
 
 
     //// User Data ///
-   private String User_Name;
-   private String User_ID;
-   private String Email;
-   private String Pass;
-   private String Type;
-   private String Date;
+   private String user_Name;
+   private String user_ID;
+   private String email;
+   private String pass;
+   private String type;
+   private String date;
 
 
     //// Photographer Data ////
@@ -39,13 +39,13 @@ public class UserModel  {
 
     public UserModel() {}
 
-    public UserModel(String User_Name , String id, String email, String pass, String type , String Date) {
-        this.User_Name = User_Name;
-        this.User_ID = id;
-        this.Email = email;
-        this.Pass = pass;
-        this.Type = type;
-        this.Date = Date;
+    public UserModel(String user_Name , String id, String email, String pass, String type , String date) {
+        this.user_Name = user_Name;
+        this.user_ID = id;
+        this.email = email;
+        this.pass = pass;
+        this.type = type;
+        this.date = date;
 
     }
 
@@ -55,16 +55,16 @@ public class UserModel  {
 
     public UserModel(String id, String email, String pass, String type, String firstname, String lastname, String gender , String imageUrl , String Location_ID , String Contact_No , String Date) {
         this.Photographer_ID = id;
-        this.Email = email;
-        this.Pass = pass;
-        this.Type = type;
+        this.email = email;
+        this.pass = pass;
+        this.type = type;
         this.First_Name = firstname;
         this.Last_Name = lastname;
         this.Gender = gender;
         this.Profile_Img  = imageUrl;
         this.Location_ID = Location_ID;
         this.Contact_No = Contact_No;
-        this.Date  = Date;
+        this.date  = Date;
     }
 
     public UserModel(String photographer_ID  , String location_ID, String location_Desc, String city_ID, String location_Status) {
@@ -90,51 +90,51 @@ public class UserModel  {
     }
 
     public String getUser_Name() {
-        return User_Name;
+        return user_Name;
     }
 
     public void setUser_Name(String user_Name) {
-        User_Name = user_Name;
+        this.user_Name = user_Name;
     }
 
     public String getUser_ID() {
-        return User_ID;
+        return user_ID;
     }
 
     public void setUser_ID(String user_ID) {
-        User_ID = user_ID;
+        this.user_ID = user_ID;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     public String getPass() {
-        return Pass;
+        return pass;
     }
 
     public void setPass(String pass) {
-        Pass = pass;
+        this.pass = pass;
     }
 
     public String getType() {
-        return Type;
+        return type;
     }
 
     public void setType(String type) {
-        Type = type;
+        this.type = type;
     }
 
     public String getDate() {
-        return Date;
+        return date;
     }
 
     public void setDate(String date) {
-        Date = date;
+        this.date = date;
     }
 
     public String getPhotographer_ID() {
