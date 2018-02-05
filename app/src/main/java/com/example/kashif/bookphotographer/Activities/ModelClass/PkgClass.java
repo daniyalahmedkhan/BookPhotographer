@@ -17,7 +17,7 @@ public class PkgClass {
 
     public PkgClass() {}
 
-    public PkgClass(String package_ID , String package_Name, String package_Description, String type ,  String category_ID , String services_Days, String package_Price) {
+    public PkgClass(String package_ID ,  String category_ID , String package_Name , String package_Price , String services_Days, String package_Description, String type  ) {
         this.package_ID = package_ID;
         this.category_ID = category_ID;
         this.package_Name = package_Name;

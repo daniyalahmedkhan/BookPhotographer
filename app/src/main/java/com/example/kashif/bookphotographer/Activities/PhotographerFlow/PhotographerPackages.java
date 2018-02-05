@@ -149,7 +149,7 @@ public class PhotographerPackages extends AppCompatActivity {
 
 //                    Intent intent = new Intent(RegisterActivity.this , HomeActivity.class);
 //                    startActivity(intent);
-                    Toast.makeText(PhotographerPackages.this , "PKG 1 Hit" , Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(PhotographerPackages.this , "PKG 1 Hit" , Toast.LENGTH_SHORT).show();
                 Pckg2();
 
 

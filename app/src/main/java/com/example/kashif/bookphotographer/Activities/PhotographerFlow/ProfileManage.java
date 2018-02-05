@@ -210,7 +210,7 @@ public class ProfileManage extends AppCompatActivity {
         CityID = databaseReference.push().getKey();
         CountryID =  databaseReference.push().getKey();
 
-        UserModel Mod = new UserModel(uid , email , pass , type , FirstN , LastN , Gend , imageUrl , LocationID ,  Contact_No , TodayDate);
+        UserModel Mod = new UserModel(uid , email , pass , type , FirstN , LastN , Gend , imageUrl , LocationID ,  Contact_No , TodayDate , Cit);
 
 
         databaseReference.child("Users").child("Photographer").child(uid).setValue(Mod, new DatabaseReference.CompletionListener() {
@@ -276,6 +276,7 @@ public class ProfileManage extends AppCompatActivity {
             }
         });
     }
+
 
     public void  Country(){
 

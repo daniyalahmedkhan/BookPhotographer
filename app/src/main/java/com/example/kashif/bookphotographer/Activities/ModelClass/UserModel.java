@@ -53,7 +53,7 @@ public class UserModel  {
 
 
 
-    public UserModel(String id, String email, String pass, String type, String firstname, String lastname, String gender , String imageUrl , String Location_ID , String Contact_No , String Date) {
+    public UserModel(String id, String email, String pass, String type, String firstname, String lastname, String gender , String imageUrl , String Location_ID , String Contact_No , String Date , String city_Des) {
         this.Photographer_ID = id;
         this.email = email;
         this.pass = pass;
@@ -65,6 +65,7 @@ public class UserModel  {
         this.Location_ID = Location_ID;
         this.Contact_No = Contact_No;
         this.date  = Date;
+        this.City_Des = city_Des;
     }
 
     public UserModel(String photographer_ID  , String location_ID, String location_Desc, String city_ID, String location_Status) {
