@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#046702"
-    tools:context="com.example.kashif.bookphotographer.Activities.LoginActivity">
+    tools:context="com.example.kashif.bookphotographer.Activities.UserAuth.LoginActivity">
 
 
     <ScrollView

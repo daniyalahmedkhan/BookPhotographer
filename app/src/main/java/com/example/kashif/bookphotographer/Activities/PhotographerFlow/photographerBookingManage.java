@@ -7,9 +7,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.kashif.bookphotographer.Activities.Adapter.PhotographerBookingCustom;
-import com.example.kashif.bookphotographer.Activities.HomeActivity;
-import com.example.kashif.bookphotographer.Activities.LoginActivity;
-import com.example.kashif.bookphotographer.Activities.ModelClass.BookReservation;
 import com.example.kashif.bookphotographer.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;

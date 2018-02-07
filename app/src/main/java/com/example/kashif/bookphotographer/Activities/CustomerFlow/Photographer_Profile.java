@@ -1,28 +1,23 @@
-package com.example.kashif.bookphotographer.Activities.PhotographerFlow;
+package com.example.kashif.bookphotographer.Activities.CustomerFlow;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.kashif.bookphotographer.Activities.Adapter.CustomDrawerUser;
-import com.example.kashif.bookphotographer.Activities.UserAuth.LoginActivity;
-import com.example.kashif.bookphotographer.Activities.ModelClass.BookReservation;
 import com.example.kashif.bookphotographer.Activities.ModelClass.PkgClass;
+import com.example.kashif.bookphotographer.Activities.ModelClass.SampleImag;
 import com.example.kashif.bookphotographer.Activities.ModelClass.UserModel;
+import com.example.kashif.bookphotographer.Activities.PhotographerFlow.MyProfile;
+import com.example.kashif.bookphotographer.Activities.UserAuth.LoginActivity;
 import com.example.kashif.bookphotographer.R;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,31 +26,25 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class MyProfile extends AppCompatActivity implements  View.OnClickListener{
+public class Photographer_Profile extends AppCompatActivity {
 
     TextView FirstName , LastName , Gender , Location , HeadName;
-    String Fname , Lname , Gend , Loc , url , ID ,  PID , key;
+   public static String Fname , Lname , Gend , Loc , url;
     ProgressDialog progressDialog;
-    DrawerLayout mDrawerLayout;
-    ListView mDrawerList;
-    ImageView ImageDrawer;
-    String names[];
+    ImageView image1 , image2;
+    String imgUrl1 , imgUrl2;
+    Button BtnRes;
 
-    int couter = 1;
+    public  static ArrayList<String> arrayList;
 
-    FirebaseAuth firebaseAuth;
-
-    TextView Emp_Name;
-
-    ImageView proImg;
-
-    TextView PkgTname , PkgTprice ,     PkgTdays , PkgTdescription;
+    TextView PkgTname , PkgTprice , PkgTdays , PkgTdescription;
     TextView PkgTname2 , PkgTprice2 , PkgTdays2 , PkgTdescription2;
     TextView PkgTname3 , PkgTprice3 , PkgTdays3 , PkgTdescription3;
     TextView PkgTname4 , PkgTprice4 , PkgTdays4 , PkgTdescription4;
     TextView PkgTname5 , PkgTprice5 , PkgTdays5 , PkgTdescription5;
 
-    String PkgName, PkgPrice , PkgDays, PkgDescription;
+    String PkgName, PkgPrice , PkgDays, PkgDescription , key;
+
 
     ImageView HeadImage;
     DatabaseReference databaseReference;
@@ -63,29 +52,18 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
     RelativeLayout RelativeBronze, RelativeSilver, RelativeGold, RelativePlatinum, RelativeDiamond;
     RelativeLayout RBronzeDetail, RSilverDetail, RGoldDetail, RPlatinumDetail, RDiamondDetail;
 
-    public static ArrayList<String> Order , Photographer , EventDate, EventVenue, Pckg , id;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_profile);
+        setContentView(R.layout.activity_photographer__profile);
 
+        arrayList = new ArrayList<String>();
 
+        image1 = (ImageView) findViewById(R.id.Image1);
+        image2 = (ImageView) findViewById(R.id.Image2);
+        BtnRes = (Button) findViewById(R.id.BtnRes);
 
-        ImageDrawer = (ImageView) findViewById(R.id.ImageDrawer);
-
-
-        Order = new ArrayList<String>();
-        Photographer = new ArrayList<String>();
-        EventDate = new ArrayList<String>();
-        EventVenue = new ArrayList<String>();
-        Pckg = new ArrayList<String>();
-        id = new ArrayList<String>();
-
-
-
-        firebaseAuth = FirebaseAuth.getInstance();
 
         databaseReference = FirebaseDatabase.getInstance().getReference("allusers");
         progressDialog = new ProgressDialog(this);
@@ -134,59 +112,6 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
         RGoldDetail = (RelativeLayout) findViewById(R.id.RelativeGoldenDetail);
         RPlatinumDetail = (RelativeLayout) findViewById(R.id.RelativePlatinumDetail);
         RDiamondDetail = (RelativeLayout) findViewById(R.id.RelativeDiamondDetail);
-
-
-
-        //// Side Drawer///
-
-
-        names = new String[]{"My Request" , "Logout"};
-        int img[] = {R.mipmap.camera , R.mipmap.logout_sidemenu_icon};
-        //mPlanetTitles = getResources().getStringArray(R.array.planets_array);
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerList = (ListView) findViewById(R.id.Left_Drawer);
-
-        mDrawerList.setFitsSystemWindows(true);
-
-        mDrawerList.setAdapter(new CustomDrawerUser(this, img, names));
-        ViewGroup header = (ViewGroup) getLayoutInflater().inflate(R.layout.drawer_header, mDrawerList, false);
-
-
-        Emp_Name = (TextView) header.findViewById(R.id.Emp_Name);
-        proImg = (ImageView) header.findViewById(R.id.proImg);
-
-
-        mDrawerList.addHeaderView(header, null, false);
-
-        ImageDrawer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if(mDrawerLayout.isDrawerOpen(Gravity.LEFT))
-                {
-                    mDrawerLayout.closeDrawer(mDrawerList);
-                    // getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-                    // getSupportActionBar().setCustomView(R.layout.menu_title);
-                    // getSupportActionBar().show();
-
-
-                }
-                else {
-                    mDrawerLayout.openDrawer(Gravity.LEFT);
-                    //getSupportActionBar().hide();
-                    // requestWindowFeature(Window.FEATURE_NO_TITLE);
-                }
-
-            }
-        });
-
-        mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
-
-
-        //////// Side Drawer End //////
-
-
-
 
 
 
@@ -284,13 +209,23 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
         });
 
 
-//getReqData();
+        BtnRes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(Photographer_Profile.this , BookingActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
         getData();
         getPkg1();
         getPkg2();
         getPkg3();
         getPkg4();
         getPkg5();
+      //  getImages();
 
 
     }
@@ -298,14 +233,14 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
 
     public void getData(){
 
-        if (databaseReference.child("Users").child("Photographer").child(LoginActivity.uid) != null){
+        if (databaseReference.child("Users").child("Photographer").child(SearchPhotographer.CurrntID) != null){
 
-            databaseReference.child("Users").child("Photographer").child(LoginActivity.uid).addValueEventListener(new ValueEventListener() {
+            databaseReference.child("Users").child("Photographer").child(SearchPhotographer.CurrntID).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
 
 
-                    final UserModel userModel = dataSnapshot.getValue(UserModel.class);
+                    UserModel userModel = dataSnapshot.getValue(UserModel.class);
 
                     if (userModel != null){
 
@@ -313,29 +248,22 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
                         Fname = userModel.getFirst_Name();
                         Lname = userModel.getLast_Name();
                         Gend = userModel.getGender();
+                        Loc = userModel.getCity_Des();
                         url = userModel.getProfile_Img();
-                        ID = userModel.getPhotographer_ID();
-
-
-                        getLocation();
-
 
                         String FirstLast = Fname + " " + Lname;
                         HeadName.setText(FirstLast);
-                        Emp_Name.setText(FirstLast);
                         FirstName.setText(Fname);
                         LastName.setText(Lname);
                         Gender.setText(Gend);
-
+                        Location.setText(Loc);
                         Glide.with(getApplicationContext()).load(url).into(HeadImage);
-                        Glide.with(getApplicationContext()).load(url).into(proImg);
-
 
 
 
                     }else {
 
-                        Toast.makeText(MyProfile.this , "EMPTY" , Toast.LENGTH_LONG).show();
+                        Toast.makeText(Photographer_Profile.this , "EMPTY" , Toast.LENGTH_LONG).show();
                     }
 
 
@@ -357,57 +285,11 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
 
     }
 
-    public void  getLocation(){
-
-
-        databaseReference.child("Users").child("Photographer").child("City").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-
-                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-
-
-                        UserModel userModel1 = snapshot.getValue(UserModel.class);
-
-                       PID  = userModel1.getPhotographer_ID();
-
-
-                        if (ID.equals(PID)) {
-
-                            Loc = userModel1.getCity_Des();
-                            Location.setText(Loc);
-                            Toast.makeText(MyProfile.this , "Proof" + Loc, Toast.LENGTH_SHORT).show();
-                        }else {
-
-                            Toast.makeText(MyProfile.this , "Not Proof" , Toast.LENGTH_SHORT).show();
-
-                            Loc = "buubububu";
-                        }
-
-
-
-
-                 }
-
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-
-
-
-    }
 
     public  void getPkg1(){
 
 
-        databaseReference.child("Services").child(LoginActivity.uid).addValueEventListener(new ValueEventListener() {
+        databaseReference.child("Services").child(SearchPhotographer.CurrntID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -433,6 +315,7 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
                             PkgTname.setText(PkgName);
                             PkgTprice.setText(PkgPrice);
                             PkgTdescription.setText(PkgDescription);
+                            arrayList.add(PkgName);
                         }else {
 
 
@@ -443,7 +326,7 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
 
                     }else{
 
-                            RelativeBronze.setVisibility(View.GONE);
+                        RelativeBronze.setVisibility(View.GONE);
 
                     }
 
@@ -452,7 +335,7 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
 
 
 
-                }
+            }
 
 
 
@@ -469,21 +352,21 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
     public  void getPkg2(){
 
 
-        databaseReference.child("Services").child(LoginActivity.uid).addValueEventListener(new ValueEventListener() {
+        databaseReference.child("Services").child(SearchPhotographer.CurrntID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
 
-                 for (DataSnapshot snapshot1 : dataSnapshot.getChildren()){
+                for (DataSnapshot snapshot1 : dataSnapshot.getChildren()){
 
 
-                     key = snapshot1.getKey().toString();
+                    key = snapshot1.getKey().toString();
 
 
-                     if (dataSnapshot.child(key).child("Package2").exists()){
+                    if (dataSnapshot.child(key).child("Package2").exists()){
 
 
-                     PkgClass pkgClass = dataSnapshot.child(key).child("Package2").getValue(PkgClass.class);
+                        PkgClass pkgClass = dataSnapshot.child(key).child("Package2").getValue(PkgClass.class);
 
                         if (!(pkgClass.getPackage_Name().equals("unk") || pkgClass.getPackage_Description().equals("unk") || pkgClass.getServices_Days().equals("unk")
                                 || pkgClass.getPackage_Price().equals("unk"))){
@@ -497,6 +380,7 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
                             PkgTname2.setText(PkgName);
                             PkgTprice2.setText(PkgPrice);
                             PkgTdescription2.setText(PkgDescription);
+                            arrayList.add(PkgName);
 
 
 
@@ -508,17 +392,17 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
 
                         }
 
-                     }
-
-                     else {
-
-                         Toast.makeText(MyProfile.this, "Pck2 Not Exists", Toast.LENGTH_SHORT).show();
-                     }
-
                     }
 
+                    else {
+
+                        RelativeSilver.setVisibility(View.GONE);
+                    }
 
                 }
+
+
+            }
 
 
 
@@ -538,7 +422,7 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
     public  void getPkg3(){
 
 
-        databaseReference.child("Services").child(LoginActivity.uid).addValueEventListener(new ValueEventListener() {
+        databaseReference.child("Services").child(SearchPhotographer.CurrntID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -549,8 +433,8 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
 
 
 
-                if (dataSnapshot.child(key).child("Package3").exists()){
-                    PkgClass pkgClass = dataSnapshot.child(key).child("Package3").getValue(PkgClass.class);
+                    if (dataSnapshot.child(key).child("Package3").exists()){
+                        PkgClass pkgClass = dataSnapshot.child(key).child("Package3").getValue(PkgClass.class);
 
                         if (!(pkgClass.getPackage_Name().equals("unk") || pkgClass.getPackage_Description().equals("unk") || pkgClass.getServices_Days().equals("unk")
                                 || pkgClass.getPackage_Price().equals("unk"))){
@@ -564,7 +448,7 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
                             PkgTname3.setText(PkgName);
                             PkgTprice3.setText(PkgPrice);
                             PkgTdescription3.setText(PkgDescription);
-
+                            arrayList.add(PkgName);
 
 
 
@@ -580,12 +464,12 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
 
 
 
-                }else{
+                    }else{
 
-                    RelativeGold.setVisibility(View.GONE);
+                        RelativeGold.setVisibility(View.GONE);
 
 
-                }
+                    }
 
                 }
 
@@ -608,7 +492,7 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
     public  void getPkg4(){
 
 
-        databaseReference.child("Services").child(LoginActivity.uid).addValueEventListener(new ValueEventListener() {
+        databaseReference.child("Services").child(SearchPhotographer.CurrntID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -636,7 +520,7 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
                             PkgTname4.setText(PkgName);
                             PkgTprice4.setText(PkgPrice);
                             PkgTdescription4.setText(PkgDescription);
-
+                            arrayList.add(PkgName);
 
 
 
@@ -676,7 +560,7 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
     public  void getPkg5(){
 
 
-        databaseReference.child("Services").child(LoginActivity.uid).addValueEventListener(new ValueEventListener() {
+        databaseReference.child("Services").child(SearchPhotographer.CurrntID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -703,6 +587,7 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
                             PkgTname5.setText(PkgName);
                             PkgTprice5.setText(PkgPrice);
                             PkgTdescription5.setText(PkgDescription);
+                            arrayList.add(PkgName);
 
 
 
@@ -743,106 +628,45 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
 
     }
 
-
-    @Override
-    public void onClick(View view) {
-
-    }
-
-    private class DrawerItemClickListener implements ListView.OnItemClickListener {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            selectItem(position);
-        }
-    }
-
-    public  void  selectItem(int pos){
-
-        Intent i;
-
-        switch (pos){
-
-            case 1:
-
-                i = new Intent(MyProfile.this, photographerBookingManage.class);
-                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-                startActivity(i);
-                break;
-
-
-            case 2:
-
-                FirebaseAuth.getInstance().signOut();
-                i = new Intent(MyProfile.this, LoginActivity.class);
-                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i);
-                break;
-
-
-
-            default:
-                break;
-
-        }
-
-
-    }
-    public void getReqData(){
-
-        databaseReference.child("bookres").child("forphotographer").child(firebaseAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                if (dataSnapshot.exists()){
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-
-                        BookReservation bookReservation = snapshot.getValue(BookReservation.class);
-
-                        Order.add(String.valueOf(couter));
-
-
-//                        id.add(bookReservation.getId());
-//                        Photographer.add(bookReservation.getPhotographername());
-//                        EventDate.add(bookReservation.getOcc());
-//                        EventVenue.add(bookReservation.getVen());
-//                        Pckg.add(bookReservation.getPkg());
-//                        couter++;
-
-
-
-
-
-                    }
-
-
-
+//    public  void getImages(){
 //
+//
+//        databaseReference.child("sampleImages").child(SearchPhotographer.CurrntID).addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//
+//
+//        if (dataSnapshot.exists()){
+//
+//
+//                    SampleImag sampleImag = dataSnapshot.getValue(SampleImag.class);
+//
+//                     imgUrl1 = sampleImag.getImage1();
+//                     imgUrl2 = sampleImag.getImage2();
+//
+//
+//
+//
+//            Glide.with(getApplicationContext()).load(imgUrl1).into(image1);
+//            Glide.with(getApplicationContext()).load(imgUrl2).into(image2);
+//
+//        }else {
+//
+//            Toast.makeText(Photographer_Profile.this, "Not Found Images", Toast.LENGTH_SHORT).show();
+//        }
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        });
+//
+//
+//
+//    }
 
 
-
-
-
-
-                }else {
-
-
-                    Toast.makeText(MyProfile.this , "NO REQUEST FOUND" , Toast.LENGTH_SHORT).show();
-
-
-                }
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-
-    }
 
 }

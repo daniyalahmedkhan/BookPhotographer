@@ -1,21 +1,14 @@
-package com.example.kashif.bookphotographer.Activities;
+package com.example.kashif.bookphotographer.Activities.CustomerFlow;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.kashif.bookphotographer.Activities.Adapter.UserBookingManageCustom;
-import com.example.kashif.bookphotographer.Activities.ModelClass.BookReservation;
+import com.example.kashif.bookphotographer.Activities.CustomerFlow.HomeActivity;
 import com.example.kashif.bookphotographer.R;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
 
 public class UserBookingManage extends AppCompatActivity {
 

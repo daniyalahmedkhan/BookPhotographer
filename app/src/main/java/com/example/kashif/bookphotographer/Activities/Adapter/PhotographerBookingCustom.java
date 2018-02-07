@@ -10,8 +10,6 @@ import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
-import com.example.kashif.bookphotographer.Activities.LoginActivity;
-import com.example.kashif.bookphotographer.Activities.ModelClass.BookReservation;
 import com.example.kashif.bookphotographer.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;

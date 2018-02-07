@@ -1,19 +1,10 @@
-package com.example.kashif.bookphotographer.Activities;
+package com.example.kashif.bookphotographer.Activities.CustomerFlow;
 
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
-import android.app.Fragment;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Color;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
@@ -22,21 +13,15 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.kashif.bookphotographer.Activities.Adapter.ListofAddEvents;
-import com.example.kashif.bookphotographer.Activities.ModelClass.BookReservation;
-import com.example.kashif.bookphotographer.Activities.ModelClass.PkgClass;
+import com.example.kashif.bookphotographer.Activities.UserAuth.LoginActivity;
 import com.example.kashif.bookphotographer.R;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.squareup.timessquare.CalendarPickerView;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -44,8 +29,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-
-import static android.webkit.ConsoleMessage.MessageLevel.LOG;
 
 public class BookingActivity extends AppCompatActivity {
 
@@ -134,7 +117,7 @@ public class BookingActivity extends AppCompatActivity {
         ListofEvents = (ListView) findViewById(R.id.ListofEvents);
 
 
-        ArrayAdapter<String> adp = new ArrayAdapter<String> (this,android.R.layout.simple_spinner_dropdown_item,Photographer_Profile.arrayList);
+        ArrayAdapter<String> adp = new ArrayAdapter<String> (this,android.R.layout.simple_spinner_dropdown_item, Photographer_Profile.arrayList);
         EditPck.setAdapter(adp);
 
 

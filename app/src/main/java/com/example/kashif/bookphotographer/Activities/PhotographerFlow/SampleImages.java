@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.kashif.bookphotographer.Activities.LoginActivity;
+import com.example.kashif.bookphotographer.Activities.UserAuth.LoginActivity;
 import com.example.kashif.bookphotographer.Activities.ModelClass.SampleImag;
 import com.example.kashif.bookphotographer.R;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -247,7 +247,7 @@ public class SampleImages extends AppCompatActivity {
 
             SampleImag sampleImag = new SampleImag(Category_ID , Date ,imageUrl1, imageUrl2);
 
-            databaseReference.child("Gallery").child(Image_ID).child(Gallery_ID).child(ProfileManage.uid).setValue(sampleImag, new DatabaseReference.CompletionListener() {
+            databaseReference.child("Gallery").child(ProfileManage.uid).child(Gallery_ID).setValue(sampleImag, new DatabaseReference.CompletionListener() {
                 @Override
                 public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
 
@@ -263,7 +263,7 @@ public class SampleImages extends AppCompatActivity {
 
                         SampleImag CategoryData = new SampleImag(Category_Des  , Category_ID);
 
-                        databaseReference.child("Category").child(Parent_Category_ID).child(ProfileManage.uid).setValue(CategoryData, new DatabaseReference.CompletionListener() {
+                        databaseReference.child("Gallery").child("Category").child(Parent_Category_ID).child(ProfileManage.uid).setValue(CategoryData, new DatabaseReference.CompletionListener() {
                             @Override
                             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
 

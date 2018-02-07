@@ -1,4 +1,4 @@
-package com.example.kashif.bookphotographer.Activities;
+package com.example.kashif.bookphotographer.Activities.UserAuth;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -8,7 +8,6 @@ import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -18,9 +17,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.kashif.bookphotographer.Activities.ModelClass.UserModel;
+import com.example.kashif.bookphotographer.Activities.CustomerFlow.HomeActivity;
 import com.example.kashif.bookphotographer.Activities.PhotographerFlow.MyProfile;
-import com.example.kashif.bookphotographer.Activities.PhotographerFlow.SampleImages;
 import com.example.kashif.bookphotographer.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;

@@ -1,4 +1,4 @@
-package com.example.kashif.bookphotographer.Activities;
+package com.example.kashif.bookphotographer.Activities.UserAuth;
 
 import android.content.Intent;
 import android.graphics.Color;

@@ -8,12 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.kashif.bookphotographer.Activities.HomeActivity;
 import com.example.kashif.bookphotographer.Activities.ModelClass.PkgClass;
-import com.example.kashif.bookphotographer.Activities.ModelClass.UserModel;
-import com.example.kashif.bookphotographer.Activities.RegisterActivity;
 import com.example.kashif.bookphotographer.R;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

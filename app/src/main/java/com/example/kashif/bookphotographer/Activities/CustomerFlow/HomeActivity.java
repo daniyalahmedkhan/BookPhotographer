@@ -1,4 +1,4 @@
-package com.example.kashif.bookphotographer.Activities;
+package com.example.kashif.bookphotographer.Activities.CustomerFlow;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -7,25 +7,21 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.DrawableTypeRequest;
-import com.bumptech.glide.Glide;
 import com.example.kashif.bookphotographer.Activities.Adapter.CustomDrawerUser;
+import com.example.kashif.bookphotographer.Activities.UserAuth.LoginActivity;
 import com.example.kashif.bookphotographer.Activities.ModelClass.BookReservation;
 import com.example.kashif.bookphotographer.Activities.ModelClass.PkgClass;
 import com.example.kashif.bookphotographer.Activities.ModelClass.UserModel;

@@ -1,4 +1,4 @@
-package com.example.kashif.bookphotographer.Activities;
+package com.example.kashif.bookphotographer.Activities.CustomerFlow;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -10,9 +10,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.example.kashif.bookphotographer.Activities.Adapter.Custom_SearchPhotographer;
 import com.example.kashif.bookphotographer.R;
 

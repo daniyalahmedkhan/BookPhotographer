@@ -1,4 +1,4 @@
-package com.example.kashif.bookphotographer.Activities;
+package com.example.kashif.bookphotographer.Activities.CustomerFlow;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
