@@ -335,7 +335,7 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
 
                     }else {
 
-                        Toast.makeText(MyProfile.this , "EMPTY" , Toast.LENGTH_LONG).show();
+//                        Toast.makeText(MyProfile.this , "EMPTY" , Toast.LENGTH_LONG).show();
                     }
 
 
@@ -512,7 +512,7 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
 
                      else {
 
-                         Toast.makeText(MyProfile.this, "Pck2 Not Exists", Toast.LENGTH_SHORT).show();
+                         RelativeSilver.setVisibility(View.GONE);
                      }
 
                     }

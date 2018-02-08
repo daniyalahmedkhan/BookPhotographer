@@ -245,7 +245,7 @@ public class SampleImages extends AppCompatActivity {
             Category_ID = PhotographerPackages.Category_ID.toString();
 
 
-            SampleImag sampleImag = new SampleImag(Category_ID , Date ,imageUrl1, imageUrl2);
+            SampleImag sampleImag = new SampleImag(Image_ID , Category_ID , Date ,imageUrl1, imageUrl2);
 
             databaseReference.child("Gallery").child(ProfileManage.uid).child(Gallery_ID).setValue(sampleImag, new DatabaseReference.CompletionListener() {
                 @Override
@@ -257,29 +257,7 @@ public class SampleImages extends AppCompatActivity {
                         Toast.makeText(SampleImages.this, "Error in Saving", Toast.LENGTH_SHORT).show();
                     } else {
 
-
-                        String Parent_Category_ID = databaseReference.push().getKey();
-                        String Category_Des  = EditCategory.getText().toString();
-
-                        SampleImag CategoryData = new SampleImag(Category_Des  , Category_ID);
-
-                        databaseReference.child("Gallery").child("Category").child(Parent_Category_ID).child(ProfileManage.uid).setValue(CategoryData, new DatabaseReference.CompletionListener() {
-                            @Override
-                            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-
-
-                                if (databaseReference.equals(databaseError)) {
-
-                                    Toast.makeText(SampleImages.this, "Error in Saving", Toast.LENGTH_SHORT).show();
-                                } else {
-
-                                    Intent intent  = new Intent(SampleImages.this , LoginActivity.class);
-                                    startActivity(intent);
-
-                                }
-
-                            }
-                        });
+                    SaveCategory();
 
 
                     }
@@ -297,6 +275,37 @@ public class SampleImages extends AppCompatActivity {
 
 
         }
+
+
+    }
+
+
+    public void SaveCategory(){
+
+
+
+        String Parent_Category_ID = databaseReference.push().getKey();
+        String Category_Des  = EditCategory.getText().toString();
+
+        SampleImag CategoryData = new SampleImag(Category_Des  , Parent_Category_ID);
+
+        databaseReference.child("Gallery").child("Category").child(ProfileManage.uid).child(Category_ID).setValue(CategoryData, new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+
+
+                if (databaseReference.equals(databaseError)) {
+
+                    Toast.makeText(SampleImages.this, "Error in Saving", Toast.LENGTH_SHORT).show();
+                } else {
+
+                    Intent intent  = new Intent(SampleImages.this , LoginActivity.class);
+                    startActivity(intent);
+
+                }
+
+            }
+        });
 
 
     }

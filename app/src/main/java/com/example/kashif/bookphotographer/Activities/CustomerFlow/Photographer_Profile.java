@@ -225,7 +225,7 @@ public class Photographer_Profile extends AppCompatActivity {
         getPkg3();
         getPkg4();
         getPkg5();
-      //  getImages();
+        getImages();
 
 
     }
@@ -628,44 +628,49 @@ public class Photographer_Profile extends AppCompatActivity {
 
     }
 
-//    public  void getImages(){
-//
-//
-//        databaseReference.child("sampleImages").child(SearchPhotographer.CurrntID).addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//
-//
-//        if (dataSnapshot.exists()){
-//
-//
-//                    SampleImag sampleImag = dataSnapshot.getValue(SampleImag.class);
-//
-//                     imgUrl1 = sampleImag.getImage1();
-//                     imgUrl2 = sampleImag.getImage2();
-//
-//
-//
-//
-//            Glide.with(getApplicationContext()).load(imgUrl1).into(image1);
-//            Glide.with(getApplicationContext()).load(imgUrl2).into(image2);
-//
-//        }else {
-//
-//            Toast.makeText(Photographer_Profile.this, "Not Found Images", Toast.LENGTH_SHORT).show();
-//        }
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//
-//            }
-//        });
-//
-//
-//
-//    }
+    public  void getImages(){
+
+
+        databaseReference.child("Gallery").child(SearchPhotographer.CurrntID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+        if (dataSnapshot.exists()){
+
+            for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+
+
+
+
+
+                    SampleImag sampleImag = snapshot.getValue(SampleImag.class);
+
+                     imgUrl1 = sampleImag.getImage1();
+                     imgUrl2 = sampleImag.getImage2();
+
+
+            }
+
+            Glide.with(getApplicationContext()).load(imgUrl1).into(image1);
+            Glide.with(getApplicationContext()).load(imgUrl2).into(image2);
+
+        }else {
+
+            Toast.makeText(Photographer_Profile.this, "Not Found Images", Toast.LENGTH_SHORT).show();
+        }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+    }
 
 
 
