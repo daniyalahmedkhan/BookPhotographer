@@ -10,10 +10,10 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <TextView
@@ -32,7 +32,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:id="@+id/Relative1"
             android:paddingTop="50dp" >
 
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/IMG1"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/logo"
+                android:src="@mipmap/logo_passwordreset"
                 />
             <TextView
                 android:layout_width="wrap_content"
@@ -67,10 +67,10 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:id="@+id/Relative2"
             android:layout_below="@id/Relative1"
-            android:paddingTop="20dp"
+            android:paddingTop="60dp"
             android:layout_marginTop="10dp">
 
 
@@ -122,94 +122,15 @@
 
         </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/Relative3"
-            android:layout_below="@id/Relative2">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_centerHorizontal="true"
-                android:orientation="horizontal">
-
-
-
-                <View
-                    android:layout_width="80dp"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/colorWhite"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="or Sign In with"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:textColor="@color/colorWhite"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-
-                    />
-                <View
-                    android:layout_width="80dp"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/colorWhite"
-                    />
-
-            </LinearLayout>
-
-
-        </RelativeLayout>
 
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/Relative4"
-            android:layout_below="@id/Relative3"
-            android:layout_marginTop="10dp">
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="10dp"
-
-                android:layout_centerHorizontal="true">
-
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingRight="5dp"
-                    android:src="@mipmap/facebook_icon"
-                    />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/googlplus_icon"
-                    android:paddingLeft="5dp"
-                    />
-
-
-            </LinearLayout>
-
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:id="@+id/Relative5"
-            android:layout_below="@id/Relative4"
-            android:layout_marginTop="5dp">
+
+            android:layout_below="@id/Relative2"
+            android:layout_marginTop="100dp">
 
             <Button
                 android:layout_width="wrap_content"
@@ -224,7 +145,7 @@
                 android:paddingLeft="40dp"
                 android:paddingRight="40dp"
                 android:fontFamily="serif"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorBlack"
                 />
 
 
@@ -232,7 +153,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="15dp"
             android:layout_below="@id/Relative5">
 
@@ -244,6 +165,7 @@
                 android:textSize="17dp"
                 android:padding="10dp"
                 android:id="@+id/Signup"
+                android:textStyle="bold"
                 android:layout_marginLeft="5dp"
                 android:layout_alignParentLeft="true"
                 android:textColor="@color/colorWhite"
@@ -256,6 +178,7 @@
                 android:text="Forgot Password?"
                 android:textSize="17dp"
                 android:padding="10dp"
+                android:textStyle="bold"
                 android:layout_marginRight="5dp"
                 android:layout_alignParentRight="true"
                 android:textColor="@color/colorWhite"

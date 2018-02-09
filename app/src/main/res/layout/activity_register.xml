@@ -29,7 +29,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/IMG1"
                     android:layout_centerHorizontal="true"
-                    android:src="@drawable/logo"
+                    android:src="@mipmap/logo_passwordreset"
                     />
                 <TextView
                     android:layout_width="wrap_content"

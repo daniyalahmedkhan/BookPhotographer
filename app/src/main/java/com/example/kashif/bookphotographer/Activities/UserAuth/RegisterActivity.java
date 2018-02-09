@@ -40,7 +40,7 @@ public class RegisterActivity extends AppCompatActivity {
     EditText RegisterEmail, RegisterPass , RegisterUserName;
     FirebaseAuth firebaseAuth;
     DatabaseReference databaseReference;
-   String email , pass, username, type , uid , date;
+    String email , pass, username, type , uid , date;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
     @Override
@@ -62,6 +62,7 @@ public class RegisterActivity extends AppCompatActivity {
         RegisterEmail = (EditText) findViewById(R.id.RegisterEmail);
         RegisterPass = (EditText) findViewById(R.id.RegisterPass);
         RegisterUserName  = (EditText) findViewById(R.id.UserName);
+
         databaseReference = FirebaseDatabase.getInstance().getReference("allusers");
         firebaseAuth = FirebaseAuth.getInstance();
 

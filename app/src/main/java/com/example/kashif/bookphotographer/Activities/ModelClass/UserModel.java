@@ -5,13 +5,7 @@ public class UserModel  {
 
 
     //// User Data ///
-   private String user_Name;
-   private String user_ID;
-   private String email;
-   private String pass;
-   private String type;
-   private String date;
-
+   private String user_Name , user_ID , email , pass , type , date;
 
     //// Photographer Data ////
 
@@ -19,18 +13,14 @@ public class UserModel  {
 
     /// Location Data ///
 
- private    String  Location_ID;
- private    String  Location_Desc;
- private    String  City_ID;
- private    String  Location_Status;
+ private    String  Location_ID  , Location_Desc, City_ID, Location_Status;
 
 
 
     //// City Data  ///
 
 
-  private   String City_Des;
-  private   String Country_ID;
+  private   String City_Des , Country_ID;
 
     /// Country Data ///
 

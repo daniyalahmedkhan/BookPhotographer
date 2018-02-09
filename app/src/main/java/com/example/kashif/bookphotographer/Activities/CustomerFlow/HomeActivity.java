@@ -222,7 +222,7 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
 
     public void getReqData(){
 
-        databaseReference.child("bookres").child("foruser").child(firebaseAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+        databaseReference.child("Reservation").child("foruser").child(firebaseAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 

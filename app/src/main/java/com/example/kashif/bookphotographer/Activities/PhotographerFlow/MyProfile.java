@@ -63,7 +63,7 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
     RelativeLayout RelativeBronze, RelativeSilver, RelativeGold, RelativePlatinum, RelativeDiamond;
     RelativeLayout RBronzeDetail, RSilverDetail, RGoldDetail, RPlatinumDetail, RDiamondDetail;
 
-    public static ArrayList<String> Order , Photographer , EventDate, EventVenue, Pckg , id;
+    public static ArrayList<String> Order , Photographer , EventDate, EventVenue, Pckg , id , status , resId;
 
 
     @Override
@@ -82,6 +82,8 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
         EventVenue = new ArrayList<String>();
         Pckg = new ArrayList<String>();
         id = new ArrayList<String>();
+        status = new ArrayList<String>();
+        resId = new ArrayList<String>();
 
 
 
@@ -284,7 +286,7 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
         });
 
 
-//getReqData();
+getReqData();
         getData();
         getPkg1();
         getPkg2();
@@ -792,48 +794,31 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
     }
     public void getReqData(){
 
-        databaseReference.child("bookres").child("forphotographer").child(firebaseAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+        databaseReference.child("Reservation").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                if (dataSnapshot.exists()){
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()){
 
-                        BookReservation bookReservation = snapshot.getValue(BookReservation.class);
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
 
-                        Order.add(String.valueOf(couter));
-
-
-//                        id.add(bookReservation.getId());
-//                        Photographer.add(bookReservation.getPhotographername());
-//                        EventDate.add(bookReservation.getOcc());
-//                        EventVenue.add(bookReservation.getVen());
-//                        Pckg.add(bookReservation.getPkg());
-//                        couter++;
+                    BookReservation bookReservation = snapshot.getValue(BookReservation.class);
 
 
 
+                    if (bookReservation.getPhotographer_ID().equals(firebaseAuth.getCurrentUser().getUid())){
 
 
+                        resId.add(bookReservation.getReservation_ID());
+
+                        getReqData2();
+
+                    }else {
+
+                        Toast.makeText(MyProfile.this, "No Found Data", Toast.LENGTH_SHORT).show();
                     }
 
 
-
-//
-
-
-
-
-
-
-                }else {
-
-
-                    Toast.makeText(MyProfile.this , "NO REQUEST FOUND" , Toast.LENGTH_SHORT).show();
-
-
                 }
-
             }
 
             @Override
@@ -843,6 +828,58 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
         });
 
 
+
+
+    }
+
+    public  void getReqData2(){
+
+
+        if (!resId.isEmpty()) {
+
+            for (int i =0; i<resId.size(); i++) {
+                databaseReference.child("ReservationDetail").child(resId.get(i)).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                        for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
+
+                            if (dataSnapshot1.exists()){
+
+                                BookReservation bookReservation = dataSnapshot1.getValue(BookReservation.class);
+
+
+                                Order.add(String.valueOf(couter));
+                                id.add(bookReservation.getReservation_Detail_ID());
+                                Photographer.add(bookReservation.getPhotographer_Name());
+                                EventDate.add(bookReservation.getOccasion_Date());
+                                EventVenue.add(bookReservation.getVenue_Location());
+                                Pckg.add(bookReservation.getSelected_Package());
+                                status.add(bookReservation.getReservation_Status());
+                                couter++;
+
+
+
+
+
+                            }
+
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+            }
+        }else {
+
+            Toast.makeText(this, "resID is Empty", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }

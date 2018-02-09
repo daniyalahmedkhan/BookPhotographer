@@ -22,6 +22,7 @@ public class photographerBookingManage extends AppCompatActivity {
     public static   String[] eventvenue = MyProfile.EventVenue.toArray(new String[MyProfile.EventVenue.size()]);
     public static   String[] pckg = MyProfile.Pckg.toArray(new String[MyProfile.Pckg.size()]);
     public static   String[] id = MyProfile.id.toArray(new String[MyProfile.id.size()]);
+    public static   String[] status = MyProfile.status.toArray(new String[MyProfile.status.size()]);
 
     ListView ListViewOrder;
 
@@ -42,21 +43,20 @@ public class photographerBookingManage extends AppCompatActivity {
 
         ListViewOrder = (ListView) findViewById(R.id.ListViewPhoto);
 
-        final PhotographerBookingCustom adapter = new PhotographerBookingCustom(getApplicationContext() ,id , order , photographer , eventdate , eventvenue , pckg);
+        final PhotographerBookingCustom adapter = new PhotographerBookingCustom(getApplicationContext() ,id , order , photographer , eventdate , eventvenue , pckg , status);
+        adapter.notifyDataSetChanged();
         ListViewOrder.setAdapter(adapter);
 
-        //final BookReservation bookReservation = new BookReservation();
 
         ListViewOrder.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                databaseReference.child("bookres").child("forphotographer").child(firebaseAuth.getCurrentUser().getUid())
+                databaseReference.child("ReservationDetail").child(MyProfile.resId.get(i))
                         .child(id[i]).removeValue();
 
 
-                ListViewOrder.deferNotifyDataSetChanged();
-                adapter.notifyDataSetChanged();
+//                adapter.notifyDataSetChanged();
             }
         });
 

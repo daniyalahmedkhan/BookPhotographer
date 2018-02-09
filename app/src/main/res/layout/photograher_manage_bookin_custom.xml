@@ -176,6 +176,37 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:id="@+id/Linear5"
+                android:layout_below="@id/Linear4"
+                >
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:fontFamily="serif"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/colorBlack"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:text="Status : "
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/Status"
+                    android:textColor="@color/colorBlue"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:text="Pending...."
+                    />
+
+
+            </LinearLayout>
 
 
 

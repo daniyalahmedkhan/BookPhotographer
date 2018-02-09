@@ -27,10 +27,11 @@ public class PhotographerBookingCustom extends BaseAdapter {
     public final String[] eventdates;
     public final String[] eventvenue;
     public final String[] packages;
+    public  final String[] status;
     DatabaseReference databaseReference;
 
     public PhotographerBookingCustom(Context context , String[] id,  String[] order , String[ ] user ,
-                                   String[] eventdates , String[] eventvenue , String[] packages){
+                                   String[] eventdates , String[] eventvenue , String[] packages , String[] status){
 
 
 
@@ -42,6 +43,7 @@ public class PhotographerBookingCustom extends BaseAdapter {
         this.eventdates = eventdates;
         this.eventvenue = eventvenue;
         this.packages = packages;
+        this.status = status;
         databaseReference = FirebaseDatabase.getInstance().getReference("allusers");
 
     }
@@ -80,12 +82,13 @@ public class PhotographerBookingCustom extends BaseAdapter {
            obj = new ViewHodler();
 
 
-            view = inflater.inflate(R.layout.user_manage_bookin_custom, null);
+            view = inflater.inflate(R.layout.photograher_manage_bookin_custom, null);
             obj.ord = (TextView) view.findViewById(R.id.Order);
             obj.usr = (TextView) view.findViewById(R.id.PhotographerName);
             obj.evd = (TextView) view.findViewById(R.id.EventDates);
             obj.evV = (TextView) view.findViewById(R.id.EventVenue);
             obj.pkg = (TextView) view.findViewById(R.id.SelectedPkg);
+            obj.status = (TextView) view.findViewById(R.id.Status);
             obj.imgOption = (ImageView) view.findViewById(R.id.OptionMenu);
 
 
@@ -95,6 +98,7 @@ public class PhotographerBookingCustom extends BaseAdapter {
             obj.evd.setText(eventdates[i]);
             obj.evV.setText(eventvenue[i]);
             obj.pkg.setText(packages[i]);
+            obj.status.setText(status[i]);
 
             view.setTag(obj);
 
@@ -162,7 +166,7 @@ public class PhotographerBookingCustom extends BaseAdapter {
 
     public  static  class  ViewHodler{
 
-        TextView ord , usr , evd , evV , pkg;
+        TextView ord , usr , evd , evV , pkg , status;
         ImageView imgOption;
 
 
