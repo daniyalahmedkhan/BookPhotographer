@@ -1,6 +1,7 @@
 package com.example.kashif.bookphotographer.Activities.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
+import com.example.kashif.bookphotographer.Activities.PhotographerFlow.MyProfile;
 import com.example.kashif.bookphotographer.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;

@@ -286,7 +286,7 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
         });
 
 
-getReqData();
+
         getData();
         getPkg1();
         getPkg2();
@@ -354,6 +354,8 @@ getReqData();
 
 
         }
+
+
 
 
 
@@ -792,94 +794,7 @@ getReqData();
 
 
     }
-    public void getReqData(){
-
-        databaseReference.child("Reservation").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
 
 
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-
-                    BookReservation bookReservation = snapshot.getValue(BookReservation.class);
-
-
-
-                    if (bookReservation.getPhotographer_ID().equals(firebaseAuth.getCurrentUser().getUid())){
-
-
-                        resId.add(bookReservation.getReservation_ID());
-
-                        getReqData2();
-
-                    }else {
-
-                        Toast.makeText(MyProfile.this, "No Found Data", Toast.LENGTH_SHORT).show();
-                    }
-
-
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-
-
-
-    }
-
-    public  void getReqData2(){
-
-
-        if (!resId.isEmpty()) {
-
-            for (int i =0; i<resId.size(); i++) {
-                databaseReference.child("ReservationDetail").child(resId.get(i)).addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-
-
-                        for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
-
-                            if (dataSnapshot1.exists()){
-
-                                BookReservation bookReservation = dataSnapshot1.getValue(BookReservation.class);
-
-
-                                Order.add(String.valueOf(couter));
-                                id.add(bookReservation.getReservation_Detail_ID());
-                                Photographer.add(bookReservation.getPhotographer_Name());
-                                EventDate.add(bookReservation.getOccasion_Date());
-                                EventVenue.add(bookReservation.getVenue_Location());
-                                Pckg.add(bookReservation.getSelected_Package());
-                                status.add(bookReservation.getReservation_Status());
-                                couter++;
-
-
-
-
-
-                            }
-
-
-                        }
-
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-                });
-            }
-        }else {
-
-            Toast.makeText(this, "resID is Empty", Toast.LENGTH_SHORT).show();
-        }
-    }
 
 }
