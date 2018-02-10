@@ -1,9 +1,12 @@
 package com.example.kashif.bookphotographer.Activities.PhotographerFlow;
 
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -67,21 +70,48 @@ public class photographerBookingManage extends AppCompatActivity {
 
         getReqData();
 
-        ListViewOrder.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+       ListViewOrder.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+           @Override
+           public boolean onItemLongClick(AdapterView<?> adapterView, View view, final int i, long l) {
+
+               AlertDialog.Builder  builder = new AlertDialog.Builder(photographerBookingManage.this);
+               LayoutInflater inflater = photographerBookingManage.this.getLayoutInflater();
+               final View v = inflater.inflate(R.layout.booking_confirmation, null);
+               builder.setView(v);
+
+               final AlertDialog b = builder.create();
+               b.show();
 
 
+               Button Accept = (Button)v.findViewById(R.id.btnAccpt);
+               Button Reject = (Button)v.findViewById(R.id.btnReject);
+
+               Accept.setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View view) {
 
 
-                databaseReference.child("ReservationDetail").child(resId.get(i))
-                        .child(id[i]).removeValue();
+                       databaseReference.child("ReservationDetail").child(resId.get(i))
+                               .child(id[i]).child("reservation_Status").setValue("Accept");
 
-                getReqData();
-                ListViewOrder.invalidateViews();
+                       getReqData();
+                       ListViewOrder.invalidateViews();
+                        b.dismiss();
+                   }
+               });
 
-            }
-        });
+
+               Reject.setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View view) {
+                       Toast.makeText(photographerBookingManage.this, "Reject", Toast.LENGTH_SHORT).show();
+                        b.dismiss();
+                   }
+               });
+
+               return true;
+           }
+       });
 
 
 
