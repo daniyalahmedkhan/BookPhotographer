@@ -23,13 +23,13 @@ import com.google.firebase.database.FirebaseDatabase;
 public class PhotographerBookingCustom extends BaseAdapter {
 
     public Context mContext;
-    public final  String[] id;
-    public final  String[] order;
-    public final String[] user;
-    public final String[] eventdates;
-    public final String[] eventvenue;
-    public final String[] packages;
-    public  final String[] status;
+    public  String[] id;
+    public   String[] order;
+    public  String[] user;
+    public  String[] eventdates;
+    public  String[] eventvenue;
+    public  String[] packages;
+    public   String[] status;
     DatabaseReference databaseReference;
 
     public PhotographerBookingCustom(Context context , String[] id,  String[] order , String[ ] user ,

@@ -50,6 +50,8 @@ public class BookingActivity extends AppCompatActivity {
 
     ArrayList<String> arrOC, arrVEN , arrPKG , arrMSG;
 
+    int noRequest =0 ;
+
     String PushId , UId , PID , TodayDate , OCC , VEN , MSG , PKG , UEMAIL , PNAME ;
 
     ArrayList<String> id, Pkg, occ , ven , msg ,UserID , PhotographerID , UserEmail, PhotographerName;
@@ -164,6 +166,8 @@ public class BookingActivity extends AppCompatActivity {
                     listofAddEvents.notifyDataSetChanged();
                     ListofEvents.setAdapter(listofAddEvents);
 
+                    noRequest++;
+
                     Ocassions.setText("");
                     Venue.setText("");
                     Msg.setText("");
@@ -254,7 +258,7 @@ public class BookingActivity extends AppCompatActivity {
 
 
 
-        BookReservation bookReservation = new BookReservation(PushId , UId , PID , TodayDate);
+        BookReservation bookReservation = new BookReservation(PushId , UId , PID , TodayDate , String.valueOf(noRequest));
 
         firebaseDatabase.child("Reservation").child(PushId).setValue(bookReservation, new DatabaseReference.CompletionListener() {
             @Override

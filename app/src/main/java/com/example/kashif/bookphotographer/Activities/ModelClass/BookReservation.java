@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class BookReservation {
 
+  private  String  noRequest;
   private   String reservation_Detail_ID;
   private   String reservation_Status;
   private   String reservation_ID;
@@ -28,11 +29,12 @@ public class BookReservation {
     public BookReservation() {
     }
 
-    public BookReservation(String id, String userid, String photographerid, String todaydate) {
+    public BookReservation(String id, String userid, String photographerid, String todaydate , String noRequest) {
         this.reservation_ID = id;
         this.customer_ID = userid;
         this.photographer_ID = photographerid;
         this.reservation_Date = todaydate;
+        this.noRequest = noRequest;
     }
 
     public BookReservation(String Reservation_Detail_ID , String Reservation_Status,  String occ, String ven, String msg, String pkg, String id, String userid, String photographerid, String useremail, String photographername, String todaydate) {
@@ -49,6 +51,14 @@ public class BookReservation {
         this.user_Email = useremail;
         this.photographer_Name = photographername;
         this.reservation_Date = todaydate;
+    }
+
+    public String getNoRequest() {
+        return noRequest;
+    }
+
+    public void setNoRequest(String noRequest) {
+        this.noRequest = noRequest;
     }
 
     public String getReservation_Detail_ID() {

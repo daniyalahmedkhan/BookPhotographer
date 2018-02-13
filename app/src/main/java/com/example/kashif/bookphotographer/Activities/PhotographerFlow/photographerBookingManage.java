@@ -33,10 +33,10 @@ public class photographerBookingManage extends AppCompatActivity {
     public static   String[] pckg;
     public static   String[] id;
     public static   String[] status;
+    String key;
 
-
-    public static ArrayList<String> Order , Photographer , EventDate, EventVenue, Pckg , Id , Status , resId;
-
+    public static ArrayList<String> Order , Photographer , EventDate, EventVenue, Pckg , Id , Status ;
+    ArrayList<String> resId , refId;
 
     int couter = 1;
     ListView ListViewOrder;
@@ -59,6 +59,7 @@ public class photographerBookingManage extends AppCompatActivity {
         Id = new ArrayList<String>();
         Status = new ArrayList<String>();
         resId = new ArrayList<String>();
+        refId = new ArrayList<String>();
 
 
 
@@ -68,11 +69,9 @@ public class photographerBookingManage extends AppCompatActivity {
 
         ListViewOrder = (ListView) findViewById(R.id.ListViewPhoto);
 
-        getReqData();
-
        ListViewOrder.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
            @Override
-           public boolean onItemLongClick(AdapterView<?> adapterView, View view, final int i, long l) {
+           public boolean onItemLongClick(final AdapterView<?> adapterView, View view, final int i, long l) {
 
                AlertDialog.Builder  builder = new AlertDialog.Builder(photographerBookingManage.this);
                LayoutInflater inflater = photographerBookingManage.this.getLayoutInflater();
@@ -94,9 +93,28 @@ public class photographerBookingManage extends AppCompatActivity {
                        databaseReference.child("ReservationDetail").child(resId.get(i))
                                .child(id[i]).child("reservation_Status").setValue("Accept");
 
-                       getReqData();
+                       resId.clear();
+                       Order.clear();
+                       Id.clear();
+                       Photographer.clear();
+                       EventDate.clear();
+                       EventVenue.clear();
+                       Pckg.clear();
+                       Status.clear();
+                       couter++;
+
+                       order = new String[0];
+
+                       photographer = new String[0];
+                       eventdate = new String[0];
+                       eventvenue = new String[0];
+                       pckg = new String[0];
+                       id = new String[0];
+                       status = new String[0];
+
+                       ListViewOrder.deferNotifyDataSetChanged();
                        ListViewOrder.invalidateViews();
-                        b.dismiss();
+                       b.dismiss();
                    }
                });
 
@@ -104,18 +122,46 @@ public class photographerBookingManage extends AppCompatActivity {
                Reject.setOnClickListener(new View.OnClickListener() {
                    @Override
                    public void onClick(View view) {
-                       Toast.makeText(photographerBookingManage.this, "Reject", Toast.LENGTH_SHORT).show();
-                        b.dismiss();
+
+
+
+
+                       databaseReference.child("ReservationDetail").child(resId.get(i))
+                               .child(id[i]).removeValue();
+
+
+                       resId.clear();
+                       Order.clear();
+                       Id.clear();
+                       Photographer.clear();
+                       EventDate.clear();
+                       EventVenue.clear();
+                       Pckg.clear();
+                       Status.clear();
+                       couter++;
+
+                       order = new String[0];
+
+                       photographer = new String[0];
+                       eventdate = new String[0];
+                       eventvenue = new String[0];
+                       pckg = new String[0];
+                       id = new String[0];
+                       status = new String[0];
+
+                       ListViewOrder.deferNotifyDataSetChanged();
+                       ListViewOrder.invalidateViews();
+                       b.dismiss();
+
                    }
                });
 
-               return true;
+               return false;
            }
        });
 
 
-
-
+        getReqData2();
 
 
     }
@@ -123,77 +169,36 @@ public class photographerBookingManage extends AppCompatActivity {
     public  void  BindData(){
 
        PhotographerBookingCustom adapter = new PhotographerBookingCustom(getApplicationContext() ,id , order , photographer , eventdate , eventvenue , pckg , status);
-        ListViewOrder.setAdapter(adapter);
 
-    }
-
-    public void getReqData(){
-
-        databaseReference.child("Reservation").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                if (dataSnapshot.exists()){
-                resId.clear();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-
-                    BookReservation bookReservation = snapshot.getValue(BookReservation.class);
-
-
-
-                    if (bookReservation.getPhotographer_ID().equals(firebaseAuth.getCurrentUser().getUid())){
-
-
-                        resId.add(bookReservation.getReservation_ID());
-
-                        getReqData2();
-
-                    }else {
-
-                        Toast.makeText(photographerBookingManage.this, "No Found Data", Toast.LENGTH_SHORT).show();
-                    }
-
-
-                }
-            }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-
+       ListViewOrder.setAdapter(adapter);
+       ListViewOrder.deferNotifyDataSetChanged();
+        adapter.notifyDataSetChanged();
 
 
     }
+
 
     public  void getReqData2(){
 
 
-        if (!resId.isEmpty()) {
-
-            for (int i =0; i<resId.size(); i++) {
-                databaseReference.child("ReservationDetail").child(resId.get(i)).addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-
-                        Order.clear();
-                        Id.clear();
-                        Photographer.clear();
-                        EventDate.clear();
-                        Pckg.clear();
-                        Status.clear();
-                        couter = 1;
 
 
+        databaseReference.child("ReservationDetail").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
 
-                        for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
 
-                            if (dataSnapshot1.exists()){
+                if (dataSnapshot.exists()) {
 
-                                BookReservation bookReservation = dataSnapshot1.getValue(BookReservation.class);
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+
+                        for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+
+
+                            BookReservation bookReservation = snapshot1.getValue(BookReservation.class);
+
+
+                            if (bookReservation.getPhotographer_ID().equals(firebaseAuth.getCurrentUser().getUid())) {
 
 
                                 Order.add(String.valueOf(couter));
@@ -203,12 +208,12 @@ public class photographerBookingManage extends AppCompatActivity {
                                 EventVenue.add(bookReservation.getVenue_Location());
                                 Pckg.add(bookReservation.getSelected_Package());
                                 Status.add(bookReservation.getReservation_Status());
+                                resId.add(bookReservation.getReservation_ID());
                                 couter++;
 
+                                order = Order.toArray(new String[Order.size()]);
 
-                                 order = Order.toArray(new String[Order.size()]);
-
-                                photographer =  Photographer.toArray(new String[Photographer.size()]);
+                                photographer = Photographer.toArray(new String[Photographer.size()]);
                                 eventdate = EventDate.toArray(new String[EventDate.size()]);
                                 eventvenue = EventVenue.toArray(new String[EventVenue.size()]);
                                 pckg = Pckg.toArray(new String[Pckg.size()]);
@@ -216,24 +221,44 @@ public class photographerBookingManage extends AppCompatActivity {
                                 status = Status.toArray(new String[Status.size()]);
 
 
+
+                            } else {
+
+                                Toast.makeText(photographerBookingManage.this, "Not Found", Toast.LENGTH_SHORT).show();
                             }
 
 
                         }
                         BindData();
-
                     }
 
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
 
-                    }
-                });
+                }else {
+
+
+                    order = new String[0];
+
+                    photographer = new String[0];
+                    eventdate = new String[0];
+                    eventvenue = new String[0];
+                    pckg = new String[0];
+                    id = new String[0];
+                    status = new String[0];
+                    BindData();
+
+                }
             }
-        }else {
 
-            Toast.makeText(this, "resID is Empty", Toast.LENGTH_SHORT).show();
-        }
+
+
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
     }
+
 
 }
