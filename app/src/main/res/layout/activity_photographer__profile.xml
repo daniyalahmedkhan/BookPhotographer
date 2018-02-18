@@ -22,22 +22,6 @@
             android:background="@color/colorBase">
 
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true">
-
-
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/sidemenu_icon"
-                    android:padding="10dp"
-
-                    />
-
-            </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -70,7 +54,7 @@
                     android:fontFamily="serif"
                     android:gravity="center"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/colorBlack"
 
                     />
 

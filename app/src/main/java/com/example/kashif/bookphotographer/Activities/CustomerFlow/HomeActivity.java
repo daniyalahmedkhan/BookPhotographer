@@ -1,7 +1,11 @@
 package com.example.kashif.bookphotographer.Activities.CustomerFlow;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -21,6 +25,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.kashif.bookphotographer.Activities.Adapter.CustomDrawerUser;
+import com.example.kashif.bookphotographer.Activities.PhotographerFlow.MyProfile;
+import com.example.kashif.bookphotographer.Activities.PhotographerFlow.photographerBookingManage;
 import com.example.kashif.bookphotographer.Activities.UserAuth.LoginActivity;
 import com.example.kashif.bookphotographer.Activities.ModelClass.BookReservation;
 import com.example.kashif.bookphotographer.Activities.ModelClass.PkgClass;
@@ -38,10 +44,11 @@ import java.util.ArrayList;
 public class HomeActivity extends AppCompatActivity implements  View.OnClickListener{
 
     EditText editText;
+    int reqCounter;
     String ESearch;
     public static ArrayList<String> name , loc , imgrl, id;
     TextView search;
-    DatabaseReference databaseReference;
+    DatabaseReference   databaseReference;
     ImageView ImageDrawer;
     String names[];
     FirebaseAuth firebaseAuth;
@@ -55,13 +62,6 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
 
 
 
-//    public static   String[] gridViewString ;
-//
-//    public static   String[] gridViewString2 ;
-//
-//
-//
-//    public static   String[] gridViewImageId;
 
 
     @Override
@@ -168,7 +168,9 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
 
 
 
-       // getReqData();
+
+
+        getPendingRequest();
 
     }
 
@@ -220,57 +222,6 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
 
     }
 
-    public void getReqData(){
-
-        databaseReference.child("Reservation").child("foruser").child(firebaseAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                if (dataSnapshot.exists()){
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-
-                        BookReservation bookReservation = snapshot.getValue(BookReservation.class);
-
-//                        Order.add(String.valueOf(couter));
-//                        Photographer.add(bookReservation.getPhotographername());
-//                        EventDate.add(bookReservation.getOcc());
-//                        EventVenue.add(bookReservation.getVen());
-//                        Pckg.add(bookReservation.getPkg());
-//                        couter++;
-
-
-
-
-
-                    }
-
-
-
-//
-
-
-
-
-
-
-                }else {
-
-
-                    Toast.makeText(HomeActivity.this , "NO RESERVATION FOUND" , Toast.LENGTH_SHORT).show();
-
-
-                }
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-
-    }
 
     public void Search(){
 
@@ -382,7 +333,6 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
 
 
     }
-
 
     public void NameSearch(){
 
@@ -883,4 +833,94 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
 //        Toast.makeText(HomeActivity.this , "NameLocationPrice Search" , Toast.LENGTH_SHORT).show();
 //
 //    }
+
+
+    public void getPendingRequest(){
+
+
+        databaseReference.child("ReservationDetail").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                if (dataSnapshot.exists()) {
+
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+
+                        for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+
+
+                            BookReservation bookReservation = snapshot1.getValue(BookReservation.class);
+
+                            if (bookReservation.getCustomer_ID().equals(firebaseAuth.getCurrentUser().getUid())) {
+
+                                if (bookReservation.getReservation_Status().equals("Accept")) {
+
+                                    reqCounter++;
+
+
+                                }
+                            }
+
+                        }
+
+
+                    }
+
+
+                }else {
+
+                    Toast.makeText(HomeActivity.this, "Not Found", Toast.LENGTH_SHORT).show();
+
+                }
+
+                int mNotificationId = 001;
+
+                NotificationCompat.Builder mBuilder =
+                        new NotificationCompat.Builder(HomeActivity.this)
+                                .setSmallIcon(R.drawable.logo)
+                                .setContentTitle("Book Photographer")
+                                .setContentText("Your " + String.valueOf(reqCounter) + " Request Accepted ")
+                                .setDefaults(Notification.DEFAULT_ALL)
+                                .setPriority(Notification.PRIORITY_MAX)
+                                .setAutoCancel(true);
+
+//                NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+//                notificationManager.notify(0 , mBuilder.build());
+
+                // Cancel the notification after its selected
+
+
+
+                PendingIntent contentIntent = PendingIntent.getActivity(HomeActivity.this, 0,
+                        new Intent(HomeActivity.this, UserBookingManage.class), PendingIntent.FLAG_UPDATE_CURRENT);
+
+
+                mBuilder.setContentIntent(contentIntent);
+
+
+                // Gets an instance of the NotificationManager service
+                NotificationManager mNotifyMgr =
+                        (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+                // Builds the notification and issues it.
+                mNotifyMgr.notify(mNotificationId, mBuilder.build());
+
+
+
+
+            }
+
+
+
+
+
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+    }
 }

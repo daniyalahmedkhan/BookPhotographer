@@ -35,7 +35,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
 
-    TextView signup , skip;
+    TextView signup ;
     AlertDialog alertDialog;
     AlertDialog.Builder builder;
     EditText LoginEmail , LoginPass;
@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance().getReference("allusers");
         signup = (TextView) findViewById(R.id.Signup);
-        skip = (TextView) findViewById(R.id.skip);
+
         LoginEmail = (EditText) findViewById(R.id.LoginEmail);
         LoginPass = (EditText) findViewById(R.id.LoginPass);
         Signin = (Button) findViewById(R.id.Signin);
@@ -77,17 +77,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
-        skip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-
-
-            showChangeLangDialog();
-
-
-            }
-        });
 
         Signin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -176,6 +166,7 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(intent);
 
 
+
                         }
 
                         @Override
@@ -231,38 +222,5 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    public void showChangeLangDialog() {
 
-
-        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
-        LayoutInflater inflater = this.getLayoutInflater();
-        final View dialogView = inflater.inflate(R.layout.skip_login_popup, null);
-        dialogBuilder.setView(dialogView);
-
-
-
-
-
-
-        dialogBuilder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                //do something with edt.getText().toString();
-//                e1.setText(age);
-
-//                Intent intent = new Intent(LoginActivity.this , SampleImag.class);
-//                startActivity(intent);
-
-            }
-        });
-        dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                //pass
-            }
-        });
-
-
-        AlertDialog b = dialogBuilder.create();
-        b.show();
-        b.setCancelable(false);
-    }
 }

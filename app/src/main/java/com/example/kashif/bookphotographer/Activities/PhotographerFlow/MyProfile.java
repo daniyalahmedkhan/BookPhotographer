@@ -1,7 +1,12 @@
 package com.example.kashif.bookphotographer.Activities.PhotographerFlow;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +22,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.kashif.bookphotographer.Activities.Adapter.CustomDrawerUser;
+
 import com.example.kashif.bookphotographer.Activities.UserAuth.LoginActivity;
 import com.example.kashif.bookphotographer.Activities.ModelClass.BookReservation;
 import com.example.kashif.bookphotographer.Activities.ModelClass.PkgClass;
@@ -60,6 +66,8 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
     ImageView HeadImage;
     DatabaseReference databaseReference;
 
+    int reqCounter;
+
     RelativeLayout RelativeBronze, RelativeSilver, RelativeGold, RelativePlatinum, RelativeDiamond;
     RelativeLayout RBronzeDetail, RSilverDetail, RGoldDetail, RPlatinumDetail, RDiamondDetail;
 
@@ -70,6 +78,9 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_profile);
+
+
+
 
 
 
@@ -293,6 +304,7 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
         getPkg3();
         getPkg4();
         getPkg5();
+        getPendingRequest();
 
 
     }
@@ -796,5 +808,95 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
     }
 
 
+    public void getPendingRequest(){
+
+
+        databaseReference.child("ReservationDetail").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                if (dataSnapshot.exists()) {
+
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+
+                        for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+
+
+                            BookReservation bookReservation = snapshot1.getValue(BookReservation.class);
+
+                            if (bookReservation.getPhotographer_ID().equals(firebaseAuth.getCurrentUser().getUid())) {
+
+                                if (bookReservation.getReservation_Status().equals("Pending")) {
+
+                                    reqCounter++;
+
+
+                                }
+
+                            }
+
+
+                        }
+
+
+                    }
+
+
+                }else {
+
+                    Toast.makeText(MyProfile.this, "Not Found", Toast.LENGTH_SHORT).show();
+
+                }
+
+                int mNotificationId = 001;
+
+                NotificationCompat.Builder mBuilder =
+                        new NotificationCompat.Builder(MyProfile.this)
+                                .setSmallIcon(R.drawable.logo)
+                                .setContentTitle("Book Photographer")
+                                .setContentText("You have " + String.valueOf(reqCounter) + " Pending Request")
+                                .setDefaults(Notification.DEFAULT_ALL)
+                                .setPriority(Notification.PRIORITY_MAX)
+                        .setAutoCancel(true);
+
+//                NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+//                notificationManager.notify(0 , mBuilder.build());
+
+                // Cancel the notification after its selected
+
+
+
+                PendingIntent contentIntent = PendingIntent.getActivity(MyProfile.this, 0,
+                        new Intent(MyProfile.this, photographerBookingManage.class), PendingIntent.FLAG_UPDATE_CURRENT);
+
+
+                mBuilder.setContentIntent(contentIntent);
+
+
+                // Gets an instance of the NotificationManager service
+                NotificationManager mNotifyMgr =
+                        (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+                // Builds the notification and issues it.
+                mNotifyMgr.notify(mNotificationId, mBuilder.build());
+
+
+
+
+            }
+
+
+
+
+
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+    }
 
 }

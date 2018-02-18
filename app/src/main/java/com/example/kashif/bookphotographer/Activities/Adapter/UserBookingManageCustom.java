@@ -9,38 +9,40 @@ import android.widget.TextView;
 
 import com.example.kashif.bookphotographer.R;
 
-/**
- * Created by Kashif on 1/20/2018.
- */
-
 public class UserBookingManageCustom extends BaseAdapter {
 
-    public Context mContext;
-  public final  String[] order;
-   public final String[] photographer;
-   public final String[] eventdates;
-   public final String[] eventvenue;
-   public final String[] packages;
+    public  Context mContext;
+    public  String[] id;
+    public  String[] order;
+    public  String[] user;
+    public  String[] eventdates;
+    public  String[] eventvenue;
+    public  String[] packages;
+    public  String[] status;
+    public  String[] remarks;
+
+    public UserBookingManageCustom(Context context , String[] id,  String[] order , String[ ] user ,
+                                     String[] eventdates , String[] eventvenue , String[] packages , String[] status, String[] remarks){
 
 
-   public UserBookingManageCustom(Context context , String[] order , String[ ] photographer ,
-                                  String[] eventdates , String[] eventvenue , String[] packages){
 
 
+        mContext = context;
+        this.id = id;
+        this.order = order;
+        this.user = user;
+        this.eventdates = eventdates;
+        this.eventvenue = eventvenue;
+        this.packages = packages;
+        this.status = status;
+        this.remarks = remarks;
 
-
-       mContext = context;
-       this.order = order;
-       this.photographer = photographer;
-       this.eventdates = eventdates;
-       this.eventvenue = eventvenue;
-       this.packages = packages;
    }
 
 
     @Override
     public int getCount() {
-        return photographer.length;
+        return user.length;
     }
 
     @Override
@@ -68,16 +70,21 @@ public class UserBookingManageCustom extends BaseAdapter {
 
 
             view = inflater.inflate(R.layout.user_manage_bookin_custom, null);
-            obj.ord = (TextView) view.findViewById(R.id.Order);
-            obj.pho = (TextView) view.findViewById(R.id.PhotographerName);
+
+            obj.user = (TextView) view.findViewById(R.id.PhotographerName);
             obj.evd = (TextView) view.findViewById(R.id.EventDates);
             obj.evV = (TextView) view.findViewById(R.id.EventVenue);
             obj.pkg = (TextView) view.findViewById(R.id.SelectedPkg);
-            obj.ord.setText(order[i]);
-            obj.pho.setText(photographer[i]);
+            obj.status = (TextView) view.findViewById(R.id.PkgStatus);
+            obj.remarks = (TextView) view.findViewById(R.id.UserRemarks);
+
+            obj.user.setText(user[i]);
             obj.evd.setText(eventdates[i]);
             obj.evV.setText(eventvenue[i]);
             obj.pkg.setText(packages[i]);
+            obj.status.setText(status[i]);
+            obj.remarks.setText(remarks[i]);
+
 
             view.setTag(obj);
 
@@ -95,7 +102,7 @@ public class UserBookingManageCustom extends BaseAdapter {
 
     public  static  class  ViewHodler{
 
-        TextView ord , pho , evd , evV , pkg;
+        TextView remarks , user , evd , evV , pkg , status;
 
 
 

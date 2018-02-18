@@ -30,10 +30,11 @@ public class PhotographerBookingCustom extends BaseAdapter {
     public  String[] eventvenue;
     public  String[] packages;
     public   String[] status;
+    public   String[] remarks;
     DatabaseReference databaseReference;
 
     public PhotographerBookingCustom(Context context , String[] id,  String[] order , String[ ] user ,
-                                   String[] eventdates , String[] eventvenue , String[] packages , String[] status){
+                                   String[] eventdates , String[] eventvenue , String[] packages , String[] status, String[] remarks){
 
 
 
@@ -46,6 +47,7 @@ public class PhotographerBookingCustom extends BaseAdapter {
         this.eventvenue = eventvenue;
         this.packages = packages;
         this.status = status;
+        this.remarks = remarks;
         databaseReference = FirebaseDatabase.getInstance().getReference("allusers");
 
     }
@@ -85,22 +87,24 @@ public class PhotographerBookingCustom extends BaseAdapter {
 
 
             view = inflater.inflate(R.layout.photograher_manage_bookin_custom, null);
-            obj.ord = (TextView) view.findViewById(R.id.Order);
+
             obj.usr = (TextView) view.findViewById(R.id.PhotographerName);
             obj.evd = (TextView) view.findViewById(R.id.EventDates);
             obj.evV = (TextView) view.findViewById(R.id.EventVenue);
             obj.pkg = (TextView) view.findViewById(R.id.SelectedPkg);
             obj.status = (TextView) view.findViewById(R.id.Status);
-            obj.imgOption = (ImageView) view.findViewById(R.id.OptionMenu);
+            obj.remarks = (TextView)  view.findViewById(R.id.UserRemarks);
 
 
 
-            obj.ord.setText(order[i]);
+
+
             obj.usr.setText(user[i]);
             obj.evd.setText(eventdates[i]);
             obj.evV.setText(eventvenue[i]);
             obj.pkg.setText(packages[i]);
             obj.status.setText(status[i]);
+            obj.remarks.setText(remarks[i]);
 
             view.setTag(obj);
 
@@ -108,56 +112,6 @@ public class PhotographerBookingCustom extends BaseAdapter {
             //gridView = (View) view;
             notifyDataSetChanged();
             obj = (ViewHodler)view.getTag();
-        }
-
-        try {
-
-            obj.imgOption.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(final View view) {
-
-
-                    switch (view.getId()){
-
-                        case R.id.OptionMenu:
-
-                            PopupMenu popup = new PopupMenu(mContext, view);
-                            popup.getMenuInflater().inflate(R.menu.main_menu,
-                                    popup.getMenu());
-                            popup.show();
-
-                            popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                                @Override
-                                public boolean onMenuItemClick(MenuItem menuItem) {
-
-                                    switch (menuItem.getItemId()){
-
-                                        case R.id.accept:
-
-
-                                            break;
-
-                                        case  R.id.reject:
-                                          //  databaseReference.child("bookres").child("forphotographer").child(bookReservation.getId()).removeValue();
-//                                        getItemId(i);
-
-
-
-                                            default:
-                                                break;
-                                    }
-
-
-                                    return true;
-                                }
-                            });
-                    }
-
-                }
-            });
-        }catch (Exception e){
-
-
         }
 
 
@@ -168,8 +122,7 @@ public class PhotographerBookingCustom extends BaseAdapter {
 
     public  static  class  ViewHodler{
 
-        TextView ord , usr , evd , evV , pkg , status;
-        ImageView imgOption;
+        TextView usr , evd , evV , pkg , status , remarks;
 
 
 

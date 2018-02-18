@@ -96,7 +96,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                         if (radioGroup.getCheckedRadioButtonId() == -1){
 
-                            Toast.makeText(RegisterActivity.this , "No Radio is Check" , Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this , "Please Select User Type" , Toast.LENGTH_SHORT).show();
 
 
                         }else {

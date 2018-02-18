@@ -25,17 +25,7 @@
                 android:background="#fff">
 
 
-            <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:textStyle="bold"
-            android:text="Order No # 1"
-                android:fontFamily="serif"
-                android:id="@+id/Order"
-            android:textColor="@color/colorBlack"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-            />
+
 
                <LinearLayout
                    android:layout_width="wrap_content"
@@ -43,7 +33,7 @@
                    android:orientation="horizontal"
                    android:id="@+id/Linear1"
                    android:layout_marginTop="10dp"
-                   android:layout_below="@id/Order"
+
                    >
            <TextView
                android:layout_width="140dp"
@@ -164,6 +154,71 @@
 
 
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/Linear5"
+                    android:layout_below="@id/Linear4"
+                    >
+                    <TextView
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:fontFamily="serif"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/colorBlack"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                        android:text="Status : "
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/PkgStatus"
+                        android:textColor="@color/colorBlue"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                        android:text="Pending"
+                        />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/Linear6"
+                    android:layout_below="@id/Linear5"
+                    >
+                    <TextView
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:fontFamily="serif"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/colorBlack"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                        android:text="Remarks : "
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/UserRemarks"
+                        android:textColor="@color/colorBlue"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                        android:text="Contact me"
+                        />
+
+
+                </LinearLayout>
+
 
 
 
