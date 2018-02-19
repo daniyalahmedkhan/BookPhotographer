@@ -10,6 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorDark"
         android:orientation="vertical">
 
 
@@ -28,6 +29,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/colorBase"
                     android:orientation="vertical">
 
 
@@ -37,8 +39,8 @@
                         android:hint="Enter your Package Name"
                         android:textStyle="bold"
                         android:id="@+id/pkg1"
-                        android:textColor="@color/colorBlue"
-                        android:textColorHint="@color/colorBlue"
+                        android:textColor="@color/colorBlack"
+                        android:textColorHint="@color/colorBlack"
                         android:layout_marginTop="5dp"
                         android:layout_gravity="center"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
@@ -132,6 +134,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/colorBase"
                 android:orientation="vertical">
 
 
@@ -141,8 +144,8 @@
                     android:hint="Enter your Package Name"
                     android:textStyle="bold"
                     android:id="@+id/pkg2"
-                    android:textColor="@color/colorBlue"
-                    android:textColorHint="@color/colorBlue"
+                    android:textColor="@color/colorBlack"
+                    android:textColorHint="@color/colorBlack"
                     android:layout_marginTop="5dp"
                     android:layout_gravity="center"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
@@ -236,6 +239,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/colorBase"
                 android:orientation="vertical">
 
 
@@ -245,8 +249,9 @@
                     android:hint="Enter your Package Name"
                     android:textStyle="bold"
                     android:id="@+id/pkg3"
-                    android:textColor="@color/colorBlue"
-                    android:textColorHint="@color/colorBlue"
+
+                    android:textColor="@color/colorBlack"
+                    android:textColorHint="@color/colorBlack"
                     android:layout_marginTop="5dp"
                     android:layout_gravity="center"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
@@ -340,6 +345,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/colorBase"
                 android:orientation="vertical">
 
 
@@ -349,8 +355,8 @@
                     android:hint="Enter your Package Name"
                     android:textStyle="bold"
                     android:id="@+id/pkg4"
-                    android:textColor="@color/colorBlue"
-                    android:textColorHint="@color/colorBlue"
+                    android:textColor="@color/colorBlack"
+                    android:textColorHint="@color/colorBlack"
                     android:layout_marginTop="5dp"
                     android:layout_gravity="center"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
@@ -443,6 +449,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/colorBase"
                 android:orientation="vertical">
 
 
@@ -452,8 +459,8 @@
                     android:hint="Enter your Package Name"
                     android:textStyle="bold"
                     android:id="@+id/pkg5"
-                    android:textColor="@color/colorBlue"
-                    android:textColorHint="@color/colorBlue"
+                    android:textColor="@color/colorBlack"
+                    android:textColorHint="@color/colorBlack"
                     android:layout_marginTop="5dp"
                     android:layout_gravity="center"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
@@ -545,7 +552,7 @@
             android:textStyle="bold"
             android:layout_marginTop="20dp"
             android:background="@drawable/buttnround"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/colorBlack"
             android:text="Next"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"

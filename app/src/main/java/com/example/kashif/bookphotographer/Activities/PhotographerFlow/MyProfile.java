@@ -47,7 +47,6 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
     ImageView ImageDrawer;
     String names[];
 
-    int couter = 1;
 
     FirebaseAuth firebaseAuth;
 

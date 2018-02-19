@@ -13,13 +13,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBase"
     tools:context="com.example.kashif.bookphotographer.Activities.CustomerFlow.HomeActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="30dp"
-        android:background="@color/colorBase">
+        android:background="@color/colorDark">
 
 
         <RelativeLayout
@@ -47,7 +48,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/colorBase"
             android:layout_alignParentRight="true"
             android:text="Search"
             android:id="@+id/search"

@@ -101,7 +101,7 @@ public class ProfileManage extends AppCompatActivity {
 
                 if (FirstName.getText().toString().isEmpty() || LastName.getText().toString().isEmpty() ||
                         Gender.getText().toString().isEmpty() || Country.getText().toString().isEmpty() ||
-                        City.getText().toString().isEmpty()) {
+                        City.getText().toString().isEmpty() || Contact.getText().toString().isEmpty()) {
 
 
                     Toast.makeText(ProfileManage.this, "Please Enter all Fields", Toast.LENGTH_SHORT).show();

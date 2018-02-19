@@ -72,9 +72,9 @@
                         android:layout_marginRight="50dp"
                         android:layout_marginLeft="50dp"
                         android:paddingTop="7dp"
+                        android:inputType="textCapSentences"
                         android:id="@+id/UserName"
                         android:drawableLeft="@drawable/user"
-                        android:inputType="text"
                         android:drawablePadding="20dp"
                         android:paddingBottom="7dp"
                         android:textColor="@color/colorBlack"
@@ -192,7 +192,7 @@
                     android:paddingLeft="40dp"
                     android:paddingRight="40dp"
                     android:fontFamily="serif"
-                    android:textColor="#046702"
+                    android:textColor="#000"
                     />
 
 

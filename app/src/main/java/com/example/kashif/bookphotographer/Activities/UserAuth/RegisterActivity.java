@@ -86,6 +86,9 @@ public class RegisterActivity extends AppCompatActivity {
                 }else if (RegisterPass.getText().toString().isEmpty()){
 
                     RegisterPass.setError("Please Enter Password");
+                }else if(RegisterUserName.getText().toString().isEmpty()){
+
+                    RegisterPass.setError("Please Enter UserName");
                 }else {
 
                     email = RegisterEmail.getText().toString().trim();

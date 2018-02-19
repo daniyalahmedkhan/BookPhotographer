@@ -27,8 +27,12 @@ public class UserModel  {
   private   String Country_Desc;
 
 
+  /// Default Constructor
     public UserModel() {}
 
+
+
+    /// Customer constructor for saving and fethcing data from firebase..
     public UserModel(String user_Name , String id, String email, String pass, String type , String date) {
         this.user_Name = user_Name;
         this.user_ID = id;
@@ -42,7 +46,7 @@ public class UserModel  {
 
 
 
-
+    /// Photographer constructor for saving and fethcing data from firebase..
     public UserModel(String id, String email, String pass, String type, String firstname, String lastname, String gender , String imageUrl , String Location_ID , String Contact_No , String Date , String city_Des) {
         this.Photographer_ID = id;
         this.email = email;
@@ -58,6 +62,8 @@ public class UserModel  {
         this.City_Des = city_Des;
     }
 
+
+    /// Photographer location constructor for saving and fethcing data from firebase..
     public UserModel(String photographer_ID  , String location_ID, String location_Desc, String city_ID, String location_Status) {
         this.Photographer_ID = photographer_ID;
         this.Location_ID = location_ID;
@@ -66,6 +72,8 @@ public class UserModel  {
         this.Location_Status = location_Status;
     }
 
+
+    /// Photographer city constructor for saving and fethcing data from firebase..
     public UserModel(String photographer_ID , String city_ID, String city_Des, String country_ID) {
         this.Photographer_ID = photographer_ID;
         this.City_ID = city_ID;
@@ -73,6 +81,8 @@ public class UserModel  {
         this.Country_ID = country_ID;
     }
 
+
+    /// Photographer Country constructor for saving and fethcing data from firebase..
 
     public UserModel(String Photographer_ID, String country_ID, String country_Desc) {
         this.Photographer_ID = Photographer_ID;

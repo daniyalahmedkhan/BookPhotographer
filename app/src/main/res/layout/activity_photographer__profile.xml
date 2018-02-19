@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:id="@+id/Top"
-            android:background="@color/colorBase">
+            android:background="@color/colorDark">
 
 
 
@@ -71,6 +71,8 @@
             android:orientation="vertical"
             android:layout_marginBottom="40dp"
             android:paddingBottom="40dp"
+            android:id="@+id/LinearTop"
+            android:background="@color/colorBase"
             android:layout_marginTop="5dp"
             android:layout_below="@id/Top">
 
@@ -101,13 +103,12 @@
                         android:layout_height="40dp"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                         android:text="About"
-                        android:background="@mipmap/bck5"
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:textStyle="bold"
                         android:padding="5dp"
                         android:fontFamily="serif"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/colorDark"
 
                         />
 
@@ -150,7 +151,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="5dp"
-                        android:background="@color/colorBase"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -367,12 +367,11 @@
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                         android:text="Services"
                         android:gravity="center"
-                        android:background="@mipmap/bck5"
                         android:layout_gravity="center"
                         android:textStyle="bold"
                         android:padding="5dp"
                         android:fontFamily="serif"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/colorDark"
 
                         />
 
@@ -1227,12 +1226,11 @@
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                         android:text="Work Gallery"
                         android:gravity="center"
-                        android:background="@mipmap/bck5"
                         android:layout_gravity="center"
                         android:textStyle="bold"
                         android:padding="5dp"
                         android:fontFamily="serif"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/colorDark"
 
                         />
 
@@ -1318,9 +1316,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-            android:layout_alignParentBottom="true"
-            >
+            android:layout_below="@+id/LinearTop"
+            android:layout_alignParentBottom="true">
 
 
 
@@ -1328,9 +1325,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorDark"
                 android:paddingLeft="10dp"
                 android:textSize="15dp"
+
                 android:fontFamily="serif"
                 android:textStyle="bold"
                 android:id="@+id/BtnRes"
