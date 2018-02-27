@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Book Photographer</string>
     <string name="title">Select any Package</string>
+    <string name="Gender">Please Select Gender</string>
+    <string name="Male">Male</string>
+    <string name="Female">Female</string>
+
 </resources>

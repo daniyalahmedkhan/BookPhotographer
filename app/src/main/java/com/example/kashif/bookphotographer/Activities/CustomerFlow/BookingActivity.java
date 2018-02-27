@@ -1,10 +1,13 @@
 package com.example.kashif.bookphotographer.Activities.CustomerFlow;
 
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -38,7 +41,7 @@ public class BookingActivity extends AppCompatActivity {
 
     EditText Ocassions, Venue , Msg;
 
-    Spinner EditPck;
+    Spinner SelectPkg;
 
     public  static List<Date> dates;
 
@@ -110,7 +113,7 @@ public class BookingActivity extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance().getReference("allusers");
 
 
-        EditPck = (Spinner) findViewById(R.id.EditPck);
+        SelectPkg = (Spinner) findViewById(R.id.SelectPkg);
 
 
         Ocassions = (EditText) findViewById(R.id.Ocassions);
@@ -123,7 +126,7 @@ public class BookingActivity extends AppCompatActivity {
 
 
         ArrayAdapter<String> adp = new ArrayAdapter<String> (this,android.R.layout.simple_spinner_dropdown_item, Photographer_Profile.arrayList);
-        EditPck.setAdapter(adp);
+        SelectPkg.setAdapter(adp);
 
 
         Ocassions.setOnClickListener(new View.OnClickListener() {
@@ -191,14 +194,15 @@ public class BookingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-            BookRes();
 
+
+                ConfirmationBuilder();
 
 
             }
         });
 
-        EditPck.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        SelectPkg.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
@@ -221,7 +225,7 @@ public class BookingActivity extends AppCompatActivity {
     public  void BookRes(){
 
 
-        if(!(arrOC.isEmpty() && arrMSG.isEmpty() && arrMSG.isEmpty() && arrPKG.isEmpty())){
+        if(!(arrOC.isEmpty() && arrMSG.isEmpty() && arrVEN.isEmpty() && arrPKG.isEmpty())){
 
 
 
@@ -334,7 +338,37 @@ public class BookingActivity extends AppCompatActivity {
 
     }
 
+    public void ConfirmationBuilder(){
 
+
+        final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = this.getLayoutInflater();
+        final View dialogView = inflater.inflate(R.layout.confirmation_notice, null);
+        dialogBuilder.setView(dialogView);
+
+
+
+
+        dialogBuilder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+
+                    BookRes();
+
+
+            }
+        });
+        dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+
+
+            }
+        });
+
+
+        AlertDialog b = dialogBuilder.create();
+        b.show();
+
+    }
 
 
 }

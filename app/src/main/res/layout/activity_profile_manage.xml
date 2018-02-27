@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorDark"
     tools:context="com.example.kashif.bookphotographer.Activities.PhotographerFlow.ProfileManage">
 
     <RelativeLayout
@@ -71,11 +72,12 @@
                     android:layout_marginLeft="20dp"
                     android:singleLine="true"
                     android:id="@+id/FirstName"
+                    android:background="@color/colorBase"
                     android:inputType="textCapSentences"
                     android:textColorHint="@color/colorBlack"
                     android:textColor="@color/colorBlue"
                     android:layout_marginRight="20dp"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="40dp" />
 
 
                 <EditText
@@ -84,33 +86,27 @@
                     android:layout_marginLeft="20dp"
                     android:singleLine="true"
                     android:id="@+id/LastName"
+                    android:background="@color/colorBase"
                     android:layout_marginTop="10dp"
                     android:inputType="textCapSentences"
                     android:textColorHint="@color/colorBlack"
                     android:textColor="@color/colorBlue"
                     android:layout_marginRight="20dp"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="40dp" />
 
-                <EditText
+                <Spinner
                     android:layout_width="match_parent"
-                    android:hint="Select Your Gender"
                     android:layout_marginLeft="20dp"
                     android:id="@+id/Gender"
-                    android:singleLine="true"
                     android:layout_marginTop="10dp"
-                    android:inputType="textCapSentences"
-                    android:textColorHint="@color/colorBlack"
-                    android:textColor="@color/colorBlue"
                     android:layout_marginRight="20dp"
                     android:layout_height="wrap_content" />
 
-                <EditText
+                <Spinner
                     android:layout_width="match_parent"
-                    android:hint="Enter Your Country Name"
                     android:layout_marginLeft="20dp"
-                    android:singleLine="true"
+
                     android:id="@+id/CountryName"
-                    android:inputType="textCapSentences"
                     android:layout_marginTop="10dp"
                     android:textColorHint="@color/colorBlack"
                     android:textColor="@color/colorBlue"
@@ -118,28 +114,22 @@
                     android:layout_height="wrap_content" />
 
 
-                <EditText
+                <Spinner
                     android:layout_width="match_parent"
-                    android:hint="Enter Your City Name"
                     android:layout_marginLeft="20dp"
-                    android:singleLine="true"
                     android:id="@+id/CityName"
                     android:layout_marginTop="10dp"
-                    android:inputType="textCapSentences"
                     android:textColorHint="@color/colorBlack"
                     android:textColor="@color/colorBlue"
                     android:layout_marginRight="20dp"
                     android:layout_height="wrap_content" />
 
 
-                <EditText
+                <Spinner
                     android:layout_width="match_parent"
-                    android:hint="Enter Your Address"
                     android:layout_marginLeft="20dp"
-                    android:singleLine="true"
                     android:id="@+id/AddressName"
                     android:layout_marginTop="10dp"
-                    android:inputType="textCapSentences"
                     android:textColorHint="@color/colorBlack"
                     android:textColor="@color/colorBlue"
                     android:layout_marginRight="20dp"
@@ -152,11 +142,12 @@
                     android:singleLine="true"
                     android:id="@+id/ContactNo"
                     android:inputType="number"
+                    android:background="@color/colorBase"
                     android:layout_marginTop="10dp"
                     android:textColorHint="@color/colorBlack"
                     android:textColor="@color/colorBlue"
                     android:layout_marginRight="20dp"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="40dp" />
 
 
 

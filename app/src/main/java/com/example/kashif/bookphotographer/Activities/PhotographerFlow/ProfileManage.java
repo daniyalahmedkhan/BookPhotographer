@@ -8,11 +8,19 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.kashif.bookphotographer.Activities.CustomerFlow.Photographer_Profile;
+import com.example.kashif.bookphotographer.Activities.ModelClass.AddressClass;
+import com.example.kashif.bookphotographer.Activities.ModelClass.LocationClass;
+import com.example.kashif.bookphotographer.Activities.ModelClass.CityClass;
+import com.example.kashif.bookphotographer.Activities.ModelClass.LocationClass;
 import com.example.kashif.bookphotographer.Activities.ModelClass.UserModel;
 import com.example.kashif.bookphotographer.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,9 +29,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -31,22 +41,29 @@ import com.google.firebase.storage.UploadTask;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class ProfileManage extends AppCompatActivity {
 
     Button btnNEXT;
-    FirebaseDatabase firebaseDatabase;
+    String Country_ID , City_ID  ;
+    Spinner Country, City, Location ,  Gender;
     FirebaseAuth firebaseAuth;
     DatabaseReference databaseReference;
     public static String email, pass, type, uid;
-    EditText FirstName, LastName, Gender, Country, City, Address , Contact;
+    EditText FirstName, LastName , Contact;
     String FirstN, LastN, Gend, Count, Cit, Addr , imageUrl , Contact_No;
     ImageView ProfileImage;
     private static final int PICK_IMAGE_REQUEST = 234 ;
     private Uri filepath;
     private StorageReference storageReference;
     String LocationID , CityID , CountryID, TodayDate;
+    ArrayList<String> CountryList ,CountryListID , CityList , CityListID , LocationList , LocationListID;
+
+    ArrayAdapter<String> adapterCountry;
+    ArrayAdapter<String> adapterCity;
+    ArrayAdapter<String> adapterLocation;
 
     public ProfileManage() {
     }
@@ -63,16 +80,35 @@ public class ProfileManage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_manage);
 
+
+
+        CountryList = new ArrayList<String>();
+        CityList = new ArrayList<String>();
+        LocationList = new ArrayList<String>();
+        CountryListID = new ArrayList<String>();
+        CityListID = new ArrayList<String>();
+        LocationListID = new ArrayList<String>();
+
+        CountryList.add("Please Select Country");
+
+        LocationList.add("Please Select Location");
+        CountryListID.add("0");
+
+        LocationListID.add("0");
+
+
+
+
         firebaseAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference("allusers");
         storageReference = FirebaseStorage.getInstance().getReference();
         btnNEXT = (Button) findViewById(R.id.NEXT);
         FirstName = (EditText) findViewById(R.id.FirstName);
         LastName = (EditText) findViewById(R.id.LastName);
-        Gender = (EditText) findViewById(R.id.Gender);
-        Address = (EditText) findViewById(R.id.AddressName);
-        Country = (EditText) findViewById(R.id.CountryName);
-        City = (EditText) findViewById(R.id.CityName);
+        Gender = (Spinner) findViewById(R.id.Gender);
+        Location = (Spinner) findViewById(R.id.AddressName);
+        Country = (Spinner) findViewById(R.id.CountryName);
+        City = (Spinner) findViewById(R.id.CityName);
         Contact = (EditText) findViewById(R.id.ContactNo);
         ProfileImage = (ImageView) findViewById(R.id.ProfileImage);
 
@@ -83,8 +119,12 @@ public class ProfileManage extends AppCompatActivity {
         TodayDate = dateFormat.format(cal.getTime());
         ///
 
-
-
+        String[] GenderSpinner = {"Please Select Gender" , "Male" , "Female"};
+        
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this , android.R.layout.simple_spinner_dropdown_item , GenderSpinner);
+        Gender.setAdapter(adapter);
+        
+        ////
         ProfileImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -100,8 +140,7 @@ public class ProfileManage extends AppCompatActivity {
 
 
                 if (FirstName.getText().toString().isEmpty() || LastName.getText().toString().isEmpty() ||
-                        Gender.getText().toString().isEmpty() || Country.getText().toString().isEmpty() ||
-                        City.getText().toString().isEmpty() || Contact.getText().toString().isEmpty()) {
+                          Contact.getText().toString().isEmpty()) {
 
 
                     Toast.makeText(ProfileManage.this, "Please Enter all Fields", Toast.LENGTH_SHORT).show();
@@ -111,10 +150,7 @@ public class ProfileManage extends AppCompatActivity {
 
                     FirstN = FirstName.getText().toString().trim();
                     LastN = LastName.getText().toString().trim();
-                    Gend = Gender.getText().toString().trim();
-                    Count = Country.getText().toString().trim();
-                    Cit = City.getText().toString().trim();
-                    Addr = Address.getText().toString().trim();
+//                    Gend = Gender.getText().toString().trim();
                     Contact_No = Contact.getText().toString().trim();
 
                     PhotographerSignUp();
@@ -122,8 +158,96 @@ public class ProfileManage extends AppCompatActivity {
                 }
 
 
+
+
             }
         });
+
+
+        Country.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+
+                CityList.clear();
+                CityListID.clear();
+
+                Count = CountryList.get(i);
+                Country_ID = CountryListID.get(i);
+
+            if (!Country_ID.equals("0")){
+
+                CityList();
+
+            }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+
+        City.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+
+
+                LocationList.clear();
+                LocationListID.clear();
+
+                City_ID = CityListID.get(i);
+                Cit = CityList.get(i);
+
+
+                    LocationList();
+
+
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+
+
+        Location.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Addr = LocationList.get(i);
+                LocationID = LocationListID.get(i);
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+
+        Gender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                    Gend = Gender.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        CountryList();
     }
 
     public void PhotographerSignUp() {
@@ -206,9 +330,9 @@ public class ProfileManage extends AppCompatActivity {
     public void SaveData(){
 
 
-        LocationID =  databaseReference.push().getKey();
-        CityID = databaseReference.push().getKey();
-        CountryID =  databaseReference.push().getKey();
+//        LocationID =  databaseReference.push().getKey();
+//        CityID = databaseReference.push().getKey();
+//        CountryID =  databaseReference.push().getKey();
 
         UserModel Mod = new UserModel(uid , email , pass , type , FirstN , LastN , Gend , imageUrl , LocationID ,  Contact_No , TodayDate , Cit);
 
@@ -233,7 +357,7 @@ public class ProfileManage extends AppCompatActivity {
     public  void Location(){
 
 
-        UserModel userModel = new UserModel(uid , LocationID , Addr , CityID , "NIL");
+        UserModel userModel = new UserModel(uid , LocationID , Addr , City_ID , "NIL");
 
         databaseReference.child("Users").child("Photographer").child("Location").child(LocationID).setValue(userModel, new DatabaseReference.CompletionListener() {
             @Override
@@ -258,9 +382,9 @@ public class ProfileManage extends AppCompatActivity {
     public void City(){
 
 
-        UserModel userModel = new UserModel(uid , CityID , Cit , CountryID);
+        UserModel userModel = new UserModel(uid , City_ID , Cit , Country_ID);
 
-        databaseReference.child("Users").child("Photographer").child("City").child(CityID).setValue(userModel, new DatabaseReference.CompletionListener() {
+        databaseReference.child("Users").child("Photographer").child("City").child(City_ID).setValue(userModel, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
 
@@ -277,13 +401,12 @@ public class ProfileManage extends AppCompatActivity {
         });
     }
 
-
     public void  Country(){
 
 
-        UserModel userModel = new UserModel(uid , CountryID , Count);
+        UserModel userModel = new UserModel(uid , Country_ID , Count);
 
-        databaseReference.child("Users").child("Photographer").child("Country").child(CountryID).setValue(userModel, new DatabaseReference.CompletionListener() {
+        databaseReference.child("Users").child("Photographer").child("Country").child(Country_ID).setValue(userModel, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                 if (databaseReference.equals(databaseError)){
@@ -302,9 +425,6 @@ public class ProfileManage extends AppCompatActivity {
 
 
     }
-
-
-
 
     public void OpenGallery(){
 
@@ -334,6 +454,137 @@ public class ProfileManage extends AppCompatActivity {
 
         }
 
+    }
+
+    public void  CountryList(){
+
+    databaseReference.child("Define_Country").addValueEventListener(new ValueEventListener() {
+        @Override
+        public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+
+
+            if(dataSnapshot.exists()){
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+
+                    AddressClass add = snapshot.getValue(AddressClass.class);
+
+                    CountryList.add(add.getCountry_Name());
+                    CountryListID.add(add.getCountry_ID());
+
+                }
+
+                adapterCountry = new ArrayAdapter<String>(ProfileManage.this, android.R.layout.simple_spinner_dropdown_item , CountryList);
+                Country.setAdapter(adapterCountry);
+
+
+            }else{
+
+                Toast.makeText(ProfileManage.this, "No Data", Toast.LENGTH_SHORT).show();
+
+            }
+
+
+
+            adapterCountry.notifyDataSetChanged();
+
+        }
+
+        @Override
+        public void onCancelled(DatabaseError databaseError) {
+
+        }
+    });
+
+    }
+
+    public  void CityList(){
+
+        databaseReference.child("Define_Cities").child(Country_ID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+
+                CityList.add("Please Select City");
+                CityListID.add("0");
+
+
+                if (dataSnapshot.exists()) {
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+
+
+                    CityClass cityClass = snapshot.getValue(CityClass.class);
+
+
+                    CityList.add(cityClass.getCity_Name());
+                    CityListID.add(cityClass.getCity_ID());
+
+
+                }
+
+            }else {
+
+                Toast.makeText(ProfileManage.this, "No City Found", Toast.LENGTH_SHORT).show();
+
+            }
+
+                        adapterCity = new ArrayAdapter<String>(ProfileManage.this, android.R.layout.simple_spinner_dropdown_item , CityList);
+                            City.setAdapter(adapterCity);
+
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
+    public void LocationList(){
+
+
+        databaseReference.child("Define_Location").child(City_ID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if (dataSnapshot.exists()) {
+
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+
+
+                        LocationClass locationClass = snapshot.getValue(LocationClass.class);
+
+                        LocationList.add(locationClass.getLocation_Name());
+                        LocationListID.add(locationClass.getLocation_ID());
+
+
+                    }
+
+
+                }else {
+
+
+                    Toast.makeText(ProfileManage.this, "No Data Cites", Toast.LENGTH_SHORT).show();
+
+                }
+
+                adapterLocation = new ArrayAdapter<String>(ProfileManage.this, android.R.layout.simple_spinner_dropdown_item , LocationList);
+                Location.setAdapter(adapterLocation);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
 
