@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Handler;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
@@ -100,10 +101,13 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.setStatusBarColor(Color.TRANSPARENT);
+
         search = (TextView) findViewById(R.id.search);
         editText = (EditText) findViewById(R.id.EditTxt);
         ESearch = null;
         ImageDrawer = (ImageView) findViewById(R.id.ImageDrawer);
+
+
 
         editText.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,6 +136,16 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
 
         mDrawerList.setAdapter(new CustomDrawerUser(this, img, names));
         ViewGroup header = (ViewGroup) getLayoutInflater().inflate(R.layout.drawer_header, mDrawerList, false);
+
+
+        ImageView proImage = (ImageView)header.findViewById(R.id.proImg);
+        TextView proText = (TextView)header.findViewById(R.id.Emp_Name);
+        TextView proEmail = (TextView)header.findViewById(R.id.view_emp_email);
+
+
+        proImage.setVisibility(View.GONE);
+        proText.setVisibility(View.GONE);
+        proEmail.setVisibility(View.GONE);
 
 
         mDrawerList.addHeaderView(header, null, false);
@@ -922,5 +936,11 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
             }
         });
 
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
     }
 }

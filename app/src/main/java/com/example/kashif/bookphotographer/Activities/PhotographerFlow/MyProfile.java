@@ -6,6 +6,7 @@ import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +24,8 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.kashif.bookphotographer.Activities.Adapter.CustomDrawerUser;
 
+import com.example.kashif.bookphotographer.Activities.CustomerFlow.HomeActivity;
+import com.example.kashif.bookphotographer.Activities.CustomerFlow.SearchPhotographer;
 import com.example.kashif.bookphotographer.Activities.UserAuth.LoginActivity;
 import com.example.kashif.bookphotographer.Activities.ModelClass.BookReservation;
 import com.example.kashif.bookphotographer.Activities.ModelClass.PkgClass;
@@ -898,4 +901,10 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
 
     }
 
+
+
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+    }
 }
