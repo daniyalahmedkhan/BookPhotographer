@@ -12,6 +12,10 @@ public class SampleImag {
   private   String date;
   private   String image1;
   private   String image2;
+    private   String image3;
+    private   String image4;
+    private   String image5;
+
 
     public SampleImag() {}
 
@@ -20,13 +24,40 @@ public class SampleImag {
         this.category_ID = category_ID;
     }
 
-    public SampleImag(String Image_ID , String Category_ID , String Date , String image1, String image2) {
+    public SampleImag(String Image_ID , String Category_ID , String Date , String image1, String image2, String image3, String image4, String image5) {
 
         this.image_ID = Image_ID;
         this.category_ID = Category_ID;
         this.date = Date;
         this.image1 = image1;
         this.image2 = image2;
+        this.image3 = image3;
+        this.image4 = image4;
+        this.image5 = image5;
+    }
+
+    public String getImage3() {
+        return image3;
+    }
+
+    public void setImage3(String image3) {
+        this.image3 = image3;
+    }
+
+    public String getImage4() {
+        return image4;
+    }
+
+    public void setImage4(String image4) {
+        this.image4 = image4;
+    }
+
+    public String getImage5() {
+        return image5;
+    }
+
+    public void setImage5(String image5) {
+        this.image5 = image5;
     }
 
     public String getImage_ID() {

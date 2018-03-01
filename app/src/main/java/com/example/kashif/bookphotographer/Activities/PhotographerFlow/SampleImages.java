@@ -1,5 +1,6 @@
 package com.example.kashif.bookphotographer.Activities.PhotographerFlow;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -35,7 +36,7 @@ import java.util.Calendar;
 public class SampleImages extends AppCompatActivity {
 
     Button btnNEXT , btnUpload;
-    ImageView image1  , image2  , image3 ;
+    ImageView image1  , image2  , image3 , image4 , image5;
     private static final int PICK_IMAGE_REQUEST = 234 ;
     private Uri filepath;
     FirebaseAuth firebaseAuth;
@@ -45,8 +46,9 @@ public class SampleImages extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     private StorageReference storageReference;
     EditText EditCategory;
+    ProgressDialog progressDialog;
 
-    String  imageUrl1 , imageUrl2 , Gallery_ID , Category_ID  , Date , Image_ID;
+    String  imageUrl1 , imageUrl2 , imageUrl3 , imageUrl4 , imageUrl5 , Gallery_ID , Category_ID  , Date , Image_ID;
     ArrayList img;
 
 
@@ -59,6 +61,13 @@ public class SampleImages extends AppCompatActivity {
         setContentView(R.layout.activity_sample_images);
         image1 = (ImageView) findViewById(R.id.Image1);
         image2 = (ImageView) findViewById(R.id.Image2);
+        image3 = (ImageView) findViewById(R.id.Image3);
+        image4 = (ImageView) findViewById(R.id.Image4);
+        image5 = (ImageView) findViewById(R.id.Image5);
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Uploading...");
+        progressDialog.setMessage("Please Wait");
+        progressDialog.setCancelable(false);
 
         firebaseAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference("allusers");
@@ -118,18 +127,75 @@ public class SampleImages extends AppCompatActivity {
             }
         });
 
-        btnNEXT = (Button) findViewById(R.id.NEXT);
-        btnUpload = (Button) findViewById(R.id.Upload);
-
-        btnNEXT.setOnClickListener(new View.OnClickListener() {
+        image3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
 
-                saveData();
+                try {
+
+
+                    Intent intent = new Intent();
+                    intent.setType("image/*");
+                    intent.setAction(Intent.ACTION_GET_CONTENT);
+                    startActivityForResult(Intent.createChooser(intent, "Select any image") , PICK_IMAGE_REQUEST);
+                    CurrentImageView  = (ImageView) view;
+
+                }catch (Exception e){
+
+
+                }
 
             }
         });
+
+        image4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                try {
+
+
+                    Intent intent = new Intent();
+                    intent.setType("image/*");
+                    intent.setAction(Intent.ACTION_GET_CONTENT);
+                    startActivityForResult(Intent.createChooser(intent, "Select any image") , PICK_IMAGE_REQUEST);
+                    CurrentImageView  = (ImageView) view;
+
+                }catch (Exception e){
+
+
+                }
+
+            }
+        });
+
+        image5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                try {
+
+
+                    Intent intent = new Intent();
+                    intent.setType("image/*");
+                    intent.setAction(Intent.ACTION_GET_CONTENT);
+                    startActivityForResult(Intent.createChooser(intent, "Select any image") , PICK_IMAGE_REQUEST);
+                    CurrentImageView  = (ImageView) view;
+
+                }catch (Exception e){
+
+
+                }
+
+            }
+        });
+
+        btnNEXT = (Button) findViewById(R.id.NEXT);
+        btnUpload = (Button) findViewById(R.id.Upload);
+
 
         btnUpload.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,17 +208,6 @@ public class SampleImages extends AppCompatActivity {
     }
 
 
-
-    public void OpenGallery(){
-
-
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select any image") , PICK_IMAGE_REQUEST);
-
-
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -187,7 +242,7 @@ public class SampleImages extends AppCompatActivity {
 
     private void uploadfile(){
 
-
+    progressDialog.show();
         try {
 
 
@@ -202,6 +257,7 @@ public class SampleImages extends AppCompatActivity {
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             Uri downUrl = taskSnapshot.getDownloadUrl();
                             img.add(downUrl.toString());
+                            saveData();
 
                         }
 
@@ -239,13 +295,16 @@ public class SampleImages extends AppCompatActivity {
 
             imageUrl1 = String.valueOf(img.get(0));
             imageUrl2 = String.valueOf(img.get(1));
+            imageUrl3 = String.valueOf(img.get(2));
+            imageUrl4 = String.valueOf(img.get(3));
+            imageUrl5 = String.valueOf(img.get(4));
 
             Image_ID = databaseReference.push().getKey();
             Gallery_ID = databaseReference.push().getKey();
             Category_ID = PhotographerPackages.Category_ID.toString();
 
 
-            SampleImag sampleImag = new SampleImag(Image_ID , Category_ID , Date ,imageUrl1, imageUrl2);
+            SampleImag sampleImag = new SampleImag(Image_ID , Category_ID , Date ,imageUrl1, imageUrl2 , imageUrl3 , imageUrl4 , imageUrl5);
 
             databaseReference.child("Gallery").child(ProfileManage.uid).child(Gallery_ID).setValue(sampleImag, new DatabaseReference.CompletionListener() {
                 @Override
@@ -299,6 +358,8 @@ public class SampleImages extends AppCompatActivity {
                     Toast.makeText(SampleImages.this, "Error in Saving", Toast.LENGTH_SHORT).show();
                 } else {
 
+
+                    progressDialog.dismiss();
                     Intent intent  = new Intent(SampleImages.this , LoginActivity.class);
                     startActivity(intent);
 

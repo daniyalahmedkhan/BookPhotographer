@@ -20,12 +20,14 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.kashif.bookphotographer.Activities.Adapter.CustomDrawerUser;
+import com.example.kashif.bookphotographer.Activities.Adapter.Custom_SearchPhotographer;
 import com.example.kashif.bookphotographer.Activities.PhotographerFlow.MyProfile;
 import com.example.kashif.bookphotographer.Activities.PhotographerFlow.photographerBookingManage;
 import com.example.kashif.bookphotographer.Activities.UserAuth.LoginActivity;
@@ -47,6 +49,8 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
     EditText editText;
     int reqCounter;
     String ESearch;
+    public static String CurrntID;
+    GridView HomeGridView;
     public static ArrayList<String> name , loc , imgrl, id;
     TextView search;
     DatabaseReference   databaseReference;
@@ -106,6 +110,7 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
         editText = (EditText) findViewById(R.id.EditTxt);
         ESearch = null;
         ImageDrawer = (ImageView) findViewById(R.id.ImageDrawer);
+        HomeGridView = (GridView) findViewById(R.id.HomeGridView);
 
 
 
@@ -183,8 +188,23 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
 
 
 
-
+        GetAllPhotographers();
         getPendingRequest();
+
+
+        HomeGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+
+                CurrntID = null;
+                CurrntID = id.get(i);
+                SearchPhotographer.CurrntID = id.get(i);
+                Intent intent = new Intent(HomeActivity.this , Photographer_Profile.class);
+                startActivity(intent);
+
+            }
+        });
 
     }
 
@@ -935,6 +955,60 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
 
             }
         });
+
+    }
+
+
+    public void GetAllPhotographers(){
+
+
+        databaseReference.child("Users").child("Photographer").orderByChild("type").equalTo("photographer").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if (dataSnapshot.exists()){
+
+                    name.clear();
+                    loc.clear();
+                    imgrl.clear();
+                    id.clear();
+
+
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+
+
+                        UserModel userModel = snapshot.getValue(UserModel.class);
+
+
+
+
+
+                        name.add(userModel.getFirst_Name());
+                        id.add(userModel.getPhotographer_ID());
+                        loc.add(userModel.getCity_Des());
+                        imgrl.add(userModel.getProfile_Img()); }
+
+//             img = String.valueOf(Glide.with(getApplicationContext()).load(imgrl));
+
+
+                    Custom_SearchPhotographer adapter = new Custom_SearchPhotographer(HomeActivity.this , name.toArray(new String[name.size()]) , loc.toArray(new String[loc.size()]) , imgrl.toArray(new String[imgrl.size()]) , id.toArray(new String[id.size()]) );
+                    HomeGridView.setAdapter(adapter);
+
+
+                }else {
+
+
+                    Toast.makeText(HomeActivity.this , "Not Found " , Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
 
     }
 

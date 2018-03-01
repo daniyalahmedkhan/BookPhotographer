@@ -74,6 +74,7 @@
         android:clickable="false"
         android:cursorVisible="false"
         android:focusable="false"
+        android:textColorHint="@color/colorBlack"
         android:focusableInTouchMode="false"
         android:imeOptions="actionSearch"
         android:id="@+id/EditTxt"
@@ -85,6 +86,17 @@
         android:drawableLeft="@mipmap/recentlysearch_searchbar_search_icon"
         android:layout_marginTop="55dp"
         />
+
+
+    <GridView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/EditTxt"
+        android:layout_marginTop="20dp"
+        android:numColumns="2"
+        android:id="@+id/HomeGridView"
+        android:layout_marginLeft="10dp"/>
+
 
 
 </RelativeLayout>
