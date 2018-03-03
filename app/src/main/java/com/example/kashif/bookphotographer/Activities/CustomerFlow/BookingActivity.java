@@ -55,9 +55,9 @@ public class BookingActivity extends AppCompatActivity {
 
     int noRequest =0 ;
 
-    String PushId , UId , PID , TodayDate , OCC , VEN , MSG , PKG , UEMAIL , PNAME ;
+    String PushId , UId , PID , TodayDate , EventDate, VEN , MSG , PKG , UEMAIL , PNAME ;
 
-    ArrayList<String> id, Pkg, occ , ven , msg ,UserID , PhotographerID , UserEmail, PhotographerName;
+    ArrayList<String> id, Pkg, eventDate , ven , msg ,UserID , PhotographerID , UserEmail, PhotographerName;
 
 
 
@@ -95,7 +95,7 @@ public class BookingActivity extends AppCompatActivity {
 
         id = new ArrayList<String>();
         Pkg = new ArrayList<String>();
-        occ = new ArrayList<String>();
+        eventDate = new ArrayList<String>();
         ven = new ArrayList<String>();
         msg = new ArrayList<String>();
         UserID = new ArrayList<String>();
@@ -230,7 +230,7 @@ public class BookingActivity extends AppCompatActivity {
 
 
 
-            occ.addAll(arrOC);
+            eventDate.addAll(arrOC);
             ven.addAll(arrVEN);
             msg.addAll(arrMSG);
             PushId = firebaseDatabase.push().getKey();
@@ -299,14 +299,14 @@ public class BookingActivity extends AppCompatActivity {
 
             UId = UserID.get(1);
             PID = PhotographerID.get(1);
-            OCC = occ.get(i);
+            EventDate= eventDate.get(i);
             VEN = ven.get(i);
             MSG = msg.get(i);
             PKG = Pkg.get(0);
             UEMAIL = UserEmail.get(1);
             PNAME = PhotographerName.get(1);
 
-            BookReservation bookReservation = new BookReservation(Integer.toString(i) , "Pending" , OCC , VEN , MSG , PKG , PushId , UId , PID , UEMAIL , PNAME , TodayDate);
+            BookReservation bookReservation = new BookReservation(Integer.toString(i) , "Pending" , EventDate, VEN , MSG , PKG , PushId , UId , PID , UEMAIL , PNAME , TodayDate);
 
 
             firebaseDatabase.child("ReservationDetail").child(PushId).child(String.valueOf(i)).setValue(bookReservation, new DatabaseReference.CompletionListener() {

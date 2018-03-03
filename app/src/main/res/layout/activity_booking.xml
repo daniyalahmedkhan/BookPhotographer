@@ -38,7 +38,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@null"
-                        android:hint="Select Date by Calender (Required*)"
+                        android:hint="Select event date (Required*)"
                         android:padding="10dp"
                         android:clickable="false"
                         android:cursorVisible="false"
@@ -112,7 +112,6 @@
                         android:prompt="@string/title"
                         android:padding="20dp"
                         android:id="@+id/SelectPkg"
-                        android:textColor="@color/colorBlue"
                         android:drawableRight="@mipmap/arrow"
                         />
 
@@ -140,7 +139,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@null"
-                        android:hint="Type any Message to Photographer (Required*)"
+                        android:hint="Additional Information (Required*)"
                         android:padding="10dp"
                         android:id="@+id/Msg"
                         android:maxLength="150"
@@ -176,7 +175,7 @@
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                     android:id="@+id/BtnSubmit"
                     android:textStyle="bold"
-                    android:fontFamily="serif"
+                    android:fontFamily="sans-serif"
                     android:background="@drawable/buttnround"
                     android:textColor="@color/colorBlack"
 
@@ -190,7 +189,7 @@
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                         android:id="@+id/BtnAdd"
                         android:textStyle="bold"
-                        android:fontFamily="serif"
+                        android:fontFamily="sans-serif"
                         android:background="@drawable/buttnround"
                         android:textColor="@color/colorBlack"
 

@@ -126,7 +126,7 @@
                     android:hint="Please define your category that you cover"
 
                     android:textColorHint="@color/colorBlack"
-                    android:fontFamily="serif"
+                    android:fontFamily="sans-serif"
                     android:textSize="15dp"
                     />
 

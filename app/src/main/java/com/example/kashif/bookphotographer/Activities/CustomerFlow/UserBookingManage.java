@@ -78,8 +78,6 @@ public class UserBookingManage extends AppCompatActivity {
 
 
 
-//        UserBookingManageCustom adapter = new UserBookingManageCustom(getApplicationContext(), order , photographer , eventdate , eventvenue , pckg);
-//        ListViewOrder.setAdapter(adapter);
 
 
         ListViewOrder.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -141,7 +139,7 @@ public class UserBookingManage extends AppCompatActivity {
         });
 
 
-        getReqData2(getApplicationContext());
+        getReqData(getApplicationContext());
 
 
 
@@ -163,7 +161,7 @@ public class UserBookingManage extends AppCompatActivity {
     }
 
 
-    static public  void   getReqData2(final Context context){
+    static public  void   getReqData(final Context context){
 
 
 

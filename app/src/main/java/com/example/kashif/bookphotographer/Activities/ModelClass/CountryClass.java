@@ -4,7 +4,7 @@ package com.example.kashif.bookphotographer.Activities.ModelClass;
  * Created by Kashif on 2/20/2018.
  */
 
-public class AddressClass {
+public class CountryClass {
 
 
   private String country_ID;
@@ -13,10 +13,10 @@ public class AddressClass {
 
 
 
-    public AddressClass() {
+    public CountryClass() {
     }
 
-    public AddressClass(String country_Name, String country_ID) {
+    public CountryClass(String country_Name, String country_ID) {
         this.country_ID = country_ID;
         this.country_Name = country_Name;
     }

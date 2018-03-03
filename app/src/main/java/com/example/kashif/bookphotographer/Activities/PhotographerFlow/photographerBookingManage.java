@@ -169,7 +169,7 @@ public class photographerBookingManage extends AppCompatActivity {
        });
 
 
-        getReqData2(getApplicationContext());
+        getReqData(getApplicationContext());
 
 
 
@@ -190,7 +190,7 @@ public class photographerBookingManage extends AppCompatActivity {
     }
 
 
-   static public  void   getReqData2(final Context context){
+   static public  void   getReqData(final Context context){
 
 
 

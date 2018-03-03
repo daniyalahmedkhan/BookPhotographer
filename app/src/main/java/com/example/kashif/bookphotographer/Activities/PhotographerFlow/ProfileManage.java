@@ -16,11 +16,9 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.kashif.bookphotographer.Activities.CustomerFlow.Photographer_Profile;
-import com.example.kashif.bookphotographer.Activities.ModelClass.AddressClass;
+import com.example.kashif.bookphotographer.Activities.ModelClass.CountryClass;
 import com.example.kashif.bookphotographer.Activities.ModelClass.LocationClass;
 import com.example.kashif.bookphotographer.Activities.ModelClass.CityClass;
-import com.example.kashif.bookphotographer.Activities.ModelClass.LocationClass;
 import com.example.kashif.bookphotographer.Activities.ModelClass.UserModel;
 import com.example.kashif.bookphotographer.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -469,7 +467,7 @@ public class ProfileManage extends AppCompatActivity {
 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
 
-                    AddressClass add = snapshot.getValue(AddressClass.class);
+                    CountryClass add = snapshot.getValue(CountryClass.class);
 
                     CountryList.add(add.getCountry_Name());
                     CountryListID.add(add.getCountry_ID());

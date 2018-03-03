@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.kashif.bookphotographer.Activities.UserAuth.LoginActivity;
-import com.example.kashif.bookphotographer.Activities.ModelClass.SampleImag;
+import com.example.kashif.bookphotographer.Activities.ModelClass.GalleryClass;
 import com.example.kashif.bookphotographer.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -304,9 +304,9 @@ public class SampleImages extends AppCompatActivity {
             Category_ID = PhotographerPackages.Category_ID.toString();
 
 
-            SampleImag sampleImag = new SampleImag(Image_ID , Category_ID , Date ,imageUrl1, imageUrl2 , imageUrl3 , imageUrl4 , imageUrl5);
+            GalleryClass galleryClass = new GalleryClass(Image_ID , Category_ID , Date ,imageUrl1, imageUrl2 , imageUrl3 , imageUrl4 , imageUrl5);
 
-            databaseReference.child("Gallery").child(ProfileManage.uid).child(Gallery_ID).setValue(sampleImag, new DatabaseReference.CompletionListener() {
+            databaseReference.child("Gallery").child(ProfileManage.uid).child(Gallery_ID).setValue(galleryClass, new DatabaseReference.CompletionListener() {
                 @Override
                 public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
 
@@ -346,7 +346,7 @@ public class SampleImages extends AppCompatActivity {
         String Parent_Category_ID = databaseReference.push().getKey();
         String Category_Des  = EditCategory.getText().toString();
 
-        SampleImag CategoryData = new SampleImag(Category_Des  , Parent_Category_ID);
+        GalleryClass CategoryData = new GalleryClass(Category_Des  , Parent_Category_ID);
 
         databaseReference.child("Gallery").child("Category").child(ProfileManage.uid).child(Category_ID).setValue(CategoryData, new DatabaseReference.CompletionListener() {
             @Override

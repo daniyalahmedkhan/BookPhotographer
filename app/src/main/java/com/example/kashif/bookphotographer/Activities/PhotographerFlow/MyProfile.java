@@ -4,9 +4,7 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.os.Handler;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -24,11 +22,9 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.kashif.bookphotographer.Activities.Adapter.CustomDrawerUser;
 
-import com.example.kashif.bookphotographer.Activities.CustomerFlow.HomeActivity;
-import com.example.kashif.bookphotographer.Activities.CustomerFlow.SearchPhotographer;
 import com.example.kashif.bookphotographer.Activities.UserAuth.LoginActivity;
 import com.example.kashif.bookphotographer.Activities.ModelClass.BookReservation;
-import com.example.kashif.bookphotographer.Activities.ModelClass.PkgClass;
+import com.example.kashif.bookphotographer.Activities.ModelClass.PackageClass;
 import com.example.kashif.bookphotographer.Activities.ModelClass.UserModel;
 import com.example.kashif.bookphotographer.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -437,16 +433,16 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
 
                     if (dataSnapshot.child(key).child("Package1").exists()) {
 
-                        PkgClass pkgClass = dataSnapshot.child(key).child("Package1").getValue(PkgClass.class);
+                        PackageClass packageClass = dataSnapshot.child(key).child("Package1").getValue(PackageClass.class);
 
 
-                        if (!(pkgClass.getPackage_Name().equals("unk") || pkgClass.getPackage_Description().equals("unk") || pkgClass.getServices_Days().equals("unk")
-                                || pkgClass.getPackage_Price().equals("unk"))) {
+                        if (!(packageClass.getPackage_Name().equals("unk") || packageClass.getPackage_Description().equals("unk") || packageClass.getServices_Days().equals("unk")
+                                || packageClass.getPackage_Price().equals("unk"))) {
 
 
-                            PkgName = pkgClass.getPackage_Name();
-                            PkgPrice = pkgClass.getPackage_Price();
-                            PkgDescription = pkgClass.getPackage_Description();
+                            PkgName = packageClass.getPackage_Name();
+                            PkgPrice = packageClass.getPackage_Price();
+                            PkgDescription = packageClass.getPackage_Description();
 
                             PkgTname.setText(PkgName);
                             PkgTprice.setText(PkgPrice);
@@ -501,16 +497,16 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
                      if (dataSnapshot.child(key).child("Package2").exists()){
 
 
-                     PkgClass pkgClass = dataSnapshot.child(key).child("Package2").getValue(PkgClass.class);
+                     PackageClass packageClass = dataSnapshot.child(key).child("Package2").getValue(PackageClass.class);
 
-                        if (!(pkgClass.getPackage_Name().equals("unk") || pkgClass.getPackage_Description().equals("unk") || pkgClass.getServices_Days().equals("unk")
-                                || pkgClass.getPackage_Price().equals("unk"))){
+                        if (!(packageClass.getPackage_Name().equals("unk") || packageClass.getPackage_Description().equals("unk") || packageClass.getServices_Days().equals("unk")
+                                || packageClass.getPackage_Price().equals("unk"))){
 
 
 
-                            PkgName = pkgClass.getPackage_Name();
-                            PkgPrice = pkgClass.getPackage_Price();
-                            PkgDescription = pkgClass.getPackage_Description();
+                            PkgName = packageClass.getPackage_Name();
+                            PkgPrice = packageClass.getPackage_Price();
+                            PkgDescription = packageClass.getPackage_Description();
 
                             PkgTname2.setText(PkgName);
                             PkgTprice2.setText(PkgPrice);
@@ -568,16 +564,16 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
 
 
                 if (dataSnapshot.child(key).child("Package3").exists()){
-                    PkgClass pkgClass = dataSnapshot.child(key).child("Package3").getValue(PkgClass.class);
+                    PackageClass packageClass = dataSnapshot.child(key).child("Package3").getValue(PackageClass.class);
 
-                        if (!(pkgClass.getPackage_Name().equals("unk") || pkgClass.getPackage_Description().equals("unk") || pkgClass.getServices_Days().equals("unk")
-                                || pkgClass.getPackage_Price().equals("unk"))){
+                        if (!(packageClass.getPackage_Name().equals("unk") || packageClass.getPackage_Description().equals("unk") || packageClass.getServices_Days().equals("unk")
+                                || packageClass.getPackage_Price().equals("unk"))){
 
 
 
-                            PkgName = pkgClass.getPackage_Name();
-                            PkgPrice = pkgClass.getPackage_Price();
-                            PkgDescription = pkgClass.getPackage_Description();
+                            PkgName = packageClass.getPackage_Name();
+                            PkgPrice = packageClass.getPackage_Price();
+                            PkgDescription = packageClass.getPackage_Description();
 
                             PkgTname3.setText(PkgName);
                             PkgTprice3.setText(PkgPrice);
@@ -640,16 +636,16 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
 
 
 
-                        PkgClass pkgClass = dataSnapshot.child(key).child("Package4").getValue(PkgClass.class);
+                        PackageClass packageClass = dataSnapshot.child(key).child("Package4").getValue(PackageClass.class);
 
-                        if (!(pkgClass.getPackage_Name().equals("unk") || pkgClass.getPackage_Description().equals("unk") || pkgClass.getServices_Days().equals("unk")
-                                || pkgClass.getPackage_Price().equals("unk"))){
+                        if (!(packageClass.getPackage_Name().equals("unk") || packageClass.getPackage_Description().equals("unk") || packageClass.getServices_Days().equals("unk")
+                                || packageClass.getPackage_Price().equals("unk"))){
 
 
 
-                            PkgName = pkgClass.getPackage_Name();
-                            PkgPrice = pkgClass.getPackage_Price();
-                            PkgDescription = pkgClass.getPackage_Description();
+                            PkgName = packageClass.getPackage_Name();
+                            PkgPrice = packageClass.getPackage_Price();
+                            PkgDescription = packageClass.getPackage_Description();
 
                             PkgTname4.setText(PkgName);
                             PkgTprice4.setText(PkgPrice);
@@ -707,16 +703,16 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
                     if (dataSnapshot.child(key).child("Package5").exists()){
 
 
-                        PkgClass pkgClass = dataSnapshot.child(key).child("Package5").getValue(PkgClass.class);
+                        PackageClass packageClass = dataSnapshot.child(key).child("Package5").getValue(PackageClass.class);
 
-                        if (!(pkgClass.getPackage_Name().equals("unk") || pkgClass.getPackage_Description().equals("unk") || pkgClass.getServices_Days().equals("unk")
-                                || pkgClass.getPackage_Price().equals("unk"))){
+                        if (!(packageClass.getPackage_Name().equals("unk") || packageClass.getPackage_Description().equals("unk") || packageClass.getServices_Days().equals("unk")
+                                || packageClass.getPackage_Price().equals("unk"))){
 
 
 
-                            PkgName = pkgClass.getPackage_Name();
-                            PkgPrice = pkgClass.getPackage_Price();
-                            PkgDescription = pkgClass.getPackage_Description();
+                            PkgName = packageClass.getPackage_Name();
+                            PkgPrice = packageClass.getPackage_Price();
+                            PkgDescription = packageClass.getPackage_Description();
 
                             PkgTname5.setText(PkgName);
                             PkgTprice5.setText(PkgPrice);

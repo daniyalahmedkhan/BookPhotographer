@@ -45,8 +45,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Daniyal ak"
+                    android:text="XXX"
                     android:gravity="center"
+                    android:fontFamily="sans-serif"
                     android:id="@+id/Txt1"
                     android:layout_marginTop="5dp"
                     android:layout_gravity="center"
@@ -56,9 +57,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Karachi, Korangi"
+                    android:text="XXX"
                     android:gravity="center"
                     android:id="@+id/Txt2"
+                    android:fontFamily="sans-serif"
                     android:layout_marginTop="5dp"
                     android:layout_gravity="center"
                     />

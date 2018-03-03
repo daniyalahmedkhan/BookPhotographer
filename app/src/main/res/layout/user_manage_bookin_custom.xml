@@ -39,7 +39,7 @@
                android:layout_width="140dp"
                android:layout_height="wrap_content"
                android:textStyle="bold"
-               android:fontFamily="serif"
+               android:fontFamily="sans-serif"
                android:layout_marginLeft="10dp"
                android:textColor="@color/colorBlack"
                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
@@ -53,7 +53,7 @@
                         android:id="@+id/PhotographerName"
                        android:textColor="@color/colorBlue"
                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                       android:text="Sadat Ali"
+                       android:text="XXX"
                        />
 
 
@@ -71,7 +71,7 @@
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        android:fontFamily="serif"
+                        android:fontFamily="sans-serif"
                         android:layout_marginLeft="10dp"
                         android:textColor="@color/colorBlack"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
@@ -85,7 +85,7 @@
                         android:id="@+id/EventDates"
                         android:textColor="@color/colorBlue"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                        android:text="23 , 25 , 26 feb"
+                        android:text="XXX"
                         />
 
 
@@ -103,7 +103,7 @@
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        android:fontFamily="serif"
+                        android:fontFamily="sans-serif"
                         android:layout_marginLeft="10dp"
                         android:textColor="@color/colorBlack"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
@@ -117,7 +117,7 @@
                         android:id="@+id/EventVenue"
                         android:textColor="@color/colorBlue"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                        android:text="LaLQila , Medallian Banquet"
+                        android:text="XXX"
                         />
 
 
@@ -135,7 +135,7 @@
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        android:fontFamily="serif"
+                        android:fontFamily="sans-serif"
                         android:layout_marginLeft="10dp"
                         android:textColor="@color/colorBlack"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
@@ -149,7 +149,7 @@
                         android:id="@+id/SelectedPkg"
                         android:textColor="@color/colorBlue"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                        android:text="Silver"
+                        android:text="XXX"
                         />
 
 
@@ -167,7 +167,7 @@
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        android:fontFamily="serif"
+                        android:fontFamily="sans-serif"
                         android:layout_marginLeft="10dp"
                         android:textColor="@color/colorBlack"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
@@ -181,7 +181,7 @@
                         android:id="@+id/PkgStatus"
                         android:textColor="@color/colorBlue"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                        android:text="Pending"
+                        android:text="XXX"
                         />
 
 
@@ -199,7 +199,7 @@
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        android:fontFamily="serif"
+                        android:fontFamily="sans-serif"
                         android:layout_marginLeft="10dp"
                         android:textColor="@color/colorBlack"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
@@ -213,7 +213,7 @@
                         android:id="@+id/UserRemarks"
                         android:textColor="@color/colorBlue"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                        android:text="Contact me"
+                        android:text="XXX"
                         />
 
 

@@ -53,26 +53,16 @@ public class SearchPhotographer extends AppCompatActivity {
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.setStatusBarColor(Color.TRANSPARENT);
 
-
-
         setContentView(R.layout.activity_search_photographer);
-
-
-
 
         Custom_SearchPhotographer adapterViewAndroid = new Custom_SearchPhotographer(SearchPhotographer.this, gridViewString, gridViewString2, gridViewImageId , id);
         androidGridView=(GridView)findViewById(R.id.grid_view_image_text);
         androidGridView.setAdapter(adapterViewAndroid);
         adapterViewAndroid.notifyDataSetChanged();
 
-
-
-
-
         androidGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
            @Override
            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
 
                  TextView name =  view.findViewById(R.id.Txt1);
                 String name2 = name.getText().toString();

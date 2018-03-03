@@ -4,7 +4,7 @@ package com.example.kashif.bookphotographer.Activities.ModelClass;
  * Created by Kashif on 1/4/2018.
  */
 
-public class PkgClass {
+public class PackageClass {
 
 
   private String package_ID;
@@ -15,9 +15,9 @@ public class PkgClass {
   private String package_Description;
   private    String type;
 
-    public PkgClass() {}
+    public PackageClass() {}
 
-    public PkgClass(String package_ID ,  String category_ID , String package_Name , String package_Price , String services_Days, String package_Description, String type  ) {
+    public PackageClass(String package_ID , String category_ID , String package_Name , String package_Price , String services_Days, String package_Description, String type  ) {
         this.package_ID = package_ID;
         this.category_ID = category_ID;
         this.package_Name = package_Name;

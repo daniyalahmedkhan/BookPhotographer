@@ -5,7 +5,6 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Handler;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
@@ -28,11 +27,9 @@ import android.widget.Toast;
 
 import com.example.kashif.bookphotographer.Activities.Adapter.CustomDrawerUser;
 import com.example.kashif.bookphotographer.Activities.Adapter.Custom_SearchPhotographer;
-import com.example.kashif.bookphotographer.Activities.PhotographerFlow.MyProfile;
-import com.example.kashif.bookphotographer.Activities.PhotographerFlow.photographerBookingManage;
 import com.example.kashif.bookphotographer.Activities.UserAuth.LoginActivity;
 import com.example.kashif.bookphotographer.Activities.ModelClass.BookReservation;
-import com.example.kashif.bookphotographer.Activities.ModelClass.PkgClass;
+import com.example.kashif.bookphotographer.Activities.ModelClass.PackageClass;
 import com.example.kashif.bookphotographer.Activities.ModelClass.UserModel;
 import com.example.kashif.bookphotographer.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -162,16 +159,12 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
                 if(mDrawerLayout.isDrawerOpen(Gravity.LEFT))
                 {
                     mDrawerLayout.closeDrawer(mDrawerList);
-                    // getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-                    // getSupportActionBar().setCustomView(R.layout.menu_title);
-                    // getSupportActionBar().show();
 
 
                 }
                 else {
                     mDrawerLayout.openDrawer(Gravity.LEFT);
-                    //getSupportActionBar().hide();
-                    // requestWindowFeature(Window.FEATURE_NO_TITLE);
+
                 }
 
             }
@@ -179,18 +172,10 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
 
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
-
-
-
         //////// Side Drawer End //////
-
-
-
-
 
         GetAllPhotographers();
         getPendingRequest();
-
 
         HomeGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -340,7 +325,7 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
             }else if(!((GetName.isEmpty() && GetLocation.isEmpty()
                     && GetPrice.isEmpty()))){
 
-           //     NameLocationPriceSearch();
+                NameLocationPriceSearch();
 
             }else {
 
@@ -518,35 +503,36 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
                        @Override
                        public void onDataChange(DataSnapshot dataSnapshot) {
 
-                           for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+
+                           try {
 
 
-                               key = snapshot.getKey().toString();
+                               for (DataSnapshot snapshot : dataSnapshot.getChildren()){
 
-                            if (dataSnapshot.child(key).child("Package1").exists()){
+                                   //  key = snapshot.getKey().toString();
 
-                                PkgClass pkgClass = dataSnapshot.child(key).child("Package1").getValue(PkgClass.class);
+                                   for (DataSnapshot snapshot1 : snapshot.getChildren()){
 
-
-
-                                if (GetPrice.equals(pkgClass.getPackage_Price())){
-
-                                    Pname.add(name.get(finalI));
-                                    Ploc.add(loc.get(finalI));
-                                    Pimgurl.add(imgrl.get(finalI));
-                                    Pid.add(id.get(finalI));
+                                       PackageClass packageClass = snapshot1.getValue(PackageClass.class);
 
 
 
-                                }
+                                       if(packageClass.getPackage_Price().equals(GetPrice)){
+                                           Pname.add(name.get(finalI));
+                                           Ploc.add(loc.get(finalI));
+                                           Pimgurl.add(imgrl.get(finalI));
+                                           Pid.add(id.get(finalI));
 
 
-                            }
+                                       }
 
 
+                                   }
+
+                               }
 
 
-                           }
+                               if (!(Pname.isEmpty() && Ploc.isEmpty() && Pimgurl.isEmpty() && Pid.isEmpty())){
 
                                    SearchPhotographer searchPhotographer = new SearchPhotographer(Pname.toArray(new String[Pname.size()]) , Ploc.toArray(new String[Ploc.size()]) , Pimgurl.toArray(new String[Pimgurl.size()]) , Pid.toArray(new String[Pid.size()]) );
 
@@ -554,6 +540,16 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                    startActivity(intent);
                                    finish();
+
+                               }else {
+
+                                   Toast.makeText(HomeActivity.this, "Not Found", Toast.LENGTH_SHORT).show();
+
+                               }
+
+                           }catch (Exception e){}
+
+
 
 
 
@@ -692,42 +688,53 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+
+                                try {
 
 
-                                    key = snapshot.getKey().toString();
+                                    for (DataSnapshot snapshot : dataSnapshot.getChildren()){
 
-                                    if (dataSnapshot.child(key).child("Package1").exists()){
+                                        //  key = snapshot.getKey().toString();
 
-                                        PkgClass pkgClass = dataSnapshot.child(key).child("Package1").getValue(PkgClass.class);
+                                        for (DataSnapshot snapshot1 : snapshot.getChildren()){
+
+                                            PackageClass packageClass = snapshot1.getValue(PackageClass.class);
 
 
 
-                                        if (GetPrice.equals(pkgClass.getPackage_Price())){
+                                            if(packageClass.getPackage_Price().equals(GetPrice)){
+                                                Pname.add(name.get(finalI));
+                                                Ploc.add(loc.get(finalI));
+                                                Pimgurl.add(imgrl.get(finalI));
+                                                Pid.add(id.get(finalI));
 
-                                            Pname.add(name.get(finalI));
-                                            Ploc.add(loc.get(finalI));
-                                            Pimgurl.add(imgrl.get(finalI));
-                                            Pid.add(id.get(finalI));
 
+                                            }
 
 
                                         }
 
-
                                     }
 
 
+                                    if (!(Pname.isEmpty() && Ploc.isEmpty() && Pimgurl.isEmpty() && Pid.isEmpty())){
+
+                                        SearchPhotographer searchPhotographer = new SearchPhotographer(Pname.toArray(new String[Pname.size()]) , Ploc.toArray(new String[Ploc.size()]) , Pimgurl.toArray(new String[Pimgurl.size()]) , Pid.toArray(new String[Pid.size()]) );
+
+                                        Intent intent = new Intent(HomeActivity.this, SearchPhotographer.class);// New activity
+                                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                        startActivity(intent);
+                                        finish();
+
+                                    }else {
+
+                                        Toast.makeText(HomeActivity.this, "Not Found", Toast.LENGTH_SHORT).show();
+
+                                    }
+
+                                }catch (Exception e){}
 
 
-                                }
-
-                                SearchPhotographer searchPhotographer = new SearchPhotographer(Pname.toArray(new String[Pname.size()]) , Ploc.toArray(new String[Ploc.size()]) , Pimgurl.toArray(new String[Pimgurl.size()]) , Pid.toArray(new String[Pid.size()]) );
-
-                                Intent intent = new Intent(HomeActivity.this, SearchPhotographer.class);// New activity
-                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                startActivity(intent);
-                                finish();
 
 
 
@@ -795,42 +802,53 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+
+                                try {
 
 
-                                    key = snapshot.getKey().toString();
+                                    for (DataSnapshot snapshot : dataSnapshot.getChildren()){
 
-                                    if (dataSnapshot.child(key).child("Package1").exists()){
+                                        //  key = snapshot.getKey().toString();
 
-                                        PkgClass pkgClass = dataSnapshot.child(key).child("Package1").getValue(PkgClass.class);
+                                        for (DataSnapshot snapshot1 : snapshot.getChildren()){
+
+                                            PackageClass packageClass = snapshot1.getValue(PackageClass.class);
 
 
 
-                                        if (GetPrice.equals(pkgClass.getPackage_Price())){
+                                            if(packageClass.getPackage_Price().equals(GetPrice)){
+                                                Pname.add(name.get(finalI));
+                                                Ploc.add(loc.get(finalI));
+                                                Pimgurl.add(imgrl.get(finalI));
+                                                Pid.add(id.get(finalI));
 
-                                            Pname.add(name.get(finalI));
-                                            Ploc.add(loc.get(finalI));
-                                            Pimgurl.add(imgrl.get(finalI));
-                                            Pid.add(id.get(finalI));
 
+                                            }
 
 
                                         }
 
-
                                     }
 
 
+                                    if (!(Pname.isEmpty() && Ploc.isEmpty() && Pimgurl.isEmpty() && Pid.isEmpty())){
+
+                                        SearchPhotographer searchPhotographer = new SearchPhotographer(Pname.toArray(new String[Pname.size()]) , Ploc.toArray(new String[Ploc.size()]) , Pimgurl.toArray(new String[Pimgurl.size()]) , Pid.toArray(new String[Pid.size()]) );
+
+                                        Intent intent = new Intent(HomeActivity.this, SearchPhotographer.class);// New activity
+                                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                        startActivity(intent);
+                                        finish();
+
+                                    }else {
+
+                                        Toast.makeText(HomeActivity.this, "Not Found", Toast.LENGTH_SHORT).show();
+
+                                    }
+
+                                }catch (Exception e){}
 
 
-                                }
-
-                                SearchPhotographer searchPhotographer = new SearchPhotographer(Pname.toArray(new String[Pname.size()]) , Ploc.toArray(new String[Ploc.size()]) , Pimgurl.toArray(new String[Pimgurl.size()]) , Pid.toArray(new String[Pid.size()]) );
-
-                                Intent intent = new Intent(HomeActivity.this, SearchPhotographer.class);// New activity
-                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                startActivity(intent);
-                                finish();
 
 
 
@@ -861,12 +879,134 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
 
     }
 
-//    public void NameLocationPriceSearch(){
-//
-//
-//        Toast.makeText(HomeActivity.this , "NameLocationPrice Search" , Toast.LENGTH_SHORT).show();
-//
-//    }
+    public void NameLocationPriceSearch(){
+
+
+
+        databaseReference.child("Users").child("Photographer").orderByChild("first_Name").equalTo(GetName).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if (dataSnapshot.exists()){
+
+
+                    name.clear();
+                    loc.clear();
+                    imgrl.clear();
+                    id.clear();
+
+
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+
+
+                        UserModel userModel = snapshot.getValue(UserModel.class);
+
+                        if (GetLocation.equals(userModel.getCity_Des())){
+                            name.add(userModel.getFirst_Name());
+                            id.add(userModel.getPhotographer_ID());
+                            loc.add(userModel.getCity_Des());
+                            imgrl.add(userModel.getProfile_Img());
+
+
+                        }
+
+
+                    }
+
+                    for (int i=0; i<id.size(); i++){
+
+
+                        final int finalI = i;
+                        databaseReference.child("Services").child(id.get(i)).addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                                try {
+
+
+                                    for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+
+                                        //  key = snapshot.getKey().toString();
+
+                                        for (DataSnapshot snapshot1 : snapshot.getChildren()){
+
+                                            PackageClass packageClass = snapshot1.getValue(PackageClass.class);
+
+
+
+                                            if(packageClass.getPackage_Price().equals(GetPrice)){
+                                                Pname.add(name.get(finalI));
+                                                Ploc.add(loc.get(finalI));
+                                                Pimgurl.add(imgrl.get(finalI));
+                                                Pid.add(id.get(finalI));
+
+
+                                            }
+
+
+                                        }
+
+                                    }
+
+
+                                    if (!(Pname.isEmpty() && Ploc.isEmpty() && Pimgurl.isEmpty() && Pid.isEmpty())){
+
+                                        SearchPhotographer searchPhotographer = new SearchPhotographer(Pname.toArray(new String[Pname.size()]) , Ploc.toArray(new String[Ploc.size()]) , Pimgurl.toArray(new String[Pimgurl.size()]) , Pid.toArray(new String[Pid.size()]) );
+
+                                        Intent intent = new Intent(HomeActivity.this, SearchPhotographer.class);// New activity
+                                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                        startActivity(intent);
+                                        finish();
+
+                                    }else {
+
+                                        Toast.makeText(HomeActivity.this, "Not Found", Toast.LENGTH_SHORT).show();
+
+                                    }
+
+                                }catch (Exception e){}
+
+
+
+
+
+
+
+
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+
+                            }
+                        });
+                    }
+
+
+
+
+
+
+
+                }else {
+
+
+                    Toast.makeText(HomeActivity.this , "Not Found " , Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+
+    }
 
 
     public void getPendingRequest(){

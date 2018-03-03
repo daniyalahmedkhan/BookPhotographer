@@ -49,9 +49,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Daniyal Ak"
+                    android:text="XXXX"
                     android:id="@+id/HeadName"
-                    android:fontFamily="serif"
+                    android:fontFamily="sans-serif"
                     android:gravity="center"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                     android:textColor="@color/colorBlack"
@@ -102,12 +102,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                        android:text="About"
+                        android:text="Personal Information"
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:textStyle="bold"
                         android:padding="5dp"
-                        android:fontFamily="serif"
+                        android:fontFamily="sans-serif"
                         android:textColor="@color/colorDark"
 
                         />
@@ -122,68 +122,62 @@
             </RelativeLayout>
 
 
-
-
             <RelativeLayout
+                android:id="@+id/Relative1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:id="@+id/Relative1"
-                android:visibility="visible"
-
                 android:layout_marginTop="-10dp"
-                android:paddingRight="10dp">
+                android:paddingLeft="10dp"
+
+                android:paddingRight="10dp"
+                android:visibility="visible">
 
 
-                <android.support.v7.widget.CardView
-                    xmlns:android="http://schemas.android.com/apk/res/android"
+                <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
                     xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="6dp"
 
-                    card_view:cardUseCompatPadding="true"
+                    card_view:cardCornerRadius="3dp"
                     card_view:cardElevation="3dp"
-                    card_view:cardCornerRadius="3dp">
+                    card_view:cardUseCompatPadding="true">
 
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="5dp"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:padding="5dp">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
                             android:layout_marginTop="5dp"
-                            >
+                            android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="150dp"
                                 android:layout_height="wrap_content"
+                                android:drawableLeft="@mipmap/tab"
+                                android:drawablePadding="5dp"
+                                android:fontFamily="sans-serif"
                                 android:text="First Name : "
-                                android:textStyle="bold"
-                                android:drawablePadding="5dp"
-                                android:drawableLeft="@mipmap/tab"
-                                android:textColor="@color/colorBlue"
-                                android:fontFamily="serif"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                                />
+                                android:textColor="@color/colorBlue"
+                                android:textStyle="bold" />
 
 
                             <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Sadat"
                                 android:id="@+id/PhotographerFname"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
-                                android:textColor="@color/colorBlue"
-                                android:fontFamily="serif"
+                                android:fontFamily="sans-serif"
+                                android:text="XXXX"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                                />
-
+                                android:textColor="@color/colorBlue" />
 
 
                         </LinearLayout>
@@ -192,33 +186,30 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="15dp"
-                            android:orientation="horizontal"
-                            >
+                            android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="150dp"
                                 android:layout_height="wrap_content"
+                                android:drawableLeft="@mipmap/tab"
+                                android:drawablePadding="5dp"
+                                android:fontFamily="sans-serif"
                                 android:text="Last Name : "
-                                android:textStyle="bold"
-                                android:drawablePadding="5dp"
-                                android:drawableLeft="@mipmap/tab"
-                                android:textColor="@color/colorBlue"
-                                android:fontFamily="serif"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                                />
+                                android:textColor="@color/colorBlue"
+                                android:textStyle="bold" />
 
 
                             <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Ali"
                                 android:id="@+id/PhotographerLname"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
-                                android:textColor="@color/colorBlue"
-                                android:fontFamily="serif"
+                                android:fontFamily="sans-serif"
+                                android:text="XXXX"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                                />
-
+                                android:textColor="@color/colorBlue" />
 
 
                         </LinearLayout>
@@ -227,33 +218,30 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="15dp"
-                            android:orientation="horizontal"
-                            >
+                            android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="150dp"
                                 android:layout_height="wrap_content"
+                                android:drawableLeft="@mipmap/tab"
+                                android:drawablePadding="5dp"
+                                android:fontFamily="sans-serif"
                                 android:text="Gender : "
-                                android:textStyle="bold"
-                                android:drawablePadding="5dp"
-                                android:drawableLeft="@mipmap/tab"
-                                android:textColor="@color/colorBlue"
-                                android:fontFamily="serif"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                                />
+                                android:textColor="@color/colorBlue"
+                                android:textStyle="bold" />
 
 
                             <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Male"
                                 android:id="@+id/PhotographerGender"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
-                                android:textColor="@color/colorBlue"
-                                android:fontFamily="serif"
+                                android:fontFamily="sans-serif"
+                                android:text="XXXX"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                                />
-
+                                android:textColor="@color/colorBlue" />
 
 
                         </LinearLayout>
@@ -262,33 +250,30 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="15dp"
-                            android:orientation="horizontal"
-                            >
+                            android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="150dp"
                                 android:layout_height="wrap_content"
+                                android:drawableLeft="@mipmap/tab"
+                                android:drawablePadding="5dp"
+                                android:fontFamily="sans-serif"
                                 android:text="Location : "
-                                android:textStyle="bold"
-                                android:drawablePadding="5dp"
-                                android:drawableLeft="@mipmap/tab"
-                                android:textColor="@color/colorBlue"
-                                android:fontFamily="serif"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                                />
+                                android:textColor="@color/colorBlue"
+                                android:textStyle="bold" />
 
 
                             <TextView
+                                android:id="@+id/PhotographerLocation"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Karachi"
-                                android:id="@+id/PhotographerLocation"
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
-                                android:textColor="@color/colorBlue"
-                                android:fontFamily="serif"
+                                android:fontFamily="sans-serif"
+                                android:text="XXXX"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                                />
-
+                                android:textColor="@color/colorBlue" />
 
 
                         </LinearLayout>
@@ -297,45 +282,39 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="15dp"
-                            android:visibility="gone"
                             android:orientation="horizontal"
-                            >
+                            android:visibility="gone">
+
                             <TextView
                                 android:layout_width="150dp"
                                 android:layout_height="wrap_content"
-                                android:text="Contact : "
-                                android:textStyle="bold"
-                                android:drawablePadding="5dp"
                                 android:drawableLeft="@mipmap/tab"
-                                android:textColor="@color/colorBlue"
-                                android:fontFamily="serif"
+                                android:drawablePadding="5dp"
+                                android:fontFamily="sans-serif"
+                                android:text="Contact : "
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                                />
+                                android:textColor="@color/colorBlue"
+                                android:textStyle="bold" />
 
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="+92-343-2929045"
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
-                                android:textColor="@color/colorBlue"
-                                android:fontFamily="serif"
+                                android:fontFamily="sans-serif"
+                                android:text="+92-343-2929045"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                                />
-
+                                android:textColor="@color/colorBlue" />
 
 
                         </LinearLayout>
-
 
 
                     </LinearLayout>
 
 
-
                 </android.support.v7.widget.CardView>
-
 
 
             </RelativeLayout>
@@ -365,12 +344,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                        android:text="Services"
+                        android:text="Packages"
                         android:gravity="center"
                         android:layout_gravity="center"
                         android:textStyle="bold"
                         android:padding="5dp"
-                        android:fontFamily="serif"
+                        android:fontFamily="sans-serif"
                         android:textColor="@color/colorDark"
 
                         />
@@ -413,7 +392,7 @@
 
                         android:id="@+id/PgkTname1"
                         android:padding="5dp"
-                        android:fontFamily="serif"
+                        android:fontFamily="sans-serif"
                         android:textColor="@color/colorBlue"
 
                         />
@@ -477,7 +456,7 @@
                                 android:drawablePadding="5dp"
                                 android:drawableLeft="@mipmap/tab"
                                 android:textColor="@color/colorBlue"
-                                android:fontFamily="serif"
+                                android:fontFamily="sans-serif"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                                 />
 
@@ -490,7 +469,7 @@
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
                                 android:textColor="@color/colorBlue"
-                                android:fontFamily="serif"
+                                android:fontFamily="sans-serif"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                                 />
 
@@ -512,7 +491,7 @@
                                 android:drawablePadding="5dp"
                                 android:drawableLeft="@mipmap/tab"
                                 android:textColor="@color/colorBlue"
-                                android:fontFamily="serif"
+                                android:fontFamily="sans-serif"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                                 />
 
@@ -525,7 +504,7 @@
                                 android:drawablePadding="5dp"
                                 android:id="@+id/PkgTdes1"
                                 android:textColor="@color/colorBlue"
-                                android:fontFamily="serif"
+                                android:fontFamily="sans-serif"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                                 />
 
@@ -575,7 +554,7 @@
                         android:textStyle="bold"
                         android:id="@+id/PkgTname2"
                         android:padding="5dp"
-                        android:fontFamily="serif"
+                        android:fontFamily="sans-serif"
                         android:textColor="@color/colorBlue"
 
                         />
@@ -640,7 +619,7 @@
                                 android:drawablePadding="5dp"
                                 android:drawableLeft="@mipmap/tab"
                                 android:textColor="@color/colorBlue"
-                                android:fontFamily="serif"
+                                android:fontFamily="sans-serif"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                                 />
 
@@ -653,7 +632,7 @@
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
                                 android:textColor="@color/colorBlue"
-                                android:fontFamily="serif"
+                                android:fontFamily="sans-serif"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                                 />
 
@@ -675,7 +654,7 @@
                                 android:drawablePadding="5dp"
                                 android:drawableLeft="@mipmap/tab"
                                 android:textColor="@color/colorBlue"
-                                android:fontFamily="serif"
+                                android:fontFamily="sans-serif"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                                 />
 
@@ -688,7 +667,7 @@
                                 android:drawablePadding="5dp"
                                 android:id="@+id/PkgTdes2"
                                 android:textColor="@color/colorBlue"
-                                android:fontFamily="serif"
+                                android:fontFamily="sans-serif"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                                 />
 
@@ -740,7 +719,7 @@
                         android:textStyle="bold"
                         android:padding="5dp"
                         android:id="@+id/PkgTname3"
-                        android:fontFamily="serif"
+                        android:fontFamily="sans-serif"
                         android:textColor="@color/colorBlue"
 
                         />
@@ -804,7 +783,7 @@
                                 android:drawablePadding="5dp"
                                 android:drawableLeft="@mipmap/tab"
                                 android:textColor="@color/colorBlue"
-                                android:fontFamily="serif"
+                                android:fontFamily="sans-serif"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                                 />
 
@@ -817,7 +796,7 @@
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
                                 android:textColor="@color/colorBlue"
-                                android:fontFamily="serif"
+                                android:fontFamily="sans-serif"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                                 />
 
@@ -839,7 +818,7 @@
                                 android:drawablePadding="5dp"
                                 android:drawableLeft="@mipmap/tab"
                                 android:textColor="@color/colorBlue"
-                                android:fontFamily="serif"
+                                android:fontFamily="sans-serif"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                                 />
 
@@ -852,7 +831,7 @@
                                 android:drawablePadding="5dp"
                                 android:id="@+id/PkgTdes3"
                                 android:textColor="@color/colorBlue"
-                                android:fontFamily="serif"
+                                android:fontFamily="sans-serif"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                                 />
 
@@ -903,7 +882,7 @@
                         android:textStyle="bold"
                         android:id="@+id/PkgTname4"
                         android:padding="5dp"
-                        android:fontFamily="serif"
+                        android:fontFamily="sans-serif"
                         android:textColor="@color/colorBlue"
 
                         />
@@ -968,7 +947,7 @@
                                 android:drawablePadding="5dp"
                                 android:drawableLeft="@mipmap/tab"
                                 android:textColor="@color/colorBlue"
-                                android:fontFamily="serif"
+                                android:fontFamily="sans-serif"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                                 />
 
@@ -981,7 +960,7 @@
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
                                 android:textColor="@color/colorBlue"
-                                android:fontFamily="serif"
+                                android:fontFamily="sans-serif"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                                 />
 
@@ -1003,7 +982,7 @@
                                 android:drawablePadding="5dp"
                                 android:drawableLeft="@mipmap/tab"
                                 android:textColor="@color/colorBlue"
-                                android:fontFamily="serif"
+                                android:fontFamily="sans-serif"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                                 />
 
@@ -1016,7 +995,7 @@
                                 android:drawablePadding="5dp"
                                 android:id="@+id/PkgTdes4"
                                 android:textColor="@color/colorBlue"
-                                android:fontFamily="serif"
+                                android:fontFamily="sans-serif"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                                 />
 
@@ -1065,7 +1044,7 @@
                         android:textStyle="bold"
                         android:padding="5dp"
                         android:id="@+id/PkgTname5"
-                        android:fontFamily="serif"
+                        android:fontFamily="sans-serif"
                         android:textColor="@color/colorBlue"
 
                         />
@@ -1130,7 +1109,7 @@
                                 android:drawablePadding="5dp"
                                 android:drawableLeft="@mipmap/tab"
                                 android:textColor="@color/colorBlue"
-                                android:fontFamily="serif"
+                                android:fontFamily="sans-serif"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                                 />
 
@@ -1143,7 +1122,7 @@
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
                                 android:textColor="@color/colorBlue"
-                                android:fontFamily="serif"
+                                android:fontFamily="sans-serif"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                                 />
 
@@ -1165,7 +1144,7 @@
                                 android:drawablePadding="5dp"
                                 android:drawableLeft="@mipmap/tab"
                                 android:textColor="@color/colorBlue"
-                                android:fontFamily="serif"
+                                android:fontFamily="sans-serif"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                                 />
 
@@ -1178,7 +1157,7 @@
                                 android:drawablePadding="5dp"
                                 android:id="@+id/PkgTdes5"
                                 android:textColor="@color/colorBlue"
-                                android:fontFamily="serif"
+                                android:fontFamily="sans-serif"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                                 />
 
@@ -1208,36 +1187,6 @@
                 android:id="@+id/RelativeGallery"
                 android:paddingRight="10dp"
                 >
-
-                <android.support.v7.widget.CardView
-                    xmlns:android="http://schemas.android.com/apk/res/android"
-                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="6dp"
-                    card_view:cardUseCompatPadding="true"
-                    card_view:cardElevation="4dp"
-                    card_view:cardCornerRadius="3dp">
-
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                        android:text="Work Gallery"
-                        android:gravity="center"
-                        android:layout_gravity="center"
-                        android:textStyle="bold"
-                        android:padding="5dp"
-                        android:fontFamily="serif"
-                        android:textColor="@color/colorDark"
-
-                        />
-
-
-                </android.support.v7.widget.CardView>
-
-
 
 
             </RelativeLayout>
@@ -1302,9 +1251,6 @@
 
             </android.support.v7.widget.CardView>
 
-
-
-
         </LinearLayout>
 
 
@@ -1329,7 +1275,7 @@
                 android:paddingLeft="10dp"
                 android:textSize="15dp"
 
-                android:fontFamily="serif"
+                android:fontFamily="sans-serif"
                 android:textStyle="bold"
                 android:id="@+id/BtnRes"
                 android:textAllCaps="false"
@@ -1344,6 +1290,32 @@
 
 
     </RelativeLayout>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        app:cardCornerRadius="3dp"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Work Gallery"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textColor="@color/colorDark"
+            android:textStyle="bold"
+
+            />
+
+
+    </android.support.v7.widget.CardView>
 
 
 </ScrollView>

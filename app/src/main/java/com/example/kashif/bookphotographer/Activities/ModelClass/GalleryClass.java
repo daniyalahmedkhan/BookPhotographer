@@ -4,7 +4,7 @@ package com.example.kashif.bookphotographer.Activities.ModelClass;
  * Created by Kashif on 1/6/2018.
  */
 
-public class SampleImag {
+public class GalleryClass {
 
   private   String image_ID;
   private   String category_Des;
@@ -17,14 +17,14 @@ public class SampleImag {
     private   String image5;
 
 
-    public SampleImag() {}
+    public GalleryClass() {}
 
-    public SampleImag(String category_Des, String category_ID) {
+    public GalleryClass(String category_Des, String category_ID) {
         this.category_Des = category_Des;
         this.category_ID = category_ID;
     }
 
-    public SampleImag(String Image_ID , String Category_ID , String Date , String image1, String image2, String image3, String image4, String image5) {
+    public GalleryClass(String Image_ID , String Category_ID , String Date , String image1, String image2, String image3, String image4, String image5) {
 
         this.image_ID = Image_ID;
         this.category_ID = Category_ID;
