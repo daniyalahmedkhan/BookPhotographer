@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.example.kashif.bookphotographer.Activities.Adapter.Custom_SearchPhotographer;
 import com.example.kashif.bookphotographer.R;
 
-public class SearchPhotographer extends AppCompatActivity {
+public class ShowPhotographer extends AppCompatActivity {
 
 
     GridView androidGridView;
@@ -31,10 +31,10 @@ public class SearchPhotographer extends AppCompatActivity {
 
   public  static  String[] id ;
 
-    public SearchPhotographer() {
+    public ShowPhotographer() {
     }
 
-    public SearchPhotographer(String[] gridViewString , String[] gridViewString2 , String[] gridViewImageId , String[] id) {
+    public ShowPhotographer(String[] gridViewString , String[] gridViewString2 , String[] gridViewImageId , String[] id) {
 
         this.gridViewString = gridViewString;
         this.gridViewString2 = gridViewString2;
@@ -55,7 +55,7 @@ public class SearchPhotographer extends AppCompatActivity {
 
         setContentView(R.layout.activity_search_photographer);
 
-        Custom_SearchPhotographer adapterViewAndroid = new Custom_SearchPhotographer(SearchPhotographer.this, gridViewString, gridViewString2, gridViewImageId , id);
+        Custom_SearchPhotographer adapterViewAndroid = new Custom_SearchPhotographer(ShowPhotographer.this, gridViewString, gridViewString2, gridViewImageId , id);
         androidGridView=(GridView)findViewById(R.id.grid_view_image_text);
         androidGridView.setAdapter(adapterViewAndroid);
         adapterViewAndroid.notifyDataSetChanged();
@@ -70,10 +70,10 @@ public class SearchPhotographer extends AppCompatActivity {
 
                CurrntID = null;
                CurrntID = id[i];
-                Intent intent = new Intent(SearchPhotographer.this , Photographer_Profile.class);
+                Intent intent = new Intent(ShowPhotographer.this , Photographer_Profile.class);
                 startActivity(intent);
 
-               //Toast.makeText(SearchPhotographer.this, "" + name2 + "" + id[i], Toast.LENGTH_SHORT).show();
+               //Toast.makeText(ShowPhotographer.this, "" + name2 + "" + id[i], Toast.LENGTH_SHORT).show();
            }
        });
 
@@ -82,7 +82,7 @@ public class SearchPhotographer extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(SearchPhotographer.this , HomeActivity.class);
+        Intent intent = new Intent(ShowPhotographer.this , HomeActivity.class);
         startActivity(intent);
         this.finish();
     }

@@ -235,7 +235,7 @@ public class BookingActivity extends AppCompatActivity {
             msg.addAll(arrMSG);
             PushId = firebaseDatabase.push().getKey();
             UserID.add(LoginActivity.uid);
-            PhotographerID.add(SearchPhotographer.CurrntID);
+            PhotographerID.add(ShowPhotographer.CurrntID);
             UserEmail.add(LoginActivity.email);
             PhotographerName.add(Photographer_Profile.Fname);
             Reservation();

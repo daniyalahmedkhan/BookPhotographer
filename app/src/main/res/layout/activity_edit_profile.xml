@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/Myprofile"
     tools:context="com.example.kashif.bookphotographer.Activities.CustomerFlow.PhotographerProfile">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@mipmap/bck5"
+        android:layout_height="match_parent"
+        android:background="@color/colorBase"
         android:paddingBottom="20dp">
 
 
@@ -20,8 +20,6 @@
             android:padding="10dp"
             android:id="@+id/Top"
             android:background="@color/colorDark">
-
-
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -39,26 +37,6 @@
 
             </RelativeLayout>
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/CenterImage"
-                android:layout_marginTop="10dp"
-                android:layout_centerHorizontal="true">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="XXX"
-                    android:id="@+id/HeadName"
-                    android:fontFamily="sans-serif"
-                    android:gravity="center"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                    android:textColor="@color/colorBlack"
-
-                    />
-
-            </RelativeLayout>
 
 
 
@@ -71,8 +49,6 @@
             android:orientation="vertical"
             android:layout_marginBottom="40dp"
             android:paddingBottom="40dp"
-            android:id="@+id/LinearTop"
-            android:background="@color/colorBase"
             android:layout_marginTop="5dp"
             android:layout_below="@id/Top">
 
@@ -81,7 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
-
+                android:background="@color/colorBase"
                 android:id="@+id/RelativeExp"
                 android:paddingRight="10dp"
                 >
@@ -92,26 +68,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="6dp"
-
                     card_view:cardUseCompatPadding="true"
                     card_view:cardElevation="4dp"
                     card_view:cardCornerRadius="3dp">
 
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                         android:text="Personal Information"
-                        android:layout_gravity="center"
-                        android:gravity="center"
                         android:textStyle="bold"
                         android:padding="5dp"
                         android:fontFamily="sans-serif"
+                        android:layout_gravity="center"
                         android:textColor="@color/colorDark"
 
                         />
-
 
 
                 </android.support.v7.widget.CardView>
@@ -129,8 +102,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
                 android:id="@+id/Relative1"
-                android:visibility="visible"
-
+                android:background="@color/colorBase"
                 android:layout_marginTop="-10dp"
                 android:paddingRight="10dp">
 
@@ -141,14 +113,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="6dp"
-
                     card_view:cardUseCompatPadding="true"
                     card_view:cardElevation="3dp"
                     card_view:cardCornerRadius="3dp">
 
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="5dp"
                         android:orientation="vertical">
@@ -172,7 +143,7 @@
                                 />
 
 
-                            <TextView
+                            <EditText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="XXX"
@@ -207,7 +178,7 @@
                                 />
 
 
-                            <TextView
+                            <EditText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="XXX"
@@ -227,76 +198,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="15dp"
-                            android:orientation="horizontal"
-                            >
-                            <TextView
-                                android:layout_width="150dp"
-                                android:layout_height="wrap_content"
-                                android:text="Gender : "
-                                android:textStyle="bold"
-                                android:drawablePadding="5dp"
-                                android:drawableLeft="@mipmap/tab"
-                                android:textColor="@color/colorBlue"
-                                android:fontFamily="sans-serif"
-                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                                />
-
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="XXX"
-                                android:id="@+id/PhotographerGender"
-                                android:layout_marginLeft="10dp"
-                                android:drawablePadding="5dp"
-                                android:textColor="@color/colorBlue"
-                                android:fontFamily="sans-serif"
-                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                                />
-
-
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="15dp"
-                            android:orientation="horizontal"
-                            >
-                            <TextView
-                                android:layout_width="150dp"
-                                android:layout_height="wrap_content"
-                                android:text="Location : "
-                                android:textStyle="bold"
-                                android:drawablePadding="5dp"
-                                android:drawableLeft="@mipmap/tab"
-                                android:textColor="@color/colorBlue"
-                                android:fontFamily="sans-serif"
-                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                                />
-
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="XXX"
-                                android:id="@+id/PhotographerLocation"
-                                android:layout_marginLeft="10dp"
-                                android:drawablePadding="5dp"
-                                android:textColor="@color/colorBlue"
-                                android:fontFamily="sans-serif"
-                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                                />
-
-
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="15dp"
+                            android:visibility="gone"
                             android:orientation="horizontal"
                             >
                             <TextView
@@ -315,9 +217,8 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="+x-xx-xxxx"
+                                android:text="+92-343-2929045"
                                 android:layout_marginLeft="10dp"
-                                android:id="@+id/Contact"
                                 android:drawablePadding="5dp"
                                 android:textColor="@color/colorBlue"
                                 android:fontFamily="sans-serif"
@@ -346,9 +247,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
+                android:background="@color/colorBase"
                 android:id="@+id/RelativeSer"
-                android:paddingRight="10dp"
-                >
+                android:paddingRight="10dp">
 
                 <android.support.v7.widget.CardView
                     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -362,14 +263,13 @@
 
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                         android:text="Packages"
-                        android:gravity="center"
-                        android:layout_gravity="center"
                         android:textStyle="bold"
                         android:padding="5dp"
+                        android:layout_gravity="center"
                         android:fontFamily="sans-serif"
                         android:textColor="@color/colorDark"
 
@@ -389,9 +289,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
+                android:background="@color/colorBase"
                 android:id="@+id/RelativeBronze"
-                android:paddingRight="10dp"
-                >
+                android:paddingRight="10dp">
 
                 <android.support.v7.widget.CardView
                     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -404,13 +304,12 @@
                     card_view:cardCornerRadius="3dp">
 
 
-                    <TextView
+                    <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                         android:text="Bronze Package"
                         android:textStyle="bold"
-
                         android:id="@+id/PgkTname1"
                         android:padding="5dp"
                         android:fontFamily="sans-serif"
@@ -440,7 +339,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
                 android:id="@+id/RelativeBronzeDetail"
-                android:visibility="gone"
+
 
                 android:layout_marginTop="-10dp"
                 android:paddingRight="10dp">
@@ -482,7 +381,7 @@
                                 />
 
 
-                            <TextView
+                            <EditText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="200$"
@@ -497,7 +396,6 @@
 
 
                         </LinearLayout>
-
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -518,7 +416,7 @@
                                 />
 
 
-                            <TextView
+                            <EditText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="1"
@@ -553,7 +451,7 @@
                                 />
 
 
-                            <TextView
+                            <EditText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Basic purpose of this use case is to get authorized credentials of the users (photographer, client) to use all the available features of the application according to their privileges."
@@ -589,6 +487,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
                 android:id="@+id/RelativeSilver"
+                android:background="@color/colorBase"
                 android:paddingRight="10dp"
                 >
 
@@ -603,7 +502,7 @@
                     card_view:cardCornerRadius="3dp">
 
 
-                    <TextView
+                    <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
@@ -638,7 +537,6 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
                 android:id="@+id/RelativeSilverDetail"
-                android:visibility="gone"
 
                 android:layout_marginTop="-10dp"
                 android:paddingRight="10dp">
@@ -681,7 +579,7 @@
                                 />
 
 
-                            <TextView
+                            <EditText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="200$"
@@ -716,7 +614,7 @@
                                 />
 
 
-                            <TextView
+                            <EditText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="1"
@@ -731,6 +629,7 @@
 
 
                         </LinearLayout>
+
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -751,7 +650,7 @@
                                 />
 
 
-                            <TextView
+                            <EditText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Basic purpose of this use case is to get authorized credentials of the users (photographer, client) to use all the available features of the application according to their privileges."
@@ -789,6 +688,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
                 android:id="@+id/RelativeGolden"
+                android:background="@color/colorBase"
                 android:paddingRight="10dp"
                 >
 
@@ -803,7 +703,7 @@
                     card_view:cardCornerRadius="3dp">
 
 
-                    <TextView
+                    <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
@@ -838,7 +738,6 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
                 android:id="@+id/RelativeGoldenDetail"
-                android:visibility="gone"
 
                 android:layout_marginTop="-10dp"
                 android:paddingRight="10dp">
@@ -880,7 +779,7 @@
                                 />
 
 
-                            <TextView
+                            <EditText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="200$"
@@ -916,7 +815,7 @@
                                 />
 
 
-                            <TextView
+                            <EditText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="1"
@@ -931,6 +830,7 @@
 
 
                         </LinearLayout>
+
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -951,7 +851,7 @@
                                 />
 
 
-                            <TextView
+                            <EditText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Basic purpose of this use case is to get authorized credentials of the users (photographer, client) to use all the available features of the application according to their privileges."
@@ -988,6 +888,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
                 android:id="@+id/RelativePlatinum"
+                android:background="@color/colorBase"
                 android:paddingRight="10dp"
                 >
 
@@ -1002,7 +903,7 @@
                     card_view:cardCornerRadius="3dp">
 
 
-                    <TextView
+                    <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
@@ -1080,7 +981,7 @@
                                 />
 
 
-                            <TextView
+                            <EditText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="200$"
@@ -1116,7 +1017,7 @@
                                 />
 
 
-                            <TextView
+                            <EditText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="1"
@@ -1131,6 +1032,7 @@
 
 
                         </LinearLayout>
+
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -1151,7 +1053,7 @@
                                 />
 
 
-                            <TextView
+                            <EditText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Basic purpose of this use case is to get authorized credentials of the users (photographer, client) to use all the available features of the application according to their privileges."
@@ -1186,6 +1088,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
                 android:id="@+id/RelativeDiamond"
+                android:background="@color/colorBase"
                 android:paddingRight="10dp"
                 >
 
@@ -1200,7 +1103,7 @@
                     card_view:cardCornerRadius="3dp">
 
 
-                    <TextView
+                    <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
@@ -1237,6 +1140,7 @@
                 android:paddingLeft="10dp"
                 android:id="@+id/RelativeDiamondDetail"
                 android:visibility="gone"
+
                 android:layout_marginTop="-10dp"
                 android:paddingRight="10dp">
 
@@ -1277,7 +1181,7 @@
                                 />
 
 
-                            <TextView
+                            <EditText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="200$"
@@ -1292,7 +1196,6 @@
 
 
                         </LinearLayout>
-
 
 
                         <LinearLayout
@@ -1314,7 +1217,7 @@
                                 />
 
 
-                            <TextView
+                            <EditText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="1"
@@ -1329,6 +1232,7 @@
 
 
                         </LinearLayout>
+
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -1349,7 +1253,7 @@
                                 />
 
 
-                            <TextView
+                            <EditText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Basic purpose of this use case is to get authorized credentials of the users (photographer, client) to use all the available features of the application according to their privileges."
@@ -1389,293 +1293,27 @@
                 android:gravity="center">
 
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="10dp"
-                    android:background="@color/colorBase"
-                    android:id="@+id/RelativeGallery"
-                    android:paddingRight="10dp"
-                    >
-
-                    <android.support.v7.widget.CardView
-                        xmlns:android="http://schemas.android.com/apk/res/android"
-                        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="6dp"
-                        card_view:cardUseCompatPadding="true"
-                        card_view:cardElevation="4dp"
-                        card_view:cardCornerRadius="3dp">
 
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                            android:text="Gallery"
-                            android:textStyle="bold"
-                            android:padding="5dp"
-                            android:layout_gravity="center"
-                            android:fontFamily="sans-serif"
-                            android:textColor="@color/colorDark"
-
-                            />
-
-
-
-                    </android.support.v7.widget.CardView>
-
-
-
-
-                </RelativeLayout>
-
-                <LinearLayout
+                <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:text="Save"
+                    android:id="@+id/SaveButtn"
+                    android:textSize="15dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/colorDark"
+                    android:textColor="@color/colorWhite"
+                    />
 
-                    <android.support.v7.widget.CardView
-                        xmlns:android="http://schemas.android.com/apk/res/android"
-                        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="6dp"
-                        card_view:cardUseCompatPadding="true"
-                        card_view:cardElevation="4dp"
-                        card_view:cardCornerRadius="3dp">
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-
-                            <ImageView
-                                android:layout_width="150dp"
-                                android:layout_height="100dp"
-                                android:id="@+id/Image1"
-                                android:src="@mipmap/logo_passwordreset"
-                                />
-
-
-                        </LinearLayout>
-
-
-
-                    </android.support.v7.widget.CardView>
-
-                    <android.support.v7.widget.CardView
-                        xmlns:android="http://schemas.android.com/apk/res/android"
-                        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="6dp"
-                        card_view:cardUseCompatPadding="true"
-                        card_view:cardElevation="4dp"
-                        card_view:cardCornerRadius="3dp">
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-
-                            <ImageView
-                                android:layout_width="150dp"
-                                android:layout_height="100dp"
-                                android:id="@+id/Image2"
-                                android:src="@mipmap/logo_passwordreset"
-                                />
-
-
-                        </LinearLayout>
-
-
-
-                    </android.support.v7.widget.CardView>
-
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <android.support.v7.widget.CardView
-                        xmlns:android="http://schemas.android.com/apk/res/android"
-                        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="6dp"
-                        card_view:cardUseCompatPadding="true"
-                        card_view:cardElevation="4dp"
-                        card_view:cardCornerRadius="3dp">
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-
-                            <ImageView
-                                android:layout_width="150dp"
-                                android:layout_height="100dp"
-                                android:id="@+id/Image3"
-                                android:src="@mipmap/logo_passwordreset"
-                                />
-
-
-                        </LinearLayout>
-
-
-
-                    </android.support.v7.widget.CardView>
-
-                    <android.support.v7.widget.CardView
-                        xmlns:android="http://schemas.android.com/apk/res/android"
-                        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="6dp"
-                        card_view:cardUseCompatPadding="true"
-                        card_view:cardElevation="4dp"
-                        card_view:cardCornerRadius="3dp">
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-
-                            <ImageView
-                                android:layout_width="150dp"
-                                android:layout_height="100dp"
-                                android:id="@+id/Image4"
-                                android:src="@mipmap/logo_passwordreset"
-                                />
-
-
-                        </LinearLayout>
-
-
-
-                    </android.support.v7.widget.CardView>
-
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <android.support.v7.widget.CardView
-                        xmlns:android="http://schemas.android.com/apk/res/android"
-                        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_margin="6dp"
-                        card_view:cardUseCompatPadding="true"
-                        card_view:cardElevation="4dp"
-                        card_view:cardCornerRadius="3dp">
-
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-
-                            <ImageView
-                                android:layout_width="150dp"
-                                android:layout_height="100dp"
-                                android:id="@+id/Image5"
-                                android:src="@mipmap/logo_passwordreset"
-                                />
-
-
-                        </LinearLayout>
-
-
-
-                    </android.support.v7.widget.CardView>
-
-                    <android.support.v7.widget.CardView
-                        xmlns:android="http://schemas.android.com/apk/res/android"
-                        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_margin="6dp"
-                        card_view:cardUseCompatPadding="true"
-                        card_view:cardElevation="4dp"
-                        card_view:cardCornerRadius="3dp">
-
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-
-                            <ImageView
-                                android:layout_width="150dp"
-                                android:layout_height="100dp"
-                                android:id="@+id/Image6"
-                                android:src="@mipmap/logo_passwordreset"
-                                />
-
-
-                        </LinearLayout>
-
-
-
-                    </android.support.v7.widget.CardView>
-
-
-                </LinearLayout>
 
 
             </LinearLayout>
-
 
         </LinearLayout>
 
 
 
 
-
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/LinearTop"
-            android:layout_alignParentBottom="true">
-
-
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:textColor="@color/colorDark"
-                android:paddingLeft="10dp"
-                android:textSize="15dp"
-
-                android:fontFamily="sans-serif"
-                android:textStyle="bold"
-                android:id="@+id/BtnRes"
-                android:textAllCaps="false"
-                android:paddingRight="10dp"
-                android:text="Book for Reservation"
-                android:background="@drawable/button_edges_lblue"
-
-                />
-
-        </RelativeLayout>
-
-
-
     </RelativeLayout>
-
-
 </ScrollView>

@@ -1,5 +1,7 @@
 package com.example.kashif.bookphotographer.Activities.PhotographerFlow;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -22,6 +24,10 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.kashif.bookphotographer.Activities.Adapter.CustomDrawerUser;
 
+import com.example.kashif.bookphotographer.Activities.Adapter.ImageViewExtend;
+import com.example.kashif.bookphotographer.Activities.CustomerFlow.Photographer_Profile;
+import com.example.kashif.bookphotographer.Activities.CustomerFlow.ShowPhotographer;
+import com.example.kashif.bookphotographer.Activities.ModelClass.GalleryClass;
 import com.example.kashif.bookphotographer.Activities.UserAuth.LoginActivity;
 import com.example.kashif.bookphotographer.Activities.ModelClass.BookReservation;
 import com.example.kashif.bookphotographer.Activities.ModelClass.PackageClass;
@@ -38,26 +44,29 @@ import java.util.ArrayList;
 
 public class MyProfile extends AppCompatActivity implements  View.OnClickListener{
 
-    TextView FirstName , LastName , Gender , Location , HeadName;
-    String Fname , Lname , Gend , Loc , url , ID ,  PID , key;
+    TextView FirstName , LastName , Gender , Location , HeadName , Contact;
+    public static  String Fname , Lname , Gend , contact ,  Loc , url , ID ,  PID , key;
     ProgressDialog progressDialog;
     DrawerLayout mDrawerLayout;
     ListView mDrawerList;
     ImageView ImageDrawer;
     String names[];
+    public static String ImageLargeView;
+    ImageView image1,image2,image3,image4,image5,image6;
+    String imgUrl1 , imgUrl2 , imgUrl3 , imgUrl4 , imgUrl5 ,imgUrl6;
 
 
     FirebaseAuth firebaseAuth;
 
-    TextView Emp_Name;
+    TextView Emp_Name , EditProfile;
 
     ImageView proImg;
 
-    TextView PkgTname , PkgTprice ,     PkgTdays , PkgTdescription;
-    TextView PkgTname2 , PkgTprice2 , PkgTdays2 , PkgTdescription2;
-    TextView PkgTname3 , PkgTprice3 , PkgTdays3 , PkgTdescription3;
-    TextView PkgTname4 , PkgTprice4 , PkgTdays4 , PkgTdescription4;
-    TextView PkgTname5 , PkgTprice5 , PkgTdays5 , PkgTdescription5;
+   public static TextView PkgTname , PkgTprice ,   PkgTdays , PkgTdescription;
+   public static TextView PkgTname2 , PkgTprice2 , PkgTdays2 , PkgTdescription2;
+   public static TextView PkgTname3 , PkgTprice3 , PkgTdays3 , PkgTdescription3;
+   public static TextView PkgTname4 , PkgTprice4 , PkgTdays4 , PkgTdescription4;
+   public static TextView PkgTname5 , PkgTprice5 , PkgTdays5 , PkgTdescription5;
 
     String PkgName, PkgPrice , PkgDays, PkgDescription;
 
@@ -77,8 +86,12 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_profile);
 
-
-
+        image1 = (ImageView) findViewById(R.id.Image1);
+        image2 = (ImageView) findViewById(R.id.Image2);
+        image3 = (ImageView) findViewById(R.id.Image3);
+        image4 = (ImageView) findViewById(R.id.Image4);
+        image5 = (ImageView) findViewById(R.id.Image5);
+        image6 = (ImageView) findViewById(R.id.Image6);
 
 
 
@@ -103,25 +116,30 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
         progressDialog.setMessage("Please Wait...");
 
         PkgTname = (TextView) findViewById(R.id.PgkTname1);
+        PkgTdays = (TextView) findViewById(R.id.Services1);
         PkgTprice = (TextView) findViewById(R.id.PkgTprice1);
         PkgTdescription  = (TextView) findViewById(R.id.PkgTdes1);
 
         PkgTname2 = (TextView) findViewById(R.id.PkgTname2);
         PkgTprice2 = (TextView) findViewById(R.id.PkgTprice2);
+        PkgTdays2 = (TextView) findViewById(R.id.Services2);
         PkgTdescription2  = (TextView) findViewById(R.id.PkgTdes2);
 
 
         PkgTname3 = (TextView) findViewById(R.id.PkgTname3);
         PkgTprice3 = (TextView) findViewById(R.id.PkgTprice3);
+        PkgTdays3 = (TextView) findViewById(R.id.Services3);
         PkgTdescription3  = (TextView) findViewById(R.id.PkgTdes3);
 
         PkgTname4 = (TextView) findViewById(R.id.PkgTname4);
         PkgTprice4 = (TextView) findViewById(R.id.PkgTprice4);
+        PkgTdays4 = (TextView) findViewById(R.id.Services4);
         PkgTdescription4  = (TextView) findViewById(R.id.PkgTdes4);
 
 
         PkgTname5 = (TextView) findViewById(R.id.PkgTname5);
         PkgTprice5 = (TextView) findViewById(R.id.PkgTprice5);
+        PkgTdays5 = (TextView) findViewById(R.id.Services5);
         PkgTdescription5  = (TextView) findViewById(R.id.PkgTdes5);
 
 
@@ -132,6 +150,7 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
         Location = (TextView) findViewById(R.id.PhotographerLocation);
         HeadName = (TextView) findViewById(R.id.HeadName);
         HeadImage = (ImageView) findViewById(R.id.HeadImg);
+        Contact = (TextView) findViewById(R.id.contact);
 
 
         RelativeBronze = (RelativeLayout) findViewById(R.id.RelativeBronze);
@@ -165,9 +184,20 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
 
         Emp_Name = (TextView) header.findViewById(R.id.Emp_Name);
         proImg = (ImageView) header.findViewById(R.id.proImg);
+        EditProfile = (TextView) header.findViewById(R.id.view_emp_email);
 
 
         mDrawerList.addHeaderView(header, null, false);
+
+
+        EditProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(MyProfile.this  , EditProfile.class);
+                startActivity(intent);
+            }
+        });
 
         ImageDrawer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -176,16 +206,12 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
                 if(mDrawerLayout.isDrawerOpen(Gravity.LEFT))
                 {
                     mDrawerLayout.closeDrawer(mDrawerList);
-                    // getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-                    // getSupportActionBar().setCustomView(R.layout.menu_title);
-                    // getSupportActionBar().show();
 
 
                 }
                 else {
                     mDrawerLayout.openDrawer(Gravity.LEFT);
-                    //getSupportActionBar().hide();
-                    // requestWindowFeature(Window.FEATURE_NO_TITLE);
+
                 }
 
             }
@@ -294,6 +320,73 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
             }
         });
 
+        image1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ImageLargeView = imgUrl1;
+                Intent intent = new Intent(MyProfile.this , ImageViewExtend.class);
+                startActivity(intent);
+
+            }
+        });
+
+
+        image2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ImageLargeView = imgUrl2;
+                Intent intent = new Intent(MyProfile.this , ImageViewExtend.class);
+                startActivity(intent);
+
+            }
+        });
+
+        image3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ImageLargeView = imgUrl3;
+                Intent intent = new Intent(MyProfile.this , ImageViewExtend.class);
+                startActivity(intent);
+
+            }
+        });
+
+        image4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ImageLargeView = imgUrl4;
+                Intent intent = new Intent(MyProfile.this , ImageViewExtend.class);
+                startActivity(intent);
+
+            }
+        });
+
+        image5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ImageLargeView = imgUrl5;
+                Intent intent = new Intent(MyProfile.this , ImageViewExtend.class);
+                startActivity(intent);
+
+            }
+        });
+
+        image6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ImageLargeView = imgUrl6;
+                Intent intent = new Intent(MyProfile.this , ImageViewExtend.class);
+                startActivity(intent);
+
+            }
+        });
+
 
 
         getData();
@@ -302,6 +395,7 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
         getPkg3();
         getPkg4();
         getPkg5();
+        getImages();
         getPendingRequest();
 
 
@@ -327,6 +421,7 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
                         Gend = userModel.getGender();
                         url = userModel.getProfile_Img();
                         ID = userModel.getPhotographer_ID();
+                        contact = userModel.getContact_No();
 
 
                         getLocation();
@@ -338,6 +433,7 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
                         FirstName.setText(Fname);
                         LastName.setText(Lname);
                         Gender.setText(Gend);
+                        Contact.setText(contact);
 
                         Glide.with(getApplicationContext()).load(url).into(HeadImage);
                         Glide.with(getApplicationContext()).load(url).into(proImg);
@@ -347,7 +443,6 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
 
                     }else {
 
-//                        Toast.makeText(MyProfile.this , "EMPTY" , Toast.LENGTH_LONG).show();
                     }
 
 
@@ -391,12 +486,10 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
 
                             Loc = userModel1.getCity_Des();
                             Location.setText(Loc);
-                            Toast.makeText(MyProfile.this , "Proof" + Loc, Toast.LENGTH_SHORT).show();
                         }else {
 
-                            Toast.makeText(MyProfile.this , "Not Proof" , Toast.LENGTH_SHORT).show();
 
-                            Loc = "buubububu";
+                            Loc = "Nill";
                         }
 
 
@@ -442,10 +535,12 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
 
                             PkgName = packageClass.getPackage_Name();
                             PkgPrice = packageClass.getPackage_Price();
+                            PkgDays = packageClass.getServices_Days();
                             PkgDescription = packageClass.getPackage_Description();
 
                             PkgTname.setText(PkgName);
                             PkgTprice.setText(PkgPrice);
+                            PkgTdays.setText(PkgDays);
                             PkgTdescription.setText(PkgDescription);
                         }else {
 
@@ -506,10 +601,12 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
 
                             PkgName = packageClass.getPackage_Name();
                             PkgPrice = packageClass.getPackage_Price();
+                            PkgDays = packageClass.getServices_Days();
                             PkgDescription = packageClass.getPackage_Description();
 
                             PkgTname2.setText(PkgName);
                             PkgTprice2.setText(PkgPrice);
+                            PkgTdays2.setText(PkgDays);
                             PkgTdescription2.setText(PkgDescription);
 
 
@@ -573,10 +670,12 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
 
                             PkgName = packageClass.getPackage_Name();
                             PkgPrice = packageClass.getPackage_Price();
+                            PkgDays = packageClass.getServices_Days();
                             PkgDescription = packageClass.getPackage_Description();
 
                             PkgTname3.setText(PkgName);
                             PkgTprice3.setText(PkgPrice);
+                            PkgTdays3.setText(PkgDays);
                             PkgTdescription3.setText(PkgDescription);
 
 
@@ -645,10 +744,12 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
 
                             PkgName = packageClass.getPackage_Name();
                             PkgPrice = packageClass.getPackage_Price();
+                            PkgDays = packageClass.getServices_Days();
                             PkgDescription = packageClass.getPackage_Description();
 
                             PkgTname4.setText(PkgName);
                             PkgTprice4.setText(PkgPrice);
+                            PkgTdays4.setText(PkgDays);
                             PkgTdescription4.setText(PkgDescription);
 
 
@@ -712,10 +813,12 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
 
                             PkgName = packageClass.getPackage_Name();
                             PkgPrice = packageClass.getPackage_Price();
+                            PkgDays = packageClass.getServices_Days();
                             PkgDescription = packageClass.getPackage_Description();
 
                             PkgTname5.setText(PkgName);
                             PkgTprice5.setText(PkgPrice);
+                            PkgTdays5.setText(PkgDays);
                             PkgTdescription5.setText(PkgDescription);
 
 
@@ -843,7 +946,6 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
 
                 }else {
 
-                    Toast.makeText(MyProfile.this, "Not Found", Toast.LENGTH_SHORT).show();
 
                 }
 
@@ -894,6 +996,66 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
 
             }
         });
+
+    }
+
+
+    public  void getImages(){
+
+
+        databaseReference.child("Gallery").child(firebaseAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                if (dataSnapshot.exists()){
+
+
+
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+
+
+
+
+
+                            GalleryClass galleryClass = snapshot.getValue(GalleryClass.class);
+
+                            imgUrl1 = galleryClass.getImage1();
+                            imgUrl2 = galleryClass.getImage2();
+                            imgUrl3 = galleryClass.getImage3();
+                            imgUrl4 = galleryClass.getImage4();
+                            imgUrl5 = galleryClass.getImage5();
+                            imgUrl6 = galleryClass.getImage6();
+
+
+
+                        }
+
+                        Glide.with(getApplicationContext()).load(imgUrl1).into(image1);
+                        Glide.with(getApplicationContext()).load(imgUrl2).into(image2);
+                        Glide.with(getApplicationContext()).load(imgUrl3).into(image3);
+                        Glide.with(getApplicationContext()).load(imgUrl4).into(image4);
+                        Glide.with(getApplicationContext()).load(imgUrl5).into(image5);
+                        Glide.with(getApplicationContext()).load(imgUrl6).into(image6);
+
+
+
+
+
+                }else {
+
+                    Toast.makeText(MyProfile.this, "Not Found Images", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
 
     }
 

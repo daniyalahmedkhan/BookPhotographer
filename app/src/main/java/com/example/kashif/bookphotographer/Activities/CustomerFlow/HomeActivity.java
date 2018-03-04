@@ -56,10 +56,8 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
     FirebaseAuth firebaseAuth;
     DrawerLayout mDrawerLayout;
     ListView mDrawerList;
-    int couter =1 ;
     EditText Name , Location , Price;
     String GetName , GetLocation , GetPrice , key , PID;
-    public static  ArrayList<String> Order , Photographer , EventDate, EventVenue, Pckg;
     public static ArrayList<String> Pname , Ploc, Pimgurl , Pid;
 
 
@@ -87,13 +85,6 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
         Pimgurl = new ArrayList<String>();
         Pid = new ArrayList<String>();
 
-
-
-        Order = new ArrayList<String>();
-        Photographer = new ArrayList<String>();
-        EventDate = new ArrayList<String>();
-        EventVenue = new ArrayList<String>();
-        Pckg = new ArrayList<String>();
 
 
 
@@ -184,7 +175,7 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
 
                 CurrntID = null;
                 CurrntID = id.get(i);
-                SearchPhotographer.CurrntID = id.get(i);
+                ShowPhotographer.CurrntID = id.get(i);
                 Intent intent = new Intent(HomeActivity.this , Photographer_Profile.class);
                 startActivity(intent);
 
@@ -387,10 +378,10 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
 
 
 
-                    SearchPhotographer searchPhotographer = new SearchPhotographer(name.toArray(new String[name.size()]) , loc.toArray(new String[loc.size()]) , imgrl.toArray(new String[imgrl.size()]) , id.toArray(new String[id.size()]) );
+                    ShowPhotographer showPhotographer = new ShowPhotographer(name.toArray(new String[name.size()]) , loc.toArray(new String[loc.size()]) , imgrl.toArray(new String[imgrl.size()]) , id.toArray(new String[id.size()]) );
 
 
-                    Intent intent = new Intent(HomeActivity.this, SearchPhotographer.class);// New activity
+                    Intent intent = new Intent(HomeActivity.this, ShowPhotographer.class);// New activity
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                     finish();
@@ -443,9 +434,9 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
 //             img = String.valueOf(Glide.with(getApplicationContext()).load(imgrl));
 
 
-                    SearchPhotographer searchPhotographer = new SearchPhotographer(name.toArray(new String[name.size()]) , loc.toArray(new String[loc.size()]) , imgrl.toArray(new String[imgrl.size()]) , id.toArray(new String[id.size()]) );
+                    ShowPhotographer showPhotographer = new ShowPhotographer(name.toArray(new String[name.size()]) , loc.toArray(new String[loc.size()]) , imgrl.toArray(new String[imgrl.size()]) , id.toArray(new String[id.size()]) );
 
-                    Intent intent = new Intent(HomeActivity.this, SearchPhotographer.class);// New activity
+                    Intent intent = new Intent(HomeActivity.this, ShowPhotographer.class);// New activity
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                     finish();
@@ -534,9 +525,9 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
 
                                if (!(Pname.isEmpty() && Ploc.isEmpty() && Pimgurl.isEmpty() && Pid.isEmpty())){
 
-                                   SearchPhotographer searchPhotographer = new SearchPhotographer(Pname.toArray(new String[Pname.size()]) , Ploc.toArray(new String[Ploc.size()]) , Pimgurl.toArray(new String[Pimgurl.size()]) , Pid.toArray(new String[Pid.size()]) );
+                                   ShowPhotographer showPhotographer = new ShowPhotographer(Pname.toArray(new String[Pname.size()]) , Ploc.toArray(new String[Ploc.size()]) , Pimgurl.toArray(new String[Pimgurl.size()]) , Pid.toArray(new String[Pid.size()]) );
 
-                                   Intent intent = new Intent(HomeActivity.this, SearchPhotographer.class);// New activity
+                                   Intent intent = new Intent(HomeActivity.this, ShowPhotographer.class);// New activity
                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                    startActivity(intent);
                                    finish();
@@ -615,8 +606,8 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
 
                     if (!name.isEmpty()){
 
-                        SearchPhotographer searchPhotographer = new SearchPhotographer(name.toArray(new String[name.size()]) , loc.toArray(new String[loc.size()]) , imgrl.toArray(new String[imgrl.size()]) , id.toArray(new String[id.size()]) );
-                        Intent intent = new Intent(HomeActivity.this, SearchPhotographer.class);// New activity
+                        ShowPhotographer showPhotographer = new ShowPhotographer(name.toArray(new String[name.size()]) , loc.toArray(new String[loc.size()]) , imgrl.toArray(new String[imgrl.size()]) , id.toArray(new String[id.size()]) );
+                        Intent intent = new Intent(HomeActivity.this, ShowPhotographer.class);// New activity
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
                         finish();
@@ -719,9 +710,9 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
 
                                     if (!(Pname.isEmpty() && Ploc.isEmpty() && Pimgurl.isEmpty() && Pid.isEmpty())){
 
-                                        SearchPhotographer searchPhotographer = new SearchPhotographer(Pname.toArray(new String[Pname.size()]) , Ploc.toArray(new String[Ploc.size()]) , Pimgurl.toArray(new String[Pimgurl.size()]) , Pid.toArray(new String[Pid.size()]) );
+                                        ShowPhotographer showPhotographer = new ShowPhotographer(Pname.toArray(new String[Pname.size()]) , Ploc.toArray(new String[Ploc.size()]) , Pimgurl.toArray(new String[Pimgurl.size()]) , Pid.toArray(new String[Pid.size()]) );
 
-                                        Intent intent = new Intent(HomeActivity.this, SearchPhotographer.class);// New activity
+                                        Intent intent = new Intent(HomeActivity.this, ShowPhotographer.class);// New activity
                                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                         startActivity(intent);
                                         finish();
@@ -833,9 +824,9 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
 
                                     if (!(Pname.isEmpty() && Ploc.isEmpty() && Pimgurl.isEmpty() && Pid.isEmpty())){
 
-                                        SearchPhotographer searchPhotographer = new SearchPhotographer(Pname.toArray(new String[Pname.size()]) , Ploc.toArray(new String[Ploc.size()]) , Pimgurl.toArray(new String[Pimgurl.size()]) , Pid.toArray(new String[Pid.size()]) );
+                                        ShowPhotographer showPhotographer = new ShowPhotographer(Pname.toArray(new String[Pname.size()]) , Ploc.toArray(new String[Ploc.size()]) , Pimgurl.toArray(new String[Pimgurl.size()]) , Pid.toArray(new String[Pid.size()]) );
 
-                                        Intent intent = new Intent(HomeActivity.this, SearchPhotographer.class);// New activity
+                                        Intent intent = new Intent(HomeActivity.this, ShowPhotographer.class);// New activity
                                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                         startActivity(intent);
                                         finish();
@@ -952,9 +943,9 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
 
                                     if (!(Pname.isEmpty() && Ploc.isEmpty() && Pimgurl.isEmpty() && Pid.isEmpty())){
 
-                                        SearchPhotographer searchPhotographer = new SearchPhotographer(Pname.toArray(new String[Pname.size()]) , Ploc.toArray(new String[Ploc.size()]) , Pimgurl.toArray(new String[Pimgurl.size()]) , Pid.toArray(new String[Pid.size()]) );
+                                        ShowPhotographer showPhotographer = new ShowPhotographer(Pname.toArray(new String[Pname.size()]) , Ploc.toArray(new String[Ploc.size()]) , Pimgurl.toArray(new String[Pimgurl.size()]) , Pid.toArray(new String[Pid.size()]) );
 
-                                        Intent intent = new Intent(HomeActivity.this, SearchPhotographer.class);// New activity
+                                        Intent intent = new Intent(HomeActivity.this, ShowPhotographer.class);// New activity
                                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                         startActivity(intent);
                                         finish();

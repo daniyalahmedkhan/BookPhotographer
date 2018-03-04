@@ -12,11 +12,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.kashif.bookphotographer.Activities.CustomerFlow.Photographer_Profile">
+    android:id="@+id/Myprofile"
+    tools:context="com.example.kashif.bookphotographer.Activities.CustomerFlow.PhotographerProfile">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@color/colorBase"
         android:paddingBottom="20dp">
 
@@ -74,7 +75,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Daniyal Ak"
+                    android:text="XXX"
                     android:id="@+id/HeadName"
                     android:fontFamily="sans-serif"
                     android:gravity="center"
@@ -124,7 +125,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                        android:text="About"
+                        android:text="Personal Information"
                         android:textStyle="bold"
                         android:padding="5dp"
                         android:fontFamily="sans-serif"
@@ -149,7 +150,6 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
                 android:id="@+id/Relative1"
-                android:visibility="visible"
                 android:background="@color/colorBase"
                 android:layout_marginTop="-10dp"
                 android:paddingRight="10dp">
@@ -194,7 +194,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Sadat"
+                                android:text="XXX"
                                 android:id="@+id/PhotographerFname"
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
@@ -229,7 +229,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Ali"
+                                android:text="XXX"
                                 android:id="@+id/PhotographerLname"
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
@@ -264,7 +264,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Male"
+                                android:text="XXX"
                                 android:id="@+id/PhotographerGender"
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
@@ -299,7 +299,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Karachi"
+                                android:text="XXX"
                                 android:id="@+id/PhotographerLocation"
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
@@ -316,7 +316,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="15dp"
-                            android:visibility="gone"
                             android:orientation="horizontal"
                             >
                             <TextView
@@ -336,6 +335,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="+92-343-2929045"
+                                android:id="@+id/contact"
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
                                 android:textColor="@color/colorBlue"
@@ -385,7 +385,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                        android:text="Services"
+                        android:text="Packages"
                         android:textStyle="bold"
                         android:padding="5dp"
                         android:layout_gravity="center"
@@ -410,8 +410,7 @@
                 android:paddingLeft="10dp"
                 android:background="@color/colorBase"
                 android:id="@+id/RelativeBronze"
-                android:paddingRight="10dp"
-                >
+                android:paddingRight="10dp">
 
                 <android.support.v7.widget.CardView
                     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -491,7 +490,7 @@
                             <TextView
                                 android:layout_width="150dp"
                                 android:layout_height="wrap_content"
-                                android:text="Price in $ : "
+                                android:text="Price in RS : "
                                 android:textStyle="bold"
                                 android:drawablePadding="5dp"
                                 android:drawableLeft="@mipmap/tab"
@@ -506,6 +505,41 @@
                                 android:layout_height="wrap_content"
                                 android:text="200$"
                                 android:id="@+id/PkgTprice1"
+                                android:layout_marginLeft="10dp"
+                                android:drawablePadding="5dp"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="sans-serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="5dp"
+                            >
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:text="Services Days : "
+                                android:textStyle="bold"
+                                android:drawablePadding="5dp"
+                                android:drawableLeft="@mipmap/tab"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="sans-serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1"
+                                android:id="@+id/Services1"
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
                                 android:textColor="@color/colorBlue"
@@ -654,7 +688,7 @@
                             <TextView
                                 android:layout_width="150dp"
                                 android:layout_height="wrap_content"
-                                android:text="Price in $ : "
+                                android:text="Price in RS : "
                                 android:textStyle="bold"
 
                                 android:drawablePadding="5dp"
@@ -670,6 +704,41 @@
                                 android:layout_height="wrap_content"
                                 android:text="200$"
                                 android:id="@+id/PkgTprice2"
+                                android:layout_marginLeft="10dp"
+                                android:drawablePadding="5dp"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="sans-serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="5dp"
+                            >
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:text="Services Days : "
+                                android:textStyle="bold"
+                                android:drawablePadding="5dp"
+                                android:drawableLeft="@mipmap/tab"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="sans-serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1"
+                                android:id="@+id/Services2"
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
                                 android:textColor="@color/colorBlue"
@@ -820,7 +889,7 @@
                             <TextView
                                 android:layout_width="150dp"
                                 android:layout_height="wrap_content"
-                                android:text="Price in $ : "
+                                android:text="Price in RS : "
                                 android:textStyle="bold"
                                 android:drawablePadding="5dp"
                                 android:drawableLeft="@mipmap/tab"
@@ -835,6 +904,42 @@
                                 android:layout_height="wrap_content"
                                 android:text="200$"
                                 android:id="@+id/PkgTprice3"
+                                android:layout_marginLeft="10dp"
+                                android:drawablePadding="5dp"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="sans-serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="5dp"
+                            >
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:text="Services Days : "
+                                android:textStyle="bold"
+                                android:drawablePadding="5dp"
+                                android:drawableLeft="@mipmap/tab"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="sans-serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1"
+                                android:id="@+id/Services3"
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
                                 android:textColor="@color/colorBlue"
@@ -985,7 +1090,7 @@
                             <TextView
                                 android:layout_width="150dp"
                                 android:layout_height="wrap_content"
-                                android:text="Price in $ : "
+                                android:text="Price in RS : "
                                 android:textStyle="bold"
                                 android:drawablePadding="5dp"
                                 android:drawableLeft="@mipmap/tab"
@@ -1000,6 +1105,41 @@
                                 android:layout_height="wrap_content"
                                 android:text="200$"
                                 android:id="@+id/PkgTprice4"
+                                android:layout_marginLeft="10dp"
+                                android:drawablePadding="5dp"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="sans-serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="5dp"
+                            >
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:text="Services Days : "
+                                android:textStyle="bold"
+                                android:drawablePadding="5dp"
+                                android:drawableLeft="@mipmap/tab"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="sans-serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1"
+                                android:id="@+id/Services4"
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
                                 android:textColor="@color/colorBlue"
@@ -1148,7 +1288,7 @@
                             <TextView
                                 android:layout_width="150dp"
                                 android:layout_height="wrap_content"
-                                android:text="Price in $ : "
+                                android:text="Price in RS : "
                                 android:textStyle="bold"
                                 android:drawablePadding="5dp"
                                 android:drawableLeft="@mipmap/tab"
@@ -1163,6 +1303,41 @@
                                 android:layout_height="wrap_content"
                                 android:text="200$"
                                 android:id="@+id/PkgTprice5"
+                                android:layout_marginLeft="10dp"
+                                android:drawablePadding="5dp"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="sans-serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="5dp"
+                            >
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:text="Services Days : "
+                                android:textStyle="bold"
+                                android:drawablePadding="5dp"
+                                android:drawableLeft="@mipmap/tab"
+                                android:textColor="@color/colorBlue"
+                                android:fontFamily="sans-serif"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                                />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1"
+                                android:id="@+id/Services5"
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
                                 android:textColor="@color/colorBlue"
@@ -1224,22 +1399,265 @@
             </RelativeLayout>
 
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
 
+                android:orientation="vertical"
+                android:gravity="center">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:background="@color/colorBase"
+                    android:id="@+id/RelativeGallery"
+                    android:paddingRight="10dp"
+                    >
+
+                    <android.support.v7.widget.CardView
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="6dp"
+                        card_view:cardUseCompatPadding="true"
+                        card_view:cardElevation="4dp"
+                        card_view:cardCornerRadius="3dp">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                            android:text="Gallery"
+                            android:textStyle="bold"
+                            android:padding="5dp"
+                            android:layout_gravity="center"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@color/colorDark"
+
+                            />
+
+
+
+                    </android.support.v7.widget.CardView>
+
+
+
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <android.support.v7.widget.CardView
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="6dp"
+                        card_view:cardUseCompatPadding="true"
+                        card_view:cardElevation="4dp"
+                        card_view:cardCornerRadius="3dp">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <ImageView
+                                android:layout_width="150dp"
+                                android:layout_height="100dp"
+                                android:id="@+id/Image1"
+                                android:src="@mipmap/logo_passwordreset"
+                                />
+
+
+                        </LinearLayout>
+
+
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="6dp"
+                        card_view:cardUseCompatPadding="true"
+                        card_view:cardElevation="4dp"
+                        card_view:cardCornerRadius="3dp">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <ImageView
+                                android:layout_width="150dp"
+                                android:layout_height="100dp"
+                                android:id="@+id/Image2"
+                                android:src="@mipmap/logo_passwordreset"
+                                />
+
+
+                        </LinearLayout>
+
+
+
+                    </android.support.v7.widget.CardView>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <android.support.v7.widget.CardView
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="6dp"
+                        card_view:cardUseCompatPadding="true"
+                        card_view:cardElevation="4dp"
+                        card_view:cardCornerRadius="3dp">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <ImageView
+                                android:layout_width="150dp"
+                                android:layout_height="100dp"
+                                android:id="@+id/Image3"
+                                android:src="@mipmap/logo_passwordreset"
+                                />
+
+
+                        </LinearLayout>
+
+
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="6dp"
+                        card_view:cardUseCompatPadding="true"
+                        card_view:cardElevation="4dp"
+                        card_view:cardCornerRadius="3dp">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <ImageView
+                                android:layout_width="150dp"
+                                android:layout_height="100dp"
+                                android:id="@+id/Image4"
+                                android:src="@mipmap/logo_passwordreset"
+                                />
+
+
+                        </LinearLayout>
+
+
+
+                    </android.support.v7.widget.CardView>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <android.support.v7.widget.CardView
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="6dp"
+                        card_view:cardUseCompatPadding="true"
+                        card_view:cardElevation="4dp"
+                        card_view:cardCornerRadius="3dp">
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+
+                            <ImageView
+                                android:layout_width="150dp"
+                                android:layout_height="100dp"
+                                android:id="@+id/Image5"
+                                android:src="@mipmap/logo_passwordreset"
+                                />
+
+
+                        </LinearLayout>
+
+
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="6dp"
+                        card_view:cardUseCompatPadding="true"
+                        card_view:cardElevation="4dp"
+                        card_view:cardCornerRadius="3dp">
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+
+                            <ImageView
+                                android:layout_width="150dp"
+                                android:layout_height="100dp"
+                                android:id="@+id/Image6"
+                                android:src="@mipmap/logo_passwordreset"
+                                />
+
+
+                        </LinearLayout>
+
+
+
+                    </android.support.v7.widget.CardView>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
 
         </LinearLayout>
 
 
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:layout_alignParentBottom="true"
-            >
-
-
-        </RelativeLayout>
 
 
     </RelativeLayout>

@@ -16,6 +16,8 @@ public class GalleryClass {
     private   String image4;
     private   String image5;
 
+    private   String image6;
+
 
     public GalleryClass() {}
 
@@ -24,7 +26,7 @@ public class GalleryClass {
         this.category_ID = category_ID;
     }
 
-    public GalleryClass(String Image_ID , String Category_ID , String Date , String image1, String image2, String image3, String image4, String image5) {
+    public GalleryClass(String Image_ID , String Category_ID , String Date , String image1, String image2, String image3, String image4, String image5 , String image6) {
 
         this.image_ID = Image_ID;
         this.category_ID = Category_ID;
@@ -34,6 +36,16 @@ public class GalleryClass {
         this.image3 = image3;
         this.image4 = image4;
         this.image5 = image5;
+        this.image6 = image6;
+    }
+
+
+    public String getImage6() {
+        return image6;
+    }
+
+    public void setImage6(String image6) {
+        this.image6 = image6;
     }
 
     public String getImage3() {

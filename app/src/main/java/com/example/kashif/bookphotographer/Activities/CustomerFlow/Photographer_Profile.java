@@ -12,9 +12,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.kashif.bookphotographer.Activities.Adapter.ImageViewExtend;
 import com.example.kashif.bookphotographer.Activities.ModelClass.PackageClass;
 import com.example.kashif.bookphotographer.Activities.ModelClass.GalleryClass;
 import com.example.kashif.bookphotographer.Activities.ModelClass.UserModel;
+import com.example.kashif.bookphotographer.Activities.PhotographerFlow.MyProfile;
 import com.example.kashif.bookphotographer.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,22 +28,23 @@ import java.util.ArrayList;
 
 public class Photographer_Profile extends AppCompatActivity {
 
-    TextView FirstName , LastName , Gender , Location , HeadName;
-    public static String Fname , Lname , Gend , Loc , url;
+    TextView FirstName , LastName , Gender , Location , HeadName , Contact;
+    public static String Fname , Lname , Gend , Loc , url , contact;
     ProgressDialog progressDialog;
-    ImageView image1 , image2;
-    String imgUrl1 , imgUrl2;
+    ImageView image1,image2,image3,image4,image5,image6;
+    public static String ImageLargeView;
+    String imgUrl1 , imgUrl2 , imgUrl3 , imgUrl4 , imgUrl5 ,imgUrl6;
     Button BtnRes;
 
     public  static ArrayList<String> arrayList;
 
-    TextView PkgTname , PkgTprice , PkgTdays , PkgTdescription;
+    TextView PkgTname , PkgTprice ,     PkgTdays , PkgTdescription;
     TextView PkgTname2 , PkgTprice2 , PkgTdays2 , PkgTdescription2;
     TextView PkgTname3 , PkgTprice3 , PkgTdays3 , PkgTdescription3;
     TextView PkgTname4 , PkgTprice4 , PkgTdays4 , PkgTdescription4;
     TextView PkgTname5 , PkgTprice5 , PkgTdays5 , PkgTdescription5;
 
-    String PkgName, PkgPrice , PkgDays, PkgDescription , key;
+    String PkgName, PkgPrice , PkgDays, PkgDescription  ,  key;
 
 
     ImageView HeadImage;
@@ -60,6 +63,11 @@ public class Photographer_Profile extends AppCompatActivity {
 
         image1 = (ImageView) findViewById(R.id.Image1);
         image2 = (ImageView) findViewById(R.id.Image2);
+        image3 = (ImageView) findViewById(R.id.Image3);
+        image4 = (ImageView) findViewById(R.id.Image4);
+        image5 = (ImageView) findViewById(R.id.Image5);
+        image6 = (ImageView) findViewById(R.id.Image6);
+
         BtnRes = (Button) findViewById(R.id.BtnRes);
 
 
@@ -69,24 +77,29 @@ public class Photographer_Profile extends AppCompatActivity {
 
         PkgTname = (TextView) findViewById(R.id.PgkTname1);
         PkgTprice = (TextView) findViewById(R.id.PkgTprice1);
+        PkgTdays = (TextView) findViewById(R.id.Services1);
         PkgTdescription  = (TextView) findViewById(R.id.PkgTdes1);
 
         PkgTname2 = (TextView) findViewById(R.id.PkgTname2);
         PkgTprice2 = (TextView) findViewById(R.id.PkgTprice2);
+        PkgTdays = (TextView) findViewById(R.id.Services2);
         PkgTdescription2  = (TextView) findViewById(R.id.PkgTdes2);
 
 
         PkgTname3 = (TextView) findViewById(R.id.PkgTname3);
         PkgTprice3 = (TextView) findViewById(R.id.PkgTprice3);
+        PkgTdays = (TextView) findViewById(R.id.Services3);
         PkgTdescription3  = (TextView) findViewById(R.id.PkgTdes3);
 
         PkgTname4 = (TextView) findViewById(R.id.PkgTname4);
         PkgTprice4 = (TextView) findViewById(R.id.PkgTprice4);
+        PkgTdays = (TextView) findViewById(R.id.Services4);
         PkgTdescription4  = (TextView) findViewById(R.id.PkgTdes4);
 
 
         PkgTname5 = (TextView) findViewById(R.id.PkgTname5);
         PkgTprice5 = (TextView) findViewById(R.id.PkgTprice5);
+        PkgTdays = (TextView) findViewById(R.id.Services5);
         PkgTdescription5  = (TextView) findViewById(R.id.PkgTdes5);
 
 
@@ -97,6 +110,7 @@ public class Photographer_Profile extends AppCompatActivity {
         Location = (TextView) findViewById(R.id.PhotographerLocation);
         HeadName = (TextView) findViewById(R.id.HeadName);
         HeadImage = (ImageView) findViewById(R.id.HeadImg);
+        Contact = (TextView) findViewById(R.id.Contact);
 
 
         RelativeBronze = (RelativeLayout) findViewById(R.id.RelativeBronze);
@@ -217,6 +231,77 @@ public class Photographer_Profile extends AppCompatActivity {
             }
         });
 
+
+
+        image1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ImageLargeView = imgUrl1;
+                Intent intent = new Intent(Photographer_Profile.this , ImageViewExtend.class);
+                startActivity(intent);
+
+            }
+        });
+
+
+        image2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ImageLargeView = imgUrl2;
+                Intent intent = new Intent(Photographer_Profile.this , ImageViewExtend.class);
+                startActivity(intent);
+
+            }
+        });
+
+        image3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ImageLargeView = imgUrl3;
+                Intent intent = new Intent(Photographer_Profile.this , ImageViewExtend.class);
+                startActivity(intent);
+
+            }
+        });
+
+        image4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ImageLargeView = imgUrl4;
+                Intent intent = new Intent(Photographer_Profile.this , ImageViewExtend.class);
+                startActivity(intent);
+
+            }
+        });
+
+        image5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ImageLargeView = imgUrl5;
+                Intent intent = new Intent(Photographer_Profile.this , ImageViewExtend.class);
+                startActivity(intent);
+
+            }
+        });
+
+        image6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ImageLargeView = imgUrl6;
+                Intent intent = new Intent(Photographer_Profile.this , ImageViewExtend.class);
+                startActivity(intent);
+
+            }
+        });
+
+
+
         getData();
         getPkg1();
         getPkg2();
@@ -231,9 +316,9 @@ public class Photographer_Profile extends AppCompatActivity {
 
     public void getData(){
 
-        if (databaseReference.child("Users").child("Photographer").child(SearchPhotographer.CurrntID) != null){
+        if (databaseReference.child("Users").child("Photographer").child(ShowPhotographer.CurrntID) != null){
 
-            databaseReference.child("Users").child("Photographer").child(SearchPhotographer.CurrntID).addValueEventListener(new ValueEventListener() {
+            databaseReference.child("Users").child("Photographer").child(ShowPhotographer.CurrntID).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -248,6 +333,7 @@ public class Photographer_Profile extends AppCompatActivity {
                         Gend = userModel.getGender();
                         Loc = userModel.getCity_Des();
                         url = userModel.getProfile_Img();
+                        contact = userModel.getContact_No();
 
                         String FirstLast = Fname + " " + Lname;
                         HeadName.setText(FirstLast);
@@ -255,6 +341,7 @@ public class Photographer_Profile extends AppCompatActivity {
                         LastName.setText(Lname);
                         Gender.setText(Gend);
                         Location.setText(Loc);
+                        Contact.setText(contact);
                         Glide.with(getApplicationContext()).load(url).into(HeadImage);
 
 
@@ -287,7 +374,7 @@ public class Photographer_Profile extends AppCompatActivity {
     public  void getPkg1(){
 
 
-        databaseReference.child("Services").child(SearchPhotographer.CurrntID).addValueEventListener(new ValueEventListener() {
+        databaseReference.child("Services").child(ShowPhotographer.CurrntID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -308,10 +395,12 @@ public class Photographer_Profile extends AppCompatActivity {
 
                             PkgName = packageClass.getPackage_Name();
                             PkgPrice = packageClass.getPackage_Price();
+                            PkgDays = packageClass.getServices_Days();
                             PkgDescription = packageClass.getPackage_Description();
 
                             PkgTname.setText(PkgName);
                             PkgTprice.setText(PkgPrice);
+                            PkgTdays.setText(PkgDays);
                             PkgTdescription.setText(PkgDescription);
                             arrayList.add(PkgName);
                         }else {
@@ -350,7 +439,7 @@ public class Photographer_Profile extends AppCompatActivity {
     public  void getPkg2(){
 
 
-        databaseReference.child("Services").child(SearchPhotographer.CurrntID).addValueEventListener(new ValueEventListener() {
+        databaseReference.child("Services").child(ShowPhotographer.CurrntID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -373,10 +462,12 @@ public class Photographer_Profile extends AppCompatActivity {
 
                             PkgName = packageClass.getPackage_Name();
                             PkgPrice = packageClass.getPackage_Price();
+                           PkgDays = packageClass.getServices_Days();
                             PkgDescription = packageClass.getPackage_Description();
 
                             PkgTname2.setText(PkgName);
                             PkgTprice2.setText(PkgPrice);
+                            PkgTdays2.setText(PkgDays);
                             PkgTdescription2.setText(PkgDescription);
                             arrayList.add(PkgName);
 
@@ -420,7 +511,7 @@ public class Photographer_Profile extends AppCompatActivity {
     public  void getPkg3(){
 
 
-        databaseReference.child("Services").child(SearchPhotographer.CurrntID).addValueEventListener(new ValueEventListener() {
+        databaseReference.child("Services").child(ShowPhotographer.CurrntID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -441,10 +532,12 @@ public class Photographer_Profile extends AppCompatActivity {
 
                             PkgName = packageClass.getPackage_Name();
                             PkgPrice = packageClass.getPackage_Price();
+                            PkgDays = packageClass.getServices_Days();
                             PkgDescription = packageClass.getPackage_Description();
 
                             PkgTname3.setText(PkgName);
                             PkgTprice3.setText(PkgPrice);
+                            PkgTdays3.setText(PkgDays);
                             PkgTdescription3.setText(PkgDescription);
                             arrayList.add(PkgName);
 
@@ -490,7 +583,7 @@ public class Photographer_Profile extends AppCompatActivity {
     public  void getPkg4(){
 
 
-        databaseReference.child("Services").child(SearchPhotographer.CurrntID).addValueEventListener(new ValueEventListener() {
+        databaseReference.child("Services").child(ShowPhotographer.CurrntID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -513,10 +606,12 @@ public class Photographer_Profile extends AppCompatActivity {
 
                             PkgName = packageClass.getPackage_Name();
                             PkgPrice = packageClass.getPackage_Price();
+                            PkgDays = packageClass.getServices_Days();
                             PkgDescription = packageClass.getPackage_Description();
 
                             PkgTname4.setText(PkgName);
                             PkgTprice4.setText(PkgPrice);
+                            PkgTdays4.setText(PkgDays);
                             PkgTdescription4.setText(PkgDescription);
                             arrayList.add(PkgName);
 
@@ -558,7 +653,7 @@ public class Photographer_Profile extends AppCompatActivity {
     public  void getPkg5(){
 
 
-        databaseReference.child("Services").child(SearchPhotographer.CurrntID).addValueEventListener(new ValueEventListener() {
+        databaseReference.child("Services").child(ShowPhotographer.CurrntID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -580,10 +675,12 @@ public class Photographer_Profile extends AppCompatActivity {
 
                             PkgName = packageClass.getPackage_Name();
                             PkgPrice = packageClass.getPackage_Price();
+                            PkgDays = packageClass.getServices_Days();
                             PkgDescription = packageClass.getPackage_Description();
 
                             PkgTname5.setText(PkgName);
                             PkgTprice5.setText(PkgPrice);
+                            PkgTdays5.setText(PkgDays);
                             PkgTdescription5.setText(PkgDescription);
                             arrayList.add(PkgName);
 
@@ -629,34 +726,49 @@ public class Photographer_Profile extends AppCompatActivity {
     public  void getImages(){
 
 
-        databaseReference.child("Gallery").child(SearchPhotographer.CurrntID).addValueEventListener(new ValueEventListener() {
+        databaseReference.child("Gallery").child(ShowPhotographer.CurrntID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
 
-        if (dataSnapshot.exists()){
-
-            for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                if (dataSnapshot.exists()){
 
 
 
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()){
 
 
-                    GalleryClass galleryClass = snapshot.getValue(GalleryClass.class);
-
-                     imgUrl1 = galleryClass.getImage1();
-                     imgUrl2 = galleryClass.getImage2();
 
 
-            }
 
-            Glide.with(getApplicationContext()).load(imgUrl1).into(image1);
-            Glide.with(getApplicationContext()).load(imgUrl2).into(image2);
+                        GalleryClass galleryClass = snapshot.getValue(GalleryClass.class);
 
-        }else {
+                        imgUrl1 = galleryClass.getImage1();
+                        imgUrl2 = galleryClass.getImage2();
+                        imgUrl3 = galleryClass.getImage3();
+                        imgUrl4 = galleryClass.getImage4();
+                        imgUrl5 = galleryClass.getImage5();
+                        imgUrl6 = galleryClass.getImage6();
 
-            Toast.makeText(Photographer_Profile.this, "Not Found Images", Toast.LENGTH_SHORT).show();
-        }
+
+
+                    }
+
+                    Glide.with(getApplicationContext()).load(imgUrl1).into(image1);
+                    Glide.with(getApplicationContext()).load(imgUrl2).into(image2);
+                    Glide.with(getApplicationContext()).load(imgUrl3).into(image3);
+                    Glide.with(getApplicationContext()).load(imgUrl4).into(image4);
+                    Glide.with(getApplicationContext()).load(imgUrl5).into(image5);
+                    Glide.with(getApplicationContext()).load(imgUrl6).into(image6);
+
+
+
+
+
+                }else {
+
+                    Toast.makeText(Photographer_Profile.this, "Not Found Images", Toast.LENGTH_SHORT).show();
+                }
 
             }
 

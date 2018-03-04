@@ -60,12 +60,12 @@ public class Custom_SearchPhotographer extends BaseAdapter {
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
 
-        ViewHodler obj;
+        ViewHolder obj;
 
 
         if (view == null) {
 
-            obj = new ViewHodler();
+            obj = new ViewHolder();
 
             gridView = new View(mContext);
             view = inflater.inflate(R.layout.custom_search_photographer, null);
@@ -81,7 +81,7 @@ public class Custom_SearchPhotographer extends BaseAdapter {
 
         } else {
             //gridView = (View) view;
-            obj = (ViewHodler)view.getTag();
+            obj = (ViewHolder)view.getTag();
         }
 
 
@@ -95,7 +95,7 @@ public class Custom_SearchPhotographer extends BaseAdapter {
 
 
 
-   public  static  class  ViewHodler{
+   public  static  class ViewHolder {
 
         TextView textView1 , textView2;
         ImageView imageView1;

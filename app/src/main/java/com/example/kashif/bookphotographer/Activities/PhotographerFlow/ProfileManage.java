@@ -99,7 +99,7 @@ public class ProfileManage extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference("allusers");
-        storageReference = FirebaseStorage.getInstance().getReference();
+            storageReference = FirebaseStorage.getInstance().getReference();
         btnNEXT = (Button) findViewById(R.id.NEXT);
         FirstName = (EditText) findViewById(R.id.FirstName);
         LastName = (EditText) findViewById(R.id.LastName);
@@ -131,7 +131,6 @@ public class ProfileManage extends AppCompatActivity {
             }
         });
 
-//        Toast.makeText(ProfileManage.this, "Chk" + email + pass + type, Toast.LENGTH_SHORT).show();
         btnNEXT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -480,7 +479,6 @@ public class ProfileManage extends AppCompatActivity {
 
             }else{
 
-                Toast.makeText(ProfileManage.this, "No Data", Toast.LENGTH_SHORT).show();
 
             }
 
@@ -526,7 +524,6 @@ public class ProfileManage extends AppCompatActivity {
 
             }else {
 
-                Toast.makeText(ProfileManage.this, "No City Found", Toast.LENGTH_SHORT).show();
 
             }
 
@@ -569,7 +566,6 @@ public class ProfileManage extends AppCompatActivity {
                 }else {
 
 
-                    Toast.makeText(ProfileManage.this, "No Data Cites", Toast.LENGTH_SHORT).show();
 
                 }
 

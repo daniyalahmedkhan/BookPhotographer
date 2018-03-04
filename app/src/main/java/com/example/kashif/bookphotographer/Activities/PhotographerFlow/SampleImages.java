@@ -36,7 +36,8 @@ import java.util.Calendar;
 public class SampleImages extends AppCompatActivity {
 
     Button btnNEXT , btnUpload;
-    ImageView image1  , image2  , image3 , image4 , image5;
+    int counterCheck = 0;
+    ImageView image1  , image2  , image3 , image4 , image5 , image6;
     private static final int PICK_IMAGE_REQUEST = 234 ;
     private Uri filepath;
     FirebaseAuth firebaseAuth;
@@ -48,7 +49,7 @@ public class SampleImages extends AppCompatActivity {
     EditText EditCategory;
     ProgressDialog progressDialog;
 
-    String  imageUrl1 , imageUrl2 , imageUrl3 , imageUrl4 , imageUrl5 , Gallery_ID , Category_ID  , Date , Image_ID;
+    String  imageUrl1 , imageUrl2 , imageUrl3 , imageUrl4 , imageUrl5 , imageUrl6,  Gallery_ID , Category_ID  , Date , Image_ID;
     ArrayList img;
 
 
@@ -64,6 +65,8 @@ public class SampleImages extends AppCompatActivity {
         image3 = (ImageView) findViewById(R.id.Image3);
         image4 = (ImageView) findViewById(R.id.Image4);
         image5 = (ImageView) findViewById(R.id.Image5);
+        image6 = (ImageView) findViewById(R.id.Image6);
+
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Uploading...");
         progressDialog.setMessage("Please Wait");
@@ -90,6 +93,7 @@ public class SampleImages extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                counterCheck++;
                 try {
 
 
@@ -109,6 +113,8 @@ public class SampleImages extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+
+                counterCheck++;
 
                 try {
 
@@ -132,6 +138,8 @@ public class SampleImages extends AppCompatActivity {
             public void onClick(View view) {
 
 
+                counterCheck++;
+
                 try {
 
 
@@ -154,6 +162,7 @@ public class SampleImages extends AppCompatActivity {
             public void onClick(View view) {
 
 
+                counterCheck++;
                 try {
 
 
@@ -175,6 +184,33 @@ public class SampleImages extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+
+                counterCheck++;
+
+                try {
+
+
+                    Intent intent = new Intent();
+                    intent.setType("image/*");
+                    intent.setAction(Intent.ACTION_GET_CONTENT);
+                    startActivityForResult(Intent.createChooser(intent, "Select any image") , PICK_IMAGE_REQUEST);
+                    CurrentImageView  = (ImageView) view;
+
+                }catch (Exception e){
+
+
+                }
+
+            }
+        });
+
+
+        image6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                counterCheck++;
 
                 try {
 
@@ -201,7 +237,20 @@ public class SampleImages extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                uploadfile();
+
+                if(counterCheck<6){
+
+                    Toast.makeText(SampleImages.this, "Please Select All Images", Toast.LENGTH_SHORT).show();
+
+                }else {
+
+                    uploadfile();
+
+
+
+                }
+
+
 
             }
         });
@@ -226,6 +275,7 @@ public class SampleImages extends AppCompatActivity {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filepath);
                 CurrentImageView.setImageBitmap(bitmap);
                 arrayList.add(filepath);
+                counterCheck++;
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -298,13 +348,14 @@ public class SampleImages extends AppCompatActivity {
             imageUrl3 = String.valueOf(img.get(2));
             imageUrl4 = String.valueOf(img.get(3));
             imageUrl5 = String.valueOf(img.get(4));
+            imageUrl6 = String.valueOf(img.get(5));
 
             Image_ID = databaseReference.push().getKey();
             Gallery_ID = databaseReference.push().getKey();
             Category_ID = PhotographerPackages.Category_ID.toString();
 
 
-            GalleryClass galleryClass = new GalleryClass(Image_ID , Category_ID , Date ,imageUrl1, imageUrl2 , imageUrl3 , imageUrl4 , imageUrl5);
+            GalleryClass galleryClass = new GalleryClass(Image_ID , Category_ID , Date ,imageUrl1, imageUrl2 , imageUrl3 , imageUrl4 , imageUrl5 , imageUrl6);
 
             databaseReference.child("Gallery").child(ProfileManage.uid).child(Gallery_ID).setValue(galleryClass, new DatabaseReference.CompletionListener() {
                 @Override

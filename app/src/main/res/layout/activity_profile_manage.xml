@@ -68,11 +68,12 @@
 
                 <EditText
                     android:layout_width="match_parent"
-                    android:hint="Enter Your First Name"
+                    android:hint="Enter First Name"
                     android:layout_marginLeft="20dp"
+                    android:fontFamily="sans-serif"
                     android:singleLine="true"
                     android:id="@+id/FirstName"
-                    android:background="@color/colorBase"
+                    android:background="@drawable/edittext_round"
                     android:inputType="textCapSentences"
                     android:textColorHint="@color/colorBlack"
                     android:textColor="@color/colorBlue"
@@ -82,11 +83,11 @@
 
                 <EditText
                     android:layout_width="match_parent"
-                    android:hint="Enter Your Last Name"
+                    android:hint="Enter Last Name"
                     android:layout_marginLeft="20dp"
                     android:singleLine="true"
                     android:id="@+id/LastName"
-                    android:background="@color/colorBase"
+                    android:background="@drawable/edittext_round"
                     android:layout_marginTop="10dp"
                     android:inputType="textCapSentences"
                     android:textColorHint="@color/colorBlack"
@@ -137,12 +138,12 @@
 
                 <EditText
                     android:layout_width="match_parent"
-                    android:hint="Enter Your Contact"
+                    android:hint="Enter Contact No"
                     android:layout_marginLeft="20dp"
                     android:singleLine="true"
                     android:id="@+id/ContactNo"
                     android:inputType="number"
-                    android:background="@color/colorBase"
+                    android:background="@drawable/edittext_round"
                     android:layout_marginTop="10dp"
                     android:textColorHint="@color/colorBlack"
                     android:textColor="@color/colorBlue"
