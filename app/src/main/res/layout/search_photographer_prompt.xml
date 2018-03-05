@@ -69,7 +69,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@null"
-                        android:hint="Search by Name"
+                        android:hint="Search by First Name"
                         android:padding="10dp"
 
                         android:id="@+id/EditName"
@@ -100,7 +100,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@null"
-                        android:hint="Search by Location"
+                        android:hint="Search by City"
                         android:padding="10dp"
 
                         android:id="@+id/EditLocation"
@@ -132,7 +132,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@null"
-                        android:hint="Search by Package"
+                        android:hint="Search by Cost"
                         android:padding="10dp"
                         android:id="@+id/EditPrice"
                         android:textColor="@color/colorBlue" />

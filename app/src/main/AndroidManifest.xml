@@ -44,7 +44,7 @@
         <activity
             android:name=".Activities.CustomerFlow.BookingActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+            android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".Activities.PhotographerFlow.ProfileManage"
             android:theme="@style/AppTheme.NoActionBar"
@@ -65,7 +65,10 @@
             android:name=".Activities.CustomerFlow.UserBookingManage"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-        <activity android:name=".Activities.PhotographerFlow.photographerBookingManage" />
+        <activity android:name=".Activities.PhotographerFlow.photographerBookingManage"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+            />
         <activity
             android:name=".Activities.Adapter.ImageViewExtend"
             android:theme="@style/AppTheme.NoActionBar"

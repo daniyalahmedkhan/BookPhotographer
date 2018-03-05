@@ -78,6 +78,7 @@ public class UserBookingManageCustom extends BaseAdapter {
             obj.status = (TextView) view.findViewById(R.id.PkgStatus);
             obj.remarks = (TextView) view.findViewById(R.id.UserRemarks);
 
+
             obj.user.setText(user[i]);
             obj.evd.setText(eventdates[i]);
             obj.evV.setText(eventvenue[i]);

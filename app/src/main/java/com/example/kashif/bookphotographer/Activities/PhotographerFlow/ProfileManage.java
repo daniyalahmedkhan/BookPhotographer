@@ -1,5 +1,6 @@
 package com.example.kashif.bookphotographer.Activities.PhotographerFlow;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -59,6 +60,8 @@ public class ProfileManage extends AppCompatActivity {
     String LocationID , CityID , CountryID, TodayDate;
     ArrayList<String> CountryList ,CountryListID , CityList , CityListID , LocationList , LocationListID;
 
+    ProgressDialog progressDialog;
+
     ArrayAdapter<String> adapterCountry;
     ArrayAdapter<String> adapterCity;
     ArrayAdapter<String> adapterLocation;
@@ -79,6 +82,10 @@ public class ProfileManage extends AppCompatActivity {
         setContentView(R.layout.activity_profile_manage);
 
 
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Please Wait...");
+
+
 
         CountryList = new ArrayList<String>();
         CityList = new ArrayList<String>();
@@ -89,10 +96,10 @@ public class ProfileManage extends AppCompatActivity {
 
         CountryList.add("Please Select Country");
 
-        LocationList.add("Please Select Location");
+        //LocationList.add("Please Select Location");
         CountryListID.add("0");
 
-        LocationListID.add("0");
+       // LocationListID.add("0");
 
 
 
@@ -145,9 +152,10 @@ public class ProfileManage extends AppCompatActivity {
                 } else {
 
 
-                    FirstN = FirstName.getText().toString().trim();
-                    LastN = LastName.getText().toString().trim();
-//                    Gend = Gender.getText().toString().trim();
+                    FirstN = FirstName.getText().toString().trim().toUpperCase();
+
+                    LastN = LastName.getText().toString().trim().toUpperCase();
+
                     Contact_No = Contact.getText().toString().trim();
 
                     PhotographerSignUp();
@@ -197,7 +205,7 @@ public class ProfileManage extends AppCompatActivity {
                 LocationListID.clear();
 
                 City_ID = CityListID.get(i);
-                Cit = CityList.get(i);
+                Cit = CityList.get(i).toUpperCase();
 
 
                     LocationList();
@@ -274,7 +282,7 @@ public class ProfileManage extends AppCompatActivity {
                 @Override
                 public void onFailure(@NonNull Exception e) {
 
-                    Toast.makeText(ProfileManage.this, "Failed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ProfileManage.this, "Account Already Exists", Toast.LENGTH_SHORT).show();
 
                 }
             });
@@ -290,6 +298,7 @@ public class ProfileManage extends AppCompatActivity {
 
     private void uploadfile(){
 
+    progressDialog.show();
 
         if (filepath != null){
             StorageReference riversRef = storageReference.child("images/"+uid+"/profile.jpg");
@@ -316,8 +325,8 @@ public class ProfileManage extends AppCompatActivity {
                     });
 
         }else {
-
-            Toast.makeText(ProfileManage.this , " This error from upload file" , Toast.LENGTH_SHORT).show();
+            progressDialog.dismiss();
+            Toast.makeText(ProfileManage.this , "Profile Image is Required" , Toast.LENGTH_SHORT).show();
 
         }
 
@@ -327,9 +336,6 @@ public class ProfileManage extends AppCompatActivity {
     public void SaveData(){
 
 
-//        LocationID =  databaseReference.push().getKey();
-//        CityID = databaseReference.push().getKey();
-//        CountryID =  databaseReference.push().getKey();
 
         UserModel Mod = new UserModel(uid , email , pass , type , FirstN , LastN , Gend , imageUrl , LocationID ,  Contact_No , TodayDate , Cit);
 
@@ -411,6 +417,8 @@ public class ProfileManage extends AppCompatActivity {
                     Toast.makeText(ProfileManage.this , "Error in Saving" , Toast.LENGTH_SHORT).show();
                 }else {
 
+
+                    progressDialog.dismiss();
                     Intent intent = new Intent(ProfileManage.this , PhotographerPackages.class);
                     startActivity(intent);
                 }
@@ -504,13 +512,15 @@ public class ProfileManage extends AppCompatActivity {
 
 
 
-                CityList.add("Please Select City");
-                CityListID.add("0");
-
 
                 if (dataSnapshot.exists()) {
 
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+
+
+                    CityList.add("Please Select City");
+                    CityListID.add("0");
+
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
 
 
                     CityClass cityClass = snapshot.getValue(CityClass.class);
@@ -545,11 +555,20 @@ public class ProfileManage extends AppCompatActivity {
     public void LocationList(){
 
 
+
+
         databaseReference.child("Define_Location").child(City_ID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
+
+
+
                 if (dataSnapshot.exists()) {
+
+                    LocationList.add("Please Select Location");
+                    LocationListID.add("0");
+
 
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
 

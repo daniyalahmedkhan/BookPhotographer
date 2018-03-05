@@ -2,18 +2,19 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:background="@color/colorDark">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:id="@+id/Relative1">
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:orientation="vertical">
 
 
@@ -59,7 +60,7 @@
                 xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="6dp"
+                android:layout_margin="2dp"
                 card_view:cardUseCompatPadding="true"
                 card_view:cardElevation="4dp"
                 card_view:cardCornerRadius="3dp">
@@ -93,7 +94,7 @@
                 xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="6dp"
+                android:layout_margin="2dp"
                 card_view:cardUseCompatPadding="true"
                 card_view:cardElevation="4dp"
                 card_view:cardCornerRadius="3dp">
@@ -110,7 +111,7 @@
                         android:layout_height="wrap_content"
 
                         android:prompt="@string/title"
-                        android:padding="20dp"
+                        android:padding="10dp"
                         android:id="@+id/SelectPkg"
                         android:drawableRight="@mipmap/arrow"
                         />
@@ -125,13 +126,13 @@
                 xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="6dp"
+                android:layout_margin="2dp"
                 card_view:cardUseCompatPadding="true"
                 card_view:cardElevation="4dp"
                 card_view:cardCornerRadius="3dp">
                 <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="150dp"
+                    android:layout_height="120dp"
                     android:layout_gravity="center">
 
 
@@ -142,6 +143,7 @@
                         android:hint="Additional Information (Required*)"
                         android:padding="10dp"
                         android:id="@+id/Msg"
+                        android:focusableInTouchMode="true"
                         android:maxLength="150"
                         android:inputType="text"
                         android:textColor="@color/colorBlue"
@@ -157,8 +159,9 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:gravity="bottom"
+                android:id="@+id/Btn"
                 android:layout_gravity="center">
 
                 <LinearLayout
@@ -195,24 +198,35 @@
 
                         />
 
+
+
+
                 </LinearLayout>
+
+
 
             </RelativeLayout>
 
 
+
+
         </LinearLayout>
 
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ListofEvents"
+            android:paddingBottom="10dp"
+            android:layout_marginTop="10dp"/>
 
 
-    </RelativeLayout>
 
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/Relative1"
-        android:id="@+id/ListofEvents"
-        android:layout_marginTop="10dp"/>
+    </LinearLayout>
+
+
+
+
 
 
 </RelativeLayout>

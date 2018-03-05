@@ -7,6 +7,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -73,7 +74,7 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
     ImageView HeadImage;
     DatabaseReference databaseReference;
 
-    int reqCounter;
+  public static   int reqCounter;
 
     RelativeLayout RelativeBronze, RelativeSilver, RelativeGold, RelativePlatinum, RelativeDiamond;
     RelativeLayout RBronzeDetail, RSilverDetail, RGoldDetail, RPlatinumDetail, RDiamondDetail;
@@ -196,6 +197,7 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
 
                 Intent intent = new Intent(MyProfile.this  , EditProfile.class);
                 startActivity(intent);
+                MyProfile.this.finish();
             }
         });
 
@@ -324,7 +326,7 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
             @Override
             public void onClick(View view) {
 
-                ImageLargeView = imgUrl1;
+                ImageViewExtend.ImageUrl = imgUrl1;
                 Intent intent = new Intent(MyProfile.this , ImageViewExtend.class);
                 startActivity(intent);
 
@@ -336,7 +338,7 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
             @Override
             public void onClick(View view) {
 
-                ImageLargeView = imgUrl2;
+                ImageViewExtend.ImageUrl = imgUrl2;
                 Intent intent = new Intent(MyProfile.this , ImageViewExtend.class);
                 startActivity(intent);
 
@@ -347,7 +349,7 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
             @Override
             public void onClick(View view) {
 
-                ImageLargeView = imgUrl3;
+                ImageViewExtend.ImageUrl = imgUrl3;
                 Intent intent = new Intent(MyProfile.this , ImageViewExtend.class);
                 startActivity(intent);
 
@@ -358,7 +360,7 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
             @Override
             public void onClick(View view) {
 
-                ImageLargeView = imgUrl4;
+                ImageViewExtend.ImageUrl = imgUrl4;
                 Intent intent = new Intent(MyProfile.this , ImageViewExtend.class);
                 startActivity(intent);
 
@@ -369,7 +371,7 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
             @Override
             public void onClick(View view) {
 
-                ImageLargeView = imgUrl5;
+                ImageViewExtend.ImageUrl = imgUrl5;
                 Intent intent = new Intent(MyProfile.this , ImageViewExtend.class);
                 startActivity(intent);
 
@@ -380,7 +382,7 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
             @Override
             public void onClick(View view) {
 
-                ImageLargeView = imgUrl6;
+                ImageViewExtend.ImageUrl = imgUrl6;
                 Intent intent = new Intent(MyProfile.this , ImageViewExtend.class);
                 startActivity(intent);
 
@@ -545,6 +547,17 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
                         }else {
 
 
+                            PkgName = packageClass.getPackage_Name();
+                            PkgPrice = packageClass.getPackage_Price();
+                            PkgDays = packageClass.getServices_Days();
+                            PkgDescription = packageClass.getPackage_Description();
+
+                            PkgTname.setText(PkgName);
+                            PkgTprice.setText(PkgPrice);
+                            PkgTdays.setText(PkgDays);
+                            PkgTdescription.setText(PkgDescription);
+
+
                             RelativeBronze.setVisibility(View.GONE);
 
 
@@ -614,6 +627,18 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
 
                         } else {
 
+                            PkgName = packageClass.getPackage_Name();
+                            PkgPrice = packageClass.getPackage_Price();
+                            PkgDays = packageClass.getServices_Days();
+                            PkgDescription = packageClass.getPackage_Description();
+
+
+                            PkgTname2.setText(PkgName);
+                            PkgTprice2.setText(PkgPrice);
+                            PkgTdays2.setText(PkgDays);
+                            PkgTdescription2.setText(PkgDescription);
+
+
 
                             RelativeSilver.setVisibility(View.GONE);
 
@@ -682,6 +707,18 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
 
 
                         }else {
+
+                            PkgName = packageClass.getPackage_Name();
+                            PkgPrice = packageClass.getPackage_Price();
+                            PkgDays = packageClass.getServices_Days();
+                            PkgDescription = packageClass.getPackage_Description();
+
+                            PkgTname3.setText(PkgName);
+                            PkgTprice3.setText(PkgPrice);
+                            PkgTdays3.setText(PkgDays);
+                            PkgTdescription3.setText(PkgDescription);
+
+
 
 
                             RelativeGold.setVisibility(View.GONE);
@@ -758,6 +795,18 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
                         }else {
 
 
+                            PkgName = packageClass.getPackage_Name();
+                            PkgPrice = packageClass.getPackage_Price();
+                            PkgDays = packageClass.getServices_Days();
+                            PkgDescription = packageClass.getPackage_Description();
+
+                            PkgTname4.setText(PkgName);
+                            PkgTprice4.setText(PkgPrice);
+                            PkgTdays4.setText(PkgDays);
+                            PkgTdescription4.setText(PkgDescription);
+
+
+
                             RelativePlatinum.setVisibility(View.GONE);
 
                         }
@@ -825,6 +874,19 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
 
 
                         }else {
+
+
+                            PkgName = packageClass.getPackage_Name();
+                            PkgPrice = packageClass.getPackage_Price();
+                            PkgDays = packageClass.getServices_Days();
+                            PkgDescription = packageClass.getPackage_Description();
+
+                            PkgTname5.setText(PkgName);
+                            PkgTprice5.setText(PkgPrice);
+                            PkgTdays5.setText(PkgDays);
+                            PkgTdescription5.setText(PkgDescription);
+
+
 
 
                             RelativeDiamond.setVisibility(View.GONE);
@@ -912,90 +974,104 @@ public class MyProfile extends AppCompatActivity implements  View.OnClickListene
     public void getPendingRequest(){
 
 
-        databaseReference.child("ReservationDetail").addValueEventListener(new ValueEventListener() {
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void run() {
+
+                databaseReference.child("ReservationDetail").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                        reqCounter = 0;
+
+                        if (dataSnapshot.exists()) {
+
+                            reqCounter = 0;
+
+                            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+
+                                for (DataSnapshot snapshot1 : snapshot.getChildren()) {
 
 
-                if (dataSnapshot.exists()) {
+                                    BookReservation bookReservation = snapshot1.getValue(BookReservation.class);
 
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                    if (bookReservation.getPhotographer_ID().equals(firebaseAuth.getCurrentUser().getUid())) {
 
-                        for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+                                        if (bookReservation.getReservation_Status().equals("Pending")) {
+
+                                            reqCounter++;
 
 
-                            BookReservation bookReservation = snapshot1.getValue(BookReservation.class);
+                                        }
 
-                            if (bookReservation.getPhotographer_ID().equals(firebaseAuth.getCurrentUser().getUid())) {
-
-                                if (bookReservation.getReservation_Status().equals("Pending")) {
-
-                                    reqCounter++;
+                                    }
 
 
                                 }
 
+
                             }
 
 
+                        }else {
+
+
                         }
+
+                        int mNotificationId = 001;
+
+                        NotificationCompat.Builder mBuilder =
+                                new NotificationCompat.Builder(MyProfile.this)
+                                        .setSmallIcon(R.drawable.logo)
+                                        .setContentTitle("Book Photographer")
+                                        .setContentText("You have " + String.valueOf(reqCounter) + " Pending Request")
+                                        .setDefaults(Notification.DEFAULT_ALL)
+                                        .setPriority(Notification.PRIORITY_MAX)
+                                        .setAutoCancel(true);
+
+
+                        PendingIntent contentIntent = PendingIntent.getActivity(MyProfile.this, 0,
+                                new Intent(MyProfile.this, photographerBookingManage.class), PendingIntent.FLAG_UPDATE_CURRENT);
+
+
+                        mBuilder.setContentIntent(contentIntent);
+
+
+                        // Gets an instance of the NotificationManager service
+                        NotificationManager mNotifyMgr =
+                                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+
+                        if (reqCounter != 0){
+
+                            mNotifyMgr.notify(mNotificationId, mBuilder.build());
+
+                        }
+
+                        // Builds the notification and issues it.
+
+
 
 
                     }
 
 
-                }else {
-
-
-                }
-
-                int mNotificationId = 001;
-
-                NotificationCompat.Builder mBuilder =
-                        new NotificationCompat.Builder(MyProfile.this)
-                                .setSmallIcon(R.drawable.logo)
-                                .setContentTitle("Book Photographer")
-                                .setContentText("You have " + String.valueOf(reqCounter) + " Pending Request")
-                                .setDefaults(Notification.DEFAULT_ALL)
-                                .setPriority(Notification.PRIORITY_MAX)
-                        .setAutoCancel(true);
-
-//                NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-//                notificationManager.notify(0 , mBuilder.build());
-
-                // Cancel the notification after its selected
 
 
 
-                PendingIntent contentIntent = PendingIntent.getActivity(MyProfile.this, 0,
-                        new Intent(MyProfile.this, photographerBookingManage.class), PendingIntent.FLAG_UPDATE_CURRENT);
 
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
 
-                mBuilder.setContentIntent(contentIntent);
-
-
-                // Gets an instance of the NotificationManager service
-                NotificationManager mNotifyMgr =
-                        (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-
-                // Builds the notification and issues it.
-                mNotifyMgr.notify(mNotificationId, mBuilder.build());
-
-
+                    }
+                });
 
 
             }
+        }, 5000);
 
 
 
-
-
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
 
     }
 

@@ -1,6 +1,7 @@
 package com.example.kashif.bookphotographer.Activities.CustomerFlow;
 
 import android.content.Context;
+import android.nfc.cardemulation.HostNfcFService;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -102,9 +103,11 @@ public class UserBookingManage extends AppCompatActivity {
 
 
 
-
                         databaseReference.child("ReservationDetail").child(resId.get(i))
                                 .child(id[i]).removeValue();
+
+
+                        HomeActivity.reqCounter  = 0 ;
 
 
                         resId.clear();
@@ -130,6 +133,9 @@ public class UserBookingManage extends AppCompatActivity {
                         ListViewOrder.deferNotifyDataSetChanged();
                         ListViewOrder.invalidateViews();
                         b.dismiss();
+
+
+
 
                     }
                 });
@@ -162,8 +168,6 @@ public class UserBookingManage extends AppCompatActivity {
 
 
     static public  void   getReqData(final Context context){
-
-
 
 
         databaseReference.child("ReservationDetail").addValueEventListener(new ValueEventListener() {

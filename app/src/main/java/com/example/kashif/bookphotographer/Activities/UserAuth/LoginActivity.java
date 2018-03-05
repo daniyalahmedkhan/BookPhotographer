@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.kashif.bookphotographer.Activities.CustomerFlow.HomeActivity;
+import com.example.kashif.bookphotographer.Activities.PhotographerFlow.EditProfile;
 import com.example.kashif.bookphotographer.Activities.PhotographerFlow.MyProfile;
 import com.example.kashif.bookphotographer.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -117,7 +119,7 @@ public class LoginActivity extends AppCompatActivity {
                    public void onFailure(@NonNull Exception e) {
 
 
-                       Toast.makeText(LoginActivity.this , "Invalid" , Toast.LENGTH_LONG).show();
+                       Toast.makeText(LoginActivity.this , "Invalid Email or Password" , Toast.LENGTH_LONG).show();
                    }
                });
 
@@ -161,9 +163,18 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-                            progressDialog.dismiss();
-                            Intent intent = new Intent(LoginActivity.this , MyProfile.class);
-                            startActivity(intent);
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+
+                                    progressDialog.dismiss();
+                                    Intent intent = new Intent(LoginActivity.this , MyProfile.class);
+                                    startActivity(intent);
+                                }
+                            }, 3000);
+
+
+
 
 
 
@@ -188,9 +199,18 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-                            progressDialog.dismiss();
-                            Intent intent = new Intent(LoginActivity.this , HomeActivity.class);
-                            startActivity(intent);
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+
+                                    progressDialog.dismiss();
+                                    Intent intent = new Intent(LoginActivity.this , HomeActivity.class);
+                                    startActivity(intent);
+
+                                }
+                            }, 3000);
+
+
 
 
                         }
@@ -205,7 +225,8 @@ public class LoginActivity extends AppCompatActivity {
 
                 }else {
 
-                    Toast.makeText(LoginActivity.this, "Not Found", Toast.LENGTH_SHORT).show();
+                    progressDialog.dismiss();
+                    Toast.makeText(LoginActivity.this, "User Not Found", Toast.LENGTH_SHORT).show();
 
                 }
 

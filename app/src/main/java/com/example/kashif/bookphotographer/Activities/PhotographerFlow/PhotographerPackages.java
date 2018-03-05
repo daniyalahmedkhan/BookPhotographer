@@ -139,13 +139,9 @@ public class PhotographerPackages extends AppCompatActivity {
                 if (databaseReference.equals(databaseError)){
 
 
-                    Toast.makeText(PhotographerPackages.this , "Error in Saving" , Toast.LENGTH_SHORT).show();
 
                 }else {
 
-//                    Intent intent = new Intent(RegisterActivity.this , HomeActivity.class);
-//                    startActivity(intent);
-                   // Toast.makeText(PhotographerPackages.this , "PKG 1 Hit" , Toast.LENGTH_SHORT).show();
                 Pckg2();
 
 
@@ -198,13 +194,10 @@ public class PhotographerPackages extends AppCompatActivity {
                 if (databaseReference.equals(databaseError)){
 
 
-                    Toast.makeText(PhotographerPackages.this , "Error in Saving" , Toast.LENGTH_SHORT).show();
 
                 }else {
 
-//                    Intent intent = new Intent(RegisterActivity.this , HomeActivity.class);
-//                    startActivity(intent);
-                    Toast.makeText(PhotographerPackages.this , "PKG 2 Hit" , Toast.LENGTH_SHORT).show();
+//
                 Pckg3();
 
 
@@ -262,13 +255,10 @@ public class PhotographerPackages extends AppCompatActivity {
                 if (databaseReference.equals(databaseError)){
 
 
-                    Toast.makeText(PhotographerPackages.this , "Error in Saving" , Toast.LENGTH_SHORT).show();
 
                 }else {
 
-//                    Intent intent = new Intent(RegisterActivity.this , HomeActivity.class);
-//                    startActivity(intent);
-                    Toast.makeText(PhotographerPackages.this , "PKG 3 Hit" , Toast.LENGTH_SHORT).show();
+//
             Pckg4();
 
 
@@ -326,13 +316,10 @@ public class PhotographerPackages extends AppCompatActivity {
                 if (databaseReference.equals(databaseError)){
 
 
-                    Toast.makeText(PhotographerPackages.this , "Error in Saving" , Toast.LENGTH_SHORT).show();
 
                 }else {
 
-//                    Intent intent = new Intent(RegisterActivity.this , HomeActivity.class);
-//                    startActivity(intent);
-                    Toast.makeText(PhotographerPackages.this , "PKG 4 Hit" , Toast.LENGTH_SHORT).show();
+//
                 Pckg5();
 
 
@@ -389,14 +376,10 @@ public class PhotographerPackages extends AppCompatActivity {
                 if (databaseReference.equals(databaseError)){
 
 
-                    Toast.makeText(PhotographerPackages.this , "Error in Saving" , Toast.LENGTH_SHORT).show();
 
                 }else {
 
-//                    Intent intent = new Intent(RegisterActivity.this , HomeActivity.class);
-//                    startActivity(intent);
-                    Toast.makeText(PhotographerPackages.this , "PKG 5 Hit" , Toast.LENGTH_SHORT).show();
-
+//
 
                     Intent intent = new Intent(PhotographerPackages.this , SampleImages.class);
                     startActivity(intent);

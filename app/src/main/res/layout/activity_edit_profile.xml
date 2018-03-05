@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/Myprofile"
+
     tools:context="com.example.kashif.bookphotographer.Activities.CustomerFlow.PhotographerProfile">
 
     <RelativeLayout
@@ -32,7 +33,7 @@
                     android:layout_width="96dp"
                     android:layout_height="96dp"
                     android:id="@+id/HeadImg"
-                    android:src="@mipmap/contactlist_img_four"
+                    android:src="@drawable/usericon"
                     />
 
             </RelativeLayout>
@@ -47,6 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+
             android:layout_marginBottom="40dp"
             android:paddingBottom="40dp"
             android:layout_marginTop="5dp"
@@ -308,7 +310,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                        android:text="Bronze Package"
+                        android:text="unk"
                         android:textStyle="bold"
                         android:id="@+id/PgkTname1"
                         android:padding="5dp"
@@ -384,7 +386,7 @@
                             <EditText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="200$"
+                                android:text="unk"
                                 android:id="@+id/PkgTprice1"
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
@@ -419,7 +421,7 @@
                             <EditText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="1"
+                                android:text="unk"
                                 android:id="@+id/Services1"
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
@@ -454,7 +456,7 @@
                             <EditText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Basic purpose of this use case is to get authorized credentials of the users (photographer, client) to use all the available features of the application according to their privileges."
+                                android:text="unk"
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
                                 android:id="@+id/PkgTdes1"
@@ -506,7 +508,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                        android:text="Silver Package"
+                        android:text="unk"
                         android:textStyle="bold"
                         android:id="@+id/PkgTname2"
                         android:padding="5dp"
@@ -582,7 +584,7 @@
                             <EditText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="200$"
+                                android:text="unk"
                                 android:id="@+id/PkgTprice2"
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
@@ -617,7 +619,7 @@
                             <EditText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="1"
+                                android:text="unk"
                                 android:id="@+id/Services2"
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
@@ -653,7 +655,7 @@
                             <EditText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Basic purpose of this use case is to get authorized credentials of the users (photographer, client) to use all the available features of the application according to their privileges."
+                                android:text="unk"
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
                                 android:id="@+id/PkgTdes2"
@@ -707,7 +709,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                        android:text="Golden Package"
+                        android:text="unk"
                         android:textStyle="bold"
                         android:padding="5dp"
                         android:id="@+id/PkgTname3"
@@ -782,7 +784,7 @@
                             <EditText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="200$"
+                                android:text="unk"
                                 android:id="@+id/PkgTprice3"
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
@@ -818,7 +820,7 @@
                             <EditText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="1"
+                                android:text="unk"
                                 android:id="@+id/Services3"
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
@@ -854,7 +856,7 @@
                             <EditText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Basic purpose of this use case is to get authorized credentials of the users (photographer, client) to use all the available features of the application according to their privileges."
+                                android:text="unk"
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
                                 android:id="@+id/PkgTdes3"
@@ -907,7 +909,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                        android:text="Platinum Package"
+                        android:text="unk"
                         android:textStyle="bold"
                         android:id="@+id/PkgTname4"
                         android:padding="5dp"
@@ -984,7 +986,7 @@
                             <EditText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="200$"
+                                android:text="unk"
                                 android:id="@+id/PkgTprice4"
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
@@ -1020,7 +1022,7 @@
                             <EditText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="1"
+                                android:text="unk"
                                 android:id="@+id/Services4"
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
@@ -1056,7 +1058,7 @@
                             <EditText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Basic purpose of this use case is to get authorized credentials of the users (photographer, client) to use all the available features of the application according to their privileges."
+                                android:text="unk"
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
                                 android:id="@+id/PkgTdes4"
@@ -1107,7 +1109,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                        android:text="Diamond Package"
+                        android:text="unk"
                         android:textStyle="bold"
                         android:padding="5dp"
                         android:id="@+id/PkgTname5"
@@ -1184,7 +1186,7 @@
                             <EditText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="200$"
+                                android:text="unk"
                                 android:id="@+id/PkgTprice5"
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
@@ -1220,7 +1222,7 @@
                             <EditText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="1"
+                                android:text="unk"
                                 android:id="@+id/Services5"
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
@@ -1256,7 +1258,7 @@
                             <EditText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Basic purpose of this use case is to get authorized credentials of the users (photographer, client) to use all the available features of the application according to their privileges."
+                                android:text="unk"
                                 android:layout_marginLeft="10dp"
                                 android:drawablePadding="5dp"
                                 android:id="@+id/PkgTdes5"
@@ -1301,8 +1303,8 @@
                     android:text="Save"
                     android:id="@+id/SaveButtn"
                     android:textSize="15dp"
-                    android:layout_marginTop="10dp"
                     android:background="@color/colorDark"
+                    android:layout_marginTop="10dp"
                     android:textColor="@color/colorWhite"
                     />
 

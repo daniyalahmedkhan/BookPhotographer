@@ -1,8 +1,10 @@
 package com.example.kashif.bookphotographer.Activities.PhotographerFlow;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -34,6 +36,7 @@ import java.io.IOException;
 public class EditProfile extends AppCompatActivity  {
 
     EditText FirstName , LastName , PkgTname , PkgTprice , PkgTdays , PkgTdescription;
+
     EditText PkgTname2 , PkgTprice2 , PkgTdays2 , PkgTdescription2;
     EditText PkgTname3 , PkgTprice3 , PkgTdays3 , PkgTdescription3;
     EditText PkgTname4 , PkgTprice4 , PkgTdays4 , PkgTdescription4;
@@ -44,6 +47,8 @@ public class EditProfile extends AppCompatActivity  {
     String profile_Img;
     Button SaveButtn;
     Boolean flag = false;
+
+    ProgressDialog progressDialog;
 
     private static final int PICK_IMAGE_REQUEST = 234 ;
     private Uri filepath;
@@ -59,6 +64,12 @@ public class EditProfile extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Please Wait...");
+        progressDialog.setMessage("Saving Data");
+        progressDialog.setCancelable(false);
+
 
         databaseReference = FirebaseDatabase.getInstance().getReference("allusers");
         firebaseAuth = FirebaseAuth.getInstance();
@@ -129,13 +140,9 @@ public class EditProfile extends AppCompatActivity  {
             @Override
             public void onClick(View view) {
 
-                if (filepath != null){
-                    OpenGallery();
-
-                }else {
-
+                    progressDialog.show();
                     SaveData();
-                }
+
 
             }
         });
@@ -406,6 +413,19 @@ public class EditProfile extends AppCompatActivity  {
 
 
 
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                progressDialog.dismiss();
+                Intent intent = new Intent(EditProfile.this , MyProfile.class);
+                startActivity(intent);
+            }
+        }, 5000);
+
+
+
+
     }
 
 
@@ -429,6 +449,8 @@ public class EditProfile extends AppCompatActivity  {
             filepath = data.getData();
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filepath);
+                HeadImg.setImageBitmap(bitmap);
+                uploadfile();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -473,6 +495,13 @@ public class EditProfile extends AppCompatActivity  {
         }
 
 
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(EditProfile.this , MyProfile.class);
+        startActivity(intent);
     }
 
 

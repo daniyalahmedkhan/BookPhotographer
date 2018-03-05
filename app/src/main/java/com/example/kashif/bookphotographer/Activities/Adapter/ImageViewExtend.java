@@ -12,6 +12,9 @@ import com.example.kashif.bookphotographer.R;
 public class ImageViewExtend extends AppCompatActivity {
 
     ImageView ImageViewLarge;
+   public static String ImageUrl;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,27 +22,8 @@ public class ImageViewExtend extends AppCompatActivity {
         setContentView(R.layout.activity_image_view);
         ImageViewLarge = (ImageView) findViewById(R.id.ImageViewLarge);
 
-
-        try {
-
-
-            if (!((MyProfile.ImageLargeView.isEmpty()) && (MyProfile.ID.isEmpty()))){
-
-                ImageViewLarge.setImageResource(R.mipmap.logo_passwordreset);
-                Glide.with(getApplicationContext()).load(MyProfile.ImageLargeView).into(ImageViewLarge);
-
-
-            }else {
-
-                ImageViewLarge.setImageResource(R.mipmap.logo_passwordreset);
-                Glide.with(getApplicationContext()).load(Photographer_Profile.ImageLargeView).into(ImageViewLarge);
-
-
-            }
-
-
-        }catch (Exception e ){}
-
+        ImageViewLarge.setImageResource(R.mipmap.logo_passwordreset);
+        Glide.with(getApplicationContext()).load(ImageUrl).into(ImageViewLarge);
 
 
 

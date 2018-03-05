@@ -1,5 +1,6 @@
 package com.example.kashif.bookphotographer.Activities.UserAuth;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
@@ -39,6 +40,8 @@ public class RegisterActivity extends AppCompatActivity {
     RadioGroup radioGroup;
     EditText RegisterEmail, RegisterPass , RegisterUserName;
     FirebaseAuth firebaseAuth;
+
+    ProgressDialog progressDialog;
     DatabaseReference databaseReference;
     String email , pass, username, type , uid , date;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
@@ -54,6 +57,12 @@ public class RegisterActivity extends AppCompatActivity {
         window.setStatusBarColor(Color.TRANSPARENT);
 
         setContentView(R.layout.activity_register);
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Please Wait...");
+        progressDialog.setMessage("Creating Account");
+        progressDialog.setCancelable(false);
+
 
         btnSignUp = (Button) findViewById(R.id.Signup);
         RadioUser = (RadioButton) findViewById(R.id.RadioUser);
@@ -107,7 +116,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                             if (RadioUser.isChecked()){
 
-
+                                progressDialog.show();
                                 type = "user";
                                 UserSignUp();
 //                                Toast.makeText(RegisterActivity.this , "Radio User" , Toast.LENGTH_SHORT).show();
@@ -181,6 +190,8 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast.makeText(RegisterActivity.this , "Error in Saving" , Toast.LENGTH_SHORT).show();
 
                         }else {
+
+                            progressDialog.dismiss();
 
                             Intent intent = new Intent(RegisterActivity.this , LoginActivity.class);
                             startActivity(intent);

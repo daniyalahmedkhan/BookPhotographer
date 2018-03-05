@@ -2,6 +2,7 @@ package com.example.kashif.bookphotographer.Activities.PhotographerFlow;
 
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -37,9 +38,10 @@ public class photographerBookingManage extends AppCompatActivity {
     public static   String[] id;
     public static   String[] status;
     public static   String[] remarks;
+    public static  String[] userEmail;
     String key;
 
-    public static ArrayList<String> Order , Photographer , EventDate, EventVenue, Pckg , Id , Status , Remarks;
+    public static ArrayList<String> Order , Photographer , EventDate, EventVenue, Pckg , Id , Status , Remarks , useremail;
     static ArrayList<String> resId;
     ArrayList<String> refId;
 
@@ -66,6 +68,7 @@ public class photographerBookingManage extends AppCompatActivity {
         resId = new ArrayList<String>();
         refId = new ArrayList<String>();
         Remarks = new ArrayList<String>();
+        useremail = new ArrayList<String>();
 
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -95,6 +98,8 @@ public class photographerBookingManage extends AppCompatActivity {
                    public void onClick(View view) {
 
 
+
+
                        databaseReference.child("ReservationDetail").child(resId.get(i))
                                .child(id[i]).child("reservation_Status").setValue("Accept");
 
@@ -107,6 +112,7 @@ public class photographerBookingManage extends AppCompatActivity {
                        Pckg.clear();
                        Status.clear();
                        Remarks.clear();
+                       useremail.clear();
                        couter++;
 
                        order = new String[0];
@@ -118,10 +124,17 @@ public class photographerBookingManage extends AppCompatActivity {
                        id = new String[0];
                        status = new String[0];
                        remarks = new String[0];
+                       userEmail = new String[0];
 
                        ListViewOrder.deferNotifyDataSetChanged();
                        ListViewOrder.invalidateViews();
                        b.dismiss();
+
+                       MyProfile.reqCounter = 0;
+
+                      photographerBookingManage.this.finish();
+                      Intent intent = new Intent(photographerBookingManage.this , photographerBookingManage.class);
+                      startActivity(intent);
                    }
                });
 
@@ -146,6 +159,7 @@ public class photographerBookingManage extends AppCompatActivity {
                        Pckg.clear();
                        Status.clear();
                        Remarks.clear();
+                       useremail.clear();
                        couter++;
 
                        order = new String[0];
@@ -157,9 +171,17 @@ public class photographerBookingManage extends AppCompatActivity {
                        id = new String[0];
                        status = new String[0];
                         remarks = new String[0];
+                        userEmail = new String[0];
                        ListViewOrder.deferNotifyDataSetChanged();
                        ListViewOrder.invalidateViews();
                        b.dismiss();
+
+                       MyProfile.reqCounter = 0;
+
+
+                       photographerBookingManage.this.finish();
+                       Intent intent = new Intent(photographerBookingManage.this , photographerBookingManage.class);
+                       startActivity(intent);
 
                    }
                });
@@ -179,7 +201,7 @@ public class photographerBookingManage extends AppCompatActivity {
 
     public static void  BindData(Context context){
 
-       PhotographerBookingCustom adapter = new PhotographerBookingCustom(context ,id , order , photographer , eventdate , eventvenue , pckg , status , remarks);
+       PhotographerBookingCustom adapter = new PhotographerBookingCustom(context ,id , order , photographer , eventdate , eventvenue , pckg , status , remarks , userEmail);
 
        ListViewOrder.setAdapter(adapter);
        ListViewOrder.deferNotifyDataSetChanged();
@@ -222,6 +244,7 @@ public class photographerBookingManage extends AppCompatActivity {
                                 Status.add(bookReservation.getReservation_Status());
                                 resId.add(bookReservation.getReservation_ID());
                                 Remarks.add(bookReservation.getCustomer_Message());
+                                useremail.add(bookReservation.getUser_Email());
                                 couter++;
 
                                 order = Order.toArray(new String[Order.size()]);
@@ -233,13 +256,13 @@ public class photographerBookingManage extends AppCompatActivity {
                                 id = Id.toArray(new String[Id.size()]);
                                 status = Status.toArray(new String[Status.size()]);
                                 remarks = Remarks.toArray(new String[Remarks.size()]);
+                                userEmail = useremail.toArray(new String[useremail.size()]);
 
 
 
                             } else {
 
 
-                                Toast.makeText(context, "Not Found", Toast.LENGTH_SHORT).show();
                             }
 
 
@@ -261,6 +284,7 @@ public class photographerBookingManage extends AppCompatActivity {
                     id = new String[0];
                     status = new String[0];
                     remarks = new String[0];
+                    userEmail = new String[0];
                     BindData(context);
 
 

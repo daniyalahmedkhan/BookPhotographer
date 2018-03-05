@@ -82,24 +82,24 @@ public class Photographer_Profile extends AppCompatActivity {
 
         PkgTname2 = (TextView) findViewById(R.id.PkgTname2);
         PkgTprice2 = (TextView) findViewById(R.id.PkgTprice2);
-        PkgTdays = (TextView) findViewById(R.id.Services2);
+        PkgTdays2 = (TextView) findViewById(R.id.Services2);
         PkgTdescription2  = (TextView) findViewById(R.id.PkgTdes2);
 
 
         PkgTname3 = (TextView) findViewById(R.id.PkgTname3);
         PkgTprice3 = (TextView) findViewById(R.id.PkgTprice3);
-        PkgTdays = (TextView) findViewById(R.id.Services3);
+        PkgTdays3 = (TextView) findViewById(R.id.Services3);
         PkgTdescription3  = (TextView) findViewById(R.id.PkgTdes3);
 
         PkgTname4 = (TextView) findViewById(R.id.PkgTname4);
         PkgTprice4 = (TextView) findViewById(R.id.PkgTprice4);
-        PkgTdays = (TextView) findViewById(R.id.Services4);
+        PkgTdays4 = (TextView) findViewById(R.id.Services4);
         PkgTdescription4  = (TextView) findViewById(R.id.PkgTdes4);
 
 
         PkgTname5 = (TextView) findViewById(R.id.PkgTname5);
         PkgTprice5 = (TextView) findViewById(R.id.PkgTprice5);
-        PkgTdays = (TextView) findViewById(R.id.Services5);
+        PkgTdays5 = (TextView) findViewById(R.id.Services5);
         PkgTdescription5  = (TextView) findViewById(R.id.PkgTdes5);
 
 
@@ -237,7 +237,7 @@ public class Photographer_Profile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                ImageLargeView = imgUrl1;
+                ImageViewExtend.ImageUrl = imgUrl1;
                 Intent intent = new Intent(Photographer_Profile.this , ImageViewExtend.class);
                 startActivity(intent);
 
@@ -249,7 +249,7 @@ public class Photographer_Profile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                ImageLargeView = imgUrl2;
+                ImageViewExtend.ImageUrl = imgUrl2;
                 Intent intent = new Intent(Photographer_Profile.this , ImageViewExtend.class);
                 startActivity(intent);
 
@@ -260,7 +260,7 @@ public class Photographer_Profile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                ImageLargeView = imgUrl3;
+                ImageViewExtend.ImageUrl = imgUrl3;
                 Intent intent = new Intent(Photographer_Profile.this , ImageViewExtend.class);
                 startActivity(intent);
 
@@ -271,7 +271,7 @@ public class Photographer_Profile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                ImageLargeView = imgUrl4;
+                ImageViewExtend.ImageUrl = imgUrl4;
                 Intent intent = new Intent(Photographer_Profile.this , ImageViewExtend.class);
                 startActivity(intent);
 
@@ -282,7 +282,8 @@ public class Photographer_Profile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                ImageLargeView = imgUrl5;
+                ImageViewExtend.ImageUrl = imgUrl5;
+
                 Intent intent = new Intent(Photographer_Profile.this , ImageViewExtend.class);
                 startActivity(intent);
 
@@ -293,7 +294,7 @@ public class Photographer_Profile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                ImageLargeView = imgUrl6;
+                ImageViewExtend.ImageUrl = imgUrl6;
                 Intent intent = new Intent(Photographer_Profile.this , ImageViewExtend.class);
                 startActivity(intent);
 

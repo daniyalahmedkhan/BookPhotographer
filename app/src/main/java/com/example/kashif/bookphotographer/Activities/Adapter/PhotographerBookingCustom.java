@@ -31,10 +31,11 @@ public class PhotographerBookingCustom extends BaseAdapter {
     public  String[] packages;
     public   String[] status;
     public   String[] remarks;
+    public  String[] useremail;
     DatabaseReference databaseReference;
 
     public PhotographerBookingCustom(Context context , String[] id,  String[] order , String[ ] user ,
-                                   String[] eventdates , String[] eventvenue , String[] packages , String[] status, String[] remarks){
+                                   String[] eventdates , String[] eventvenue , String[] packages , String[] status, String[] remarks , String[] useremail){
 
 
 
@@ -48,6 +49,7 @@ public class PhotographerBookingCustom extends BaseAdapter {
         this.packages = packages;
         this.status = status;
         this.remarks = remarks;
+        this.useremail = useremail;
         databaseReference = FirebaseDatabase.getInstance().getReference("allusers");
 
     }
@@ -94,6 +96,7 @@ public class PhotographerBookingCustom extends BaseAdapter {
             obj.pkg = (TextView) view.findViewById(R.id.SelectedPkg);
             obj.status = (TextView) view.findViewById(R.id.Status);
             obj.remarks = (TextView)  view.findViewById(R.id.UserRemarks);
+            obj.useremail = (TextView) view.findViewById(R.id.useremail);
 
 
 
@@ -105,6 +108,7 @@ public class PhotographerBookingCustom extends BaseAdapter {
             obj.pkg.setText(packages[i]);
             obj.status.setText(status[i]);
             obj.remarks.setText(remarks[i]);
+            obj.useremail.setText(useremail[i]);
 
             view.setTag(obj);
 
@@ -122,7 +126,7 @@ public class PhotographerBookingCustom extends BaseAdapter {
 
     public  static  class  ViewHodler{
 
-        TextView usr , evd , evV , pkg , status , remarks;
+        TextView usr , evd , evV , pkg , status , remarks , useremail;
 
 
 

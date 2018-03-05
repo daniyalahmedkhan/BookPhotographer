@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Handler;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
@@ -27,6 +28,8 @@ import android.widget.Toast;
 
 import com.example.kashif.bookphotographer.Activities.Adapter.CustomDrawerUser;
 import com.example.kashif.bookphotographer.Activities.Adapter.Custom_SearchPhotographer;
+import com.example.kashif.bookphotographer.Activities.PhotographerFlow.MyProfile;
+import com.example.kashif.bookphotographer.Activities.PhotographerFlow.photographerBookingManage;
 import com.example.kashif.bookphotographer.Activities.UserAuth.LoginActivity;
 import com.example.kashif.bookphotographer.Activities.ModelClass.BookReservation;
 import com.example.kashif.bookphotographer.Activities.ModelClass.PackageClass;
@@ -44,7 +47,7 @@ import java.util.ArrayList;
 public class HomeActivity extends AppCompatActivity implements  View.OnClickListener{
 
     EditText editText;
-    int reqCounter;
+  public  static   int reqCounter;
     String ESearch;
     public static String CurrntID;
     GridView HomeGridView;
@@ -106,10 +109,6 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
             @Override
             public void onClick(View view) {
 
-                name.clear();
-                loc.clear();
-                imgrl.clear();
-                id.clear();
 
                 Search();
             }
@@ -259,9 +258,11 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
             @Override
             public void onClick(View view) {
 
-             GetName = Name.getText().toString().trim();
-             GetLocation = Location.getText().toString().trim();
+             GetName = Name.getText().toString().trim().toUpperCase();
+             GetLocation = Location.getText().toString().trim().toUpperCase();
              GetPrice = Price.getText().toString();
+
+
 
              Name.setText("");
              Location.setText("");
@@ -389,7 +390,6 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
                 }else {
 
 
-                    Toast.makeText(HomeActivity.this , "Not Found " , Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -445,7 +445,6 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
                 }else {
 
 
-                    Toast.makeText(HomeActivity.this , "Not Found " , Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -534,7 +533,6 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
 
                                }else {
 
-                                   Toast.makeText(HomeActivity.this, "Not Found", Toast.LENGTH_SHORT).show();
 
                                }
 
@@ -615,7 +613,6 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
                     }else {
 
 
-                        Toast.makeText(HomeActivity.this , "Not Found " , Toast.LENGTH_SHORT).show();
 
 
                     }
@@ -626,7 +623,6 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
                 }else {
 
 
-                    Toast.makeText(HomeActivity.this , "Not Found " , Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -719,7 +715,6 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
 
                                     }else {
 
-                                        Toast.makeText(HomeActivity.this, "Not Found", Toast.LENGTH_SHORT).show();
 
                                     }
 
@@ -833,7 +828,6 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
 
                                     }else {
 
-                                        Toast.makeText(HomeActivity.this, "Not Found", Toast.LENGTH_SHORT).show();
 
                                     }
 
@@ -952,7 +946,6 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
 
                                     }else {
 
-                                        Toast.makeText(HomeActivity.this, "Not Found", Toast.LENGTH_SHORT).show();
 
                                     }
 
@@ -983,7 +976,6 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
                 }else {
 
 
-                    Toast.makeText(HomeActivity.this , "Not Found " , Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -1003,91 +995,107 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
     public void getPendingRequest(){
 
 
-        databaseReference.child("ReservationDetail").addValueEventListener(new ValueEventListener() {
+
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void run() {
+
+                databaseReference.child("ReservationDetail").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
 
 
-                if (dataSnapshot.exists()) {
+                        if (dataSnapshot.exists()) {
 
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                            reqCounter = 0;
 
-                        for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+                            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+
+                                for (DataSnapshot snapshot1 : snapshot.getChildren()) {
 
 
-                            BookReservation bookReservation = snapshot1.getValue(BookReservation.class);
+                                    BookReservation bookReservation = snapshot1.getValue(BookReservation.class);
 
-                            if (bookReservation.getCustomer_ID().equals(firebaseAuth.getCurrentUser().getUid())) {
+                                    if (bookReservation.getCustomer_ID().equals(firebaseAuth.getCurrentUser().getUid())) {
 
-                                if (bookReservation.getReservation_Status().equals("Accept")) {
+                                        if (bookReservation.getReservation_Status().equals("Accept")) {
 
-                                    reqCounter++;
+                                            reqCounter++;
 
+
+                                        }
+                                    }
 
                                 }
+
+
                             }
 
+
+                        }else {
+
+
                         }
+
+                        int mNotificationId = 001;
+
+                        NotificationCompat.Builder mBuilder =
+                                new NotificationCompat.Builder(HomeActivity.this)
+                                        .setSmallIcon(R.drawable.logo)
+                                        .setContentTitle("Book Photographer")
+                                        .setContentText("Your " + String.valueOf(reqCounter) + " Request Accepted ")
+                                        .setDefaults(Notification.DEFAULT_ALL)
+                                        .setPriority(Notification.PRIORITY_MAX)
+                                        .setAutoCancel(true);
+
+
+
+                        PendingIntent contentIntent = PendingIntent.getActivity(HomeActivity.this, 0,
+                                    new Intent(HomeActivity.this, UserBookingManage.class), PendingIntent.FLAG_UPDATE_CURRENT);
+
+
+                        mBuilder.setContentIntent(contentIntent);
+
+
+                        // Gets an instance of the NotificationManager service
+                        NotificationManager mNotifyMgr =
+                                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+
+                        if (reqCounter != 0){
+                            // Builds the notification and issues it.
+                            mNotifyMgr.notify(mNotificationId, mBuilder.build());
+
+
+
+                        }
+
+
+
 
 
                     }
 
 
-                }else {
-
-                    Toast.makeText(HomeActivity.this, "Not Found", Toast.LENGTH_SHORT).show();
-
-                }
-
-                int mNotificationId = 001;
-
-                NotificationCompat.Builder mBuilder =
-                        new NotificationCompat.Builder(HomeActivity.this)
-                                .setSmallIcon(R.drawable.logo)
-                                .setContentTitle("Book Photographer")
-                                .setContentText("Your " + String.valueOf(reqCounter) + " Request Accepted ")
-                                .setDefaults(Notification.DEFAULT_ALL)
-                                .setPriority(Notification.PRIORITY_MAX)
-                                .setAutoCancel(true);
-
-//                NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-//                notificationManager.notify(0 , mBuilder.build());
-
-                // Cancel the notification after its selected
 
 
 
-                PendingIntent contentIntent = PendingIntent.getActivity(HomeActivity.this, 0,
-                        new Intent(HomeActivity.this, UserBookingManage.class), PendingIntent.FLAG_UPDATE_CURRENT);
 
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
 
-                mBuilder.setContentIntent(contentIntent);
-
-
-                // Gets an instance of the NotificationManager service
-                NotificationManager mNotifyMgr =
-                        (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-
-                // Builds the notification and issues it.
-                mNotifyMgr.notify(mNotificationId, mBuilder.build());
-
-
+                    }
+                });
 
 
             }
+        }, 5000);
 
 
-
-
-
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
 
     }
+
+
 
 
     public void GetAllPhotographers(){
@@ -1129,7 +1137,6 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
                 }else {
 
 
-                    Toast.makeText(HomeActivity.this , "Not Found " , Toast.LENGTH_SHORT).show();
                 }
 
             }

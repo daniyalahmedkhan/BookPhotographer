@@ -225,7 +225,7 @@ public class BookingActivity extends AppCompatActivity {
     public  void BookRes(){
 
 
-        if(!(arrOC.isEmpty() && arrMSG.isEmpty() && arrVEN.isEmpty() && arrPKG.isEmpty())){
+        if(!arrVEN.isEmpty()){
 
 
 
@@ -245,7 +245,7 @@ public class BookingActivity extends AppCompatActivity {
 
         }else {
 
-            Toast.makeText(BookingActivity.this , "No Event Added" , Toast.LENGTH_SHORT).show();
+            Toast.makeText(BookingActivity.this , "Please Add at least One Event" , Toast.LENGTH_SHORT).show();
 
 
 
@@ -303,7 +303,7 @@ public class BookingActivity extends AppCompatActivity {
             VEN = ven.get(i);
             MSG = msg.get(i);
             PKG = Pkg.get(0);
-            UEMAIL = UserEmail.get(1);
+            UEMAIL = firebaseAuth.getCurrentUser().getEmail();
             PNAME = PhotographerName.get(1);
 
             BookReservation bookReservation = new BookReservation(Integer.toString(i) , "Pending" , EventDate, VEN , MSG , PKG , PushId , UId , PID , UEMAIL , PNAME , TodayDate);
