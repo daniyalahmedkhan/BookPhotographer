@@ -175,7 +175,7 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
                 CurrntID = null;
                 CurrntID = id.get(i);
                 ShowPhotographer.CurrntID = id.get(i);
-                Intent intent = new Intent(HomeActivity.this , Photographer_Profile.class);
+                Intent intent = new Intent(HomeActivity.this , PhotographerProfileNewActivity.class);
                 startActivity(intent);
 
             }

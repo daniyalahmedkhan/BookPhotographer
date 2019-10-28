@@ -27,6 +27,12 @@ public class PackageClass {
         this.type = type;
     }
 
+    public PackageClass(String package_Name, String package_Price, String services_Days, String package_Description) {
+        this.package_Name = package_Name;
+        this.package_Price = package_Price;
+        this.services_Days = services_Days;
+        this.package_Description = package_Description;
+    }
 
     public String getPackage_ID() {
         return package_ID;

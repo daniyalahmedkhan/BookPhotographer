@@ -335,7 +335,8 @@ public class ProfileManage extends AppCompatActivity {
 
     public void SaveData(){
 
-
+LocationID="1";
+Cit="01";
 
         UserModel Mod = new UserModel(uid , email , pass , type , FirstN , LastN , Gend , imageUrl , LocationID ,  Contact_No , TodayDate , Cit);
 
