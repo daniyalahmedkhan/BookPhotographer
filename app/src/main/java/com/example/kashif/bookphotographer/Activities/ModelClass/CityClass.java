@@ -7,7 +7,7 @@ package com.example.kashif.bookphotographer.Activities.ModelClass;
 public class CityClass {
 
     private String city_ID;
-    private String city_Name;
+        private String city_Name;
 
 
     public CityClass() {

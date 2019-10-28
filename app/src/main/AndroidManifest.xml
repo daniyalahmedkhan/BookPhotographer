@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.kashif.bookphotographer">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Activities.CustomerFlow.PhotographerProfileNewActivity"></activity>
         <activity
             android:name=".Activities.Start.SplashActivity"
             android:theme="@style/SplashTheme"
@@ -65,18 +64,21 @@
             android:name=".Activities.CustomerFlow.UserBookingManage"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-        <activity android:name=".Activities.PhotographerFlow.photographerBookingManage"
+        <activity
+            android:name=".Activities.PhotographerFlow.photographerBookingManage"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
-            />
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
             android:name=".Activities.Adapter.ImageViewExtend"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-        <activity android:name=".Activities.PhotographerFlow.EditProfile"
+        <activity
+            android:name=".Activities.PhotographerFlow.EditProfile"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
-            ></activity>
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
